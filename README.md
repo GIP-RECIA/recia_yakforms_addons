@@ -9,7 +9,7 @@ Sub theme of Yaktheme wich is a subtheme of Bartik
 
 **Path :** /themes/yaktheme_recia
 
-**Install :** Copy the entire folder in drupal themes folder.
+**Install :** Copy the entire folder in [drupal install folder]/sites/all/themes.
 
 **Features :**
 - add domain based theme changing.
@@ -22,7 +22,7 @@ Module improving or fixing webform's features
 
 **Path :** /modules/recia
 
-**Install :** Copy the entire folder in drupal modules folder.
+**Install :** Copy the entire folder in [drupal install folder]/sites/all/modules.
 
 **Features :**
 - restrict access to webform templates with permissions ;
