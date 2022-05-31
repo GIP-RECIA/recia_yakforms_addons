@@ -31,5 +31,5 @@ Module improving or fixing webform's features
 - add custom views.
 
 **Fixes :**
-- webform mail confirmatio interface translations ;
+- webform mail confirmation interface translations ;
 - webform export access.
