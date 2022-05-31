@@ -1,0 +1,90 @@
+@import url('/commun/fonts/Source_Sans_Pro/SourceSansPro.css');
+
+*{
+    --t-primary: #2d2f80;
+    --t-secondary: #1d71b8;
+    --t-light-grey: #e2e8f0;
+    --t-dark-grey: #303030;
+    --t-fonts: 'Source Sans Pro', sans-serif;
+}
+
+body {
+    /* header */
+    --c-bg-navbar: var(--r-blue);
+    --c-txt-navbar: var(--r-light-grey);
+
+    --c-bg-navbar-dd: transparent;
+    --c-txt-navbar-dd: var(--r-light-grey);
+    --c-bg-navbar-dd-active: var(--r-dark-grey);
+}
+
+/** header **/
+#highlighted .button{
+    background: var(--t-secondary);
+    border: 1px solid var(--t-primary);
+}
+
+/** Footer **/
+#recia-footer{
+    background-color: var(--r-dark-grey);
+    color:var(--r-light-grey);
+    padding: .5rem 0;
+}
+
+#recia-footer a{
+    color:var(--r-light-grey);
+}
+
+.inframe #recia-footer{
+    display:none;
+}
+
+#recia-footer-wrapper {
+    display: flex;
+    padding: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#recia-footer-wrapper .recia-footer-coord{
+    display: flex;
+    flex:1;
+    text-align: left;
+}
+
+#recia-footer-wrapper .recia-footer-coord img{
+    height: 100px;
+    width: auto;
+}
+#recia-footer-wrapper .recia-footer-coord p{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 15px;
+}
+
+#recia_footer-wrapper .recia-footer-mention{
+    flex:1;
+    text-align: right;
+}
+
+@media (min-width: 576px) {
+    #recia-footer-wrapper {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    #recia-footer-wrapper {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    #recia-footer-wrapper {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) {
+    #recia-footer-wrapper {
+        max-width: 1140px;
+    }
+}
