@@ -167,9 +167,6 @@
       $form['field_form1_template']['#access'] = false;
       $form['field_form1_template_desc']['#access'] = false;
     }
-
-    //$form['field_form1_results_public']['#access'] = false;
-    //$form['field_form1_results_access']['#access'] = false;
   }
 
   /**
@@ -186,39 +183,39 @@
 
     // This example comes from node.module.
     $blocks['reciaforms_home_button'] = array(
-      'info' => t('Recia : Return Home button'),
+      'info' => t('ReciaForms : Return Home button'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
     );
     $blocks['reciaforms_user_menu_anonymous'] = array(
-      'info' => t('Recia : User Menu (anonymous)'),
+      'info' => t('ReciaForms : User Menu (anonymous)'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
       'visibility' => BLOCK_VISIBILITY_NOTLISTED
     );
     $blocks['reciaforms_user_menu'] = array(
-      'info' => t('Recia : User Menu (user)'),
+      'info' => t('ReciaForms : User Menu (user)'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
       'visibility' => BLOCK_VISIBILITY_NOTLISTED,
       'pages' => "node/add\nnode/add/*",
     );
     $blocks['reciaforms_user_menu_redac'] = array(
-      'info' => t('Recia : User Menu (editor)'),
+      'info' => t('ReciaForms : User Menu (editor)'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
       'visibility' => BLOCK_VISIBILITY_NOTLISTED,
       'pages' => "node/add\nnode/add/*",
     );
     $blocks['reciaforms_user_menu_all'] = array(
-      'info' => t('Recia : User Menu'),
+      'info' => t('ReciaForms : User Menu'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
       'visibility' => BLOCK_VISIBILITY_NOTLISTED,
       'pages' => "node/add\nnode/add/*",
     );
     $blocks['reciaforms_form_menu'] = array(
-      'info' => t('Recia : Form Menu'),
+      'info' => t('ReciaForms : Form Menu'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
       'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     );
     $blocks['reciaforms_form_menu_home'] = array(
-      'info' => t('Recia : Form Menu Home'),
+      'info' => t('ReciaForms : Form Menu Home'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
       'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     );
