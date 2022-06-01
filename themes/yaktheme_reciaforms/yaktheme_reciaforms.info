@@ -1,0 +1,8 @@
+name = Yaktheme reciaforms
+description = « ReciaForms » subtheme for Yakforms.
+package = Core
+version = VERSION
+core = 7.x
+base theme = yaktheme
+
+stylesheets[all][] = css/subtheme-reciaforms.css
