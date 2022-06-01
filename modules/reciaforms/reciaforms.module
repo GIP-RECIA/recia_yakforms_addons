@@ -70,7 +70,7 @@
       $rows = array();
 
       $eids = element_children($form[$email_type]);
-      print_r($eids);
+      
       if (array_search('add_button', $eids) !== FALSE) {
         unset($eids[array_search('add_button', $eids)]);
       }
