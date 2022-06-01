@@ -28,9 +28,9 @@
    */
   function reciaforms_module_implements_alter(&$implementations, $hook) {
     if ($hook == 'theme_registry_alter') {
-      $group = $implementations['recia'];
-      unset($implementations['recia']);
-      $implementations['recia'] = $group;
+      $group = $implementations['reciaforms'];
+      unset($implementations['reciaforms']);
+      $implementations['reciaforms'] = $group;
     }
   }
 
@@ -405,10 +405,10 @@
   **/
   function reciaforms_views_default_views() {
     $views = array();
-    $viewsPath = drupal_get_path('module', 'recia'). '/views';
+    $viewsPath = drupal_get_path('module', 'reciaforms'). '/views';
     $files = file_scan_directory($viewsPath, '/\.view\.inc/');
     foreach ($files as $filepath => $file) {
-      module_load_include('inc', 'recia', 'views/'.$file->name);
+      module_load_include('inc', 'reciaforms', 'views/'.$file->name);
       $loader = str_replace(['.view','-'],'_',$file->name).'view_loader';
       if (function_exists($loader)) {
         $view = $loader();
