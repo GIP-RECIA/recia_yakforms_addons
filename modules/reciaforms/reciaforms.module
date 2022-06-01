@@ -417,4 +417,13 @@
     }
     return $views;
   }
+
+  /**
+   * alter cas login url
+   */
+  function reciaforms_cas_phpcas_alter() {
+    $domains = ['ent.recia.fr','test-lycee.giprecia.net'];
+    if(in_array($_SERVER['SERVER_NAME'],$domains))phpCAS::setServerLoginURL(phpCAS::getServerLoginURL()."&idpId=autres-publics");
+  }
+  
 ?>
