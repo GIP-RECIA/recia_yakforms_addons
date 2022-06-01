@@ -1,6 +1,6 @@
-name = Recia
-description = Recia tweaks to Yackforms
-package= Recia
+name = ReciaForms
+description = ReciaForms tweaks to Yackforms
+package= reciaforms
 
 core = 7.x
 php = 7.3

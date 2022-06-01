@@ -4,12 +4,12 @@ All themes and modules used with [Yakform](https://yakforms.org/) by the [GIP RÃ
 ---
 
 ## Themes :
-### Yaktheme_recia
+### Yaktheme_reciaforms
 Sub theme of Yaktheme wich is a subtheme of Bartik
 
-**Path :** /themes/yaktheme_recia
+**Path :** /themes/yaktheme_reciaforms
 
-**Install :** Copy the entire folder in drupal themes folder.
+**Install :** Copy the entire folder in [drupal install folder]/sites/all/themes OR run install script (linux only).
 
 **Features :**
 - add domain based theme changing.
@@ -17,12 +17,12 @@ Sub theme of Yaktheme wich is a subtheme of Bartik
 ---
 
 ## Modules :
-### Recia
+### ReciaForms
 Module improving or fixing webform's features
 
-**Path :** /modules/recia
+**Path :** /modules/reciaforms
 
-**Install :** Copy the entire folder in drupal modules folder.
+**Install :** Copy the entire folder in [drupal install folder]/sites/all/modules OR run install script (linux only).
 
 **Features :**
 - restrict access to webform templates with permissions ;
@@ -31,5 +31,5 @@ Module improving or fixing webform's features
 - add custom views.
 
 **Fixes :**
-- webform mail confirmatio interface translations ;
+- webform mail confirmation interface translations ;
 - webform export access.

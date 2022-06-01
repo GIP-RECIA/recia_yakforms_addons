@@ -1,6 +1,6 @@
 <?php
 
-function yaktheme_reciaform_theme(){
+function yaktheme_reciaforms_theme(){
     return [
         'recia_footer_gip' => [
             'template' => 'footer-gip',
@@ -9,7 +9,7 @@ function yaktheme_reciaform_theme(){
     ];
 }
 
-function yaktheme_reciaform_preprocess_page(&$variables) {
+function yaktheme_reciaforms_preprocess_page(&$variables) {
     $domainCss = '';
     $variables['recia_footer']=false;
     
