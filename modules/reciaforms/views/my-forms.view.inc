@@ -3,7 +3,7 @@
     $view = new view();
     $view->name = 'my_forms';
     $view->description = '';
-    $view->tag = 'recia';
+    $view->tag = 'reciaforms';
     $view->base_table = 'webform';
     $view->human_name = 'Mes formulaires';
     $view->core = 7;

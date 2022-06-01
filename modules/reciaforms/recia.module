@@ -3,7 +3,7 @@
   /**
    * Add permissions used by this module
    */
-  function recia_permission() {
+  function reciaforms_permission() {
     return array(
       'recia manage forms_templates' => array(
         'title' => t('Allow user to manage yakforms templates'),
@@ -19,14 +19,14 @@
   /**
    * Replace Webform mail confirmation render function
    */
-  function recia_theme_registry_alter(&$registry) {
-    $registry['webform_emails_form']['function']    = 'theme_recia_emails_form';
+  function reciaforms_theme_registry_alter(&$registry) {
+    $registry['webform_emails_form']['function']    = 'theme_reciaforms_emails_form';
   }
 
   /**
    * Make sure the mail render function of this module is the last called
    */
-  function recia_module_implements_alter(&$implementations, $hook) {
+  function reciaforms_module_implements_alter(&$implementations, $hook) {
     if ($hook == 'theme_registry_alter') {
       $group = $implementations['recia'];
       unset($implementations['recia']);
@@ -37,7 +37,7 @@
   /**
    * render webform mails section (fork of webform mail confirmation)
    */
-  function theme_recia_emails_form($variables) {
+  function theme_reciaforms_emails_form($variables) {
     $form = &$variables['form'];
     $node = &$form['#node'];
     $header = array(
@@ -150,7 +150,7 @@
   /** 
    * Modify the webform interface
   */
-  function recia_form_alter(&$form, &$form_state, $form_id) {
+  function reciaforms_form_alter(&$form, &$form_state, $form_id) {
     $formsId = ['webform_node_form','form1_node_form'];
     if(!in_array($form_id,$formsId))return;
     $form['revision_information']['#access'] = false;
@@ -175,49 +175,49 @@
   /**
    *  Fix export menu access
    */
-  function recia_menu_alter(&$items) {
+  function reciaforms_menu_alter(&$items) {
     $items['node/%webform_menu/webform/ws-export']['access callback']='webform_share_menu_access';
   }
 
   /**
    * Declare custom blocks
    */
-  function recia_block_info() {
+  function reciaforms_block_info() {
 
     // This example comes from node.module.
-    $blocks['recia_home_button'] = array(
+    $blocks['reciaforms_home_button'] = array(
       'info' => t('Recia : Return Home button'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
     );
-    $blocks['recia_user_menu_anonymous'] = array(
+    $blocks['reciaforms_user_menu_anonymous'] = array(
       'info' => t('Recia : User Menu (anonymous)'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
       'visibility' => BLOCK_VISIBILITY_NOTLISTED
     );
-    $blocks['recia_user_menu'] = array(
+    $blocks['reciaforms_user_menu'] = array(
       'info' => t('Recia : User Menu (user)'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
       'visibility' => BLOCK_VISIBILITY_NOTLISTED,
       'pages' => "node/add\nnode/add/*",
     );
-    $blocks['recia_user_menu_redac'] = array(
+    $blocks['reciaforms_user_menu_redac'] = array(
       'info' => t('Recia : User Menu (editor)'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
       'visibility' => BLOCK_VISIBILITY_NOTLISTED,
       'pages' => "node/add\nnode/add/*",
     );
-    $blocks['recia_user_menu_all'] = array(
+    $blocks['reciaforms_user_menu_all'] = array(
       'info' => t('Recia : User Menu'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
       'visibility' => BLOCK_VISIBILITY_NOTLISTED,
       'pages' => "node/add\nnode/add/*",
     );
-    $blocks['recia_form_menu'] = array(
+    $blocks['reciaforms_form_menu'] = array(
       'info' => t('Recia : Form Menu'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
       'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     );
-    $blocks['recia_form_menu_home'] = array(
+    $blocks['reciaforms_form_menu_home'] = array(
       'info' => t('Recia : Form Menu Home'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
       'visibility' => BLOCK_VISIBILITY_NOTLISTED,
@@ -228,14 +228,14 @@
   /**
    * Define custom blocks
    */
-  function recia_block_view($delta) {
+  function reciaforms_block_view($delta) {
     global $user;
     global $base_url;
     $block = array();
     $logOutUrl = $base_url.'/user/logout';
     if (module_exists('cas')) $logOutUrl = $base_url.'/caslogout';
     switch($delta){
-      case 'recia_home_button':
+      case 'reciaforms_home_button':
         if (!user_is_logged_in()) {
           return;
         }
@@ -243,7 +243,7 @@
         $block['content']['#markup'] .='  <a class="button" href="'.$base_url.'">'.strtoupper(t('return to home')).'</a>';
         $block['content']['#markup'] .='</footer>';
         break;
-      case 'recia_user_menu_anonymous':
+      case 'reciaforms_user_menu_anonymous':
          if (user_is_logged_in()) {
             return;
           }
@@ -252,7 +252,7 @@
           $block['content']['#markup'] .= '</div>';
           $block['content']['#markup'] .= '</div>';
           break;
-      case 'recia_user_menu':
+      case 'reciaforms_user_menu':
         if (!user_is_logged_in()) {
           return;
         }
@@ -270,7 +270,7 @@
         $block['content']['#markup'] .=' </div>';
         $block['content']['#markup'] .='</div>';
         break;
-      case 'recia_user_menu_redac':
+      case 'reciaforms_user_menu_redac':
         if (!user_is_logged_in()) {
           return;
         }
@@ -305,7 +305,7 @@
         $block['content']['#markup'] .='  </div>';
         $block['content']['#markup'] .='</div>';
         break;
-        case 'recia_user_menu_all':
+        case 'reciaforms_user_menu_all':
           if (!user_is_logged_in()) {
               /*$block['content']['#markup'] =  '<div class="navbar-nav">';
               $block['content']['#markup'] .= l(t("Connexion"),"cas",array('attributes'=> array('class' =>array('button','btn','btn-primary','btn-sm')),'query' => drupal_get_destination()));//' <a href="'.$base_url.'/" class="button btn btn-primary btn-sm" role="button">'.t("Log in").'</a>';
@@ -350,7 +350,7 @@
             $block['content']['#markup'] .='</div>';
           }
           break;
-        case 'recia_form_menu':
+        case 'reciaforms_form_menu':
           if (!user_is_logged_in() || (!user_access('create webform content') && !user_access('create form1 content'))) {
             return;
           }
@@ -373,7 +373,7 @@
           $block['content']['#markup'] .='  </div>';
           $block['content']['#markup'] .='</div>';
           break;
-        case 'recia_form_menu_home':
+        case 'reciaforms_form_menu_home':
           if (!user_is_logged_in() || (!user_access('create webform content') && !user_access('create form1 content'))) {
             return;
           }
@@ -397,7 +397,7 @@
    *
    * @return void
    */
-  function recia_views_api () {
+  function reciaforms_views_api () {
     return array(
       'api' => 3,
     );
@@ -406,7 +406,7 @@
   /**
   * Overwrite webform views
   **/
-  function recia_views_default_views() {
+  function reciaforms_views_default_views() {
     $views = array();
     $viewsPath = drupal_get_path('module', 'recia'). '/views';
     $files = file_scan_directory($viewsPath, '/\.view\.inc/');
