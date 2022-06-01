@@ -1,0 +1,285 @@
+# $Id$
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright Gégory Brousse <pro@gregory-brousse.fr>
+# Generated from files:
+#  recia.module: n/a
+#  recia.info: n/a
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: recia-7.x-1.1\n"
+"POT-Creation-Date: 2022-06-01 15:01+0200\n"
+"PO-Revision-Date: 2022-06-01 15:08+0200\n"
+"Last-Translator: Grégory Brousse <pro@gregory-brousse.fr>\n"
+"Language-Team: FR <pro@gregory-brousse.fr>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: reciaforms.module:9
+msgid "Allow user to manage yakforms templates"
+msgstr "Autoriser à gérer les modèles"
+
+#: reciaforms.module:13
+msgid "Allow user to send mail to conform email adresses"
+msgstr "Autoriser à utiliser les mails de confirmation d'adresse"
+
+#: reciaforms.module:44;54
+msgid "Send"
+msgstr "Envoyer"
+
+#: reciaforms.module:45;55
+msgid "E-mail to"
+msgstr "Destinataire"
+
+#: reciaforms.module:46;56
+msgid "Subject"
+msgstr "Sujet"
+
+#: reciaforms.module:47;57
+msgid "From"
+msgstr "Expéditeur"
+
+#: reciaforms.module:49;60
+msgid "Operations"
+msgstr "Opérations"
+
+#: reciaforms.module:58
+msgid "Redirect URL"
+msgstr "URL de redirection"
+
+#: reciaforms.module:99
+msgid "Edit"
+msgstr "Editer"
+
+#: reciaforms.module:109
+msgid ""
+"Currently not sending standard e-mails, add a standard email by clicking the "
+"button below."
+msgstr ""
+"Pour l'instant, aucun courriel n'est envoyé. Cliquez sur le bouton \"Ajouter "
+"un courriel standard\" ci-dessous pour en ajouter."
+
+#: reciaforms.module:112
+msgid ""
+"Currently not sending confirmation request e-mails, add a confirmation "
+"request email by clicking the button below."
+msgstr ""
+"Pour l'instant, aucun courriel de demande de confirmation n'est envoyé. "
+"Ajoutez-en un en cliquant sur le bouton ci-dessous."
+
+#: reciaforms.module:116
+msgid ""
+"Currently not sending confirmation e-mails, add a confirmation email by "
+"clicking the button below."
+msgstr ""
+"Pour l'instant, aucun courriel de confirmation n'est envoyé. Ajoutez-en un "
+"en cliquant sur le bouton ci-dessous."
+
+#: reciaforms.module:186
+msgid "ReciaForms : Return Home button"
+msgstr "ReciaForms : Bouton Retour à l’accueil"
+
+#: reciaforms.module:190
+msgid "ReciaForms : User Menu (anonymous)"
+msgstr "ReciaForms : Menu utilisateur (anonyme)"
+
+#: reciaforms.module:195
+msgid "ReciaForms : User Menu (user)"
+msgstr "ReciaForms : Menu utilisateur (utilisateur)"
+
+#: reciaforms.module:201
+msgid "ReciaForms : User Menu (editor)"
+msgstr "ReciaForms : Menu utilisateur (éditeur)"
+
+#: reciaforms.module:207
+msgid "ReciaForms : User Menu"
+msgstr "ReciaForms : Menu utilisateur all-in-one"
+
+#: reciaforms.module:213
+msgid "ReciaForms : Form Menu"
+msgstr "ReciaForms : Menu formulaire (dropdown)"
+
+#: reciaforms.module:218
+msgid "ReciaForms : Form Menu Home"
+msgstr "ReciaForms : Menu formulaire"
+
+#: reciaforms.module:240
+msgid "return to home"
+msgstr "retour à l'accueil"
+
+#: reciaforms.module:248
+msgid "Log in"
+msgstr "Connexion"
+
+#: reciaforms.module:264;299;343
+msgid "Disconnect"
+msgstr "Déconnexion"
+
+#: reciaforms.module:277;282;316;321;357;362;379
+msgid "Create a new form"
+msgstr "Créer un nouveau formulaire"
+
+#: reciaforms.module:285;325;366;383
+msgid "Create a form from a template"
+msgstr "Créer un formulaire à partir d’un modèle"
+
+#: reciaforms.module:296;339
+msgid "My forms"
+msgstr "Mes formulaires"
+
+#: reciaforms.info:0
+msgid "ReciaForms"
+msgstr ""
+
+#: reciaforms.info:0
+msgid "ReciaForms tweaks to Yackforms"
+msgstr "Optimisations de Yakform pour le GIP Recia"
+
+#: reciaforms.info:0
+msgid "reciaforms"
+msgstr ""
+
+#: views/my-forms.view.inc:109 views/my-submissions.view.inc:85
+msgid "Master"
+msgstr "Maitre"
+
+#: views/my-forms.view.inc:110
+msgid "Mes Formulaires"
+msgstr ""
+
+#: views/my-forms.view.inc:111 views/my-submissions.view.inc:87
+msgid "plus"
+msgstr ""
+
+#: views/my-forms.view.inc:112 views/my-submissions.view.inc:88
+msgid "Appliquer"
+msgstr ""
+
+#: views/my-forms.view.inc:113 views/my-submissions.view.inc:89
+msgid "Réinitialiser"
+msgstr ""
+
+#: views/my-forms.view.inc:114 views/my-submissions.view.inc:90
+msgid "Trier par"
+msgstr ""
+
+#: views/my-forms.view.inc:115 views/my-submissions.view.inc:91
+msgid "Asc"
+msgstr ""
+
+#: views/my-forms.view.inc:116 views/my-submissions.view.inc:92
+msgid "Desc"
+msgstr ""
+
+#: views/my-forms.view.inc:117 views/my-submissions.view.inc:93
+msgid "Éléments par page"
+msgstr ""
+
+#: views/my-forms.view.inc:118 views/my-submissions.view.inc:94
+msgid "- Tout -"
+msgstr ""
+
+#: views/my-forms.view.inc:119 views/my-submissions.view.inc:95
+msgid "Décalage"
+msgstr ""
+
+#: views/my-forms.view.inc:120 views/my-submissions.view.inc:96
+msgid "« premier"
+msgstr ""
+
+#: views/my-forms.view.inc:121 views/my-submissions.view.inc:97
+msgid "‹ précédent"
+msgstr ""
+
+#: views/my-forms.view.inc:122 views/my-submissions.view.inc:98
+msgid "suivant ›"
+msgstr ""
+
+#: views/my-forms.view.inc:123 views/my-submissions.view.inc:99
+msgid "dernier »"
+msgstr ""
+
+#: views/my-forms.view.inc:124
+msgid "Nœud pour webform"
+msgstr ""
+
+#: views/my-forms.view.inc:125
+msgid "auteur"
+msgstr ""
+
+#: views/my-forms.view.inc:126
+msgid "Titre"
+msgstr ""
+
+#: views/my-forms.view.inc:127
+msgid "Date de création"
+msgstr ""
+
+#: views/my-forms.view.inc:128
+msgid "-"
+msgstr ""
+
+#: views/my-forms.view.inc:129
+msgid "Date de mise à jour"
+msgstr ""
+
+#: views/my-forms.view.inc:130
+msgid "État"
+msgstr ""
+
+#: views/my-forms.view.inc:131
+msgid "Modifier"
+msgstr ""
+
+#: views/my-forms.view.inc:132
+msgid "Supprimer"
+msgstr ""
+
+#: views/my-forms.view.inc:133 views/my-submissions.view.inc:106
+msgid "Page"
+msgstr ""
+
+#: views/my-forms.view.inc:134
+msgid "Block"
+msgstr ""
+
+#: views/my-submissions.view.inc:86
+msgid "Mes réponses"
+msgstr ""
+
+#: views/my-submissions.view.inc:100
+msgid "Nœud Webform"
+msgstr ""
+
+#: views/my-submissions.view.inc:101
+msgid "Webform Submission User"
+msgstr ""
+
+#: views/my-submissions.view.inc:102
+msgid "Questionnaire"
+msgstr ""
+
+#: views/my-submissions.view.inc:103
+msgid "Dernière modification"
+msgstr ""
+
+#: views/my-submissions.view.inc:104
+msgid "modifier"
+msgstr ""
+
+#: views/my-submissions.view.inc:105
+msgid "supprimer"
+msgstr ""
+
+#: views/my-submissions.view.inc:107
+msgid "Bloc"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Recia"
+#~ msgstr "Recia"
