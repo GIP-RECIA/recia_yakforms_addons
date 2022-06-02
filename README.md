@@ -28,7 +28,8 @@ Module improving or fixing webform's features
 - restrict access to webform templates with permissions ;
 - restrict access to webform mail confirmation with permissions ;
 - add custom blocks ;
-- add custom views.
+- add custom views;
+- domain based CAS login redirection.
 
 **Fixes :**
 - webform mail confirmation interface translations ;
