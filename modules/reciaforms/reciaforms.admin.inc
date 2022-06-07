@@ -7,8 +7,8 @@
  * Add admin page to menu
  */
 function reciaforms_menu() {
-  $items['admin/config/system/recia'] = array(
-    'title' => 'Recia module',
+  $items['admin/config/system/reciaforms'] = array(
+    'title' => 'ReciaForms module',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('reciaforms_form'),
     'access arguments' => array('administer users'),
