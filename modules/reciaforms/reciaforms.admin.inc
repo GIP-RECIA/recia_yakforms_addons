@@ -3,6 +3,8 @@
 * Module admin page
 ********************/
 
+watchdog('ReciaForms','admin.inc loaded');
+
 /**
  * Add admin page to menu
  */
@@ -50,3 +52,5 @@ function reciaforms_form_submit($form, &$form_state) {
   $casDomList = $casDomList = variable_get('reciaforms_cas_direct_access_domains',[]);
   if(is_string($casDomList))variable_set('reciaforms_cas_direct_access_domains',explode("\n",$casDomList));
 }
+
+?>
