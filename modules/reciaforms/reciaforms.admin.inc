@@ -34,11 +34,10 @@ function reciaforms_form($form, &$form_state) {
   $casDomList = variable_get('reciaforms_cas_direct_access_domains',[]);
   $form['reciaforms_cas']['reciaforms_cas_direct_access_domains'] = array(
     '#type' => 'textarea',
-    '#title' => $t('Domains list'),
+    '#title' => t('Domains list'),
     '#default_value' => implode("\n",$casDomList),
   );
 
-  
   $form['#submit'][] = 'reciaforms_form_submit';
 
   return system_settings_form($form);
