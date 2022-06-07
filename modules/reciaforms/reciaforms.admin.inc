@@ -33,7 +33,7 @@ function reciaforms_form($form, &$form_state) {
   
   $form['reciaforms_cas']['reciaforms_cas_direct_access_domains'] = array(
     '#type' => 'textarea',
-    '#title' => t('Domains list'),
+    '#title' => t('Direct access domains list'),
     '#default_value' => variable_get('reciaforms_cas_direct_access_domains',''),
   );
 
