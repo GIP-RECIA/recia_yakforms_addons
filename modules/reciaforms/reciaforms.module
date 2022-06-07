@@ -1,5 +1,9 @@
 <?php
-  
+  /**
+   * includes
+   */
+  module_load_include('inc', 'reciaforms', 'reciaforms.admin'); //admin page
+
   /**
    * Add permissions used by this module
    */
@@ -422,7 +426,7 @@
    * alter cas login url
    */
   function reciaforms_cas_phpcas_alter() {
-    $domains = ['ent.recia.fr','test-lycee.giprecia.net'];
+    $domains = explode("\n",variable_get('reciaforms_cas_direct_access_domains',''));
     if(in_array($_SERVER['SERVER_NAME'],$domains))phpCAS::setServerLoginURL(phpCAS::getServerLoginURL()."&idpId=autres-publics");
   }
   
