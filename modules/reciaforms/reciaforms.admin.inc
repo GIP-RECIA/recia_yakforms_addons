@@ -31,25 +31,14 @@ function reciaforms_form($form, &$form_state) {
     '#collapsed' => FALSE,  
   );
   
-  $casDomList = variable_get('reciaforms_cas_direct_access_domains',[]);
-
   $form['reciaforms_cas']['reciaforms_cas_direct_access_domains'] = array(
     '#type' => 'textarea',
     '#title' => t('Domains list'),
-    '#default_value' => (is_array($casDomList))?implode("\n",$casDomList):$casDomList,
+    '#default_value' => variable_get('reciaforms_cas_direct_access_domains',''),
   );
-
-  $form['#submit'][] = 'reciaforms_form_submit';
 
   return system_settings_form($form);
 }
 
-/**
- * Admin page save datas
- */
-function reciaforms_form_submit($form, &$form_state) {
-  $casDomList = $casDomList = variable_get('reciaforms_cas_direct_access_domains',[]);
-  if(is_string($casDomList))variable_set('reciaforms_cas_direct_access_domains',explode("\n",$casDomList));
-}
 
 ?>
