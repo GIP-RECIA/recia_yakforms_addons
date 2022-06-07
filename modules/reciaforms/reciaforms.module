@@ -1,5 +1,9 @@
 <?php
-  
+  /**
+   * includes
+   */
+  module_load_include('inc', 'reciaforms', 'admin'); //admin page
+
   /**
    * Add permissions used by this module
    */
