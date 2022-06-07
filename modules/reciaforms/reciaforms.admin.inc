@@ -3,12 +3,11 @@
 * Module admin page
 ********************/
 
-watchdog('ReciaForms','admin.inc loaded');
-
 /**
  * Add admin page to menu
  */
 function reciaforms_menu() {
+  watchdog('ReciaForms','admin.inc loaded');
   $items['admin/config/system/reciaforms'] = array(
     'title' => 'ReciaForms module',
     'page callback' => 'drupal_get_form',
