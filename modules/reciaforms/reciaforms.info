@@ -8,7 +8,7 @@ php = 7.3
 dependencies[] = yakforms
 dependencies[] = yakforms_feature
 
-files[] = recia.admin.inc
+files[] = reciaforms.admin.inc
 
 scripts[] = js/postMessage-resize-iframe-in-parent.js
 scripts[] = js/backToTop.js
