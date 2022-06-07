@@ -3,7 +3,11 @@
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
 # Generated from files:
+#  recia.admin.inc: n/a
+#  reciaforms.admin.inc: n/a
+#  recia.module: n/a
 #  reciaforms.module: n/a
+#  recia.info: n/a
 #  reciaforms.info: n/a
 #  views/my-forms.view.inc: n/a
 #  views/my-submissions.view.inc: n/a
@@ -12,7 +16,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2022-06-01 15:01+0200\n"
+"POT-Creation-Date: 2022-06-07 12:05+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -21,115 +25,155 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: reciaforms.module:9
+#: recia.admin.inc:28 reciaforms.admin.inc:28
+msgid "Cas additional parameters"
+msgstr ""
+
+#: (duplicate) recia.admin.inc:36 
+msgid "Domains list"
+msgstr ""
+
+#: reciaforms.admin.inc:35
+msgid "Direct access domains list"
+msgstr ""
+
+#: recia.module:9 reciaforms.module:13
 msgid "Allow user to manage yakforms templates"
 msgstr ""
 
-#: reciaforms.module:13
+#: recia.module:13 reciaforms.module:17
 msgid "Allow user to send mail to conform email adresses"
 msgstr ""
 
-#: reciaforms.module:44;54
+#: recia.module:44;54 reciaforms.module:48;58
 msgid "Send"
 msgstr ""
 
-#: reciaforms.module:45;55
+#: recia.module:45;55 reciaforms.module:49;59
 msgid "E-mail to"
 msgstr ""
 
-#: reciaforms.module:46;56
+#: recia.module:46;56 reciaforms.module:50;60
 msgid "Subject"
 msgstr ""
 
-#: reciaforms.module:47;57
+#: recia.module:47;57 reciaforms.module:51;61
 msgid "From"
 msgstr ""
 
-#: reciaforms.module:49;60
+#: recia.module:49;60 reciaforms.module:53;64
 msgid "Operations"
 msgstr ""
 
-#: reciaforms.module:58
+#: recia.module:58 reciaforms.module:62
 msgid "Redirect URL"
 msgstr ""
 
-#: reciaforms.module:99
+#: recia.module:99 reciaforms.module:103
 msgid "Edit"
 msgstr ""
 
-#: reciaforms.module:109
+#: recia.module:109 reciaforms.module:113
 msgid "Currently not sending standard e-mails, add a standard email by clicking the button below."
 msgstr ""
 
-#: reciaforms.module:112
+#: recia.module:112 reciaforms.module:116
 msgid "Currently not sending confirmation request e-mails, add a confirmation request email by clicking the button below."
 msgstr ""
 
-#: reciaforms.module:116
+#: recia.module:116 reciaforms.module:120
 msgid "Currently not sending confirmation e-mails, add a confirmation email by clicking the button below."
 msgstr ""
 
-#: reciaforms.module:186
-msgid "ReciaForms : Return Home button"
+#: recia.module:189
+msgid "Recia : Return Home button"
 msgstr ""
 
-#: reciaforms.module:190
-msgid "ReciaForms : User Menu (anonymous)"
+#: recia.module:193
+msgid "Recia : User Menu (anonymous)"
 msgstr ""
 
-#: reciaforms.module:195
-msgid "ReciaForms : User Menu (user)"
+#: recia.module:198
+msgid "Recia : User Menu (user)"
 msgstr ""
 
-#: reciaforms.module:201
-msgid "ReciaForms : User Menu (editor)"
+#: recia.module:204
+msgid "Recia : User Menu (editor)"
 msgstr ""
 
-#: reciaforms.module:207
-msgid "ReciaForms : User Menu"
+#: recia.module:210
+msgid "Recia : User Menu"
 msgstr ""
 
-#: reciaforms.module:213
-msgid "ReciaForms : Form Menu"
+#: recia.module:216
+msgid "Recia : Form Menu"
 msgstr ""
 
-#: reciaforms.module:218
-msgid "ReciaForms : Form Menu Home"
+#: recia.module:221
+msgid "Recia : Form Menu Home"
 msgstr ""
 
-#: reciaforms.module:240
+#: recia.module:243 reciaforms.module:244
 msgid "return to home"
 msgstr ""
 
-#: reciaforms.module:248
+#: recia.module:251 reciaforms.module:252
 msgid "Log in"
 msgstr ""
 
-#: reciaforms.module:264;299;343
+#: recia.module:267;302;346 reciaforms.module:268;303;347
 msgid "Disconnect"
 msgstr ""
 
-#: reciaforms.module:277;282;316;321;357;362;379
+#: recia.module:280;285;319;324;360;365;382 reciaforms.module:281;286;320;325;361;366;383
 msgid "Create a new form"
 msgstr ""
 
-#: reciaforms.module:285;325;366;383
+#: recia.module:288;328;369;386 reciaforms.module:289;329;370;387
 msgid "Create a form from a template"
 msgstr ""
 
-#: reciaforms.module:296;339
+#: recia.module:299;342 reciaforms.module:300;343
 msgid "My forms"
 msgstr ""
 
-#: reciaforms.info:0
+#: reciaforms.module:190
+msgid "ReciaForms : Return Home button"
+msgstr ""
+
+#: reciaforms.module:194
+msgid "ReciaForms : User Menu (anonymous)"
+msgstr ""
+
+#: reciaforms.module:199
+msgid "ReciaForms : User Menu (user)"
+msgstr ""
+
+#: reciaforms.module:205
+msgid "ReciaForms : User Menu (editor)"
+msgstr ""
+
+#: reciaforms.module:211
+msgid "ReciaForms : User Menu"
+msgstr ""
+
+#: reciaforms.module:217
+msgid "ReciaForms : Form Menu"
+msgstr ""
+
+#: reciaforms.module:222
+msgid "ReciaForms : Form Menu Home"
+msgstr ""
+
+#: recia.info:0 reciaforms.info:0
 msgid "ReciaForms"
 msgstr ""
 
-#: reciaforms.info:0
+#: recia.info:0 reciaforms.info:0
 msgid "ReciaForms tweaks to Yackforms"
 msgstr ""
 
-#: reciaforms.info:0
+#: recia.info:0 reciaforms.info:0
 msgid "reciaforms"
 msgstr ""
 
