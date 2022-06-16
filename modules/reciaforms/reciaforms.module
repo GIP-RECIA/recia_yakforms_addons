@@ -423,6 +423,33 @@
   }
 
   /**
+   * Modify export fields list
+   */
+  function reciaforms_webform_results_download_submission_information_info_alter(array &$submission_information) {
+    if (isset($submission_information['webform_serial'])) {
+      unset($submission_information['webform_serial']);
+    }
+    if (isset($submission_information['webform_sid'])) {
+      unset($submission_information['webform_sid']);
+    }
+    if (isset($submission_information['webform_draft'])) {
+      unset($submission_information['webform_draft']);
+    }
+    if (isset($submission_information['webform_time'])) {
+      unset($submission_information['webform_time']);
+    }
+    if (isset($submission_information['webform_ip_address'])) {
+      unset($submission_information['webform_ip_address']);
+    }
+    if (isset($submission_information['webform_uid'])) {
+      unset($submission_information['webform_uid']);
+    }
+    if (isset($submission_information['webform_username'])) {
+      unset($submission_information['webform_username']);
+    }
+  }
+
+  /**
    * alter cas login url
    */
   function reciaforms_cas_phpcas_alter() {
