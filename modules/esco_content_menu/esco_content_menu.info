@@ -1,0 +1,8 @@
+name = Esco Content Menu
+description = ENT menu
+package= esco_content_menu
+
+core = 7.x
+php = 7.3
+
+scripts[] = js/esco-content-menu.min.js

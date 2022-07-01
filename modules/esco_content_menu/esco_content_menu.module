@@ -1,0 +1,38 @@
+<?php
+    /**
+   * Declare custom blocks
+   */
+  function esco_content_menu_block_info() {
+      $blocks['esco_content_menu_home_button'] = array(
+      'info' => t('Esco Content Menu : menu'),
+      'cache' => DRUPAL_CACHE_PER_PAGE,
+    );
+  }
+
+  /**
+   * Define custom blocks
+   */
+  function reciaforms_block_view($delta) {
+    switch ($delta) {
+      case 'esco_content_menu_home_button':
+        if (!user_is_logged_in()) {
+            return;
+        }
+        $block['content']['#markup'] ='<esco-hamburger-menu 
+                                        context-api-url="/portail" 
+                                        sign-out-url="/portail/Logout" 
+                                        default-org-logo="/annuaire_images/default_banner_v1.jpg" 
+                                        favorite-api-url="/portail/api/layout" 
+                                        layout-api-url="/portail/api/v4-3/dlm/layout.json" 
+                                        organization-api-url="/change-etablissement/rest/v2/structures/structs/" 
+                                        portlet-api-url="/portail/api/v4-3/dlm/portletRegistry.json?category=All%20categories" 
+                                        user-info-api-url="/portail/api/v5-1/userinfo" 
+                                        user-info-portlet-url="/portail/p/ESCO-MCE" 
+                                        switch-org-portlet-url="/portail/p/etablissement-swapper" 
+                                        favorites-portlet-card-size="small" 
+                                        grid-portlet-card-size="auto" hide-action-mode="never" 
+                                        show-favorites-in-slider="true"></esco-hamburger-menu>';
+        break;
+    }
+  }
+?>
