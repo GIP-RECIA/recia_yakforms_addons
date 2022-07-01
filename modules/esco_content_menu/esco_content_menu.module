@@ -12,7 +12,7 @@
   /**
    * Define custom blocks
    */
-  function reciaforms_block_view($delta) {
+  function esco_content_menu_block_view($delta) {
     switch ($delta) {
       case 'esco_content_menu_home_button':
         if (!user_is_logged_in()) {
