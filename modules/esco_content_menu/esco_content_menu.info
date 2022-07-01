@@ -5,4 +5,4 @@ package= esco_content_menu
 core = 7.x
 php = 7.3
 
-scripts[] = js/esco-content-menu.min.js
+scripts[] = js/esco-content-menu.js
