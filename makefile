@@ -20,6 +20,15 @@ else
 	rsync -auv --progress ./modules/reciaforms $(CONF_PATH)sites/all/modules/
 endif
 
+module_esco: .makerc title configuration_report sudo_warning
+	@echo "### RECIAFORMS MODULE INSTALLATION/UPDATE ###"
+	@echo "Files copy..."
+ifneq ($(strip $(CONF_OWNER)),)
+	rsync -auv --progress --chown $(CONF_OWNER) ./modules/esco_content_menu $(CONF_PATH)sites/all/modules/
+else
+	rsync -auv --progress ./modules/esco_content_menu $(CONF_PATH)sites/all/modules/
+endif
+
 theme_yaktheme_reciaforms: .makerc title configuration_report sudo_warning
 	@echo "### YAKTEHE_RECIAFORMS THEME INSTALLATION/UPDATE ###"
 	@echo "Files copy..."
