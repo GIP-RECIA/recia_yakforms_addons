@@ -7,6 +7,7 @@
       'info' => t('Esco Content Menu : menu'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
     );
+    return $blocks;
   }
 
   /**
@@ -34,5 +35,6 @@
                                         show-favorites-in-slider="true"></esco-hamburger-menu>';
         break;
     }
+    return $block;
   }
 ?>
