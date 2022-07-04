@@ -3692,11 +3692,45 @@ function tokenize(jwt) {
 "use strict";
 
 
+__webpack_require__(12419);
+
+var _interopRequireDefault = __webpack_require__(17907);
+
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(61125));
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(14490));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(33119));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(92664));
+
+var _inherits2 = _interopRequireDefault(__webpack_require__(84827));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(85299));
+
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(55536));
+
+var _typeof2 = _interopRequireDefault(__webpack_require__(20474));
+
+__webpack_require__(38880);
+
+__webpack_require__(41539);
+
+__webpack_require__(9653);
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4;
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
 var __decorate = void 0 && (void 0).__decorate || function (decorators, target, key, desc) {
   var c = arguments.length,
       r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
       d;
-  if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  if ((typeof Reflect === "undefined" ? "undefined" : (0, _typeof2.default)(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
   return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
@@ -3712,111 +3746,113 @@ Object.defineProperty(exports, "__esModule", ({
 exports.ActionFavorites = void 0;
 /*Lit */
 
-const lit_1 = __webpack_require__(9392);
+var lit_1 = __webpack_require__(9392);
 
-const unsafe_html_js_1 = __webpack_require__(71943);
+var unsafe_html_js_1 = __webpack_require__(71943);
 
-const decorators_js_1 = __webpack_require__(45595);
+var decorators_js_1 = __webpack_require__(45595);
 
-const class_map_js_1 = __webpack_require__(99455);
+var class_map_js_1 = __webpack_require__(99455);
 /*SCSS*/
 
 
-const action_favorites_scss_1 = __importDefault(__webpack_require__(88954));
+var action_favorites_scss_1 = __importDefault(__webpack_require__(88954));
 /*Localization*/
 
 
-const localize_1 = __webpack_require__(91799);
+var localize_1 = __webpack_require__(91799);
 
-const localization_1 = __webpack_require__(30082);
+var localization_1 = __webpack_require__(30082);
 
-const langHelper_1 = __importDefault(__webpack_require__(80203));
+var langHelper_1 = __importDefault(__webpack_require__(80203));
 /*Mixins*/
 
 
-const litLoggable_1 = __webpack_require__(39937);
+var litLoggable_1 = __webpack_require__(39937);
 /*Dependencies*/
 
 
-const fontawesome_svg_core_1 = __webpack_require__(78947);
+var fontawesome_svg_core_1 = __webpack_require__(78947);
 
-const faStar_1 = __webpack_require__(13461);
+var faStar_1 = __webpack_require__(13461);
 
-const faStar_2 = __webpack_require__(88512);
+var faStar_2 = __webpack_require__(88512);
 
-let ActionFavorites = class ActionFavorites extends (0, litLoggable_1.LitLoggable)(lit_1.LitElement) {
-  constructor() {
-    super();
-    this.messages = [];
-    this.fname = '';
-    this.chanId = 0;
-    this.backGroundIsDark = false;
-    this.isFavorite = false;
-    const lhOpts = {
+var ActionFavorites = /*#__PURE__*/function (_ref) {
+  (0, _inherits2.default)(ActionFavorites, _ref);
+
+  var _super = _createSuper(ActionFavorites);
+
+  function ActionFavorites() {
+    var _this;
+
+    (0, _classCallCheck2.default)(this, ActionFavorites);
+    _this = _super.call(this);
+    _this.messages = [];
+    _this.fname = '';
+    _this.chanId = 0;
+    _this.backGroundIsDark = false;
+    _this.isFavorite = false;
+    var lhOpts = {
       languageCodeOnly: true,
       availableLanguages: ['fr', 'en'],
       defaultLanguage: 'en'
     };
-    const lang = langHelper_1.default.getPageLang(lhOpts);
+    var lang = langHelper_1.default.getPageLang(lhOpts);
     (0, localization_1.setLocale)(lang);
     langHelper_1.default.setLocale(lang);
+    return _this;
   }
 
-  shouldUpdate() {
-    if (this.fname === '') {
-      this.errorLog('fname attribute is required');
-      return false;
-    }
-
-    return true;
-  }
-
-  firstUpdated() {
-    this.setLogIdentifier(this.fname);
-    this.debugLog('First update');
-  }
-
-  favoriteMessage() {
-    return this.isFavorite ? langHelper_1.default.localTransation('favorites.remove', (0, localize_1.msg)((0, localize_1.str)`Remove from favorites`)) : langHelper_1.default.localTransation('favorites.add', (0, localize_1.msg)((0, localize_1.str)`Add to favorites`));
-  }
-
-  toggleFavorite(e) {
-    e.preventDefault();
-    this.isFavorite = !this.isFavorite;
-    const toggleEvt = new CustomEvent('toggle', {
-      detail: {
-        fname: this.fname,
-        chanId: this.chanId,
-        isFavorite: this.isFavorite
+  (0, _createClass2.default)(ActionFavorites, [{
+    key: "shouldUpdate",
+    value: function shouldUpdate() {
+      if (this.fname === '') {
+        this.errorLog('fname attribute is required');
+        return false;
       }
-    });
-    this.dispatchEvent(toggleEvt);
-  }
 
-  render() {
-    const classList = {
-      [this.fname]: true,
-      'background-dark': this.backGroundIsDark
-    };
-    const starIcon = this.isFavorite ? `${(0, fontawesome_svg_core_1.icon)(faStar_1.faStar).html}` : `${(0, fontawesome_svg_core_1.icon)(faStar_2.faStar).html}`;
-    return (0, lit_1.html)`
-      <div
-        class="action-favorites ${(0, class_map_js_1.classMap)(classList)}"
-        title="${this.favoriteMessage()}"
-        @click="${this.toggleFavorite}"
-      >
-        <button class="favorite-button">
-          <span class="sr-only">${this.favoriteMessage()}</span>
-          ${(0, unsafe_html_js_1.unsafeHTML)(starIcon)}
-        </button>
-      </div>
-    `;
-  }
+      return true;
+    }
+  }, {
+    key: "firstUpdated",
+    value: function firstUpdated() {
+      this.setLogIdentifier(this.fname);
+      this.debugLog('First update');
+    }
+  }, {
+    key: "favoriteMessage",
+    value: function favoriteMessage() {
+      return this.isFavorite ? langHelper_1.default.localTransation('favorites.remove', (0, localize_1.msg)((0, localize_1.str)(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["Remove from favorites"]))))) : langHelper_1.default.localTransation('favorites.add', (0, localize_1.msg)((0, localize_1.str)(_templateObject2 || (_templateObject2 = (0, _taggedTemplateLiteral2.default)(["Add to favorites"])))));
+    }
+  }, {
+    key: "toggleFavorite",
+    value: function toggleFavorite(e) {
+      e.preventDefault();
+      this.isFavorite = !this.isFavorite;
+      var toggleEvt = new CustomEvent('toggle', {
+        detail: {
+          fname: this.fname,
+          chanId: this.chanId,
+          isFavorite: this.isFavorite
+        }
+      });
+      this.dispatchEvent(toggleEvt);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _classList;
 
-};
-ActionFavorites.styles = (0, lit_1.css)`
-    ${(0, lit_1.unsafeCSS)(action_favorites_scss_1.default)}
-  `;
+      var classList = (_classList = {}, (0, _defineProperty2.default)(_classList, this.fname, true), (0, _defineProperty2.default)(_classList, 'background-dark', this.backGroundIsDark), _classList);
+      var starIcon = this.isFavorite ? "".concat((0, fontawesome_svg_core_1.icon)(faStar_1.faStar).html) : "".concat((0, fontawesome_svg_core_1.icon)(faStar_2.faStar).html);
+      return (0, lit_1.html)(_templateObject3 || (_templateObject3 = (0, _taggedTemplateLiteral2.default)(["\n      <div\n        class=\"action-favorites ", "\"\n        title=\"", "\"\n        @click=\"", "\"\n      >\n        <button class=\"favorite-button\">\n          <span class=\"sr-only\">", "</span>\n          ", "\n        </button>\n      </div>\n    "])), (0, class_map_js_1.classMap)(classList), this.favoriteMessage(), this.toggleFavorite, this.favoriteMessage(), (0, unsafe_html_js_1.unsafeHTML)(starIcon));
+    }
+  }]);
+  return ActionFavorites;
+}((0, litLoggable_1.LitLoggable)(lit_1.LitElement));
+
+ActionFavorites.styles = (0, lit_1.css)(_templateObject4 || (_templateObject4 = (0, _taggedTemplateLiteral2.default)(["\n    ", "\n  "])), (0, lit_1.unsafeCSS)(action_favorites_scss_1.default));
 
 __decorate([(0, decorators_js_1.property)({
   type: Array
@@ -3851,11 +3887,45 @@ exports.ActionFavorites = ActionFavorites;
 "use strict";
 
 
+__webpack_require__(12419);
+
 var _interopRequireDefault = __webpack_require__(17907);
+
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(61125));
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(14490));
 
 var _sort = _interopRequireDefault(__webpack_require__(2578));
 
 var _includes = _interopRequireDefault(__webpack_require__(58118));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(33119));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(92664));
+
+var _get2 = _interopRequireDefault(__webpack_require__(44775));
+
+var _inherits2 = _interopRequireDefault(__webpack_require__(84827));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(85299));
+
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(55536));
+
+var _typeof2 = _interopRequireDefault(__webpack_require__(20474));
+
+__webpack_require__(38880);
+
+__webpack_require__(41539);
+
+__webpack_require__(57327);
+
+__webpack_require__(82481);
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9;
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 var __createBinding = void 0 && (void 0).__createBinding || (Object.create ? function (o, m, k, k2) {
   if (k2 === undefined) k2 = k;
@@ -3889,14 +3959,18 @@ var __decorate = void 0 && (void 0).__decorate || function (decorators, target, 
   var c = arguments.length,
       r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
       d;
-  if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  if ((typeof Reflect === "undefined" ? "undefined" : (0, _typeof2.default)(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
   return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
 var __importStar = void 0 && (void 0).__importStar || function (mod) {
   if (mod && mod.__esModule) return mod;
   var result = {};
-  if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
 
   __setModuleDefault(result, mod);
 
@@ -3915,53 +3989,53 @@ Object.defineProperty(exports, "__esModule", ({
 exports.ContentFavorites = void 0;
 /*Lit*/
 
-const lit_1 = __webpack_require__(9392);
+var lit_1 = __webpack_require__(9392);
 
-const unsafe_html_js_1 = __webpack_require__(71943);
+var unsafe_html_js_1 = __webpack_require__(71943);
 
-const decorators_js_1 = __webpack_require__(45595);
+var decorators_js_1 = __webpack_require__(45595);
 
-const class_map_js_1 = __webpack_require__(99455);
+var class_map_js_1 = __webpack_require__(99455);
 
-const style_map_js_1 = __webpack_require__(3959);
+var style_map_js_1 = __webpack_require__(3959);
 
-const repeat_js_1 = __webpack_require__(52386);
+var repeat_js_1 = __webpack_require__(52386);
 /*SCSS*/
 
 
-const content_favorites_scss_1 = __importDefault(__webpack_require__(60810));
+var content_favorites_scss_1 = __importDefault(__webpack_require__(60810));
 /*Localization*/
 
 
-const localize_1 = __webpack_require__(91799);
+var localize_1 = __webpack_require__(91799);
 
-const localization_1 = __webpack_require__(30082);
+var localization_1 = __webpack_require__(30082);
 
-const langHelper_1 = __importDefault(__webpack_require__(80203));
+var langHelper_1 = __importDefault(__webpack_require__(80203));
 /*Mixins*/
 
 
-const litLoggable_1 = __webpack_require__(39937);
+var litLoggable_1 = __webpack_require__(39937);
 /*Services*/
 
 
-const portletService_1 = __importDefault(__webpack_require__(19273));
+var portletService_1 = __importDefault(__webpack_require__(19273));
 /*Helpers*/
 
 
-const sizeHelper_1 = __importDefault(__webpack_require__(96995));
+var sizeHelper_1 = __importDefault(__webpack_require__(96995));
 /*Dependencies*/
 
 
-const fontawesome_svg_core_1 = __webpack_require__(78947);
+var fontawesome_svg_core_1 = __webpack_require__(78947);
 
-const faChevronLeft_1 = __webpack_require__(85020);
+var faChevronLeft_1 = __webpack_require__(85020);
 
-const faChevronRight_1 = __webpack_require__(65394);
+var faChevronRight_1 = __webpack_require__(65394);
 
-const debounce_1 = __importDefault(__webpack_require__(23279));
+var debounce_1 = __importDefault(__webpack_require__(23279));
 
-const swiper_1 = __importStar(__webpack_require__(51020));
+var swiper_1 = __importStar(__webpack_require__(51020));
 /*Components*/
 
 
@@ -3969,282 +4043,230 @@ __webpack_require__(79832);
 
 __webpack_require__(55830);
 
-let ContentFavorites = class ContentFavorites extends (0, litLoggable_1.LitLoggable)(lit_1.LitElement) {
-  constructor() {
+var ContentFavorites = /*#__PURE__*/function (_ref) {
+  (0, _inherits2.default)(ContentFavorites, _ref);
+
+  var _super = _createSuper(ContentFavorites);
+
+  function ContentFavorites() {
+    var _this;
+
+    (0, _classCallCheck2.default)(this, ContentFavorites);
+
     var _a, _b, _c, _d, _e, _f, _g;
 
-    super();
-    this.messages = [];
-    this.parentScreenSize = 'medium';
-    this.cardSize = 'small';
-    this.backgroundColor = 'rgba(0, 0, 0, 0)';
-    this.contextApiUrl = (_a = "/uPortal") !== null && _a !== void 0 ? _a : '';
-    this.favoriteApiUrl = ((_b = "/uPortal") !== null && _b !== void 0 ? _b : '') + ((_c = "/api/layout") !== null && _c !== void 0 ? _c : '');
-    this.portletApiUrl = ((_d = "/uPortal") !== null && _d !== void 0 ? _d : '') + ((_e = "/api/v4-3/dlm/portletRegistry.json") !== null && _e !== void 0 ? _e : '');
-    this.userInfoApiUrl = ((_f = "/uPortal") !== null && _f !== void 0 ? _f : '') + ((_g = "/api/v5-1/userinfo") !== null && _g !== void 0 ? _g : '');
-    this.portlets = [];
-    this.favorites = [];
-    this.hide = false;
-    this.hideAction = false;
-    this.disableSwiper = false;
-    this.debug = false;
-    this._elementSize = 'medium';
-    this._swiperObj = undefined;
-    this._prevSiperBtnIsAtive = false;
-    this._nextSiperBtnIsAtive = true;
-    this.debounceCalculateSize = (0, debounce_1.default)(this.calculateSize, 300);
-    this.debounceUpdateNavigation = (0, debounce_1.default)(this.updateNavigation, 500);
-    this.debugLog('Component loaded');
-    const lhOpts = {
+    _this = _super.call(this);
+    _this.messages = [];
+    _this.parentScreenSize = 'medium';
+    _this.cardSize = 'small';
+    _this.backgroundColor = 'rgba(0, 0, 0, 0)';
+    _this.contextApiUrl = (_a = "/uPortal") !== null && _a !== void 0 ? _a : '';
+    _this.favoriteApiUrl = ((_b = "/uPortal") !== null && _b !== void 0 ? _b : '') + ((_c = "/api/layout") !== null && _c !== void 0 ? _c : '');
+    _this.portletApiUrl = ((_d = "/uPortal") !== null && _d !== void 0 ? _d : '') + ((_e = "/api/v4-3/dlm/portletRegistry.json") !== null && _e !== void 0 ? _e : '');
+    _this.userInfoApiUrl = ((_f = "/uPortal") !== null && _f !== void 0 ? _f : '') + ((_g = "/api/v5-1/userinfo") !== null && _g !== void 0 ? _g : '');
+    _this.portlets = [];
+    _this.favorites = [];
+    _this.hide = false;
+    _this.hideAction = false;
+    _this.disableSwiper = false;
+    _this.debug = false;
+    _this._elementSize = 'medium';
+    _this._swiperObj = undefined;
+    _this._prevSiperBtnIsAtive = false;
+    _this._nextSiperBtnIsAtive = true;
+    _this.debounceCalculateSize = (0, debounce_1.default)(_this.calculateSize, 300);
+    _this.debounceUpdateNavigation = (0, debounce_1.default)(_this.updateNavigation, 500);
+
+    _this.debugLog('Component loaded');
+
+    var lhOpts = {
       languageCodeOnly: true,
       availableLanguages: ['fr', 'en'],
       defaultLanguage: 'en'
     };
-    const lang = langHelper_1.default.getPageLang(lhOpts);
+    var lang = langHelper_1.default.getPageLang(lhOpts);
     (0, localization_1.setLocale)(lang);
     langHelper_1.default.setLocale(lang);
+    return _this;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    window.addEventListener('resize', this.debounceCalculateSize.bind(this), false);
-  }
-
-  disconnectedCallback() {
-    super.connectedCallback();
-    window.removeEventListener('resize', this.debounceCalculateSize.bind(this), false);
-  }
-
-  willUpdate(changedProperties) {
-    if (changedProperties.has('messages')) {
-      langHelper_1.default.setReference(this.messages);
+  (0, _createClass2.default)(ContentFavorites, [{
+    key: "connectedCallback",
+    value: function connectedCallback() {
+      (0, _get2.default)((0, _getPrototypeOf2.default)(ContentFavorites.prototype), "connectedCallback", this).call(this);
+      window.addEventListener('resize', this.debounceCalculateSize.bind(this), false);
     }
-  }
-
-  firstUpdated(changedProperties) {
-    super.firstUpdated && super.firstUpdated(changedProperties);
-    const swiperEl = this.renderRoot.querySelector('#swiper');
-
-    if (swiperEl) {
-      this._swiperObj = new swiper_1.default(swiperEl, {
-        modules: [swiper_1.Navigation],
-        slidesPerView: 'auto',
-        spaceBetween: 15,
-        speed: 800,
-        freeMode: true,
-        navigation: {
-          nextEl: swiperEl.querySelector('.swiper-button-next'),
-          prevEl: swiperEl.querySelector('.swiper-button-prev')
-        }
-      });
-
-      this._swiperObj.on('sliderMove', this.debounceUpdateNavigation.bind(this));
-
-      this._swiperObj.on('reachEnd', this.debounceUpdateNavigation.bind(this));
-
-      this._swiperObj.on('reachBeginning', this.debounceUpdateNavigation.bind(this));
-
-      this.debounceUpdateNavigation.bind(this);
+  }, {
+    key: "disconnectedCallback",
+    value: function disconnectedCallback() {
+      (0, _get2.default)((0, _getPrototypeOf2.default)(ContentFavorites.prototype), "connectedCallback", this).call(this);
+      window.removeEventListener('resize', this.debounceCalculateSize.bind(this), false);
     }
-
-    this.calculateSize();
-  }
-
-  updated(_changedProperties) {
-    super.updated(_changedProperties);
-    this.updateNavigation();
-  }
-
-  calculateSize() {
-    var _a;
-
-    if (this.cardSize === 'auto') {
-      const _size = sizeHelper_1.default.elementWidth((_a = this.shadowRoot) === null || _a === void 0 ? void 0 : _a.querySelector('#favsSection'));
-
-      if (this.parentScreenSize === 'smaller' || _size < 660) {
-        this._elementSize = 'smaller';
-      } else if (this.parentScreenSize === 'small' || _size < 1280) {
-        this._elementSize = 'small';
-      } else if (this.parentScreenSize === 'medium' || _size < 1680) {
-        this._elementSize = 'medium';
-      } else {
-        this._elementSize = 'large';
+  }, {
+    key: "willUpdate",
+    value: function willUpdate(changedProperties) {
+      if (changedProperties.has('messages')) {
+        langHelper_1.default.setReference(this.messages);
       }
-    } else {
-      this._elementSize = this.cardSize;
     }
+  }, {
+    key: "firstUpdated",
+    value: function firstUpdated(changedProperties) {
+      (0, _get2.default)((0, _getPrototypeOf2.default)(ContentFavorites.prototype), "firstUpdated", this) && (0, _get2.default)((0, _getPrototypeOf2.default)(ContentFavorites.prototype), "firstUpdated", this).call(this, changedProperties);
+      var swiperEl = this.renderRoot.querySelector('#swiper');
 
-    this.updateNavigation();
-  }
+      if (swiperEl) {
+        this._swiperObj = new swiper_1.default(swiperEl, {
+          modules: [swiper_1.Navigation],
+          slidesPerView: 'auto',
+          spaceBetween: 15,
+          speed: 800,
+          freeMode: true,
+          navigation: {
+            nextEl: swiperEl.querySelector('.swiper-button-next'),
+            prevEl: swiperEl.querySelector('.swiper-button-prev')
+          }
+        });
 
-  portletCardSize() {
-    if (this.cardSize === 'auto') {
-      return this._elementSize;
+        this._swiperObj.on('sliderMove', this.debounceUpdateNavigation.bind(this));
+
+        this._swiperObj.on('reachEnd', this.debounceUpdateNavigation.bind(this));
+
+        this._swiperObj.on('reachBeginning', this.debounceUpdateNavigation.bind(this));
+
+        this.debounceUpdateNavigation.bind(this);
+      }
+
+      this.calculateSize();
     }
+  }, {
+    key: "updated",
+    value: function updated(_changedProperties) {
+      (0, _get2.default)((0, _getPrototypeOf2.default)(ContentFavorites.prototype), "updated", this).call(this, _changedProperties);
+      this.updateNavigation();
+    }
+  }, {
+    key: "calculateSize",
+    value: function calculateSize() {
+      var _a;
 
-    return this.cardSize;
-  }
+      if (this.cardSize === 'auto') {
+        var _size = sizeHelper_1.default.elementWidth((_a = this.shadowRoot) === null || _a === void 0 ? void 0 : _a.querySelector('#favsSection'));
 
-  getRenderPortletUrl(portlet) {
-    return portletService_1.default.getRenderUrl(portlet, this.contextApiUrl);
-  }
+        if (this.parentScreenSize === 'smaller' || _size < 660) {
+          this._elementSize = 'smaller';
+        } else if (this.parentScreenSize === 'small' || _size < 1280) {
+          this._elementSize = 'small';
+        } else if (this.parentScreenSize === 'medium' || _size < 1680) {
+          this._elementSize = 'medium';
+        } else {
+          this._elementSize = 'large';
+        }
+      } else {
+        this._elementSize = this.cardSize;
+      }
 
-  hasAlternativeMaximizedUrl(portlet) {
-    var _a;
+      this.updateNavigation();
+    }
+  }, {
+    key: "portletCardSize",
+    value: function portletCardSize() {
+      if (this.cardSize === 'auto') {
+        return this._elementSize;
+      }
 
-    return ((_a = portletService_1.default.getAlternativeMaximizedUrl(portlet)) === null || _a === void 0 ? void 0 : _a.length) > 0;
-  }
+      return this.cardSize;
+    }
+  }, {
+    key: "getRenderPortletUrl",
+    value: function getRenderPortletUrl(portlet) {
+      return portletService_1.default.getRenderUrl(portlet, this.contextApiUrl);
+    }
+  }, {
+    key: "hasAlternativeMaximizedUrl",
+    value: function hasAlternativeMaximizedUrl(portlet) {
+      var _a;
 
-  updateNavigation() {
-    var _a, _b, _c;
+      return ((_a = portletService_1.default.getAlternativeMaximizedUrl(portlet)) === null || _a === void 0 ? void 0 : _a.length) > 0;
+    }
+  }, {
+    key: "updateNavigation",
+    value: function updateNavigation() {
+      var _a, _b, _c;
 
-    (_a = this._swiperObj) === null || _a === void 0 ? void 0 : _a.update();
-    this._prevSiperBtnIsAtive = ((_b = this._swiperObj) === null || _b === void 0 ? void 0 : _b.isBeginning) ? false : true;
-    this._nextSiperBtnIsAtive = ((_c = this._swiperObj) === null || _c === void 0 ? void 0 : _c.isEnd) ? false : true;
-  }
+      (_a = this._swiperObj) === null || _a === void 0 ? void 0 : _a.update();
+      this._prevSiperBtnIsAtive = ((_b = this._swiperObj) === null || _b === void 0 ? void 0 : _b.isBeginning) ? false : true;
+      this._nextSiperBtnIsAtive = ((_c = this._swiperObj) === null || _c === void 0 ? void 0 : _c.isEnd) ? false : true;
+    }
+  }, {
+    key: "swipeRight",
+    value: function swipeRight() {
+      var _a;
 
-  swipeRight() {
-    var _a;
+      (_a = this._swiperObj) === null || _a === void 0 ? void 0 : _a.slideNext();
+      this.debounceUpdateNavigation();
+    }
+  }, {
+    key: "swipeLeft",
+    value: function swipeLeft() {
+      var _a;
 
-    (_a = this._swiperObj) === null || _a === void 0 ? void 0 : _a.slideNext();
-    this.debounceUpdateNavigation();
-  }
+      (_a = this._swiperObj) === null || _a === void 0 ? void 0 : _a.slidePrev();
+      this.debounceUpdateNavigation();
+    }
+  }, {
+    key: "favorited",
+    value: function favorited() {
+      var _context,
+          _this2 = this;
 
-  swipeLeft() {
-    var _a;
+      return (0, _sort.default)(_context = this.portlets.filter(function (portlet) {
+        var _context2;
 
-    (_a = this._swiperObj) === null || _a === void 0 ? void 0 : _a.slidePrev();
-    this.debounceUpdateNavigation();
-  }
+        return (0, _includes.default)(_context2 = _this2.favorites).call(_context2, portlet.fname);
+      })).call(_context, function (a, b) {
+        return _this2.favorites.indexOf(a.fname) - _this2.favorites.indexOf(b.fname);
+      });
+    }
+  }, {
+    key: "toggleFavorite",
+    value: function toggleFavorite(e) {
+      var event = new CustomEvent('toggle-favorite', {
+        bubbles: true,
+        detail: e.detail
+      });
+      this.dispatchEvent(event);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _ref2,
+          _this3 = this;
 
-  favorited() {
-    var _context;
+      var calcFavorites = this.favorited();
+      var displayFavs = calcFavorites.length > 0;
+      return (0, lit_1.html)(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n      <section\n        class=\"content-favorites ", "\"\n        style=\"", "\"\n      >\n        <div class=\"content-favorites-title\">\n          <h1>\n            ", "\n          </h1>\n        </div>\n        <div\n          id=\"favsSection\"\n          class=\"", "\"\n        >\n          ", "\n        </div>\n      </section>\n    "])), (0, class_map_js_1.classMap)((_ref2 = {}, (0, _defineProperty2.default)(_ref2, 'parent-' + this.parentScreenSize, true), (0, _defineProperty2.default)(_ref2, this._elementSize, true), _ref2)), (0, style_map_js_1.styleMap)({
+        'background-color': this.backgroundColor
+      }), langHelper_1.default.localTransation('favorites.title', (0, localize_1.msg)((0, localize_1.str)(_templateObject2 || (_templateObject2 = (0, _taggedTemplateLiteral2.default)(["My favorites"]))))), (0, class_map_js_1.classMap)({
+        favorites: displayFavs,
+        'empty-favorites': !displayFavs
+      }), displayFavs ? (0, lit_1.html)(_templateObject3 || (_templateObject3 = (0, _taggedTemplateLiteral2.default)(["\n                ", "\n              "])), !this.disableSwiper ? (0, lit_1.html)(_templateObject4 || (_templateObject4 = (0, _taggedTemplateLiteral2.default)(["\n                      <link\n                        rel=\"stylesheet\"\n                        href=\"https://unpkg.com/swiper@8/swiper-bundle.min.css\"\n                      />\n                      <div id=\"swiper\" class=\"swiper\">\n                        <div class=\"swiper-wrapper\">\n                          ", "\n                        </div>\n                      </div>\n                      <div\n                        slot=\"button-prev\"\n                        class=\"swiper-button-prev ", "\"\n                        @click=", "\n                      >\n                        ", "\n                      </div>\n                      <div\n                        slot=\"button-next\"\n                        class=\"swiper-button-next ", "\"\n                        @click=", "\n                      >\n                        ", "\n                      </div>\n                    "])), (0, repeat_js_1.repeat)(calcFavorites, function (portlet) {
+        return portlet.fname;
+      }, function (portlet) {
+        var hasAlternativeMaximizedUrl = _this3.hasAlternativeMaximizedUrl(portlet);
 
-    return (0, _sort.default)(_context = this.portlets.filter(portlet => {
-      var _context2;
+        return (0, lit_1.html)(_templateObject5 || (_templateObject5 = (0, _taggedTemplateLiteral2.default)(["\n                                <div class=\"swiper-slide\">\n                                  <a\n                                    href=\"", "\"\n                                    target=\"", "\"\n                                    rel=\"", "\"\n                                    class=\"no-style\"\n                                  >\n                                    <esco-portlet-card\n                                      .messages=\"", "\"\n                                      .portletDesc=\"", "\"\n                                      is-favorite\n                                      size=\"", "\"\n                                      ?hide-action=", "\n                                      ?debug=\"", "\"\n                                      @toggle-favorite=", "\n                                      background-is-dark\n                                    ></esco-portlet-card>\n                                  </a>\n                                </div>\n                              "])), _this3.getRenderPortletUrl(portlet), hasAlternativeMaximizedUrl ? '_blank' : '_self', hasAlternativeMaximizedUrl ? 'noopener noreferrer' : '', _this3.messages, portlet, _this3.portletCardSize(), _this3.hideAction, _this3.debug, _this3.toggleFavorite);
+      }), (0, class_map_js_1.classMap)({
+        'fav-swiper-button-disabled': !this._prevSiperBtnIsAtive
+      }), this.swipeLeft.bind(this), (0, unsafe_html_js_1.unsafeHTML)("".concat((0, fontawesome_svg_core_1.icon)(faChevronLeft_1.faChevronLeft).html)), (0, class_map_js_1.classMap)({
+        'fav-swiper-button-disabled': !this._nextSiperBtnIsAtive
+      }), this.swipeRight.bind(this), (0, unsafe_html_js_1.unsafeHTML)("".concat((0, fontawesome_svg_core_1.icon)(faChevronRight_1.faChevronRight).html))) : (0, lit_1.html)(_templateObject6 || (_templateObject6 = (0, _taggedTemplateLiteral2.default)(["\n                      <esco-content-grid\n                        hide-title\n                        portlet-card-size=\"", "\"\n                        .favorites=\"", "\"\n                        .portlets=\"", "\"\n                        ?hide-action=\"", "\"\n                        favorite-api-url=\"", "\"\n                        user-info-api-url=\"", "\"\n                        portlet-background-is-dark\n                        parent-screen-size=\"", "\"\n                        context-api-url=\"", "\"\n                        portlet-api-url=\"", "\"\n                        ?debug=", "\n                        @gridFavoritesUpdated=\"", "\"\n                      ></esco-content-grid>\n                    "])), this._elementSize, this.favorites, calcFavorites, this.hideAction, this.favoriteApiUrl, this.userInfoApiUrl, this.parentScreenSize, this.contextApiUrl, this.portletApiUrl, this.debug, this.toggleFavorite)) : (0, lit_1.html)(_templateObject7 || (_templateObject7 = (0, _taggedTemplateLiteral2.default)(["\n                <div>\n                  ", "\n                </div>\n              "])), langHelper_1.default.localTransation('favorites.empty', (0, localize_1.msg)((0, localize_1.str)(_templateObject8 || (_templateObject8 = (0, _taggedTemplateLiteral2.default)(["You have no favorites"])))))));
+    }
+  }]);
+  return ContentFavorites;
+}((0, litLoggable_1.LitLoggable)(lit_1.LitElement));
 
-      return (0, _includes.default)(_context2 = this.favorites).call(_context2, portlet.fname);
-    })).call(_context, (a, b) => {
-      return this.favorites.indexOf(a.fname) - this.favorites.indexOf(b.fname);
-    });
-  }
-
-  toggleFavorite(e) {
-    const event = new CustomEvent('toggle-favorite', {
-      bubbles: true,
-      detail: e.detail
-    });
-    this.dispatchEvent(event);
-  }
-
-  render() {
-    const calcFavorites = this.favorited();
-    const displayFavs = calcFavorites.length > 0;
-    return (0, lit_1.html)`
-      <section
-        class="content-favorites ${(0, class_map_js_1.classMap)({
-      ['parent-' + this.parentScreenSize]: true,
-      [this._elementSize]: true
-    })}"
-        style="${(0, style_map_js_1.styleMap)({
-      'background-color': this.backgroundColor
-    })}"
-      >
-        <div class="content-favorites-title">
-          <h1>
-            ${langHelper_1.default.localTransation('favorites.title', (0, localize_1.msg)((0, localize_1.str)`My favorites`))}
-          </h1>
-        </div>
-        <div
-          id="favsSection"
-          class="${(0, class_map_js_1.classMap)({
-      favorites: displayFavs,
-      'empty-favorites': !displayFavs
-    })}"
-        >
-          ${displayFavs ? (0, lit_1.html)`
-                ${!this.disableSwiper ? (0, lit_1.html)`
-                      <link
-                        rel="stylesheet"
-                        href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
-                      />
-                      <div id="swiper" class="swiper">
-                        <div class="swiper-wrapper">
-                          ${(0, repeat_js_1.repeat)(calcFavorites, portlet => portlet.fname, portlet => {
-      const hasAlternativeMaximizedUrl = this.hasAlternativeMaximizedUrl(portlet);
-      return (0, lit_1.html)`
-                                <div class="swiper-slide">
-                                  <a
-                                    href="${this.getRenderPortletUrl(portlet)}"
-                                    target="${hasAlternativeMaximizedUrl ? '_blank' : '_self'}"
-                                    rel="${hasAlternativeMaximizedUrl ? 'noopener noreferrer' : ''}"
-                                    class="no-style"
-                                  >
-                                    <esco-portlet-card
-                                      .messages="${this.messages}"
-                                      .portletDesc="${portlet}"
-                                      is-favorite
-                                      size="${this.portletCardSize()}"
-                                      ?hide-action=${this.hideAction}
-                                      ?debug="${this.debug}"
-                                      @toggle-favorite=${this.toggleFavorite}
-                                      background-is-dark
-                                    ></esco-portlet-card>
-                                  </a>
-                                </div>
-                              `;
-    })}
-                        </div>
-                      </div>
-                      <div
-                        slot="button-prev"
-                        class="swiper-button-prev ${(0, class_map_js_1.classMap)({
-      'fav-swiper-button-disabled': !this._prevSiperBtnIsAtive
-    })}"
-                        @click=${this.swipeLeft.bind(this)}
-                      >
-                        ${(0, unsafe_html_js_1.unsafeHTML)(`${(0, fontawesome_svg_core_1.icon)(faChevronLeft_1.faChevronLeft).html}`)}
-                      </div>
-                      <div
-                        slot="button-next"
-                        class="swiper-button-next ${(0, class_map_js_1.classMap)({
-      'fav-swiper-button-disabled': !this._nextSiperBtnIsAtive
-    })}"
-                        @click=${this.swipeRight.bind(this)}
-                      >
-                        ${(0, unsafe_html_js_1.unsafeHTML)(`${(0, fontawesome_svg_core_1.icon)(faChevronRight_1.faChevronRight).html}`)}
-                      </div>
-                    ` : (0, lit_1.html)`
-                      <esco-content-grid
-                        hide-title
-                        portlet-card-size="${this._elementSize}"
-                        .favorites="${this.favorites}"
-                        .portlets="${calcFavorites}"
-                        ?hide-action="${this.hideAction}"
-                        favorite-api-url="${this.favoriteApiUrl}"
-                        user-info-api-url="${this.userInfoApiUrl}"
-                        portlet-background-is-dark
-                        parent-screen-size="${this.parentScreenSize}"
-                        context-api-url="${this.contextApiUrl}"
-                        portlet-api-url="${this.portletApiUrl}"
-                        ?debug=${this.debug}
-                        @gridFavoritesUpdated="${this.toggleFavorite}"
-                      ></esco-content-grid>
-                    `}
-              ` : (0, lit_1.html)`
-                <div>
-                  ${langHelper_1.default.localTransation('favorites.empty', (0, localize_1.msg)((0, localize_1.str)`You have no favorites`))}
-                </div>
-              `}
-        </div>
-      </section>
-    `;
-  }
-
-};
-ContentFavorites.styles = [(0, lit_1.css)`
-      ${(0, lit_1.unsafeCSS)(content_favorites_scss_1.default)}
-    `];
+ContentFavorites.styles = [(0, lit_1.css)(_templateObject9 || (_templateObject9 = (0, _taggedTemplateLiteral2.default)(["\n      ", "\n    "])), (0, lit_1.unsafeCSS)(content_favorites_scss_1.default))];
 
 __decorate([(0, decorators_js_1.property)({
   type: Array
@@ -4252,21 +4274,17 @@ __decorate([(0, decorators_js_1.property)({
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
-
-  hasChanged(newVal) {
+  hasChanged: function hasChanged(newVal) {
     return sizeHelper_1.default.validate(newVal, true, true);
   },
-
   attribute: 'parent-screen-size'
 })], ContentFavorites.prototype, "parentScreenSize", void 0);
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
-
-  hasChanged(newVal) {
+  hasChanged: function hasChanged(newVal) {
     return sizeHelper_1.default.validate(newVal, true, true);
   },
-
   attribute: 'card-size'
 })], ContentFavorites.prototype, "cardSize", void 0);
 
@@ -4342,7 +4360,13 @@ exports.ContentFavorites = ContentFavorites;
 "use strict";
 
 
+__webpack_require__(12419);
+
 var _interopRequireDefault = __webpack_require__(17907);
+
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(61125));
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(14490));
 
 var _flatMap = _interopRequireDefault(__webpack_require__(12154));
 
@@ -4350,15 +4374,57 @@ var _sort = _interopRequireDefault(__webpack_require__(2578));
 
 var _includes = _interopRequireDefault(__webpack_require__(58118));
 
-__webpack_require__(88674);
+var _regenerator = _interopRequireDefault(__webpack_require__(30222));
+
+var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(15687));
+
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(80093));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(33119));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(92664));
+
+var _get2 = _interopRequireDefault(__webpack_require__(44775));
+
+var _inherits2 = _interopRequireDefault(__webpack_require__(84827));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(85299));
+
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(55536));
+
+var _typeof2 = _interopRequireDefault(__webpack_require__(20474));
+
+__webpack_require__(38880);
+
+__webpack_require__(41539);
+
+__webpack_require__(66992);
+
+__webpack_require__(70189);
+
+__webpack_require__(78783);
 
 __webpack_require__(33948);
+
+__webpack_require__(73210);
+
+__webpack_require__(40561);
+
+__webpack_require__(21249);
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17;
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 var __decorate = void 0 && (void 0).__decorate || function (decorators, target, key, desc) {
   var c = arguments.length,
       r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
       d;
-  if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  if ((typeof Reflect === "undefined" ? "undefined" : (0, _typeof2.default)(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
   return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
@@ -4374,459 +4440,466 @@ Object.defineProperty(exports, "__esModule", ({
 exports.ContentGrid = void 0;
 /*Lit*/
 
-const lit_1 = __webpack_require__(9392);
+var lit_1 = __webpack_require__(9392);
 
-const decorators_js_1 = __webpack_require__(45595);
+var decorators_js_1 = __webpack_require__(45595);
 
-const unsafe_html_js_1 = __webpack_require__(71943);
+var unsafe_html_js_1 = __webpack_require__(71943);
 
-const class_map_js_1 = __webpack_require__(99455);
+var class_map_js_1 = __webpack_require__(99455);
 
-const style_map_js_1 = __webpack_require__(3959);
+var style_map_js_1 = __webpack_require__(3959);
 /*SCSS*/
 
 
-const content_grid_scss_1 = __importDefault(__webpack_require__(18417));
+var content_grid_scss_1 = __importDefault(__webpack_require__(18417));
 /*Localization*/
 
 
-const localize_1 = __webpack_require__(91799);
+var localize_1 = __webpack_require__(91799);
 
-const localization_1 = __webpack_require__(30082);
+var localization_1 = __webpack_require__(30082);
 
-const langHelper_1 = __importDefault(__webpack_require__(80203));
+var langHelper_1 = __importDefault(__webpack_require__(80203));
 /*Mixins*/
 
 
-const litLoggable_1 = __webpack_require__(39937);
+var litLoggable_1 = __webpack_require__(39937);
 /*Services*/
 
 
-const portletService_1 = __importDefault(__webpack_require__(19273));
+var portletService_1 = __importDefault(__webpack_require__(19273));
 
-const favoritesService_1 = __importDefault(__webpack_require__(85925));
+var favoritesService_1 = __importDefault(__webpack_require__(85925));
 /*Helpers*/
 
 
-const sizeHelper_1 = __importDefault(__webpack_require__(96995));
+var sizeHelper_1 = __importDefault(__webpack_require__(96995));
 /*Dependencies*/
 
 
-const fontawesome_svg_core_1 = __webpack_require__(78947);
+var fontawesome_svg_core_1 = __webpack_require__(78947);
 
-const faSearch_1 = __webpack_require__(95337);
+var faSearch_1 = __webpack_require__(95337);
 
-const match_sorter_1 = __webpack_require__(14044);
+var match_sorter_1 = __webpack_require__(14044);
 
-const debounce_1 = __importDefault(__webpack_require__(23279));
+var debounce_1 = __importDefault(__webpack_require__(23279));
 /*Components*/
 
 
 __webpack_require__(79832);
 
-let ContentGrid = class ContentGrid extends (0, litLoggable_1.LitLoggable)(lit_1.LitElement) {
-  constructor() {
+var ContentGrid = /*#__PURE__*/function (_ref) {
+  (0, _inherits2.default)(ContentGrid, _ref);
+
+  var _super = _createSuper(ContentGrid);
+
+  function ContentGrid() {
+    var _this;
+
+    (0, _classCallCheck2.default)(this, ContentGrid);
+
     var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 
-    super();
-    this.messages = [];
-    this.parentScreenSize = 'medium';
-    this.cardSize = 'auto';
-    this.elementSize = 'medium';
-    this.backgroundColor = 'rgba(0, 0, 0, 0)';
-    this.contextApiUrl = (_a = "/uPortal") !== null && _a !== void 0 ? _a : '';
-    this.favoriteApiUrl = ((_b = "/uPortal") !== null && _b !== void 0 ? _b : '') + ((_c = "/api/layout") !== null && _c !== void 0 ? _c : '');
-    this.layoutApiUrl = ((_d = "/uPortal") !== null && _d !== void 0 ? _d : '') + ((_e = "/api/v4-3/dlm/layout.json") !== null && _e !== void 0 ? _e : '');
-    this.portletApiUrl = ((_f = "/uPortal") !== null && _f !== void 0 ? _f : '') + ((_g = "/api/v4-3/dlm/portletRegistry.json") !== null && _g !== void 0 ? _g : '');
-    this.userInfoApiUrl = ((_h = "/uPortal") !== null && _h !== void 0 ? _h : '') + ((_j = "/api/v5-1/userinfo") !== null && _j !== void 0 ? _j : '');
-    this.cardHoverSrc = 'none';
-    this.favorites = [];
-    this.allCategories = [];
-    this.portlets = [];
-    this.hideTitle = false;
-    this.showFooterCategories = false;
-    this.hideAction = false;
-    this.useExternalFilter = false;
-    this.debug = false;
-    this.portletBackgroundIsDark = false;
-    this._isVisible = false;
-    this._filterValue = '';
-    this._filterCategory = '';
-    this._localFavorites = undefined;
-    this._localPortlets = undefined;
-    this.debounceCalculateSize = (0, debounce_1.default)(this.calculateSize, 500);
-    this.debounceCatFilterChange = (0, debounce_1.default)(value => {
-      this._filterCategory = value;
-      this.sendExternalFilter();
+    _this = _super.call(this);
+    _this.messages = [];
+    _this.parentScreenSize = 'medium';
+    _this.cardSize = 'auto';
+    _this.elementSize = 'medium';
+    _this.backgroundColor = 'rgba(0, 0, 0, 0)';
+    _this.contextApiUrl = (_a = "/uPortal") !== null && _a !== void 0 ? _a : '';
+    _this.favoriteApiUrl = ((_b = "/uPortal") !== null && _b !== void 0 ? _b : '') + ((_c = "/api/layout") !== null && _c !== void 0 ? _c : '');
+    _this.layoutApiUrl = ((_d = "/uPortal") !== null && _d !== void 0 ? _d : '') + ((_e = "/api/v4-3/dlm/layout.json") !== null && _e !== void 0 ? _e : '');
+    _this.portletApiUrl = ((_f = "/uPortal") !== null && _f !== void 0 ? _f : '') + ((_g = "/api/v4-3/dlm/portletRegistry.json") !== null && _g !== void 0 ? _g : '');
+    _this.userInfoApiUrl = ((_h = "/uPortal") !== null && _h !== void 0 ? _h : '') + ((_j = "/api/v5-1/userinfo") !== null && _j !== void 0 ? _j : '');
+    _this.cardHoverSrc = 'none';
+    _this.favorites = [];
+    _this.allCategories = [];
+    _this.portlets = [];
+    _this.hideTitle = false;
+    _this.showFooterCategories = false;
+    _this.hideAction = false;
+    _this.useExternalFilter = false;
+    _this.debug = false;
+    _this.portletBackgroundIsDark = false;
+    _this._isVisible = false;
+    _this._filterValue = '';
+    _this._filterCategory = '';
+    _this._localFavorites = undefined;
+    _this._localPortlets = undefined;
+    _this.debounceCalculateSize = (0, debounce_1.default)(_this.calculateSize, 500);
+    _this.debounceCatFilterChange = (0, debounce_1.default)(function (value) {
+      _this._filterCategory = value;
+
+      _this.sendExternalFilter();
     }, 500);
-    this.debounceValFilterChange = (0, debounce_1.default)(value => {
-      this._filterValue = value;
-      this.sendExternalFilter();
+    _this.debounceValFilterChange = (0, debounce_1.default)(function (value) {
+      _this._filterValue = value;
+
+      _this.sendExternalFilter();
     }, 500);
-    this.debugLog('Component loaded');
-    const lhOpts = {
+
+    _this.debugLog('Component loaded');
+
+    var lhOpts = {
       languageCodeOnly: true,
       availableLanguages: ['fr', 'en'],
       defaultLanguage: 'en'
     };
-    const lang = langHelper_1.default.getPageLang(lhOpts);
+    var lang = langHelper_1.default.getPageLang(lhOpts);
     (0, localization_1.setLocale)(lang);
     langHelper_1.default.setLocale(lang);
+    return _this;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    window.addEventListener('esco-cm-grid-filter', this.getExternalFilter.bind(this));
-    window.addEventListener('esco-cm-request-grid-filter', this.sendExternalFilter);
-    window.addEventListener('esco-cm-request-categories', this.sendCategories);
-    window.addEventListener('gridFavoritesUpdated', this.reload.bind(this));
-    this.loadData();
-  }
-
-  disconnectedCallback() {
-    super.connectedCallback();
-    window.removeEventListener('esco-cm-grid-filter', this.getExternalFilter);
-    window.removeEventListener('esco-cm-request-grid-filter', this.sendExternalFilter);
-    window.removeEventListener('esco-cm-request-categories', this.sendCategories);
-    window.removeEventListener('gridFavoritesUpdated', this.reload.bind(this));
-    window.removeEventListener('resize', this.debounceCalculateSize.bind(this), false);
-  }
-
-  shouldUpdate() {
-    return this.portlets.length > 0 || this._localPortlets !== undefined;
-  }
-
-  willUpdate(changedProperties) {
-    if (changedProperties.has('parentScreenSize')) {
-      this.elementSize = this.parentScreenSize;
+  (0, _createClass2.default)(ContentGrid, [{
+    key: "connectedCallback",
+    value: function connectedCallback() {
+      (0, _get2.default)((0, _getPrototypeOf2.default)(ContentGrid.prototype), "connectedCallback", this).call(this);
+      window.addEventListener('esco-cm-grid-filter', this.getExternalFilter.bind(this));
+      window.addEventListener('esco-cm-request-grid-filter', this.sendExternalFilter);
+      window.addEventListener('esco-cm-request-categories', this.sendCategories);
+      window.addEventListener('gridFavoritesUpdated', this.reload.bind(this));
+      this.loadData();
     }
-
-    if (changedProperties.has('messages')) {
-      langHelper_1.default.setReference(this.messages);
+  }, {
+    key: "disconnectedCallback",
+    value: function disconnectedCallback() {
+      (0, _get2.default)((0, _getPrototypeOf2.default)(ContentGrid.prototype), "connectedCallback", this).call(this);
+      window.removeEventListener('esco-cm-grid-filter', this.getExternalFilter);
+      window.removeEventListener('esco-cm-request-grid-filter', this.sendExternalFilter);
+      window.removeEventListener('esco-cm-request-categories', this.sendCategories);
+      window.removeEventListener('gridFavoritesUpdated', this.reload.bind(this));
+      window.removeEventListener('resize', this.debounceCalculateSize.bind(this), false);
     }
-  }
-
-  loadData() {
-    if (this.portlets.length < 1) this.fetchPortlets();
-    if (this.favorites.length < 1) this.fetchFavorites();
-    window.addEventListener('resize', this.debounceCalculateSize.bind(this), false);
-  }
-
-  async fetchPortlets() {
-    const portlets = await portletService_1.default.fetch(this.userInfoApiUrl, this.portletApiUrl, this.debug);
-
-    if (portlets !== null) {
-      this._localPortlets = portletService_1.default.portletRegistryToArray(portlets);
-    } else {
-      this.errorLog('No portlets found');
+  }, {
+    key: "shouldUpdate",
+    value: function shouldUpdate() {
+      return this.portlets.length > 0 || this._localPortlets !== undefined;
     }
-  }
-
-  async fetchFavorites() {
-    const favoritesTree = await favoritesService_1.default.fetch(this.userInfoApiUrl, this.layoutApiUrl, this.debug);
-
-    if (favoritesTree != null) {
-      this._localFavorites = favoritesService_1.default.flattenFavorites(favoritesTree);
-    }
-  }
-
-  reload() {
-    if (!this.debug) this.fetchPortlets();
-  }
-
-  calculateSize() {
-    var _a;
-
-    const element = (_a = this.shadowRoot) === null || _a === void 0 ? void 0 : _a.getElementById('content-grid');
-    const size = sizeHelper_1.default.elementWidth(element);
-    this.elementSize = sizeHelper_1.default.breakPointName(size);
-  }
-
-  calculateCategories() {
-    var _context;
-
-    const portlets = this.portlets.length > 0 ? this.portlets : this._localPortlets;
-    const allCategories = portlets === null || portlets === void 0 ? void 0 : (0, _flatMap.default)(portlets).call(portlets, _ref => {
-      let {
-        categories
-      } = _ref;
-      return categories;
-    });
-    this.allCategories = (0, _sort.default)(_context = [...new Set(allCategories)]).call(_context);
-    this.sendCategories();
-  }
-
-  filteredPortlets() {
-    var _context2;
-
-    var _a;
-
-    const portlets = this.portlets.length > 0 ? this.portlets : (_a = this._localPortlets) !== null && _a !== void 0 ? _a : [];
-    const categoryFilter = this._filterCategory.trim() === '' ? // no filter applied return everything
-    portlets => portlets : // filter by category
-    portlets => (0, match_sorter_1.matchSorter)(portlets, this._filterCategory, {
-      keys: ['categories'],
-      threshold: match_sorter_1.matchSorter.rankings.EQUAL
-    });
-    const valueFilter = this._filterValue.trim() === '' ? // no filter applied return everything
-    portlets => portlets : // filter and sort by best match
-    portlets => (0, match_sorter_1.matchSorter)(portlets, this._filterValue, {
-      keys: ['title', 'name', 'description'],
-      threshold: match_sorter_1.matchSorter.rankings.ACRONYM
-    });
-    return valueFilter((0, _sort.default)(_context2 = categoryFilter(portlets)).call(_context2, portletService_1.default.sortPortlets));
-  }
-
-  portletCardSize() {
-    // this.calculateSize();
-    if (this.cardSize === 'auto') {
-      return this.elementSize;
-    }
-
-    return this.cardSize;
-  }
-
-  getRenderPortletUrl(portlet) {
-    return portletService_1.default.getRenderUrl(portlet, this.contextApiUrl);
-  }
-
-  hasAlternativeMaximizedUrl(portlet) {
-    return portletService_1.default.getAlternativeMaximizedUrl(portlet);
-  }
-
-  isFavorite(fname) {
-    const favorites = this.favorites.length > 0 ? this.favorites : this._localFavorites;
-    return (favorites === null || favorites === void 0 ? void 0 : (0, _includes.default)(favorites).call(favorites, fname)) || false;
-  }
-
-  catFilterChange(e) {
-    const target = e.target || e.srcElement;
-    const value = target === null || target === void 0 ? void 0 : target.value;
-    this.debounceCatFilterChange(value);
-  }
-
-  valFilterChange(e) {
-    const target = e.target || e.srcElement;
-    const value = target === null || target === void 0 ? void 0 : target.value;
-    this.debounceValFilterChange(value);
-  }
-
-  getExternalFilter(e) {
-    var _context3;
-
-    var _a;
-
-    if (((0, _includes.default)(_context3 = this.allCategories).call(_context3, e.detail.category) || e.detail.category == '') && this._filterCategory != e.detail.category) {
-      this._filterCategory = e.detail.category;
-    }
-
-    if (((_a = e.detail) === null || _a === void 0 ? void 0 : _a.value) && this._filterValue != e.detail.value) {
-      this._filterValue = e.detail.value;
-    }
-  }
-
-  sendExternalFilter() {
-    const filterEvt = new CustomEvent('esco-cm-grid-filter', {
-      detail: {
-        category: this._filterCategory,
-        value: this._filterValue
+  }, {
+    key: "willUpdate",
+    value: function willUpdate(changedProperties) {
+      if (changedProperties.has('parentScreenSize')) {
+        this.elementSize = this.parentScreenSize;
       }
-    });
-    window.dispatchEvent(filterEvt);
-  }
 
-  sendCategories() {
-    const catsEvt = new CustomEvent('esco-cm-categories', {
-      detail: {
-        categories: this.allCategories
+      if (changedProperties.has('messages')) {
+        langHelper_1.default.setReference(this.messages);
       }
-    });
-    window.dispatchEvent(catsEvt);
-  }
+    }
+  }, {
+    key: "loadData",
+    value: function loadData() {
+      if (this.portlets.length < 1) this.fetchPortlets();
+      if (this.favorites.length < 1) this.fetchFavorites();
+      window.addEventListener('resize', this.debounceCalculateSize.bind(this), false);
+    }
+  }, {
+    key: "fetchPortlets",
+    value: function () {
+      var _fetchPortlets = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+        var portlets;
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return portletService_1.default.fetch(this.userInfoApiUrl, this.portletApiUrl, this.debug);
 
-  toggleFavorite(e) {
-    var _a, _b;
+              case 2:
+                portlets = _context.sent;
 
-    const GFUevent = new CustomEvent('gridFavoritesUpdated', {
-      bubbles: true,
-      detail: e.detail
-    });
-    window.dispatchEvent(GFUevent);
-    const TFevent = new CustomEvent('toggle-favorite', {
-      bubbles: true,
-      detail: e.detail
-    });
-    this.dispatchEvent(TFevent);
+                if (portlets !== null) {
+                  this._localPortlets = portletService_1.default.portletRegistryToArray(portlets);
+                } else {
+                  this.errorLog('No portlets found');
+                }
 
-    if (this.favorites.length == 0) {
-      var _context4;
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
 
-      if (this._localFavorites === undefined) this._localFavorites = [];
+      function fetchPortlets() {
+        return _fetchPortlets.apply(this, arguments);
+      }
 
-      if (!(0, _includes.default)(_context4 = this._localFavorites).call(_context4, e.detail.fname)) {
-        this._localFavorites.push(e.detail.fname);
+      return fetchPortlets;
+    }()
+  }, {
+    key: "fetchFavorites",
+    value: function () {
+      var _fetchFavorites = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+        var favoritesTree;
+        return _regenerator.default.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return favoritesService_1.default.fetch(this.userInfoApiUrl, this.layoutApiUrl, this.debug);
+
+              case 2:
+                favoritesTree = _context2.sent;
+
+                if (favoritesTree != null) {
+                  this._localFavorites = favoritesService_1.default.flattenFavorites(favoritesTree);
+                }
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function fetchFavorites() {
+        return _fetchFavorites.apply(this, arguments);
+      }
+
+      return fetchFavorites;
+    }()
+  }, {
+    key: "reload",
+    value: function reload() {
+      if (!this.debug) this.fetchPortlets();
+    }
+  }, {
+    key: "calculateSize",
+    value: function calculateSize() {
+      var _a;
+
+      var element = (_a = this.shadowRoot) === null || _a === void 0 ? void 0 : _a.getElementById('content-grid');
+      var size = sizeHelper_1.default.elementWidth(element);
+      this.elementSize = sizeHelper_1.default.breakPointName(size);
+    }
+  }, {
+    key: "calculateCategories",
+    value: function calculateCategories() {
+      var _context3;
+
+      var portlets = this.portlets.length > 0 ? this.portlets : this._localPortlets;
+      var allCategories = portlets === null || portlets === void 0 ? void 0 : (0, _flatMap.default)(portlets).call(portlets, function (_ref2) {
+        var categories = _ref2.categories;
+        return categories;
+      });
+      this.allCategories = (0, _sort.default)(_context3 = (0, _toConsumableArray2.default)(new Set(allCategories))).call(_context3);
+      this.sendCategories();
+    }
+  }, {
+    key: "filteredPortlets",
+    value: function filteredPortlets() {
+      var _this2 = this,
+          _context4;
+
+      var _a;
+
+      var portlets = this.portlets.length > 0 ? this.portlets : (_a = this._localPortlets) !== null && _a !== void 0 ? _a : [];
+      var categoryFilter = this._filterCategory.trim() === '' ? // no filter applied return everything
+      function (portlets) {
+        return portlets;
+      } : // filter by category
+      function (portlets) {
+        return (0, match_sorter_1.matchSorter)(portlets, _this2._filterCategory, {
+          keys: ['categories'],
+          threshold: match_sorter_1.matchSorter.rankings.EQUAL
+        });
+      };
+      var valueFilter = this._filterValue.trim() === '' ? // no filter applied return everything
+      function (portlets) {
+        return portlets;
+      } : // filter and sort by best match
+      function (portlets) {
+        return (0, match_sorter_1.matchSorter)(portlets, _this2._filterValue, {
+          keys: ['title', 'name', 'description'],
+          threshold: match_sorter_1.matchSorter.rankings.ACRONYM
+        });
+      };
+      return valueFilter((0, _sort.default)(_context4 = categoryFilter(portlets)).call(_context4, portletService_1.default.sortPortlets));
+    }
+  }, {
+    key: "portletCardSize",
+    value: function portletCardSize() {
+      // this.calculateSize();
+      if (this.cardSize === 'auto') {
+        return this.elementSize;
+      }
+
+      return this.cardSize;
+    }
+  }, {
+    key: "getRenderPortletUrl",
+    value: function getRenderPortletUrl(portlet) {
+      return portletService_1.default.getRenderUrl(portlet, this.contextApiUrl);
+    }
+  }, {
+    key: "hasAlternativeMaximizedUrl",
+    value: function hasAlternativeMaximizedUrl(portlet) {
+      return portletService_1.default.getAlternativeMaximizedUrl(portlet);
+    }
+  }, {
+    key: "isFavorite",
+    value: function isFavorite(fname) {
+      var favorites = this.favorites.length > 0 ? this.favorites : this._localFavorites;
+      return (favorites === null || favorites === void 0 ? void 0 : (0, _includes.default)(favorites).call(favorites, fname)) || false;
+    }
+  }, {
+    key: "catFilterChange",
+    value: function catFilterChange(e) {
+      var target = e.target || e.srcElement;
+      var value = target === null || target === void 0 ? void 0 : target.value;
+      this.debounceCatFilterChange(value);
+    }
+  }, {
+    key: "valFilterChange",
+    value: function valFilterChange(e) {
+      var target = e.target || e.srcElement;
+      var value = target === null || target === void 0 ? void 0 : target.value;
+      this.debounceValFilterChange(value);
+    }
+  }, {
+    key: "getExternalFilter",
+    value: function getExternalFilter(e) {
+      var _context5;
+
+      var _a;
+
+      if (((0, _includes.default)(_context5 = this.allCategories).call(_context5, e.detail.category) || e.detail.category == '') && this._filterCategory != e.detail.category) {
+        this._filterCategory = e.detail.category;
+      }
+
+      if (((_a = e.detail) === null || _a === void 0 ? void 0 : _a.value) && this._filterValue != e.detail.value) {
+        this._filterValue = e.detail.value;
+      }
+    }
+  }, {
+    key: "sendExternalFilter",
+    value: function sendExternalFilter() {
+      var filterEvt = new CustomEvent('esco-cm-grid-filter', {
+        detail: {
+          category: this._filterCategory,
+          value: this._filterValue
+        }
+      });
+      window.dispatchEvent(filterEvt);
+    }
+  }, {
+    key: "sendCategories",
+    value: function sendCategories() {
+      var catsEvt = new CustomEvent('esco-cm-categories', {
+        detail: {
+          categories: this.allCategories
+        }
+      });
+      window.dispatchEvent(catsEvt);
+    }
+  }, {
+    key: "toggleFavorite",
+    value: function toggleFavorite(e) {
+      var _a, _b;
+
+      var GFUevent = new CustomEvent('gridFavoritesUpdated', {
+        bubbles: true,
+        detail: e.detail
+      });
+      window.dispatchEvent(GFUevent);
+      var TFevent = new CustomEvent('toggle-favorite', {
+        bubbles: true,
+        detail: e.detail
+      });
+      this.dispatchEvent(TFevent);
+
+      if (this.favorites.length == 0) {
+        var _context6;
+
+        if (this._localFavorites === undefined) this._localFavorites = [];
+
+        if (!(0, _includes.default)(_context6 = this._localFavorites).call(_context6, e.detail.fname)) {
+          this._localFavorites.push(e.detail.fname);
+        } else {
+          this._localFavorites.splice(this._localFavorites.indexOf(e.detail.fname), 1);
+        }
+      }
+
+      if (!this.debug && ((_a = e.detail) === null || _a === void 0 ? void 0 : _a.chanId) !== undefined && this.portlets.length >= 1) {
+        if ((_b = e.detail) === null || _b === void 0 ? void 0 : _b.isFavorite) {
+          favoritesService_1.default.add(this.userInfoApiUrl, this.favoriteApiUrl, e.detail.chanId);
+        } else {
+          favoritesService_1.default.remove(this.userInfoApiUrl, this.favoriteApiUrl, e.detail.chanId);
+        }
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _ref3;
+
+      this.calculateCategories();
+      return (0, lit_1.html)(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n      <section\n        class=\"content-grid ", "\"\n        style=\"", "\"\n        id=\"content-grid\"\n      >\n        <div>\n          ", "\n\n          <div class=\"preamble\">\n            <slot name=\"preamble\" class=\"preamble\"></slot>\n          </div>\n          <div class=\"flex-grid\">", "</div>\n          <slot name=\"footer\">", " </slot>\n        </div>\n      </section>\n    "])), (0, class_map_js_1.classMap)((_ref3 = {}, (0, _defineProperty2.default)(_ref3, 'parent-' + this.parentScreenSize, true), (0, _defineProperty2.default)(_ref3, this.elementSize, true), _ref3)), (0, style_map_js_1.styleMap)({
+        'background-color': this.backgroundColor
+      }), this.hideTitle ? (0, lit_1.html)(_templateObject2 || (_templateObject2 = (0, _taggedTemplateLiteral2.default)([""]))) : (0, lit_1.html)(_templateObject3 || (_templateObject3 = (0, _taggedTemplateLiteral2.default)(["\n                <div class=\"title\">\n                  <slot name=\"header-left\">\n                    <h1>\n                      ", "\n                    </h1>\n                  </slot>\n                  <slot name=\"header-right\">", "</slot>\n                </div>\n              "])), langHelper_1.default.localTransation('services.title', (0, localize_1.msg)((0, localize_1.str)(_templateObject4 || (_templateObject4 = (0, _taggedTemplateLiteral2.default)(["All the services"]))))), this.renderCatFilter()), this.renderPortlets(), this.renderCatFilterFooter());
+    }
+  }, {
+    key: "renderCatFilter",
+    value: function renderCatFilter() {
+      var _this3 = this;
+
+      if (this.hideTitle) {
+        return (0, lit_1.html)(_templateObject5 || (_templateObject5 = (0, _taggedTemplateLiteral2.default)([""])));
       } else {
-        this._localFavorites.splice(this._localFavorites.indexOf(e.detail.fname), 1);
+        return (0, lit_1.html)(_templateObject6 || (_templateObject6 = (0, _taggedTemplateLiteral2.default)(["\n        <div\n          class=\"filter custom-caret ", "\"\n        >\n          <input\n            title=\"", "\"\n            .value=\"", "\"\n            placeholder=\"", "\"\n            type=\"text\"\n            @keyup=", "\n            @focus=", "\n            autofocus\n          />\n          <select id=\"catFilter\" @change=", ">\n            <option class=\"default\" selected value=\"\">\n              ", "\n            </option>\n            ", "\n          </select>\n          <div\n            @click=\"", "\"\n          >\n            ", "\n          </div>\n        </div>\n      "])), (0, class_map_js_1.classMap)({
+          opened: this._isVisible,
+          closed: !this._isVisible
+        }), langHelper_1.default.localTransation('services.filter', (0, localize_1.msg)((0, localize_1.str)(_templateObject7 || (_templateObject7 = (0, _taggedTemplateLiteral2.default)(["Search a service..."]))))), this._filterValue, langHelper_1.default.localTransation('services.filter', (0, localize_1.msg)((0, localize_1.str)(_templateObject8 || (_templateObject8 = (0, _taggedTemplateLiteral2.default)(["Search a service..."]))))), this.valFilterChange, function () {
+          _this3._filterValue = '';
+
+          _this3.sendExternalFilter();
+        }, this.catFilterChange, langHelper_1.default.localTransation('filter.selectOption', (0, localize_1.msg)((0, localize_1.str)(_templateObject9 || (_templateObject9 = (0, _taggedTemplateLiteral2.default)(["All the categories"]))))), this.allCategories.map(function (cat) {
+          var _a;
+
+          return (0, lit_1.html)(_templateObject10 || (_templateObject10 = (0, _taggedTemplateLiteral2.default)(["<option\n                  value=\"", "\"\n                  ?selected=", "\n                >\n                  ", "\n                </option> "])), (_a = cat) !== null && _a !== void 0 ? _a : '', _this3._filterCategory === cat, cat);
+        }), function () {
+          _this3._isVisible = !_this3._isVisible;
+        }, (0, unsafe_html_js_1.unsafeHTML)("".concat((0, fontawesome_svg_core_1.icon)(faSearch_1.faSearch).html)));
       }
     }
+  }, {
+    key: "renderCatFilterFooter",
+    value: function renderCatFilterFooter() {
+      var _this4 = this;
 
-    if (!this.debug && ((_a = e.detail) === null || _a === void 0 ? void 0 : _a.chanId) !== undefined && this.portlets.length >= 1) {
-      if ((_b = e.detail) === null || _b === void 0 ? void 0 : _b.isFavorite) {
-        favoritesService_1.default.add(this.userInfoApiUrl, this.favoriteApiUrl, e.detail.chanId);
+      if (this.showFooterCategories) {
+        return (0, lit_1.html)(_templateObject11 || (_templateObject11 = (0, _taggedTemplateLiteral2.default)(["\n        <select class=\"footer-categories\" @change=", ">\n          <option class=\"default\" selected value=\"\">\n            ", "\n          </option>\n          ", "\n        </select>\n      "])), this.catFilterChange, langHelper_1.default.localTransation('filter.selectOption', (0, localize_1.msg)((0, localize_1.str)(_templateObject12 || (_templateObject12 = (0, _taggedTemplateLiteral2.default)(["All the categories"]))))), this.allCategories.map(function (cat) {
+          var _a;
+
+          return (0, lit_1.html)(_templateObject13 || (_templateObject13 = (0, _taggedTemplateLiteral2.default)(["<option\n                value=\"", "\"\n                ?selected=", "\n              >\n                ", "\n              </option> "])), (_a = cat) !== null && _a !== void 0 ? _a : '', _this4._filterCategory === cat, cat);
+        }));
       } else {
-        favoritesService_1.default.remove(this.userInfoApiUrl, this.favoriteApiUrl, e.detail.chanId);
+        return (0, lit_1.html)(_templateObject14 || (_templateObject14 = (0, _taggedTemplateLiteral2.default)([""])));
       }
     }
-  }
+  }, {
+    key: "renderPortlets",
+    value: function renderPortlets() {
+      var _this5 = this;
 
-  render() {
-    this.calculateCategories();
-    return (0, lit_1.html)`
-      <section
-        class="content-grid ${(0, class_map_js_1.classMap)({
-      ['parent-' + this.parentScreenSize]: true,
-      [this.elementSize]: true
-    })}"
-        style="${(0, style_map_js_1.styleMap)({
-      'background-color': this.backgroundColor
-    })}"
-        id="content-grid"
-      >
-        <div>
-          ${this.hideTitle ? (0, lit_1.html)`` : (0, lit_1.html)`
-                <div class="title">
-                  <slot name="header-left">
-                    <h1>
-                      ${langHelper_1.default.localTransation('services.title', (0, localize_1.msg)((0, localize_1.str)`All the services`))}
-                    </h1>
-                  </slot>
-                  <slot name="header-right">${this.renderCatFilter()}</slot>
-                </div>
-              `}
-
-          <div class="preamble">
-            <slot name="preamble" class="preamble"></slot>
-          </div>
-          <div class="flex-grid">${this.renderPortlets()}</div>
-          <slot name="footer">${this.renderCatFilterFooter()} </slot>
-        </div>
-      </section>
-    `;
-  }
-
-  renderCatFilter() {
-    if (this.hideTitle) {
-      return (0, lit_1.html)``;
-    } else {
-      return (0, lit_1.html)`
-        <div
-          class="filter custom-caret ${(0, class_map_js_1.classMap)({
-        opened: this._isVisible,
-        closed: !this._isVisible
-      })}"
-        >
-          <input
-            title="${langHelper_1.default.localTransation('services.filter', (0, localize_1.msg)((0, localize_1.str)`Search a service...`))}"
-            .value="${this._filterValue}"
-            placeholder="${langHelper_1.default.localTransation('services.filter', (0, localize_1.msg)((0, localize_1.str)`Search a service...`))}"
-            type="text"
-            @keyup=${this.valFilterChange}
-            @focus=${() => {
-        this._filterValue = '';
-        this.sendExternalFilter();
-      }}
-            autofocus
-          />
-          <select id="catFilter" @change=${this.catFilterChange}>
-            <option class="default" selected value="">
-              ${langHelper_1.default.localTransation('filter.selectOption', (0, localize_1.msg)((0, localize_1.str)`All the categories`))}
-            </option>
-            ${this.allCategories.map(cat => {
-        var _a;
-
-        return (0, lit_1.html)`<option
-                  value="${(_a = cat) !== null && _a !== void 0 ? _a : ''}"
-                  ?selected=${this._filterCategory === cat}
-                >
-                  ${cat}
-                </option> `;
-      })}
-          </select>
-          <div
-            @click="${() => {
-        this._isVisible = !this._isVisible;
-      }}"
-          >
-            ${(0, unsafe_html_js_1.unsafeHTML)(`${(0, fontawesome_svg_core_1.icon)(faSearch_1.faSearch).html}`)}
-          </div>
-        </div>
-      `;
+      var portlets = this.filteredPortlets();
+      var cardSize = this.portletCardSize();
+      var template = (0, lit_1.html)(_templateObject15 || (_templateObject15 = (0, _taggedTemplateLiteral2.default)(["", " "])), portlets.map(function (portlet) {
+        return (0, lit_1.html)(_templateObject16 || (_templateObject16 = (0, _taggedTemplateLiteral2.default)(["\n        <div\n          data-key=\"", "\"\n          class=\"flex-item ma-3 text-xs-center ", "\"\n        >\n          <a\n            href=\"", "\"\n            target=\"", "\"\n            rel=\"", "\"\n            class=\"no-style\"\n          >\n            <esco-portlet-card\n              .messages=", "\n              .portletDesc=\"", "\"\n              ?is-favorite=", "\n              size=\"", "\"\n              card-hover-src=\"", "\"\n              ?hide-action=", "\n              ?background-is-dark=\"", "\"\n              ?debug=\"", "\"\n              @toggle-favorite=", "\n            ></esco-portlet-card>\n          </a>\n        </div>\n      "])), portlet.id, (0, class_map_js_1.classMap)((0, _defineProperty2.default)({}, 'portlet-card-' + cardSize, true)), _this5.getRenderPortletUrl(portlet), _this5.hasAlternativeMaximizedUrl(portlet) ? '_blank' : '_self', _this5.hasAlternativeMaximizedUrl(portlet) ? 'noopener noreferrer' : '', _this5.messages, portlet, _this5.isFavorite(portlet.fname), cardSize, _this5.cardHoverSrc, _this5.hideAction, _this5.portletBackgroundIsDark, _this5.debug, _this5.toggleFavorite);
+      }));
+      return template;
     }
-  }
+  }]);
+  return ContentGrid;
+}((0, litLoggable_1.LitLoggable)(lit_1.LitElement));
 
-  renderCatFilterFooter() {
-    if (this.showFooterCategories) {
-      return (0, lit_1.html)`
-        <select class="footer-categories" @change=${this.catFilterChange}>
-          <option class="default" selected value="">
-            ${langHelper_1.default.localTransation('filter.selectOption', (0, localize_1.msg)((0, localize_1.str)`All the categories`))}
-          </option>
-          ${this.allCategories.map(cat => {
-        var _a;
-
-        return (0, lit_1.html)`<option
-                value="${(_a = cat) !== null && _a !== void 0 ? _a : ''}"
-                ?selected=${this._filterCategory === cat}
-              >
-                ${cat}
-              </option> `;
-      })}
-        </select>
-      `;
-    } else {
-      return (0, lit_1.html)``;
-    }
-  }
-
-  renderPortlets() {
-    const portlets = this.filteredPortlets();
-    const cardSize = this.portletCardSize();
-    const template = (0, lit_1.html)`${portlets.map(portlet => {
-      return (0, lit_1.html)`
-        <div
-          data-key="${portlet.id}"
-          class="flex-item ma-3 text-xs-center ${(0, class_map_js_1.classMap)({
-        ['portlet-card-' + cardSize]: true
-      })}"
-        >
-          <a
-            href="${this.getRenderPortletUrl(portlet)}"
-            target="${this.hasAlternativeMaximizedUrl(portlet) ? '_blank' : '_self'}"
-            rel="${this.hasAlternativeMaximizedUrl(portlet) ? 'noopener noreferrer' : ''}"
-            class="no-style"
-          >
-            <esco-portlet-card
-              .messages=${this.messages}
-              .portletDesc="${portlet}"
-              ?is-favorite=${this.isFavorite(portlet.fname)}
-              size="${cardSize}"
-              card-hover-src="${this.cardHoverSrc}"
-              ?hide-action=${this.hideAction}
-              ?background-is-dark="${this.portletBackgroundIsDark}"
-              ?debug="${this.debug}"
-              @toggle-favorite=${this.toggleFavorite}
-            ></esco-portlet-card>
-          </a>
-        </div>
-      `;
-    })} `;
-    return template;
-  }
-
-};
-ContentGrid.styles = (0, lit_1.css)`
-    ${(0, lit_1.unsafeCSS)(content_grid_scss_1.default)}
-  `;
+ContentGrid.styles = (0, lit_1.css)(_templateObject17 || (_templateObject17 = (0, _taggedTemplateLiteral2.default)(["\n    ", "\n  "])), (0, lit_1.unsafeCSS)(content_grid_scss_1.default));
 
 __decorate([(0, decorators_js_1.property)({
   type: Array
@@ -4834,31 +4907,25 @@ __decorate([(0, decorators_js_1.property)({
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
-
-  hasChanged(newVal) {
+  hasChanged: function hasChanged(newVal) {
     return sizeHelper_1.default.validate(newVal, true, true);
   },
-
   attribute: 'parent-screen-size'
 })], ContentGrid.prototype, "parentScreenSize", void 0);
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
-
-  hasChanged(newVal) {
+  hasChanged: function hasChanged(newVal) {
     return sizeHelper_1.default.validate(newVal, true, true);
   },
-
   attribute: 'portlet-card-size'
 })], ContentGrid.prototype, "cardSize", void 0);
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
-
-  hasChanged(newVal) {
+  hasChanged: function hasChanged(newVal) {
     return sizeHelper_1.default.validate(newVal, true, true);
   },
-
   attribute: false
 })], ContentGrid.prototype, "elementSize", void 0);
 
@@ -4962,21 +5029,63 @@ exports.ContentGrid = ContentGrid;
 "use strict";
 
 
+__webpack_require__(12419);
+
 var _interopRequireDefault = __webpack_require__(17907);
+
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(61125));
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(14490));
+
+var _regenerator = _interopRequireDefault(__webpack_require__(30222));
 
 var _sort = _interopRequireDefault(__webpack_require__(2578));
 
 var _includes = _interopRequireDefault(__webpack_require__(58118));
 
-__webpack_require__(88674);
+var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(15687));
 
-__webpack_require__(33948);
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(80093));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(33119));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(92664));
+
+var _get2 = _interopRequireDefault(__webpack_require__(44775));
+
+var _inherits2 = _interopRequireDefault(__webpack_require__(84827));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(85299));
+
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(55536));
+
+var _typeof2 = _interopRequireDefault(__webpack_require__(20474));
+
+__webpack_require__(38880);
+
+__webpack_require__(41539);
+
+__webpack_require__(47941);
+
+__webpack_require__(92222);
+
+__webpack_require__(57327);
+
+__webpack_require__(68309);
+
+var _templateObject, _templateObject2, _templateObject3;
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 var __decorate = void 0 && (void 0).__decorate || function (decorators, target, key, desc) {
   var c = arguments.length,
       r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
       d;
-  if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  if ((typeof Reflect === "undefined" ? "undefined" : (0, _typeof2.default)(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
   return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
@@ -4992,33 +5101,33 @@ Object.defineProperty(exports, "__esModule", ({
 exports.ContentMenu = void 0;
 /*Lit*/
 
-const lit_1 = __webpack_require__(9392);
+var lit_1 = __webpack_require__(9392);
 
-const decorators_js_1 = __webpack_require__(45595);
+var decorators_js_1 = __webpack_require__(45595);
 
-const class_map_js_1 = __webpack_require__(99455);
+var class_map_js_1 = __webpack_require__(99455);
 
-const style_map_js_1 = __webpack_require__(3959);
+var style_map_js_1 = __webpack_require__(3959);
 /*SCSS*/
 
 
-const content_menu_scss_1 = __importDefault(__webpack_require__(76141));
+var content_menu_scss_1 = __importDefault(__webpack_require__(76141));
 /*Mixins*/
 
 
-const litLoggable_1 = __webpack_require__(39937);
+var litLoggable_1 = __webpack_require__(39937);
 /*Services*/
 
 
-const portletService_1 = __importDefault(__webpack_require__(19273));
+var portletService_1 = __importDefault(__webpack_require__(19273));
 
-const favoritesService_1 = __importDefault(__webpack_require__(85925));
+var favoritesService_1 = __importDefault(__webpack_require__(85925));
 
-const organizationService_1 = __importDefault(__webpack_require__(94443));
+var organizationService_1 = __importDefault(__webpack_require__(94443));
 /*Helpers*/
 
 
-const sizeHelper_1 = __importDefault(__webpack_require__(96995));
+var sizeHelper_1 = __importDefault(__webpack_require__(96995));
 /*Components*/
 
 
@@ -5032,264 +5141,292 @@ __webpack_require__(36580);
 
 __webpack_require__(89628);
 
-let ContentMenu = class ContentMenu extends (0, litLoggable_1.LitLoggable)(lit_1.LitElement) {
-  constructor() {
+var ContentMenu = /*#__PURE__*/function (_ref) {
+  (0, _inherits2.default)(ContentMenu, _ref);
+
+  var _super = _createSuper(ContentMenu);
+
+  function ContentMenu() {
+    var _this;
+
+    (0, _classCallCheck2.default)(this, ContentMenu);
+
     var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 
-    super();
-    this.messages = [];
-    this.favoritesPortletCardSize = 'small';
-    this.gridPortletCardSize = 'auto';
-    this.defaultOrgLogo = '';
-    this.forceOrgLogo = '';
-    this.contextApiUrl = (_a = "/uPortal") !== null && _a !== void 0 ? _a : '';
-    this.favoriteApiUrl = ((_b = "/uPortal") !== null && _b !== void 0 ? _b : '') + ((_c = "/api/layout") !== null && _c !== void 0 ? _c : '');
-    this.layoutApiUrl = ((_d = "/uPortal") !== null && _d !== void 0 ? _d : '') + ((_e = "/api/v4-3/dlm/layout.json") !== null && _e !== void 0 ? _e : '');
-    this.portletApiUrl = ((_f = "/uPortal") !== null && _f !== void 0 ? _f : '') + ((_g = "/api/v4-3/dlm/portletRegistry.json") !== null && _g !== void 0 ? _g : '');
-    this.organizationApiUrl = '';
-    this.userInfoApiUrl = ((_h = "/uPortal") !== null && _h !== void 0 ? _h : '') + ((_j = "/api/v5-1/userinfo") !== null && _j !== void 0 ? _j : '');
-    this.signoutUrl = "/uPortal/Logout";
-    this.userInfoPortletUrl = '';
-    this.switchOrgPortletUrl = '';
-    this.orgAttributeName = 'ESCOSIRENCourant[0]';
-    this.orgLogoUrlAttributeName = 'ESCOSIRENCourant[0]';
-    this.userAllOrgsIdAttributeName = 'ESCOSIREN';
-    this.cardHoverSrc = 'none';
-    this.hideActionMode = 'auto';
-    this.isHidden = false;
-    this.showFavoritesInSlider = false;
-    this.debug = false;
-    this.fakeAttribute = false;
-    this._screenSize = 'medium';
-    this._hideAction = false;
-    this._currentOrg = null;
-    this._currentUser = null;
-    this._currentUserOrgs = null;
-    this._portlets = null;
-    this._favorites = null;
-    this.debugLog('Component loaded');
+    _this = _super.call(this);
+    _this.messages = [];
+    _this.favoritesPortletCardSize = 'small';
+    _this.gridPortletCardSize = 'auto';
+    _this.defaultOrgLogo = '';
+    _this.forceOrgLogo = '';
+    _this.contextApiUrl = (_a = "/uPortal") !== null && _a !== void 0 ? _a : '';
+    _this.favoriteApiUrl = ((_b = "/uPortal") !== null && _b !== void 0 ? _b : '') + ((_c = "/api/layout") !== null && _c !== void 0 ? _c : '');
+    _this.layoutApiUrl = ((_d = "/uPortal") !== null && _d !== void 0 ? _d : '') + ((_e = "/api/v4-3/dlm/layout.json") !== null && _e !== void 0 ? _e : '');
+    _this.portletApiUrl = ((_f = "/uPortal") !== null && _f !== void 0 ? _f : '') + ((_g = "/api/v4-3/dlm/portletRegistry.json") !== null && _g !== void 0 ? _g : '');
+    _this.organizationApiUrl = '';
+    _this.userInfoApiUrl = ((_h = "/uPortal") !== null && _h !== void 0 ? _h : '') + ((_j = "/api/v5-1/userinfo") !== null && _j !== void 0 ? _j : '');
+    _this.signoutUrl = "/uPortal/Logout";
+    _this.userInfoPortletUrl = '';
+    _this.switchOrgPortletUrl = '';
+    _this.orgAttributeName = 'ESCOSIRENCourant[0]';
+    _this.orgLogoUrlAttributeName = 'ESCOSIRENCourant[0]';
+    _this.userAllOrgsIdAttributeName = 'ESCOSIREN';
+    _this.cardHoverSrc = 'none';
+    _this.hideActionMode = 'auto';
+    _this.isHidden = false;
+    _this.showFavoritesInSlider = false;
+    _this.debug = false;
+    _this.fakeAttribute = false;
+    _this._screenSize = 'medium';
+    _this._hideAction = false;
+    _this._currentOrg = null;
+    _this._currentUser = null;
+    _this._currentUserOrgs = null;
+    _this._portlets = null;
+    _this._favorites = null;
+
+    _this.debugLog('Component loaded');
+
+    return _this;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    window.addEventListener('resize', this.calculateSize.bind(this));
-  }
-
-  disconnectedCallback() {
-    super.disconnectedCallback();
-    window.removeEventListener('resize', this.calculateSize.bind(this));
-  }
-
-  shouldUpdate() {
-    if (this.defaultOrgLogo === '') {
-      this.errorLog('default-org-logo attribute is required');
-      return false;
+  (0, _createClass2.default)(ContentMenu, [{
+    key: "connectedCallback",
+    value: function connectedCallback() {
+      (0, _get2.default)((0, _getPrototypeOf2.default)(ContentMenu.prototype), "connectedCallback", this).call(this);
+      window.addEventListener('resize', this.calculateSize.bind(this));
     }
-
-    return true;
-  }
-
-  updated(changedProperties) {
-    if (changedProperties.has('userInfoApiUrl')) {
-      if (changedProperties.has('portletApiUrl')) {
-        if (!this._portlets) this.fetchPortlets();
+  }, {
+    key: "disconnectedCallback",
+    value: function disconnectedCallback() {
+      (0, _get2.default)((0, _getPrototypeOf2.default)(ContentMenu.prototype), "disconnectedCallback", this).call(this);
+      window.removeEventListener('resize', this.calculateSize.bind(this));
+    }
+  }, {
+    key: "shouldUpdate",
+    value: function shouldUpdate() {
+      if (this.defaultOrgLogo === '') {
+        this.errorLog('default-org-logo attribute is required');
+        return false;
       }
 
-      if (changedProperties.has('layoutApiUrl')) {
-        if (!this._favorites) this.fetchFavorites();
+      return true;
+    }
+  }, {
+    key: "updated",
+    value: function updated(changedProperties) {
+      if (changedProperties.has('userInfoApiUrl')) {
+        if (changedProperties.has('portletApiUrl')) {
+          if (!this._portlets) this.fetchPortlets();
+        }
+
+        if (changedProperties.has('layoutApiUrl')) {
+          if (!this._favorites) this.fetchFavorites();
+        }
+
+        if (changedProperties.has('organizationApiUrl') || changedProperties.has('userAllOrgsIdAttributeName')) {
+          this.fetchUserInfo();
+        }
       }
 
-      if (changedProperties.has('organizationApiUrl') || changedProperties.has('userAllOrgsIdAttributeName')) {
-        this.fetchUserInfo();
+      if (changedProperties.has('isHidden')) {
+        this.calculateSize();
       }
     }
+  }, {
+    key: "fetchPortlets",
+    value: function () {
+      var _fetchPortlets = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+        var portlets, _context;
 
-    if (changedProperties.has('isHidden')) {
-      this.calculateSize();
+        return _regenerator.default.wrap(function _callee$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return portletService_1.default.fetch(this.userInfoApiUrl, this.portletApiUrl, this.debug);
+
+              case 2:
+                portlets = _context2.sent;
+
+                if (portlets) {
+                  this._portlets = (0, _sort.default)(_context = portletService_1.default.portletRegistryToArray(portlets)).call(_context, portletService_1.default.sortPortlets);
+                } else {
+                  this.errorLog('No portlets fetch from API');
+                }
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function fetchPortlets() {
+        return _fetchPortlets.apply(this, arguments);
+      }
+
+      return fetchPortlets;
+    }()
+  }, {
+    key: "fetchFavorites",
+    value: function () {
+      var _fetchFavorites = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+        var favoritesTree;
+        return _regenerator.default.wrap(function _callee2$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return favoritesService_1.default.fetch(this.userInfoApiUrl, this.layoutApiUrl, this.debug);
+
+              case 2:
+                favoritesTree = _context3.sent;
+
+                if (favoritesTree) {
+                  this._favorites = favoritesService_1.default.flattenFavorites(favoritesTree);
+                }
+
+              case 4:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function fetchFavorites() {
+        return _fetchFavorites.apply(this, arguments);
+      }
+
+      return fetchFavorites;
+    }()
+  }, {
+    key: "fetchUserInfo",
+    value: function () {
+      var _fetchUserInfo = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
+        var fetchResult;
+        return _regenerator.default.wrap(function _callee3$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return organizationService_1.default.fetch(this.userInfoApiUrl, this.organizationApiUrl, this.userAllOrgsIdAttributeName, this.debug);
+
+              case 2:
+                fetchResult = _context4.sent;
+
+                if (fetchResult) {
+                  this.debugLog('userInfo API result', fetchResult);
+                  this._currentUser = fetchResult === null || fetchResult === void 0 ? void 0 : fetchResult.user;
+                  this._currentUserOrgs = fetchResult === null || fetchResult === void 0 ? void 0 : fetchResult.organizations;
+                  if (this._currentUser && this._currentUserOrgs) this._currentOrg = organizationService_1.default.getCurrentOrganization(this._currentUser, this.userAllOrgsIdAttributeName, this._currentUserOrgs);
+                } else {
+                  this.errorLog('No user infos fetch from API');
+                }
+
+              case 4:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function fetchUserInfo() {
+        return _fetchUserInfo.apply(this, arguments);
+      }
+
+      return fetchUserInfo;
+    }()
+  }, {
+    key: "calculateSize",
+    value: function calculateSize() {
+      var _a, _b;
+
+      if (this.isHidden) return;
+      this._screenSize = sizeHelper_1.default.breakPointName(sizeHelper_1.default.elementWidth((_a = this.shadowRoot) === null || _a === void 0 ? void 0 : _a.querySelector('#content-menu')));
+      this.debugLog('calculateSize', (_b = this.shadowRoot) === null || _b === void 0 ? void 0 : _b.querySelector('#content-menu'));
+
+      switch (this.hideActionMode) {
+        case 'auto':
+          this._hideAction = this._screenSize === 'small' || this._screenSize === 'smaller';
+          break;
+
+        case 'never':
+          this._hideAction = false;
+          break;
+
+        default:
+          // case of 'always' hidden
+          this._hideAction = true;
+      }
+
+      this.debugLog('calculateSize', this._screenSize);
     }
-  }
-
-  async fetchPortlets() {
-    const portlets = await portletService_1.default.fetch(this.userInfoApiUrl, this.portletApiUrl, this.debug);
-
-    if (portlets) {
-      var _context;
-
-      this._portlets = (0, _sort.default)(_context = portletService_1.default.portletRegistryToArray(portlets)).call(_context, portletService_1.default.sortPortlets);
-    } else {
-      this.errorLog('No portlets fetch from API');
+  }, {
+    key: "onClose",
+    value: function onClose(e) {
+      e.preventDefault();
+      var closeEvt = new CustomEvent('close');
+      this.dispatchEvent(closeEvt);
     }
-  }
+  }, {
+    key: "isOtherOrgs",
+    value: function isOtherOrgs() {
+      var _a;
 
-  async fetchFavorites() {
-    const favoritesTree = await favoritesService_1.default.fetch(this.userInfoApiUrl, this.layoutApiUrl, this.debug);
-
-    if (favoritesTree) {
-      this._favorites = favoritesService_1.default.flattenFavorites(favoritesTree);
+      return (_a = this._currentUserOrgs && Object.keys(this._currentUserOrgs).length > 1) !== null && _a !== void 0 ? _a : false;
     }
-  }
-
-  async fetchUserInfo() {
-    const fetchResult = await organizationService_1.default.fetch(this.userInfoApiUrl, this.organizationApiUrl, this.userAllOrgsIdAttributeName, this.debug);
-
-    if (fetchResult) {
-      this.debugLog('userInfo API result', fetchResult);
-      this._currentUser = fetchResult === null || fetchResult === void 0 ? void 0 : fetchResult.user;
-      this._currentUserOrgs = fetchResult === null || fetchResult === void 0 ? void 0 : fetchResult.organizations;
-      if (this._currentUser && this._currentUserOrgs) this._currentOrg = organizationService_1.default.getCurrentOrganization(this._currentUser, this.userAllOrgsIdAttributeName, this._currentUserOrgs);
-    } else {
-      this.errorLog('No user infos fetch from API');
+  }, {
+    key: "getOrgImage",
+    value: function getOrgImage() {
+      return this.forceOrgLogo || organizationService_1.default.getOrganizationLogo(this._currentOrg, this.orgLogoUrlAttributeName) || this.defaultOrgLogo;
     }
-  }
+  }, {
+    key: "actionToggleFav",
+    value: function actionToggleFav(e) {
+      var _context5;
 
-  calculateSize() {
-    var _a, _b;
+      var _a, _b;
 
-    if (this.isHidden) return;
-    this._screenSize = sizeHelper_1.default.breakPointName(sizeHelper_1.default.elementWidth((_a = this.shadowRoot) === null || _a === void 0 ? void 0 : _a.querySelector('#content-menu')));
-    this.debugLog('calculateSize', (_b = this.shadowRoot) === null || _b === void 0 ? void 0 : _b.querySelector('#content-menu'));
+      if (!this._favorites) this._favorites = [];
 
-    switch (this.hideActionMode) {
-      case 'auto':
-        this._hideAction = this._screenSize === 'small' || this._screenSize === 'smaller';
-        break;
-
-      case 'never':
-        this._hideAction = false;
-        break;
-
-      default:
-        // case of 'always' hidden
-        this._hideAction = true;
-    }
-
-    this.debugLog('calculateSize', this._screenSize);
-  }
-
-  onClose(e) {
-    e.preventDefault();
-    const closeEvt = new CustomEvent('close');
-    this.dispatchEvent(closeEvt);
-  }
-
-  isOtherOrgs() {
-    var _a;
-
-    return (_a = this._currentUserOrgs && Object.keys(this._currentUserOrgs).length > 1) !== null && _a !== void 0 ? _a : false;
-  }
-
-  getOrgImage() {
-    return this.forceOrgLogo || organizationService_1.default.getOrganizationLogo(this._currentOrg, this.orgLogoUrlAttributeName) || this.defaultOrgLogo;
-  }
-
-  actionToggleFav(e) {
-    var _context2;
-
-    var _a, _b;
-
-    if (!this._favorites) this._favorites = [];
-
-    if (!(0, _includes.default)(_context2 = this._favorites).call(_context2, e.detail.fname)) {
-      this._favorites = [...this._favorites, e.detail.fname];
-    } else {
-      this._favorites = this._favorites.filter(name => name != e.detail.fname);
-    }
-
-    if (!this.debug && ((_a = e.detail) === null || _a === void 0 ? void 0 : _a.chanId) !== undefined) {
-      if ((_b = e.detail) === null || _b === void 0 ? void 0 : _b.isFavorite) {
-        favoritesService_1.default.add(this.userInfoApiUrl, this.favoriteApiUrl, e.detail.chanId);
+      if (!(0, _includes.default)(_context5 = this._favorites).call(_context5, e.detail.fname)) {
+        this._favorites = [].concat((0, _toConsumableArray2.default)(this._favorites), [e.detail.fname]);
       } else {
-        favoritesService_1.default.remove(this.userInfoApiUrl, this.favoriteApiUrl, e.detail.chanId);
+        this._favorites = this._favorites.filter(function (name) {
+          return name != e.detail.fname;
+        });
+      }
+
+      if (!this.debug && ((_a = e.detail) === null || _a === void 0 ? void 0 : _a.chanId) !== undefined) {
+        if ((_b = e.detail) === null || _b === void 0 ? void 0 : _b.isFavorite) {
+          favoritesService_1.default.add(this.userInfoApiUrl, this.favoriteApiUrl, e.detail.chanId);
+        } else {
+          favoritesService_1.default.remove(this.userInfoApiUrl, this.favoriteApiUrl, e.detail.chanId);
+        }
       }
     }
-  }
+  }, {
+    key: "render",
+    value: function render() {
+      var _ref2;
 
-  render() {
-    var _a, _b, _c, _d, _e, _f, _g;
+      var _a, _b, _c, _d, _e, _f, _g;
 
-    this.debugLog('Render');
-    const headerBGImg = 'linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + this.getOrgImage() + ');';
-    return this._portlets && this._favorites ? (0, lit_1.html)`
-          <div
-            id="content-menu"
-            class="content-menu toggler-menu ${(0, class_map_js_1.classMap)({
-      [this._screenSize]: true,
-      'active-menu': !this.isHidden
-    })}"
-          >
-            <header>
-              <div id="header-buttons">
-                <slot name="header-buttons">
-                  <esco-header-buttons
-                    .messages=${this.messages}
-                    sign-out-url="${(_a = this.signoutUrl) !== null && _a !== void 0 ? _a : ''}"
-                    @close=${this.onClose}
-                  ></esco-header-buttons>
-                </slot>
-              </div>
+      this.debugLog('Render');
+      var headerBGImg = 'linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + this.getOrgImage() + ');';
+      return this._portlets && this._favorites ? (0, lit_1.html)(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n          <div\n            id=\"content-menu\"\n            class=\"content-menu toggler-menu ", "\"\n          >\n            <header>\n              <div id=\"header-buttons\">\n                <slot name=\"header-buttons\">\n                  <esco-header-buttons\n                    .messages=", "\n                    sign-out-url=\"", "\"\n                    @close=", "\n                  ></esco-header-buttons>\n                </slot>\n              </div>\n\n              <div class=\"wrapper\">\n                <slot name=\"content-user\">\n                  <esco-content-user\n                    .messages=", "\n                    parent-screen-size=\"", "\"\n                    user-display-name=\"", "\"\n                    user-avatar-url=\"", "\"\n                    org-display-name=\"", "\"\n                    org-img-url=\"", "\"\n                    user-info-portlet-url=\"", "\"\n                    switch-org-portlet-url=\"", "\"\n                  ></esco-content-user>\n                </slot>\n                <esco-content-favorites\n                  .messages=", "\n                  .portlets=\"", "\"\n                  .favorites=\"", "\"\n                  parent-screen-size=\"", "\"\n                  card-size=\"", "\"\n                  ?hide-action=\"", "\"\n                  favorite-api-url=\"", "\"\n                  ?hide=\"", "\"\n                  user-info-api-url=\"", "\"\n                  context-api-url=\"", "\"\n                  ?debug=\"", "\"\n                  ?disable-swiper=\"", "\"\n                  @toggle-favorite=", "\n                ></esco-content-favorites>\n              </div>\n              <div\n                style=\"", "\"\n                class=\"background\"\n              ></div>\n            </header>\n            <esco-content-grid\n              .messages=", "\n              .portlets=\"", "\"\n              .favorites=\"", "\"\n              parent-screen-size=\"", "\"\n              portlet-card-size=\"", "\"\n              ?hide-action=\"", "\"\n              favorite-api-url=\"", "\"\n              layout-api-url=\"", "\"\n              user-info-api-url=\"", "\"\n              context-api-url=\"", "\"\n              portlet-api-url=\"", "\"\n              card-hover-src=\"", "\"\n              ?debug=\"", "\"\n              @toggle-favorite=", "\n            ></esco-content-grid>\n          </div>\n        "])), (0, class_map_js_1.classMap)((_ref2 = {}, (0, _defineProperty2.default)(_ref2, this._screenSize, true), (0, _defineProperty2.default)(_ref2, 'active-menu', !this.isHidden), _ref2)), this.messages, (_a = this.signoutUrl) !== null && _a !== void 0 ? _a : '', this.onClose, this.messages, this._screenSize, (_c = (_b = this._currentUser) === null || _b === void 0 ? void 0 : _b.name) !== null && _c !== void 0 ? _c : '', (_e = (_d = this._currentUser) === null || _d === void 0 ? void 0 : _d.picture) !== null && _e !== void 0 ? _e : '', (_g = (_f = this._currentOrg) === null || _f === void 0 ? void 0 : _f.displayName) !== null && _g !== void 0 ? _g : '', this.getOrgImage(), this.userInfoPortletUrl, this.isOtherOrgs() ? this.switchOrgPortletUrl : '', this.messages, this._portlets, this._favorites, this._screenSize, this.favoritesPortletCardSize, this._hideAction, this.favoriteApiUrl, this.isHidden, this.userInfoApiUrl, this.contextApiUrl, this.debug, !this.showFavoritesInSlider, this.actionToggleFav, (0, style_map_js_1.styleMap)({
+        'background-image': headerBGImg
+      }), this.messages, this._portlets, this._favorites, this._screenSize, this.gridPortletCardSize, this._hideAction, this.favoriteApiUrl, this.layoutApiUrl, this.userInfoApiUrl, this.contextApiUrl, this.portletApiUrl, this.cardHoverSrc, this.debug, this.actionToggleFav) : (0, lit_1.html)(_templateObject2 || (_templateObject2 = (0, _taggedTemplateLiteral2.default)(["<div id=\"content-menu\" class=\"content-menu spinner\">\n          <lit-spinner></lit-spinner>\n        </div>"])));
+    }
+  }]);
+  return ContentMenu;
+}((0, litLoggable_1.LitLoggable)(lit_1.LitElement));
 
-              <div class="wrapper">
-                <slot name="content-user">
-                  <esco-content-user
-                    .messages=${this.messages}
-                    parent-screen-size="${this._screenSize}"
-                    user-display-name="${(_c = (_b = this._currentUser) === null || _b === void 0 ? void 0 : _b.name) !== null && _c !== void 0 ? _c : ''}"
-                    user-avatar-url="${(_e = (_d = this._currentUser) === null || _d === void 0 ? void 0 : _d.picture) !== null && _e !== void 0 ? _e : ''}"
-                    org-display-name="${(_g = (_f = this._currentOrg) === null || _f === void 0 ? void 0 : _f.displayName) !== null && _g !== void 0 ? _g : ''}"
-                    org-img-url="${this.getOrgImage()}"
-                    user-info-portlet-url="${this.userInfoPortletUrl}"
-                    switch-org-portlet-url="${this.isOtherOrgs() ? this.switchOrgPortletUrl : ''}"
-                  ></esco-content-user>
-                </slot>
-                <esco-content-favorites
-                  .messages=${this.messages}
-                  .portlets="${this._portlets}"
-                  .favorites="${this._favorites}"
-                  parent-screen-size="${this._screenSize}"
-                  card-size="${this.favoritesPortletCardSize}"
-                  ?hide-action="${this._hideAction}"
-                  favorite-api-url="${this.favoriteApiUrl}"
-                  ?hide="${this.isHidden}"
-                  user-info-api-url="${this.userInfoApiUrl}"
-                  context-api-url="${this.contextApiUrl}"
-                  ?debug="${this.debug}"
-                  ?disable-swiper="${!this.showFavoritesInSlider}"
-                  @toggle-favorite=${this.actionToggleFav}
-                ></esco-content-favorites>
-              </div>
-              <div
-                style="${(0, style_map_js_1.styleMap)({
-      'background-image': headerBGImg
-    })}"
-                class="background"
-              ></div>
-            </header>
-            <esco-content-grid
-              .messages=${this.messages}
-              .portlets="${this._portlets}"
-              .favorites="${this._favorites}"
-              parent-screen-size="${this._screenSize}"
-              portlet-card-size="${this.gridPortletCardSize}"
-              ?hide-action="${this._hideAction}"
-              favorite-api-url="${this.favoriteApiUrl}"
-              layout-api-url="${this.layoutApiUrl}"
-              user-info-api-url="${this.userInfoApiUrl}"
-              context-api-url="${this.contextApiUrl}"
-              portlet-api-url="${this.portletApiUrl}"
-              card-hover-src="${this.cardHoverSrc}"
-              ?debug="${this.debug}"
-              @toggle-favorite=${this.actionToggleFav}
-            ></esco-content-grid>
-          </div>
-        ` : (0, lit_1.html)`<div id="content-menu" class="content-menu spinner">
-          <lit-spinner></lit-spinner>
-        </div>`;
-  }
-
-};
-ContentMenu.styles = [(0, lit_1.css)`
-      ${(0, lit_1.unsafeCSS)(content_menu_scss_1.default)}
-    `];
+ContentMenu.styles = [(0, lit_1.css)(_templateObject3 || (_templateObject3 = (0, _taggedTemplateLiteral2.default)(["\n      ", "\n    "])), (0, lit_1.unsafeCSS)(content_menu_scss_1.default))];
 
 __decorate([(0, decorators_js_1.property)({
   type: Array
@@ -5297,21 +5434,17 @@ __decorate([(0, decorators_js_1.property)({
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
-
-  hasChanged(newVal) {
+  hasChanged: function hasChanged(newVal) {
     return sizeHelper_1.default.validate(newVal, true, true);
   },
-
   attribute: 'favorites-Portlet-card-size'
 })], ContentMenu.prototype, "favoritesPortletCardSize", void 0);
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
-
-  hasChanged(newVal) {
+  hasChanged: function hasChanged(newVal) {
     return sizeHelper_1.default.validate(newVal, true, true);
   },
-
   attribute: 'grid-Portlet-card-size'
 })], ContentMenu.prototype, "gridPortletCardSize", void 0);
 
@@ -5392,13 +5525,11 @@ __decorate([(0, decorators_js_1.property)({
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
+  hasChanged: function hasChanged(newVal) {
+    var _context6;
 
-  hasChanged(newVal) {
-    var _context3;
-
-    return (0, _includes.default)(_context3 = ['auto', 'always', 'never']).call(_context3, newVal);
+    return (0, _includes.default)(_context6 = ['auto', 'always', 'never']).call(_context6, newVal);
   },
-
   attribute: 'hide-action-mode'
 })], ContentMenu.prototype, "hideActionMode", void 0);
 
@@ -5446,11 +5577,41 @@ exports.ContentMenu = ContentMenu;
 "use strict";
 
 
+__webpack_require__(12419);
+
+var _interopRequireDefault = __webpack_require__(17907);
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(14490));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(33119));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(92664));
+
+var _inherits2 = _interopRequireDefault(__webpack_require__(84827));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(85299));
+
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(55536));
+
+var _typeof2 = _interopRequireDefault(__webpack_require__(20474));
+
+__webpack_require__(38880);
+
+__webpack_require__(41539);
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11;
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
 var __decorate = void 0 && (void 0).__decorate || function (decorators, target, key, desc) {
   var c = arguments.length,
       r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
       d;
-  if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  if ((typeof Reflect === "undefined" ? "undefined" : (0, _typeof2.default)(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
   return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
@@ -5466,147 +5627,105 @@ Object.defineProperty(exports, "__esModule", ({
 exports.ContentUser = void 0;
 /*Lit*/
 
-const lit_1 = __webpack_require__(9392);
+var lit_1 = __webpack_require__(9392);
 
-const unsafe_html_js_1 = __webpack_require__(71943);
+var unsafe_html_js_1 = __webpack_require__(71943);
 
-const decorators_js_1 = __webpack_require__(45595);
+var decorators_js_1 = __webpack_require__(45595);
 
-const style_map_js_1 = __webpack_require__(3959);
+var style_map_js_1 = __webpack_require__(3959);
 /*SCSS*/
 
 
-const content_user_scss_1 = __importDefault(__webpack_require__(28299));
+var content_user_scss_1 = __importDefault(__webpack_require__(28299));
 /*Localization*/
 
 
-const localize_1 = __webpack_require__(91799);
+var localize_1 = __webpack_require__(91799);
 
-const localization_1 = __webpack_require__(30082);
+var localization_1 = __webpack_require__(30082);
 
-const langHelper_1 = __importDefault(__webpack_require__(80203));
+var langHelper_1 = __importDefault(__webpack_require__(80203));
 /*Mixins*/
 
 
-const litLoggable_1 = __webpack_require__(39937);
+var litLoggable_1 = __webpack_require__(39937);
 /*Helpers*/
 
 
-const sizeHelper_1 = __importDefault(__webpack_require__(96995));
+var sizeHelper_1 = __importDefault(__webpack_require__(96995));
 /*Dependencies*/
 
 
-const fontawesome_svg_core_1 = __webpack_require__(78947);
+var fontawesome_svg_core_1 = __webpack_require__(78947);
 
-const faUser_1 = __webpack_require__(27879);
+var faUser_1 = __webpack_require__(27879);
 
-const faExchangeAlt_1 = __webpack_require__(77007);
+var faExchangeAlt_1 = __webpack_require__(77007);
 
-let ContentUser = class ContentUser extends (0, litLoggable_1.LitLoggable)(lit_1.LitElement) {
-  constructor() {
+var ContentUser = /*#__PURE__*/function (_ref) {
+  (0, _inherits2.default)(ContentUser, _ref);
+
+  var _super = _createSuper(ContentUser);
+
+  function ContentUser() {
+    var _this;
+
+    (0, _classCallCheck2.default)(this, ContentUser);
+
     var _a;
 
-    super();
-    this.messages = [];
-    this.parentScreenSize = 'medium';
-    this.orgDisplayName = '';
-    this.orgImgUrl = '';
-    this.userDisplayName = '';
-    this.userAvatarUrl = '';
-    this.switchOrgPortletUrl = (_a = "MISSING_ENV_VAR".VUE_APP_ORG_SWITCH_URI) !== null && _a !== void 0 ? _a : '';
-    this.userInfoPortletUrl = '';
-    this.enableSwitch = false;
-    this.debugLog('Component loaded');
-    const lhOpts = {
+    _this = _super.call(this);
+    _this.messages = [];
+    _this.parentScreenSize = 'medium';
+    _this.orgDisplayName = '';
+    _this.orgImgUrl = '';
+    _this.userDisplayName = '';
+    _this.userAvatarUrl = '';
+    _this.switchOrgPortletUrl = (_a = "MISSING_ENV_VAR".VUE_APP_ORG_SWITCH_URI) !== null && _a !== void 0 ? _a : '';
+    _this.userInfoPortletUrl = '';
+    _this.enableSwitch = false;
+
+    _this.debugLog('Component loaded');
+
+    var lhOpts = {
       languageCodeOnly: true,
       availableLanguages: ['fr', 'en'],
       defaultLanguage: 'en'
     };
-    const lang = langHelper_1.default.getPageLang(lhOpts);
+    var lang = langHelper_1.default.getPageLang(lhOpts);
     (0, localization_1.setLocale)(lang);
     langHelper_1.default.setLocale(lang);
+    return _this;
   }
 
-  willUpdate(_changedProperties) {
-    if (_changedProperties.has('messages')) {
-      langHelper_1.default.setReference(this.messages);
+  (0, _createClass2.default)(ContentUser, [{
+    key: "willUpdate",
+    value: function willUpdate(_changedProperties) {
+      if (_changedProperties.has('messages')) {
+        langHelper_1.default.setReference(this.messages);
+      }
     }
-  }
+  }, {
+    key: "render",
+    value: function render() {
+      this.debugLog('Render', this.parentScreenSize);
+      var style = this.parentScreenSize == 'small' || this.parentScreenSize == 'smaller' ? {
+        background: 'linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + this.orgImgUrl + ')'
+      } : {};
+      this.debugLog('Style : ', style);
+      return (0, lit_1.html)(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n      <section\n        class=\"content-user ", "\"\n        style=\"", "\"\n      >\n        <div>\n          <div class=\"org-img\">\n            <img\n              src=\"", "\"\n              title=\"", "\"\n              alt=\"", "\"\n            />\n          </div>\n          <div class=\"user-info\">\n            <div>\n              <div class=\"user-avatar\">\n                ", "\n              </div>\n\n              <div class=\"wrapper-info\">\n                <div class=\"user-name\">\n                  <span title=\"", "\">\n                    ", "\n                  </span>\n                </div>\n                <div class=\"user-org\">\n                  <span title=\"", "\"\n                    >", "</span\n                  >\n                </div>\n              </div>\n              ", "\n            </div>\n          </div>\n        </div>\n      </section>\n    "])), this.parentScreenSize, (0, style_map_js_1.styleMap)(style), this.orgImgUrl, this.orgDisplayName, this.orgDisplayName, this.userInfoPortletUrl.length > 0 ? (0, lit_1.html)(_templateObject2 || (_templateObject2 = (0, _taggedTemplateLiteral2.default)(["\n                      <a\n                        href=\"", "\"\n                        title=\"", "\"\n                      >\n                        ", "\n                      </a>\n                    "])), this.userInfoPortletUrl, langHelper_1.default.localTransation('userInfoPortletUrl.title', (0, localize_1.msg)((0, localize_1.str)(_templateObject3 || (_templateObject3 = (0, _taggedTemplateLiteral2.default)(["See my account informations"]))))), this.renderAvatar()) : (0, lit_1.html)(_templateObject4 || (_templateObject4 = (0, _taggedTemplateLiteral2.default)([" ", " "])), this.renderAvatar()), this.userDisplayName, this.userDisplayName, this.orgDisplayName, this.orgDisplayName, this.switchOrgPortletUrl !== '' ? (0, lit_1.html)(_templateObject5 || (_templateObject5 = (0, _taggedTemplateLiteral2.default)(["\n                    <div class=\"other-orgs\">\n                      <a\n                        href=\"", "\"\n                        title=\"", "\"\n                      >\n                        ", "\n                      </a>\n                    </div>\n                  "])), this.switchOrgPortletUrl, langHelper_1.default.localTransation('userChangeEtabUrl.title', (0, localize_1.msg)((0, localize_1.str)(_templateObject6 || (_templateObject6 = (0, _taggedTemplateLiteral2.default)(["Select an other organization"]))))), (0, unsafe_html_js_1.unsafeHTML)("".concat((0, fontawesome_svg_core_1.icon)(faExchangeAlt_1.faExchangeAlt).html))) : (0, lit_1.html)(_templateObject7 || (_templateObject7 = (0, _taggedTemplateLiteral2.default)([""]))));
+    }
+  }, {
+    key: "renderAvatar",
+    value: function renderAvatar() {
+      return this.userAvatarUrl && this.userAvatarUrl.length > 0 ? (0, lit_1.html)(_templateObject8 || (_templateObject8 = (0, _taggedTemplateLiteral2.default)(["\n          <img\n            src=\"", "\"\n            alt=\"", "\"\n          />\n        "])), this.userAvatarUrl, langHelper_1.default.localTransation('user.avatar', (0, localize_1.msg)((0, localize_1.str)(_templateObject9 || (_templateObject9 = (0, _taggedTemplateLiteral2.default)(["Avatar"])))))) : (0, lit_1.html)(_templateObject10 || (_templateObject10 = (0, _taggedTemplateLiteral2.default)(["", ""])), (0, unsafe_html_js_1.unsafeHTML)("".concat((0, fontawesome_svg_core_1.icon)(faUser_1.faUser).html)));
+    }
+  }]);
+  return ContentUser;
+}((0, litLoggable_1.LitLoggable)(lit_1.LitElement));
 
-  render() {
-    this.debugLog('Render', this.parentScreenSize);
-    const style = this.parentScreenSize == 'small' || this.parentScreenSize == 'smaller' ? {
-      background: 'linear-gradient(0deg, rgba(0,0,0,.2),rgba(0,0,0,.2)), url(' + this.orgImgUrl + ')'
-    } : {};
-    this.debugLog('Style : ', style);
-    return (0, lit_1.html)`
-      <section
-        class="content-user ${this.parentScreenSize}"
-        style="${(0, style_map_js_1.styleMap)(style)}"
-      >
-        <div>
-          <div class="org-img">
-            <img
-              src="${this.orgImgUrl}"
-              title="${this.orgDisplayName}"
-              alt="${this.orgDisplayName}"
-            />
-          </div>
-          <div class="user-info">
-            <div>
-              <div class="user-avatar">
-                ${this.userInfoPortletUrl.length > 0 ? (0, lit_1.html)`
-                      <a
-                        href="${this.userInfoPortletUrl}"
-                        title="${langHelper_1.default.localTransation('userInfoPortletUrl.title', (0, localize_1.msg)((0, localize_1.str)`See my account informations`))}"
-                      >
-                        ${this.renderAvatar()}
-                      </a>
-                    ` : (0, lit_1.html)` ${this.renderAvatar()} `}
-              </div>
-
-              <div class="wrapper-info">
-                <div class="user-name">
-                  <span title="${this.userDisplayName}">
-                    ${this.userDisplayName}
-                  </span>
-                </div>
-                <div class="user-org">
-                  <span title="${this.orgDisplayName}"
-                    >${this.orgDisplayName}</span
-                  >
-                </div>
-              </div>
-              ${this.switchOrgPortletUrl !== '' ? (0, lit_1.html)`
-                    <div class="other-orgs">
-                      <a
-                        href="${this.switchOrgPortletUrl}"
-                        title="${langHelper_1.default.localTransation('userChangeEtabUrl.title', (0, localize_1.msg)((0, localize_1.str)`Select an other organization`))}"
-                      >
-                        ${(0, unsafe_html_js_1.unsafeHTML)(`${(0, fontawesome_svg_core_1.icon)(faExchangeAlt_1.faExchangeAlt).html}`)}
-                      </a>
-                    </div>
-                  ` : (0, lit_1.html)``}
-            </div>
-          </div>
-        </div>
-      </section>
-    `;
-  }
-
-  renderAvatar() {
-    return this.userAvatarUrl && this.userAvatarUrl.length > 0 ? (0, lit_1.html)`
-          <img
-            src="${this.userAvatarUrl}"
-            alt="${langHelper_1.default.localTransation('user.avatar', (0, localize_1.msg)((0, localize_1.str)`Avatar`))}"
-          />
-        ` : (0, lit_1.html)`${(0, unsafe_html_js_1.unsafeHTML)(`${(0, fontawesome_svg_core_1.icon)(faUser_1.faUser).html}`)}`;
-  }
-
-};
-ContentUser.styles = (0, lit_1.css)`
-    ${(0, lit_1.unsafeCSS)(content_user_scss_1.default)}
-  `;
+ContentUser.styles = (0, lit_1.css)(_templateObject11 || (_templateObject11 = (0, _taggedTemplateLiteral2.default)(["\n    ", "\n  "])), (0, lit_1.unsafeCSS)(content_user_scss_1.default));
 
 __decorate([(0, decorators_js_1.property)({
   type: Array
@@ -5614,11 +5733,9 @@ __decorate([(0, decorators_js_1.property)({
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
-
-  hasChanged(newVal) {
+  hasChanged: function hasChanged(newVal) {
     return sizeHelper_1.default.validate(newVal, true, true);
   },
-
   attribute: 'parent-screen-size'
 })], ContentUser.prototype, "parentScreenSize", void 0);
 
@@ -5668,11 +5785,41 @@ exports.ContentUser = ContentUser;
 "use strict";
 
 
+__webpack_require__(12419);
+
+var _interopRequireDefault = __webpack_require__(17907);
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(14490));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(33119));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(92664));
+
+var _inherits2 = _interopRequireDefault(__webpack_require__(84827));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(85299));
+
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(55536));
+
+var _typeof2 = _interopRequireDefault(__webpack_require__(20474));
+
+__webpack_require__(38880);
+
+__webpack_require__(41539);
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4;
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
 var __decorate = void 0 && (void 0).__decorate || function (decorators, target, key, desc) {
   var c = arguments.length,
       r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
       d;
-  if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  if ((typeof Reflect === "undefined" ? "undefined" : (0, _typeof2.default)(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
   return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
@@ -5688,89 +5835,86 @@ Object.defineProperty(exports, "__esModule", ({
 exports.HeaderButtons = void 0;
 /*Lit*/
 
-const lit_1 = __webpack_require__(9392);
+var lit_1 = __webpack_require__(9392);
 
-const unsafe_html_js_1 = __webpack_require__(71943);
+var unsafe_html_js_1 = __webpack_require__(71943);
 
-const decorators_js_1 = __webpack_require__(45595);
+var decorators_js_1 = __webpack_require__(45595);
 /*SCSS*/
 
 
-const header_button_scss_1 = __importDefault(__webpack_require__(49578));
+var header_button_scss_1 = __importDefault(__webpack_require__(49578));
 /*Localization*/
 
 
-const localize_1 = __webpack_require__(91799);
+var localize_1 = __webpack_require__(91799);
 
-const localization_1 = __webpack_require__(30082);
+var localization_1 = __webpack_require__(30082);
 
-const langHelper_1 = __importDefault(__webpack_require__(80203));
+var langHelper_1 = __importDefault(__webpack_require__(80203));
 /*Mixins*/
 
 
-const litLoggable_1 = __webpack_require__(39937);
+var litLoggable_1 = __webpack_require__(39937);
 /*Dependencies*/
 
 
-const fontawesome_svg_core_1 = __webpack_require__(78947);
+var fontawesome_svg_core_1 = __webpack_require__(78947);
 
-const faSignOutAlt_1 = __webpack_require__(56427);
+var faSignOutAlt_1 = __webpack_require__(56427);
 
-const faTimes_1 = __webpack_require__(59545);
+var faTimes_1 = __webpack_require__(59545);
 
-let HeaderButtons = class HeaderButtons extends (0, litLoggable_1.LitLoggable)(lit_1.LitElement) {
-  constructor() {
-    super();
-    this.messages = [];
-    this.signOutUrl = "/uPortal/Logout";
-    this.debugLog('Component loaded');
-    const lhOpts = {
+var HeaderButtons = /*#__PURE__*/function (_ref) {
+  (0, _inherits2.default)(HeaderButtons, _ref);
+
+  var _super = _createSuper(HeaderButtons);
+
+  function HeaderButtons() {
+    var _this;
+
+    (0, _classCallCheck2.default)(this, HeaderButtons);
+    _this = _super.call(this);
+    _this.messages = [];
+    _this.signOutUrl = "/uPortal/Logout";
+
+    _this.debugLog('Component loaded');
+
+    var lhOpts = {
       languageCodeOnly: true,
       availableLanguages: ['fr', 'en'],
       defaultLanguage: 'en'
     };
-    const lang = langHelper_1.default.getPageLang(lhOpts);
+    var lang = langHelper_1.default.getPageLang(lhOpts);
     (0, localization_1.setLocale)(lang);
     langHelper_1.default.setLocale(lang);
+    return _this;
   }
 
-  willUpdate(_changedProperties) {
-    if (_changedProperties.has('messages')) {
-      langHelper_1.default.setReference(this.messages);
+  (0, _createClass2.default)(HeaderButtons, [{
+    key: "willUpdate",
+    value: function willUpdate(_changedProperties) {
+      if (_changedProperties.has('messages')) {
+        langHelper_1.default.setReference(this.messages);
+      }
     }
-  }
+  }, {
+    key: "onClose",
+    value: function onClose(e) {
+      e.preventDefault();
+      var closeEvt = new CustomEvent('close');
+      this.dispatchEvent(closeEvt);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return (0, lit_1.html)(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)([" <section class=\"content-menu-header-buttons\">\n      <button\n        title=\"", "\"\n        type=\"button\"\n        class=\"content-menu-close\"\n        aria-label=\"Close\"\n        @click=", "\n      >\n        ", "\n      </button>\n      <a\n        href=\"", "\"\n        title=\"", "\"\n        class=\"signout\"\n      >\n        ", "\n      </a>\n    </section>"])), langHelper_1.default.localTransation('buttons.menuClose', (0, localize_1.msg)((0, localize_1.str)(_templateObject2 || (_templateObject2 = (0, _taggedTemplateLiteral2.default)(["Close menu"]))))), this.onClose, (0, unsafe_html_js_1.unsafeHTML)("".concat((0, fontawesome_svg_core_1.icon)(faTimes_1.faTimes).html)), this.signOutUrl || '#', langHelper_1.default.localTransation('buttons.logout', (0, localize_1.msg)((0, localize_1.str)(_templateObject3 || (_templateObject3 = (0, _taggedTemplateLiteral2.default)(["Sign Out"]))))), (0, unsafe_html_js_1.unsafeHTML)("".concat((0, fontawesome_svg_core_1.icon)(faSignOutAlt_1.faSignOutAlt).html)));
+    }
+  }]);
+  return HeaderButtons;
+}((0, litLoggable_1.LitLoggable)(lit_1.LitElement));
 
-  onClose(e) {
-    e.preventDefault();
-    const closeEvt = new CustomEvent('close');
-    this.dispatchEvent(closeEvt);
-  }
-
-  render() {
-    return (0, lit_1.html)` <section class="content-menu-header-buttons">
-      <button
-        title="${langHelper_1.default.localTransation('buttons.menuClose', (0, localize_1.msg)((0, localize_1.str)`Close menu`))}"
-        type="button"
-        class="content-menu-close"
-        aria-label="Close"
-        @click=${this.onClose}
-      >
-        ${(0, unsafe_html_js_1.unsafeHTML)(`${(0, fontawesome_svg_core_1.icon)(faTimes_1.faTimes).html}`)}
-      </button>
-      <a
-        href="${this.signOutUrl || '#'}"
-        title="${langHelper_1.default.localTransation('buttons.logout', (0, localize_1.msg)((0, localize_1.str)`Sign Out`))}"
-        class="signout"
-      >
-        ${(0, unsafe_html_js_1.unsafeHTML)(`${(0, fontawesome_svg_core_1.icon)(faSignOutAlt_1.faSignOutAlt).html}`)}
-      </a>
-    </section>`;
-  }
-
-};
-HeaderButtons.styles = (0, lit_1.css)`
-    ${(0, lit_1.unsafeCSS)(header_button_scss_1.default)}
-  `;
+HeaderButtons.styles = (0, lit_1.css)(_templateObject4 || (_templateObject4 = (0, _taggedTemplateLiteral2.default)(["\n    ", "\n  "])), (0, lit_1.unsafeCSS)(header_button_scss_1.default));
 
 __decorate([(0, decorators_js_1.property)({
   type: Array
@@ -5792,17 +5936,39 @@ exports.HeaderButtons = HeaderButtons;
 "use strict";
 
 
+__webpack_require__(47941);
+
+__webpack_require__(82526);
+
+__webpack_require__(57327);
+
+__webpack_require__(38880);
+
 __webpack_require__(54747);
+
+__webpack_require__(49337);
 
 var _interopRequireDefault = __webpack_require__(17907);
 
 var _includes = _interopRequireDefault(__webpack_require__(58118));
 
+__webpack_require__(21249);
+
+__webpack_require__(73210);
+
 __webpack_require__(74916);
 
 __webpack_require__(23123);
 
+__webpack_require__(65465);
+
+__webpack_require__(41539);
+
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(61125));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(33119));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(92664));
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
@@ -5818,82 +5984,95 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-const get_1 = __importDefault(__webpack_require__(27361));
+var get_1 = __importDefault(__webpack_require__(27361));
 
-class langHelper {
-  static setLocale(lang) {
-    this.locale = lang;
+var langHelper = /*#__PURE__*/function () {
+  function langHelper() {
+    (0, _classCallCheck2.default)(this, langHelper);
   }
 
-  static setReference(ref) {
-    this.reference = ref;
-  }
-
-  static getBrowserLocales() {
-    let options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    const defaultOptions = {
-      languageCodeOnly: true,
-      defaultLanguage: 'en'
-    };
-
-    const opt = _objectSpread(_objectSpread({}, defaultOptions), options);
-
-    const browserLocales = navigator.languages === undefined ? [navigator.language] : navigator.languages;
-
-    if (!browserLocales) {
-      return [opt.defaultLanguage];
+  (0, _createClass2.default)(langHelper, null, [{
+    key: "setLocale",
+    value: function setLocale(lang) {
+      this.locale = lang;
     }
-
-    return browserLocales.map(locale => {
-      const trimmedLocale = locale.trim();
-      return opt.languageCodeOnly ? trimmedLocale.split(/-|_/)[0] : trimmedLocale;
-    });
-  }
-
-  static getPageLang() {
-    let options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    const defaultOptions = {
-      languageCodeOnly: true,
-      availableLanguages: ['en'],
-      defaultLanguage: 'en'
-    };
-
-    const opt = _objectSpread(_objectSpread({}, defaultOptions), options);
-
-    const pageLang = document.documentElement.lang;
-    let allLangs = [];
-
-    if (pageLang) {
-      allLangs = opt.languageCodeOnly ? [pageLang.split(/-|_/)[0]] : [pageLang];
-    } else {
-      const fOpts = {
-        anguageCodeOnly: opt.languageCodeOnly,
-        defaultLanguage: opt.defaultLanguage
+  }, {
+    key: "setReference",
+    value: function setReference(ref) {
+      this.reference = ref;
+    }
+  }, {
+    key: "getBrowserLocales",
+    value: function getBrowserLocales() {
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var defaultOptions = {
+        languageCodeOnly: true,
+        defaultLanguage: 'en'
       };
-      allLangs = this.getBrowserLocales(fOpts);
+
+      var opt = _objectSpread(_objectSpread({}, defaultOptions), options);
+
+      var browserLocales = navigator.languages === undefined ? [navigator.language] : navigator.languages;
+
+      if (!browserLocales) {
+        return [opt.defaultLanguage];
+      }
+
+      return browserLocales.map(function (locale) {
+        var trimmedLocale = locale.trim();
+        return opt.languageCodeOnly ? trimmedLocale.split(/-|_/)[0] : trimmedLocale;
+      });
     }
+  }, {
+    key: "getPageLang",
+    value: function getPageLang() {
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var defaultOptions = {
+        languageCodeOnly: true,
+        availableLanguages: ['en'],
+        defaultLanguage: 'en'
+      };
 
-    const detectedLocale = allLangs.find(x => {
-      var _context;
+      var opt = _objectSpread(_objectSpread({}, defaultOptions), options);
 
-      return (0, _includes.default)(_context = opt.availableLanguages).call(_context, x);
-    });
-    return detectedLocale || opt.defaultLanguage;
-  }
+      var pageLang = document.documentElement.lang;
+      var allLangs = [];
 
-  static localTransation(stringId, defaultString) {
-    var _a, _b;
+      if (pageLang) {
+        allLangs = opt.languageCodeOnly ? [pageLang.split(/-|_/)[0]] : [pageLang];
+      } else {
+        var fOpts = {
+          anguageCodeOnly: opt.languageCodeOnly,
+          defaultLanguage: opt.defaultLanguage
+        };
+        allLangs = this.getBrowserLocales(fOpts);
+      }
 
-    const currentRef = (_a = this.reference) === null || _a === void 0 ? void 0 : _a.find(ref => {
-      var _context2;
+      var detectedLocale = allLangs.find(function (x) {
+        var _context;
 
-      return (0, _includes.default)(_context2 = ref.locales).call(_context2, this.locale);
-    });
-    const currentMessages = (_b = currentRef === null || currentRef === void 0 ? void 0 : currentRef.messages) === null || _b === void 0 ? void 0 : _b.message;
-    return currentMessages ? (0, get_1.default)(currentMessages, stringId, defaultString) : defaultString;
-  }
+        return (0, _includes.default)(_context = opt.availableLanguages).call(_context, x);
+      });
+      return detectedLocale || opt.defaultLanguage;
+    }
+  }, {
+    key: "localTransation",
+    value: function localTransation(stringId, defaultString) {
+      var _this = this;
 
-}
+      var _a, _b;
+
+      var currentRef = (_a = this.reference) === null || _a === void 0 ? void 0 : _a.find(function (ref) {
+        var _context2;
+
+        return (0, _includes.default)(_context2 = ref.locales).call(_context2, _this.locale);
+      });
+      var currentMessages = (_b = currentRef === null || currentRef === void 0 ? void 0 : currentRef.messages) === null || _b === void 0 ? void 0 : _b.message;
+      return currentMessages ? (0, get_1.default)(currentMessages, stringId, defaultString) : defaultString;
+    }
+  }]);
+  return langHelper;
+}();
 
 exports["default"] = langHelper;
 langHelper.locale = 'en';
@@ -5909,6 +6088,8 @@ langHelper.locale = 'en';
 var _interopRequireDefault = __webpack_require__(17907);
 
 var _promise = _interopRequireDefault(__webpack_require__(6226));
+
+__webpack_require__(38880);
 
 var __createBinding = void 0 && (void 0).__createBinding || (Object.create ? function (o, m, k, k2) {
   if (k2 === undefined) k2 = k;
@@ -5941,7 +6122,9 @@ var __setModuleDefault = void 0 && (void 0).__setModuleDefault || (Object.create
 var __importStar = void 0 && (void 0).__importStar || function (mod) {
   if (mod && mod.__esModule) return mod;
   var result = {};
-  if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
 
   __setModuleDefault(result, mod);
 
@@ -5953,12 +6136,16 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.setLocale = void 0;
 
-const localize_1 = __webpack_require__(91799);
+var localize_1 = __webpack_require__(91799);
 
 exports.setLocale = (0, localize_1.configureLocalization)({
   sourceLocale: 'en',
   targetLocales: ['fr'],
-  loadLocale: locale => _promise.default.resolve().then(() => __importStar(__webpack_require__(84972)(`./${locale}.ts`)))
+  loadLocale: function loadLocale(locale) {
+    return _promise.default.resolve().then(function () {
+      return __importStar(__webpack_require__(84972)("./".concat(locale, ".ts")));
+    });
+  }
 }).setLocale;
 
 /***/ }),
@@ -5973,22 +6160,33 @@ var _interopRequireDefault = __webpack_require__(17907);
 
 var _startsWith = _interopRequireDefault(__webpack_require__(27043));
 
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(33119));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(92664));
+
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-class pathHelper {
-  static getUrl(path) {
-    var _a;
-
-    if (!(0, _startsWith.default)(path).call(path, 'http')) {
-      return (_a = "MISSING_ENV_VAR".VUE_APP_PORTAL_BASE_URL) !== null && _a !== void 0 ? _a : '' + path;
-    }
-
-    return path;
+var pathHelper = /*#__PURE__*/function () {
+  function pathHelper() {
+    (0, _classCallCheck2.default)(this, pathHelper);
   }
 
-}
+  (0, _createClass2.default)(pathHelper, null, [{
+    key: "getUrl",
+    value: function getUrl(path) {
+      var _a;
+
+      if (!(0, _startsWith.default)(path).call(path, 'http')) {
+        return (_a = "MISSING_ENV_VAR".VUE_APP_PORTAL_BASE_URL) !== null && _a !== void 0 ? _a : '' + path;
+      }
+
+      return path;
+    }
+  }]);
+  return pathHelper;
+}();
 
 exports["default"] = pathHelper;
 
@@ -6004,48 +6202,63 @@ var _interopRequireDefault = __webpack_require__(17907);
 
 var _includes = _interopRequireDefault(__webpack_require__(58118));
 
-__webpack_require__(33948);
+__webpack_require__(92222);
+
+var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(15687));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(33119));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(92664));
 
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-class sizeHelper {
-  static validate(size, withAuto, withCustom) {
-    let options = ['large', 'medium', 'small', 'smaller'];
-
-    if (withAuto) {
-      options = [...options, 'auto'];
-    }
-
-    if (withCustom) {
-      options = [...options, 'custom'];
-    }
-
-    return (0, _includes.default)(options).call(options, size);
+var sizeHelper = /*#__PURE__*/function () {
+  function sizeHelper() {
+    (0, _classCallCheck2.default)(this, sizeHelper);
   }
 
-  static breakPointName(size) {
-    if (typeof size === 'number' && isFinite(size)) {
-      if (size < 480) {
-        return 'smaller';
-      } else if (size < 768) {
-        return 'small';
-      } else if (size < 1680) {
-        return 'medium';
+  (0, _createClass2.default)(sizeHelper, null, [{
+    key: "validate",
+    value: function validate(size, withAuto, withCustom) {
+      var options = ['large', 'medium', 'small', 'smaller'];
+
+      if (withAuto) {
+        options = [].concat((0, _toConsumableArray2.default)(options), ['auto']);
       }
+
+      if (withCustom) {
+        options = [].concat((0, _toConsumableArray2.default)(options), ['custom']);
+      }
+
+      return (0, _includes.default)(options).call(options, size);
     }
+  }, {
+    key: "breakPointName",
+    value: function breakPointName(size) {
+      if (typeof size === 'number' && isFinite(size)) {
+        if (size < 480) {
+          return 'smaller';
+        } else if (size < 768) {
+          return 'small';
+        } else if (size < 1680) {
+          return 'medium';
+        }
+      }
 
-    return 'large';
-  }
+      return 'large';
+    }
+  }, {
+    key: "elementWidth",
+    value: function elementWidth(element) {
+      var _a;
 
-  static elementWidth(element) {
-    var _a;
-
-    return (_a = element === null || element === void 0 ? void 0 : element.clientWidth) !== null && _a !== void 0 ? _a : 0;
-  }
-
-}
+      return (_a = element === null || element === void 0 ? void 0 : element.clientWidth) !== null && _a !== void 0 ? _a : 0;
+    }
+  }]);
+  return sizeHelper;
+}();
 
 exports["default"] = sizeHelper;
 
@@ -6057,42 +6270,63 @@ exports["default"] = sizeHelper;
 "use strict";
 
 
+var _interopRequireDefault = __webpack_require__(17907);
+
 __webpack_require__(74916);
 
 __webpack_require__(23123);
 
+__webpack_require__(73210);
+
 __webpack_require__(15306);
+
+__webpack_require__(69600);
+
+__webpack_require__(21249);
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(33119));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(92664));
 
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-class textHelper {
-  static truncate(string) {
-    if (string) {
-      const text = string.split('   ');
-      return text[0].trim();
+var textHelper = /*#__PURE__*/function () {
+  function textHelper() {
+    (0, _classCallCheck2.default)(this, textHelper);
+  }
+
+  (0, _createClass2.default)(textHelper, null, [{
+    key: "truncate",
+    value: function truncate(string) {
+      if (string) {
+        var text = string.split('   ');
+        return text[0].trim();
+      }
+
+      return string;
     }
+  }, {
+    key: "sanitize",
+    value: function sanitize(string) {
+      if (string) {
+        string = string.replace(/[^a-z0-9]/gim, '_');
+        return string.trim();
+      }
 
-    return string;
-  }
-
-  static sanitize(string) {
-    if (string) {
-      string = string.replace(/[^a-z0-9]/gim, '_');
-      return string.trim();
+      return string;
     }
-
-    return string;
-  }
-
-  static getAcronym(str) {
-    return str.split(/[\s,']+/).map(word => {
-      return word.length >= 4 || word != word.toLowerCase() ? word.split('')[0].toUpperCase() : '';
-    }).join('');
-  }
-
-}
+  }, {
+    key: "getAcronym",
+    value: function getAcronym(str) {
+      return str.split(/[\s,']+/).map(function (word) {
+        return word.length >= 4 || word != word.toLowerCase() ? word.split('')[0].toUpperCase() : '';
+      }).join('');
+    }
+  }]);
+  return textHelper;
+}();
 
 exports["default"] = textHelper;
 
@@ -6104,19 +6338,53 @@ exports["default"] = textHelper;
 "use strict";
 
 
+__webpack_require__(12419);
+
 var _interopRequireDefault = __webpack_require__(17907);
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(14490));
+
+var _regenerator = _interopRequireDefault(__webpack_require__(30222));
 
 var _parseInt2 = _interopRequireDefault(__webpack_require__(80040));
 
-__webpack_require__(88674);
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(80093));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(33119));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(92664));
+
+var _get2 = _interopRequireDefault(__webpack_require__(44775));
+
+var _inherits2 = _interopRequireDefault(__webpack_require__(84827));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(85299));
+
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(55536));
+
+var _typeof2 = _interopRequireDefault(__webpack_require__(20474));
+
+__webpack_require__(38880);
+
+__webpack_require__(41539);
 
 __webpack_require__(39714);
+
+__webpack_require__(9653);
+
+var _templateObject, _templateObject2;
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 var __decorate = void 0 && (void 0).__decorate || function (decorators, target, key, desc) {
   var c = arguments.length,
       r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
       d;
-  if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  if ((typeof Reflect === "undefined" ? "undefined" : (0, _typeof2.default)(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
   return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
@@ -6132,103 +6400,154 @@ Object.defineProperty(exports, "__esModule", ({
 exports.Ellipsis = void 0;
 /*Lit*/
 
-const lit_1 = __webpack_require__(9392);
+var lit_1 = __webpack_require__(9392);
 
-const decorators_js_1 = __webpack_require__(45595);
+var decorators_js_1 = __webpack_require__(45595);
 
-const style_map_js_1 = __webpack_require__(3959);
+var style_map_js_1 = __webpack_require__(3959);
 /*Mixins*/
 
 
-const litLoggable_1 = __webpack_require__(39937);
+var litLoggable_1 = __webpack_require__(39937);
 /*Dependencies*/
 
 
-const debounce_1 = __importDefault(__webpack_require__(23279)); // import striptags from 'striptags';
+var debounce_1 = __importDefault(__webpack_require__(23279)); // import striptags from 'striptags';
 
 
-let Ellipsis = class Ellipsis extends (0, litLoggable_1.LitLoggable)(lit_1.LitElement) {
-  constructor() {
-    super();
-    this.message = '';
-    this.clamp = 0;
-    this.height = '22px';
-    this.endChar = '...';
-    this._ellipsisContent = '';
-    this._nbLines = 'auto';
-    this.debounceRun = (0, debounce_1.default)(this.run, 500);
-    this.debugLog('Component loaded');
+var Ellipsis = /*#__PURE__*/function (_ref) {
+  (0, _inherits2.default)(Ellipsis, _ref);
+
+  var _super = _createSuper(Ellipsis);
+
+  function Ellipsis() {
+    var _this;
+
+    (0, _classCallCheck2.default)(this, Ellipsis);
+    _this = _super.call(this);
+    _this.message = '';
+    _this.clamp = 0;
+    _this.height = '22px';
+    _this.endChar = '...';
+    _this._ellipsisContent = '';
+    _this._nbLines = 'auto';
+    _this.debounceRun = (0, debounce_1.default)(_this.run, 500);
+
+    _this.debugLog('Component loaded');
+
+    return _this;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    window.addEventListener('resize', this.debounceRun.bind(this), false);
-  }
-
-  disconnectedCallback() {
-    super.connectedCallback();
-    window.removeEventListener('resize', this.debounceRun.bind(this), false);
-  }
-
-  willUpdate( // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  _changedProperties) {
-    if (_changedProperties.has('message')) {
-      this._ellipsisContent = this.message;
+  (0, _createClass2.default)(Ellipsis, [{
+    key: "connectedCallback",
+    value: function connectedCallback() {
+      (0, _get2.default)((0, _getPrototypeOf2.default)(Ellipsis.prototype), "connectedCallback", this).call(this);
+      window.addEventListener('resize', this.debounceRun.bind(this), false);
     }
-  }
-
-  firstUpdated() {
-    this.setLogIdentifier('ellipsis');
-    this.debugLog('First update', this);
-    this.debounceRun();
-  }
-
-  async run() {
-    var _a;
-
-    this.debugLog('running', this.message);
-    await this.updateComplete;
-
-    if (this.sentence.offsetWidth < 1 || this.sentence.offsetHeight < 1) {
-      this.messageLog('Component is hidden, stop running');
-      return;
+  }, {
+    key: "disconnectedCallback",
+    value: function disconnectedCallback() {
+      (0, _get2.default)((0, _getPrototypeOf2.default)(Ellipsis.prototype), "connectedCallback", this).call(this);
+      window.removeEventListener('resize', this.debounceRun.bind(this), false);
     }
-
-    if (((_a = this.message) === null || _a === void 0 ? void 0 : _a.length) <= 0) return;
-    const lineHeight = (0, _parseInt2.default)(this.height, 10);
-    this._ellipsisContent = '';
-    await this.updateComplete;
-    this.sentence.style.height = '100%';
-    const availableHeight = this.sentence.getBoundingClientRect().height || lineHeight;
-    if (availableHeight < lineHeight) return;
-    const autoNbLines = Math.floor(availableHeight / lineHeight);
-    this._nbLines = this.clamp > 0 && this.clamp < autoNbLines ? this.clamp.toString() : autoNbLines.toString();
-    this._ellipsisContent = this.message;
-    this.sentence.style.height = 'auto';
-  }
-
-  render() {
-    const ellipsis = this.endChar !== '...' ? this.endChar : 'ellipsis';
-    const style = {
-      '-webkit-line-clamp': this._nbLines,
-      'text-overflow': `'${ellipsis}'`
-    };
-    return (0, lit_1.html)`
-      <div class="autofit-ellipsis" style="${(0, style_map_js_1.styleMap)(style)}" id="sentence">
-        ${this._ellipsisContent}
-      </div>
-    `;
-  }
-
-};
-Ellipsis.styles = (0, lit_1.css)`
-    .autofit-ellipsis {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
+  }, {
+    key: "willUpdate",
+    value: function willUpdate( // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    _changedProperties) {
+      if (_changedProperties.has('message')) {
+        this._ellipsisContent = this.message;
+      }
     }
-  `;
+  }, {
+    key: "firstUpdated",
+    value: function firstUpdated() {
+      this.setLogIdentifier('ellipsis');
+      this.debugLog('First update', this);
+      this.debounceRun();
+    }
+  }, {
+    key: "run",
+    value: function () {
+      var _run = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+        var _a, lineHeight, availableHeight, autoNbLines;
+
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                this.debugLog('running', this.message);
+                _context.next = 3;
+                return this.updateComplete;
+
+              case 3:
+                if (!(this.sentence.offsetWidth < 1 || this.sentence.offsetHeight < 1)) {
+                  _context.next = 6;
+                  break;
+                }
+
+                this.messageLog('Component is hidden, stop running');
+                return _context.abrupt("return");
+
+              case 6:
+                if (!(((_a = this.message) === null || _a === void 0 ? void 0 : _a.length) <= 0)) {
+                  _context.next = 8;
+                  break;
+                }
+
+                return _context.abrupt("return");
+
+              case 8:
+                lineHeight = (0, _parseInt2.default)(this.height, 10);
+                this._ellipsisContent = '';
+                _context.next = 12;
+                return this.updateComplete;
+
+              case 12:
+                this.sentence.style.height = '100%';
+                availableHeight = this.sentence.getBoundingClientRect().height || lineHeight;
+
+                if (!(availableHeight < lineHeight)) {
+                  _context.next = 16;
+                  break;
+                }
+
+                return _context.abrupt("return");
+
+              case 16:
+                autoNbLines = Math.floor(availableHeight / lineHeight);
+                this._nbLines = this.clamp > 0 && this.clamp < autoNbLines ? this.clamp.toString() : autoNbLines.toString();
+                this._ellipsisContent = this.message;
+                this.sentence.style.height = 'auto';
+
+              case 20:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function run() {
+        return _run.apply(this, arguments);
+      }
+
+      return run;
+    }()
+  }, {
+    key: "render",
+    value: function render() {
+      var ellipsis = this.endChar !== '...' ? this.endChar : 'ellipsis';
+      var style = {
+        '-webkit-line-clamp': this._nbLines,
+        'text-overflow': "'".concat(ellipsis, "'")
+      };
+      return (0, lit_1.html)(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n      <div class=\"autofit-ellipsis\" style=\"", "\" id=\"sentence\">\n        ", "\n      </div>\n    "])), (0, style_map_js_1.styleMap)(style), this._ellipsisContent);
+    }
+  }]);
+  return Ellipsis;
+}((0, litLoggable_1.LitLoggable)(lit_1.LitElement));
+
+Ellipsis.styles = (0, lit_1.css)(_templateObject2 || (_templateObject2 = (0, _taggedTemplateLiteral2.default)(["\n    .autofit-ellipsis {\n      overflow: hidden;\n      text-overflow: ellipsis;\n      display: -webkit-box;\n      -webkit-box-orient: vertical;\n    }\n  "])));
 
 __decorate([(0, decorators_js_1.property)({
   type: String
@@ -6266,11 +6585,41 @@ exports.Ellipsis = Ellipsis;
 "use strict";
 
 
+__webpack_require__(12419);
+
+var _interopRequireDefault = __webpack_require__(17907);
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(14490));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(33119));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(92664));
+
+var _inherits2 = _interopRequireDefault(__webpack_require__(84827));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(85299));
+
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(55536));
+
+var _typeof2 = _interopRequireDefault(__webpack_require__(20474));
+
+__webpack_require__(38880);
+
+__webpack_require__(41539);
+
+var _templateObject, _templateObject2;
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
 var __decorate = void 0 && (void 0).__decorate || function (decorators, target, key, desc) {
   var c = arguments.length,
       r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
       d;
-  if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  if ((typeof Reflect === "undefined" ? "undefined" : (0, _typeof2.default)(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
   return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
@@ -6284,70 +6633,40 @@ exports.Spinner = void 0;
 
 /*Lit*/
 
-const lit_1 = __webpack_require__(9392);
+var lit_1 = __webpack_require__(9392);
 
-const decorators_js_1 = __webpack_require__(45595);
+var decorators_js_1 = __webpack_require__(45595);
 /*Mixins*/
 
 
-const litLoggable_1 = __webpack_require__(39937);
+var litLoggable_1 = __webpack_require__(39937);
 
-let Spinner = class Spinner extends (0, litLoggable_1.LitLoggable)(lit_1.LitElement) {
-  constructor() {
-    super();
-    this.debugLog('Component loaded');
+var Spinner = /*#__PURE__*/function (_ref) {
+  (0, _inherits2.default)(Spinner, _ref);
+
+  var _super = _createSuper(Spinner);
+
+  function Spinner() {
+    var _this;
+
+    (0, _classCallCheck2.default)(this, Spinner);
+    _this = _super.call(this);
+
+    _this.debugLog('Component loaded');
+
+    return _this;
   }
 
-  render() {
-    return (0, lit_1.html)`
-      <div class="lds-facebook">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    `;
-  }
+  (0, _createClass2.default)(Spinner, [{
+    key: "render",
+    value: function render() {
+      return (0, lit_1.html)(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n      <div class=\"lds-facebook\">\n        <div></div>\n        <div></div>\n        <div></div>\n      </div>\n    "])));
+    }
+  }]);
+  return Spinner;
+}((0, litLoggable_1.LitLoggable)(lit_1.LitElement));
 
-};
-Spinner.styles = (0, lit_1.css)`
-    .lds-facebook {
-      display: inline-block;
-      position: relative;
-      width: 80px;
-      height: 80px;
-    }
-    .lds-facebook div {
-      display: inline-block;
-      position: absolute;
-      left: 8px;
-      width: 16px;
-      background: var(--lit-spinner-color, #fff);
-      animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
-    }
-    .lds-facebook div:nth-child(1) {
-      left: 8px;
-      animation-delay: -0.24s;
-    }
-    .lds-facebook div:nth-child(2) {
-      left: 32px;
-      animation-delay: -0.12s;
-    }
-    .lds-facebook div:nth-child(3) {
-      left: 56px;
-      animation-delay: 0;
-    }
-    @keyframes lds-facebook {
-      0% {
-        top: 8px;
-        height: 64px;
-      }
-      50%,
-      100% {
-        top: 24px;
-        height: 32px;
-      }
-    }
-  `;
+Spinner.styles = (0, lit_1.css)(_templateObject2 || (_templateObject2 = (0, _taggedTemplateLiteral2.default)(["\n    .lds-facebook {\n      display: inline-block;\n      position: relative;\n      width: 80px;\n      height: 80px;\n    }\n    .lds-facebook div {\n      display: inline-block;\n      position: absolute;\n      left: 8px;\n      width: 16px;\n      background: var(--lit-spinner-color, #fff);\n      animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;\n    }\n    .lds-facebook div:nth-child(1) {\n      left: 8px;\n      animation-delay: -0.24s;\n    }\n    .lds-facebook div:nth-child(2) {\n      left: 32px;\n      animation-delay: -0.12s;\n    }\n    .lds-facebook div:nth-child(3) {\n      left: 56px;\n      animation-delay: 0;\n    }\n    @keyframes lds-facebook {\n      0% {\n        top: 8px;\n        height: 64px;\n      }\n      50%,\n      100% {\n        top: 24px;\n        height: 32px;\n      }\n    }\n  "])));
 Spinner = __decorate([(0, decorators_js_1.customElement)('lit-spinner')], Spinner);
 exports.Spinner = Spinner;
 
@@ -6360,30 +6679,36 @@ exports.Spinner = Spinner;
  // Do not modify this file by hand!
 // Re-generate this file by running lit-localize
 
+var _interopRequireDefault = __webpack_require__(17907);
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(14490));
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12;
+
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports.templates = void 0;
 
-const localize_1 = __webpack_require__(91799);
+var localize_1 = __webpack_require__(91799);
 /* eslint-disable no-irregular-whitespace */
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 
 exports.templates = {
-  s1d5d2564d7aae78e: (0, localize_1.str)`Fermer le menu`,
-  s222b63bb7b6cf89d: (0, localize_1.str)`Changer d'établissement`,
-  s380927a4d5b227ed: (0, localize_1.str)`Tous les services`,
-  s4b0eba4268a3c045: (0, localize_1.str)`Rechercher un service...`,
-  s5379e362403c02bc: (0, localize_1.str)`Vous n'avez pas de favoris`,
-  s79529ae47e56fbd5: (0, localize_1.str)`Toutes les catégories`,
-  s8bdf1e8dfd70aa2c: (0, localize_1.str)`Voir les informations de mon compte`,
-  s8f1dff5d47459b5e: (0, localize_1.str)`Mes favoris`,
-  s8fa032cdafb3c9b0: (0, localize_1.str)`Se déconnecter`,
-  s9e226e0a027f39a6: (0, localize_1.str)`Supprimer des favoris`,
-  scff3aac0935b2a74: (0, localize_1.str)`Ajouter aux favoris`,
-  s1967faf9ed8d3504: (0, localize_1.str)`Avatar`
+  s1d5d2564d7aae78e: (0, localize_1.str)(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["Fermer le menu"]))),
+  s222b63bb7b6cf89d: (0, localize_1.str)(_templateObject2 || (_templateObject2 = (0, _taggedTemplateLiteral2.default)(["Changer d'\xE9tablissement"]))),
+  s380927a4d5b227ed: (0, localize_1.str)(_templateObject3 || (_templateObject3 = (0, _taggedTemplateLiteral2.default)(["Tous les services"]))),
+  s4b0eba4268a3c045: (0, localize_1.str)(_templateObject4 || (_templateObject4 = (0, _taggedTemplateLiteral2.default)(["Rechercher un service..."]))),
+  s5379e362403c02bc: (0, localize_1.str)(_templateObject5 || (_templateObject5 = (0, _taggedTemplateLiteral2.default)(["Vous n'avez pas de favoris"]))),
+  s79529ae47e56fbd5: (0, localize_1.str)(_templateObject6 || (_templateObject6 = (0, _taggedTemplateLiteral2.default)(["Toutes les cat\xE9gories"]))),
+  s8bdf1e8dfd70aa2c: (0, localize_1.str)(_templateObject7 || (_templateObject7 = (0, _taggedTemplateLiteral2.default)(["Voir les informations de mon compte"]))),
+  s8f1dff5d47459b5e: (0, localize_1.str)(_templateObject8 || (_templateObject8 = (0, _taggedTemplateLiteral2.default)(["Mes favoris"]))),
+  s8fa032cdafb3c9b0: (0, localize_1.str)(_templateObject9 || (_templateObject9 = (0, _taggedTemplateLiteral2.default)(["Se d\xE9connecter"]))),
+  s9e226e0a027f39a6: (0, localize_1.str)(_templateObject10 || (_templateObject10 = (0, _taggedTemplateLiteral2.default)(["Supprimer des favoris"]))),
+  scff3aac0935b2a74: (0, localize_1.str)(_templateObject11 || (_templateObject11 = (0, _taggedTemplateLiteral2.default)(["Ajouter aux favoris"]))),
+  s1967faf9ed8d3504: (0, localize_1.str)(_templateObject12 || (_templateObject12 = (0, _taggedTemplateLiteral2.default)(["Avatar"])))
 };
 
 /***/ }),
@@ -6394,109 +6719,159 @@ exports.templates = {
 "use strict";
 
 
+__webpack_require__(41539);
+
+__webpack_require__(12419);
+
 var _interopRequireDefault = __webpack_require__(17907);
 
 var _parseInt2 = _interopRequireDefault(__webpack_require__(80040));
 
-__webpack_require__(33948);
+__webpack_require__(92222);
+
+__webpack_require__(68309);
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(33119));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(92664));
+
+var _inherits2 = _interopRequireDefault(__webpack_require__(84827));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(85299));
+
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(55536));
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports.LitLoggable = void 0; // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 
-const LitLoggable = superClass => {
-  class LoggableElement extends superClass {
+var LitLoggable = function LitLoggable(superClass) {
+  var LoggableElement = /*#__PURE__*/function (_superClass) {
+    (0, _inherits2.default)(LoggableElement, _superClass);
+
+    var _super = _createSuper(LoggableElement);
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    constructor() {
+    function LoggableElement() {
+      var _this;
+
+      (0, _classCallCheck2.default)(this, LoggableElement);
+
       var _a, _b, _c;
 
-      super(...arguments);
-      this._module = 'unknown';
-      this._identifier = null;
-      this._localLevel = 1;
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      _this = _super.call.apply(_super, [this].concat(args));
+      _this._module = 'unknown';
+      _this._identifier = null;
+      _this._localLevel = 1;
       LoggableElement._bundle = (_a = "content-menu") !== null && _a !== void 0 ? _a : 'unknown';
       LoggableElement._globalLevel = (_c = (0, _parseInt2.default)((_b = "1") !== null && _b !== void 0 ? _b : '1')) !== null && _c !== void 0 ? _c : 1;
-      this._module = this.constructor.name;
+      _this._module = _this.constructor.name;
+      return _this;
     }
 
-    setLogBundle(bundle) {
-      if (LoggableElement._bundle === 'unknown') LoggableElement._bundle = bundle;
-    }
-
-    setLogModule(module) {
-      this._module = module;
-    }
-
-    setLogIdentifier(identifier) {
-      this._identifier = identifier;
-    }
-
-    setLogLevel(level) {
-      this._localLevel = level;
-    }
-
-    getLogLevel() {
-      return Math.max(LoggableElement._globalLevel, this._localLevel);
-    }
-
-    handleLog(type, message) {
-      const level = this.getLogLevel();
-      const logMessage = `%c[${LoggableElement._bundle}][${this._module}] ${this._identifier ? this._identifier + ' >' : ''} ${message}`;
-
-      for (var _len = arguments.length, paramaters = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-        paramaters[_key - 2] = arguments[_key];
+    (0, _createClass2.default)(LoggableElement, [{
+      key: "setLogBundle",
+      value: function setLogBundle(bundle) {
+        if (LoggableElement._bundle === 'unknown') LoggableElement._bundle = bundle;
       }
-
-      switch (type) {
-        case 'error':
-          if (level > 0) {
-            console.error(logMessage, 'display: inline-block; background-color:#EBD3D3; color: #c80000;font-weight: bold ; padding: 3px 7px 3px 7px ; border-radius: 3px 3px 3px 3px ;', ...paramaters);
-          }
-
-          break;
-
-        case 'log':
-          if (level > 1) {
-            console.log(logMessage, 'display: inline-block; background-color:#CFDAE6; color: #004999;font-weight: bold ; padding: 3px 7px 3px 7px ; border-radius: 3px 3px 3px 3px ;', ...paramaters);
-          }
-
-          break;
-
-        case 'debug':
-          if (level > 2) {
-            console.debug(logMessage, 'display: inline-block; background-color:#D9D9D9; color: #6c6c6c;font-weight: bold ; padding: 3px 7px 3px 7px ; border-radius: 3px 3px 3px 3px ;', ...paramaters);
-          }
-
-          break;
+    }, {
+      key: "setLogModule",
+      value: function setLogModule(module) {
+        this._module = module;
       }
-    }
-
-    errorLog(message) {
-      for (var _len2 = arguments.length, paramaters = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-        paramaters[_key2 - 1] = arguments[_key2];
+    }, {
+      key: "setLogIdentifier",
+      value: function setLogIdentifier(identifier) {
+        this._identifier = identifier;
       }
-
-      this.handleLog('error', message, ...paramaters);
-    }
-
-    messageLog(message) {
-      for (var _len3 = arguments.length, paramaters = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
-        paramaters[_key3 - 1] = arguments[_key3];
+    }, {
+      key: "setLogLevel",
+      value: function setLogLevel(level) {
+        this._localLevel = level;
       }
-
-      this.handleLog('log', message, ...paramaters);
-    }
-
-    debugLog(message) {
-      for (var _len4 = arguments.length, paramaters = new Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
-        paramaters[_key4 - 1] = arguments[_key4];
+    }, {
+      key: "getLogLevel",
+      value: function getLogLevel() {
+        return Math.max(LoggableElement._globalLevel, this._localLevel);
       }
+    }, {
+      key: "handleLog",
+      value: function handleLog(type, message) {
+        var level = this.getLogLevel();
+        var logMessage = "%c[".concat(LoggableElement._bundle, "][").concat(this._module, "] ").concat(this._identifier ? this._identifier + ' >' : '', " ").concat(message);
 
-      this.handleLog('debug', message, ...paramaters);
-    }
+        for (var _len2 = arguments.length, paramaters = new Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+          paramaters[_key2 - 2] = arguments[_key2];
+        }
 
-  }
+        switch (type) {
+          case 'error':
+            if (level > 0) {
+              var _console;
+
+              (_console = console).error.apply(_console, [logMessage, 'display: inline-block; background-color:#EBD3D3; color: #c80000;font-weight: bold ; padding: 3px 7px 3px 7px ; border-radius: 3px 3px 3px 3px ;'].concat(paramaters));
+            }
+
+            break;
+
+          case 'log':
+            if (level > 1) {
+              var _console2;
+
+              (_console2 = console).log.apply(_console2, [logMessage, 'display: inline-block; background-color:#CFDAE6; color: #004999;font-weight: bold ; padding: 3px 7px 3px 7px ; border-radius: 3px 3px 3px 3px ;'].concat(paramaters));
+            }
+
+            break;
+
+          case 'debug':
+            if (level > 2) {
+              var _console3;
+
+              (_console3 = console).debug.apply(_console3, [logMessage, 'display: inline-block; background-color:#D9D9D9; color: #6c6c6c;font-weight: bold ; padding: 3px 7px 3px 7px ; border-radius: 3px 3px 3px 3px ;'].concat(paramaters));
+            }
+
+            break;
+        }
+      }
+    }, {
+      key: "errorLog",
+      value: function errorLog(message) {
+        for (var _len3 = arguments.length, paramaters = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+          paramaters[_key3 - 1] = arguments[_key3];
+        }
+
+        this.handleLog.apply(this, ['error', message].concat(paramaters));
+      }
+    }, {
+      key: "messageLog",
+      value: function messageLog(message) {
+        for (var _len4 = arguments.length, paramaters = new Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+          paramaters[_key4 - 1] = arguments[_key4];
+        }
+
+        this.handleLog.apply(this, ['log', message].concat(paramaters));
+      }
+    }, {
+      key: "debugLog",
+      value: function debugLog(message) {
+        for (var _len5 = arguments.length, paramaters = new Array(_len5 > 1 ? _len5 - 1 : 0), _key5 = 1; _key5 < _len5; _key5++) {
+          paramaters[_key5 - 1] = arguments[_key5];
+        }
+
+        this.handleLog.apply(this, ['debug', message].concat(paramaters));
+      }
+    }]);
+    return LoggableElement;
+  }(superClass);
 
   LoggableElement._bundle = 'unknown';
   LoggableElement._globalLevel = 1;
@@ -6513,17 +6888,49 @@ exports.LitLoggable = LitLoggable;
 "use strict";
 
 
-__webpack_require__(33948);
+__webpack_require__(12419);
+
+var _interopRequireDefault = __webpack_require__(17907);
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(14490));
+
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(61125));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(33119));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(92664));
+
+var _inherits2 = _interopRequireDefault(__webpack_require__(84827));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(85299));
+
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(55536));
+
+var _typeof2 = _interopRequireDefault(__webpack_require__(20474));
+
+__webpack_require__(38880);
+
+__webpack_require__(41539);
+
+__webpack_require__(82526);
 
 __webpack_require__(41817);
 
 __webpack_require__(54747);
 
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11;
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
 var __decorate = void 0 && (void 0).__decorate || function (decorators, target, key, desc) {
   var c = arguments.length,
       r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
       d;
-  if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  if ((typeof Reflect === "undefined" ? "undefined" : (0, _typeof2.default)(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
   return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
@@ -6539,29 +6946,29 @@ Object.defineProperty(exports, "__esModule", ({
 exports.PortletCard = void 0;
 /*Lit*/
 
-const lit_1 = __webpack_require__(9392);
+var lit_1 = __webpack_require__(9392);
 
-const decorators_js_1 = __webpack_require__(45595);
+var decorators_js_1 = __webpack_require__(45595);
 
-const class_map_js_1 = __webpack_require__(99455);
+var class_map_js_1 = __webpack_require__(99455);
 
-const style_map_js_1 = __webpack_require__(3959);
+var style_map_js_1 = __webpack_require__(3959);
 /*SCSS*/
 
 
-const portlet_card_scss_1 = __importDefault(__webpack_require__(93999));
+var portlet_card_scss_1 = __importDefault(__webpack_require__(93999));
 /*Mixins*/
 
 
-const litLoggable_1 = __webpack_require__(39937);
+var litLoggable_1 = __webpack_require__(39937);
 /*Helpers*/
 
 
-const sizeHelper_1 = __importDefault(__webpack_require__(96995));
+var sizeHelper_1 = __importDefault(__webpack_require__(96995));
 
-const pathHelper_1 = __importDefault(__webpack_require__(24093));
+var pathHelper_1 = __importDefault(__webpack_require__(24093));
 
-const textHelper_1 = __importDefault(__webpack_require__(12742));
+var textHelper_1 = __importDefault(__webpack_require__(12742));
 /*Components*/
 
 
@@ -6569,163 +6976,147 @@ __webpack_require__(13031);
 
 __webpack_require__(10776);
 
-let PortletCard = class PortletCard extends (0, litLoggable_1.LitLoggable)(lit_1.LitElement) {
-  constructor() {
-    super(...arguments);
-    this.messages = [];
-    this.cssClass = 'portlet-card';
-    this.iconBackgroundColor = 'transparent';
-    this.size = 'medium';
-    this.cardHoverSrc = 'none';
-    this.backgroundIsDark = false;
-    this.isFavorite = false;
-    this.hideAction = false;
-    this.debug = false;
-    this._dataIsParsed = false;
-    this._fname = '';
-    this._chanId = 0;
-    this._pTitle = '';
-    this._description = '';
-    this._portletTitle = '';
-    this._canFavorite = false;
-    this._iconUrl = '';
+var PortletCard = /*#__PURE__*/function (_ref) {
+  (0, _inherits2.default)(PortletCard, _ref);
+
+  var _super = _createSuper(PortletCard);
+
+  function PortletCard() {
+    var _this;
+
+    (0, _classCallCheck2.default)(this, PortletCard);
+    _this = _super.apply(this, arguments);
+    _this.messages = [];
+    _this.cssClass = 'portlet-card';
+    _this.iconBackgroundColor = 'transparent';
+    _this.size = 'medium';
+    _this.cardHoverSrc = 'none';
+    _this.backgroundIsDark = false;
+    _this.isFavorite = false;
+    _this.hideAction = false;
+    _this.debug = false;
+    _this._dataIsParsed = false;
+    _this._fname = '';
+    _this._chanId = 0;
+    _this._pTitle = '';
+    _this._description = '';
+    _this._portletTitle = '';
+    _this._canFavorite = false;
+    _this._iconUrl = '';
+    return _this;
   }
 
-  shouldUpdate() {
-    if (this.portletDesc !== undefined) return true;
-    this.errorLog('Attribute portlet-desc or property portletDesc must be defined');
-    return false;
-  }
-
-  willUpdate(changedProperties) {
-    if (changedProperties.has('portletDesc')) {
-      this.parseDesc();
-      this.debugLog('portletDesc update', this.portletDesc);
+  (0, _createClass2.default)(PortletCard, [{
+    key: "shouldUpdate",
+    value: function shouldUpdate() {
+      if (this.portletDesc !== undefined) return true;
+      this.errorLog('Attribute portlet-desc or property portletDesc must be defined');
+      return false;
     }
-  }
-
-  firstUpdated() {
-    this.setLogIdentifier(this._fname);
-    this.debugLog('First update', this);
-  }
-
-  parseDesc() {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
-
-    if (this.portletDesc !== undefined) {
-      this._fname = (_b = (_a = this.portletDesc) === null || _a === void 0 ? void 0 : _a.fname) !== null && _b !== void 0 ? _b : '';
-      this._chanId = (_d = (_c = this.portletDesc) === null || _c === void 0 ? void 0 : _c.id) !== null && _d !== void 0 ? _d : 0;
-      this._pTitle = (_f = (_e = this.portletDesc) === null || _e === void 0 ? void 0 : _e.title) !== null && _f !== void 0 ? _f : '';
-      this._description = (_h = (_g = this.portletDesc) === null || _g === void 0 ? void 0 : _g.description) !== null && _h !== void 0 ? _h : '';
-      this._portletTitle = (_k = (_j = this.portletDesc) === null || _j === void 0 ? void 0 : _j.title) !== null && _k !== void 0 ? _k : '';
-      this._canFavorite = ((_l = this.portletDesc) === null || _l === void 0 ? void 0 : _l.canAdd) ? this.portletDesc.canAdd : true;
-      this._iconUrl = ((_o = (_m = this.portletDesc.parameters) === null || _m === void 0 ? void 0 : _m.iconUrl) === null || _o === void 0 ? void 0 : _o.value) ? pathHelper_1.default.getUrl(this.portletDesc.parameters.iconUrl.value) : '';
-      this._dataIsParsed = true;
+  }, {
+    key: "willUpdate",
+    value: function willUpdate(changedProperties) {
+      if (changedProperties.has('portletDesc')) {
+        this.parseDesc();
+        this.debugLog('portletDesc update', this.portletDesc);
+      }
     }
-  }
-
-  getHoverText() {
-    switch (this.cardHoverSrc) {
-      case 'title':
-        return this._pTitle;
-
-      case 'desc':
-      case 'description':
-        return this._description;
-
-      default:
-        return '';
+  }, {
+    key: "firstUpdated",
+    value: function firstUpdated() {
+      this.setLogIdentifier(this._fname);
+      this.debugLog('First update', this);
     }
-  }
+  }, {
+    key: "parseDesc",
+    value: function parseDesc() {
+      var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
 
-  toggleFavorite(e) {
-    const toggleEvt = new CustomEvent('toggle-favorite', {
-      detail: e.detail
-    });
-    this.dispatchEvent(toggleEvt);
-  }
-
-  render() {
-    const appClasses = {
-      [this.cssClass.toLowerCase()]: true,
-      [textHelper_1.default.sanitize(this._fname.toLowerCase())]: true,
-      [this.size.toLowerCase() + '-card']: true,
-      'background-dark': this.backgroundIsDark,
-      'hide-action': this.hideAction
-    };
-    if (this.portletDesc && this.portletDesc.categories) this.portletDesc.categories.forEach(cat => {
-      const sanCat = textHelper_1.default.sanitize(cat);
-      appClasses[sanCat] = true;
-    });
-    return (0, lit_1.html)`
-      <div class="${(0, class_map_js_1.classMap)(appClasses)}" title="${this.getHoverText()}">
-        <div class="portlet-card-icon">${this.renderIcon()}</div>
-        <div class="portlet-card-title">${this._portletTitle}</div>
-        <div class="portlet-card-description">${this.renderEllipsis()}</div>
-        ${this.renderActionFavorites()}
-      </div>
-    `;
-  }
-
-  renderIcon() {
-    const style = {
-      'background-color': this.iconBackgroundColor
-    };
-    const img = (0, lit_1.html)`<img
-      src="${this._iconUrl}"
-      alt="${this._portletTitle}"
-    />`;
-    return (0, lit_1.html)`
-      <div style=${(0, style_map_js_1.styleMap)(style)} class="img-wrapper">
-        ${this._iconUrl ? img : (0, lit_1.html)`<div class="defaultIcon">
-              <p>${textHelper_1.default.getAcronym(this._portletTitle)}</p>
-            </div>`}
-      </div>
-    `;
-  }
-
-  renderEllipsis() {
-    if (this._dataIsParsed) {
-      return (0, lit_1.html)`
-        <lit-ellipsis
-          message="${textHelper_1.default.truncate(this._description)}"
-          line-height="20px"
-          end-char="..."
-        ></lit-ellipsis>
-      `;
-    } else {
-      return (0, lit_1.html)``;
+      if (this.portletDesc !== undefined) {
+        this._fname = (_b = (_a = this.portletDesc) === null || _a === void 0 ? void 0 : _a.fname) !== null && _b !== void 0 ? _b : '';
+        this._chanId = (_d = (_c = this.portletDesc) === null || _c === void 0 ? void 0 : _c.id) !== null && _d !== void 0 ? _d : 0;
+        this._pTitle = (_f = (_e = this.portletDesc) === null || _e === void 0 ? void 0 : _e.title) !== null && _f !== void 0 ? _f : '';
+        this._description = (_h = (_g = this.portletDesc) === null || _g === void 0 ? void 0 : _g.description) !== null && _h !== void 0 ? _h : '';
+        this._portletTitle = (_k = (_j = this.portletDesc) === null || _j === void 0 ? void 0 : _j.title) !== null && _k !== void 0 ? _k : '';
+        this._canFavorite = ((_l = this.portletDesc) === null || _l === void 0 ? void 0 : _l.canAdd) ? this.portletDesc.canAdd : true;
+        this._iconUrl = ((_o = (_m = this.portletDesc.parameters) === null || _m === void 0 ? void 0 : _m.iconUrl) === null || _o === void 0 ? void 0 : _o.value) ? pathHelper_1.default.getUrl(this.portletDesc.parameters.iconUrl.value) : '';
+        this._dataIsParsed = true;
+      }
     }
-  }
+  }, {
+    key: "getHoverText",
+    value: function getHoverText() {
+      switch (this.cardHoverSrc) {
+        case 'title':
+          return this._pTitle;
 
-  renderActionFavorites() {
-    let returnHTML = (0, lit_1.html)``;
-    let afHTML = (0, lit_1.html)``;
+        case 'desc':
+        case 'description':
+          return this._description;
 
-    if (this._canFavorite) {
-      afHTML = (0, lit_1.html)`
-        <esco-action-favorites
-          .messages="${this.messages}"
-          fname="${this._fname}"
-          chan-id="${this._chanId}"
-          .isFavorite="${this.isFavorite}"
-          ?background-is-dark="${this.backgroundIsDark}"
-          @toggle=${this.toggleFavorite}
-        /></esco-action-favorites>
-      `;
+        default:
+          return '';
+      }
     }
-
-    if (!this.hideAction) {
-      returnHTML = (0, lit_1.html)`<div class="portlet-card-action">${afHTML}</div> `;
+  }, {
+    key: "toggleFavorite",
+    value: function toggleFavorite(e) {
+      var toggleEvt = new CustomEvent('toggle-favorite', {
+        detail: e.detail
+      });
+      this.dispatchEvent(toggleEvt);
     }
+  }, {
+    key: "render",
+    value: function render() {
+      var _appClasses;
 
-    return returnHTML;
-  }
+      var appClasses = (_appClasses = {}, (0, _defineProperty2.default)(_appClasses, this.cssClass.toLowerCase(), true), (0, _defineProperty2.default)(_appClasses, textHelper_1.default.sanitize(this._fname.toLowerCase()), true), (0, _defineProperty2.default)(_appClasses, this.size.toLowerCase() + '-card', true), (0, _defineProperty2.default)(_appClasses, 'background-dark', this.backgroundIsDark), (0, _defineProperty2.default)(_appClasses, 'hide-action', this.hideAction), _appClasses);
+      if (this.portletDesc && this.portletDesc.categories) this.portletDesc.categories.forEach(function (cat) {
+        var sanCat = textHelper_1.default.sanitize(cat);
+        appClasses[sanCat] = true;
+      });
+      return (0, lit_1.html)(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n      <div class=\"", "\" title=\"", "\">\n        <div class=\"portlet-card-icon\">", "</div>\n        <div class=\"portlet-card-title\">", "</div>\n        <div class=\"portlet-card-description\">", "</div>\n        ", "\n      </div>\n    "])), (0, class_map_js_1.classMap)(appClasses), this.getHoverText(), this.renderIcon(), this._portletTitle, this.renderEllipsis(), this.renderActionFavorites());
+    }
+  }, {
+    key: "renderIcon",
+    value: function renderIcon() {
+      var style = {
+        'background-color': this.iconBackgroundColor
+      };
+      var img = (0, lit_1.html)(_templateObject2 || (_templateObject2 = (0, _taggedTemplateLiteral2.default)(["<img\n      src=\"", "\"\n      alt=\"", "\"\n    />"])), this._iconUrl, this._portletTitle);
+      return (0, lit_1.html)(_templateObject3 || (_templateObject3 = (0, _taggedTemplateLiteral2.default)(["\n      <div style=", " class=\"img-wrapper\">\n        ", "\n      </div>\n    "])), (0, style_map_js_1.styleMap)(style), this._iconUrl ? img : (0, lit_1.html)(_templateObject4 || (_templateObject4 = (0, _taggedTemplateLiteral2.default)(["<div class=\"defaultIcon\">\n              <p>", "</p>\n            </div>"])), textHelper_1.default.getAcronym(this._portletTitle)));
+    }
+  }, {
+    key: "renderEllipsis",
+    value: function renderEllipsis() {
+      if (this._dataIsParsed) {
+        return (0, lit_1.html)(_templateObject5 || (_templateObject5 = (0, _taggedTemplateLiteral2.default)(["\n        <lit-ellipsis\n          message=\"", "\"\n          line-height=\"20px\"\n          end-char=\"...\"\n        ></lit-ellipsis>\n      "])), textHelper_1.default.truncate(this._description));
+      } else {
+        return (0, lit_1.html)(_templateObject6 || (_templateObject6 = (0, _taggedTemplateLiteral2.default)([""])));
+      }
+    }
+  }, {
+    key: "renderActionFavorites",
+    value: function renderActionFavorites() {
+      var returnHTML = (0, lit_1.html)(_templateObject7 || (_templateObject7 = (0, _taggedTemplateLiteral2.default)([""])));
+      var afHTML = (0, lit_1.html)(_templateObject8 || (_templateObject8 = (0, _taggedTemplateLiteral2.default)([""])));
 
-};
-PortletCard.styles = (0, lit_1.css)`
-    ${(0, lit_1.unsafeCSS)(portlet_card_scss_1.default)}
-  `;
+      if (this._canFavorite) {
+        afHTML = (0, lit_1.html)(_templateObject9 || (_templateObject9 = (0, _taggedTemplateLiteral2.default)(["\n        <esco-action-favorites\n          .messages=\"", "\"\n          fname=\"", "\"\n          chan-id=\"", "\"\n          .isFavorite=\"", "\"\n          ?background-is-dark=\"", "\"\n          @toggle=", "\n        /></esco-action-favorites>\n      "])), this.messages, this._fname, this._chanId, this.isFavorite, this.backgroundIsDark, this.toggleFavorite);
+      }
+
+      if (!this.hideAction) {
+        returnHTML = (0, lit_1.html)(_templateObject10 || (_templateObject10 = (0, _taggedTemplateLiteral2.default)(["<div class=\"portlet-card-action\">", "</div> "])), afHTML);
+      }
+
+      return returnHTML;
+    }
+  }]);
+  return PortletCard;
+}((0, litLoggable_1.LitLoggable)(lit_1.LitElement));
+
+PortletCard.styles = (0, lit_1.css)(_templateObject11 || (_templateObject11 = (0, _taggedTemplateLiteral2.default)(["\n    ", "\n  "])), (0, lit_1.unsafeCSS)(portlet_card_scss_1.default));
 
 __decorate([(0, decorators_js_1.property)({
   type: Array
@@ -6748,11 +7139,9 @@ __decorate([(0, decorators_js_1.property)({
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
-
-  hasChanged(newVal) {
+  hasChanged: function hasChanged(newVal) {
     return sizeHelper_1.default.validate(newVal, true, true);
   }
-
 })], PortletCard.prototype, "size", void 0);
 
 __decorate([(0, decorators_js_1.property)({
@@ -6796,7 +7185,19 @@ var _interopRequireDefault = __webpack_require__(17907);
 
 var _flatMap = _interopRequireDefault(__webpack_require__(12154));
 
+var _regenerator = _interopRequireDefault(__webpack_require__(30222));
+
+__webpack_require__(41539);
+
+__webpack_require__(39714);
+
 __webpack_require__(88674);
+
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(80093));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(33119));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(92664));
 
 var __importDefault = void 0 && (void 0).__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
@@ -6808,121 +7209,271 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-const open_id_connect_1 = __importDefault(__webpack_require__(87220));
+var open_id_connect_1 = __importDefault(__webpack_require__(87220));
 
-class favoritesService {
-  static async fetch(userInfoApiUrl, layoutApiUrl, debug) {
-    var _a, _b, _c;
-
-    try {
-      const requestHeaders = new Headers();
-
-      if (!debug) {
-        requestHeaders.set('Authorization', (await (0, open_id_connect_1.default)({
-          userInfoApiUrl
-        })).encoded);
-      }
-
-      const options = {
-        method: 'GET',
-        credentials: 'same-origin',
-        headers: requestHeaders
-      };
-      const response = await fetch(layoutApiUrl, options);
-
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-
-      const layout = await response.json();
-
-      if ((layout === null || layout === void 0 ? void 0 : layout.authenticated) && ((_b = (_a = layout === null || layout === void 0 ? void 0 : layout.layout) === null || _a === void 0 ? void 0 : _a.globals) === null || _b === void 0 ? void 0 : _b.hasFavorites) && ((_c = layout === null || layout === void 0 ? void 0 : layout.layout) === null || _c === void 0 ? void 0 : _c.favorites)) {
-        return layout.layout.favorites;
-      }
-
-      return null;
-    } catch (err) {
-      // eslint-disable-next-line
-      console.error(err, userInfoApiUrl, layoutApiUrl, debug);
-      return null;
-    }
+var favoritesService = /*#__PURE__*/function () {
+  function favoritesService() {
+    (0, _classCallCheck2.default)(this, favoritesService);
   }
 
-  static async add(userInfoApiUrl, favoriteApiUrl, chanId) {
-    try {
-      const requestHeaders = new Headers();
-      requestHeaders.set('Authorization', (await (0, open_id_connect_1.default)({
-        userInfoApiUrl
-      })).encoded);
-      const options = {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: requestHeaders
-      };
-      const addUrl = favoriteApiUrl + '?action=addFavorite&channelId=' + chanId;
-      const response = await fetch(addUrl, options);
-
-      if (response.ok) {
-        return true;
-      } else {
-        throw new Error(response.statusText);
+  (0, _createClass2.default)(favoritesService, null, [{
+    key: "fetch",
+    value: function (_fetch) {
+      function fetch(_x, _x2, _x3) {
+        return _fetch.apply(this, arguments);
       }
-    } catch (err) {
-      // eslint-disable-next-line
-      console.error(err);
-      return false;
-    }
-  }
 
-  static async remove(userInfoApiUrl, favoriteApiUrl, chanId) {
-    try {
-      const requestHeaders = new Headers();
-      requestHeaders.set('Authorization', (await (0, open_id_connect_1.default)({
-        userInfoApiUrl
-      })).encoded);
-      const options = {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: requestHeaders
+      fetch.toString = function () {
+        return _fetch.toString();
       };
-      const addUrl = favoriteApiUrl + '?action=removeFavorite&channelId=' + chanId;
-      const response = await fetch(addUrl, options);
 
-      if (response.ok) {
-        return true;
-      } else {
-        throw new Error(response.statusText);
+      return fetch;
+    }( /*#__PURE__*/function () {
+      var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(userInfoApiUrl, layoutApiUrl, debug) {
+        var _a, _b, _c, requestHeaders, options, response, layout;
+
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                requestHeaders = new Headers();
+
+                if (debug) {
+                  _context.next = 8;
+                  break;
+                }
+
+                _context.t0 = requestHeaders;
+                _context.next = 6;
+                return (0, open_id_connect_1.default)({
+                  userInfoApiUrl: userInfoApiUrl
+                });
+
+              case 6:
+                _context.t1 = _context.sent.encoded;
+
+                _context.t0.set.call(_context.t0, 'Authorization', _context.t1);
+
+              case 8:
+                options = {
+                  method: 'GET',
+                  credentials: 'same-origin',
+                  headers: requestHeaders
+                };
+                _context.next = 11;
+                return fetch(layoutApiUrl, options);
+
+              case 11:
+                response = _context.sent;
+
+                if (response.ok) {
+                  _context.next = 14;
+                  break;
+                }
+
+                throw new Error(response.statusText);
+
+              case 14:
+                _context.next = 16;
+                return response.json();
+
+              case 16:
+                layout = _context.sent;
+
+                if (!((layout === null || layout === void 0 ? void 0 : layout.authenticated) && ((_b = (_a = layout === null || layout === void 0 ? void 0 : layout.layout) === null || _a === void 0 ? void 0 : _a.globals) === null || _b === void 0 ? void 0 : _b.hasFavorites) && ((_c = layout === null || layout === void 0 ? void 0 : layout.layout) === null || _c === void 0 ? void 0 : _c.favorites))) {
+                  _context.next = 19;
+                  break;
+                }
+
+                return _context.abrupt("return", layout.layout.favorites);
+
+              case 19:
+                return _context.abrupt("return", null);
+
+              case 22:
+                _context.prev = 22;
+                _context.t2 = _context["catch"](0);
+                // eslint-disable-next-line
+                console.error(_context.t2, userInfoApiUrl, layoutApiUrl, debug);
+                return _context.abrupt("return", null);
+
+              case 26:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 22]]);
+      }));
+
+      return function (_x4, _x5, _x6) {
+        return _ref.apply(this, arguments);
+      };
+    }())
+  }, {
+    key: "add",
+    value: function () {
+      var _add = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(userInfoApiUrl, favoriteApiUrl, chanId) {
+        var requestHeaders, options, addUrl, response;
+        return _regenerator.default.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                requestHeaders = new Headers();
+                _context2.t0 = requestHeaders;
+                _context2.next = 5;
+                return (0, open_id_connect_1.default)({
+                  userInfoApiUrl: userInfoApiUrl
+                });
+
+              case 5:
+                _context2.t1 = _context2.sent.encoded;
+
+                _context2.t0.set.call(_context2.t0, 'Authorization', _context2.t1);
+
+                options = {
+                  method: 'POST',
+                  credentials: 'same-origin',
+                  headers: requestHeaders
+                };
+                addUrl = favoriteApiUrl + '?action=addFavorite&channelId=' + chanId;
+                _context2.next = 11;
+                return fetch(addUrl, options);
+
+              case 11:
+                response = _context2.sent;
+
+                if (!response.ok) {
+                  _context2.next = 16;
+                  break;
+                }
+
+                return _context2.abrupt("return", true);
+
+              case 16:
+                throw new Error(response.statusText);
+
+              case 17:
+                _context2.next = 23;
+                break;
+
+              case 19:
+                _context2.prev = 19;
+                _context2.t2 = _context2["catch"](0);
+                // eslint-disable-next-line
+                console.error(_context2.t2);
+                return _context2.abrupt("return", false);
+
+              case 23:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 19]]);
+      }));
+
+      function add(_x7, _x8, _x9) {
+        return _add.apply(this, arguments);
       }
-    } catch (err) {
-      // eslint-disable-next-line
-      console.error(err);
-      return false;
-    }
-  }
 
-  static flattenFavorites(favorites) {
-    // undefined has no favorites
-    if (!favorites) {
+      return add;
+    }()
+  }, {
+    key: "remove",
+    value: function () {
+      var _remove = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(userInfoApiUrl, favoriteApiUrl, chanId) {
+        var requestHeaders, options, addUrl, response;
+        return _regenerator.default.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                requestHeaders = new Headers();
+                _context3.t0 = requestHeaders;
+                _context3.next = 5;
+                return (0, open_id_connect_1.default)({
+                  userInfoApiUrl: userInfoApiUrl
+                });
+
+              case 5:
+                _context3.t1 = _context3.sent.encoded;
+
+                _context3.t0.set.call(_context3.t0, 'Authorization', _context3.t1);
+
+                options = {
+                  method: 'POST',
+                  credentials: 'same-origin',
+                  headers: requestHeaders
+                };
+                addUrl = favoriteApiUrl + '?action=removeFavorite&channelId=' + chanId;
+                _context3.next = 11;
+                return fetch(addUrl, options);
+
+              case 11:
+                response = _context3.sent;
+
+                if (!response.ok) {
+                  _context3.next = 16;
+                  break;
+                }
+
+                return _context3.abrupt("return", true);
+
+              case 16:
+                throw new Error(response.statusText);
+
+              case 17:
+                _context3.next = 23;
+                break;
+
+              case 19:
+                _context3.prev = 19;
+                _context3.t2 = _context3["catch"](0);
+                // eslint-disable-next-line
+                console.error(_context3.t2);
+                return _context3.abrupt("return", false);
+
+              case 23:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 19]]);
+      }));
+
+      function remove(_x10, _x11, _x12) {
+        return _remove.apply(this, arguments);
+      }
+
+      return remove;
+    }()
+  }, {
+    key: "flattenFavorites",
+    value: function flattenFavorites(favorites) {
+      // undefined has no favorites
+      if (!favorites) {
+        return [];
+      } // recursively cycle through children
+
+
+      if (Array.isArray(favorites)) {
+        return (0, _flatMap.default)(favorites).call(favorites, favoritesService.flattenFavorites);
+      }
+
+      if (favorites.content !== undefined) {
+        return favoritesService.flattenFavorites(favorites.content);
+      }
+
+      if (favorites.fname !== undefined) {
+        return [favorites.fname];
+      }
+
       return [];
-    } // recursively cycle through children
-
-
-    if (Array.isArray(favorites)) {
-      return (0, _flatMap.default)(favorites).call(favorites, favoritesService.flattenFavorites);
     }
-
-    if (favorites.content !== undefined) {
-      return favoritesService.flattenFavorites(favorites.content);
-    }
-
-    if (favorites.fname !== undefined) {
-      return [favorites.fname];
-    }
-
-    return [];
-  }
-
-}
+  }]);
+  return favoritesService;
+}();
 
 exports["default"] = favoritesService;
 
@@ -6934,7 +7485,27 @@ exports["default"] = favoritesService;
 "use strict";
 
 
+var _interopRequireDefault = __webpack_require__(17907);
+
+var _regenerator = _interopRequireDefault(__webpack_require__(30222));
+
+__webpack_require__(41539);
+
+__webpack_require__(39714);
+
 __webpack_require__(88674);
+
+__webpack_require__(21249);
+
+__webpack_require__(47941);
+
+__webpack_require__(65465);
+
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(80093));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(33119));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(92664));
 
 var __importDefault = void 0 && (void 0).__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
@@ -6946,93 +7517,168 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-const open_id_connect_1 = __importDefault(__webpack_require__(87220));
+var open_id_connect_1 = __importDefault(__webpack_require__(87220));
 
-const get_1 = __importDefault(__webpack_require__(27361));
+var get_1 = __importDefault(__webpack_require__(27361));
 
-const isString_1 = __importDefault(__webpack_require__(47037));
+var isString_1 = __importDefault(__webpack_require__(47037));
 
-class OrganizationService {
-  static async fetch(userInfoApiUrl, orgApiUrl, userAllOrgIdAttribute, debug) {
-    let userInfo = null;
-    let orgInfo = null;
-    let fetchUrl = '';
+var OrganizationService = /*#__PURE__*/function () {
+  function OrganizationService() {
+    (0, _classCallCheck2.default)(this, OrganizationService);
+  }
 
-    try {
-      const requestHeaders = new Headers();
-
-      if (debug) {
-        const userInfoRequest = await fetch(userInfoApiUrl);
-        userInfo = await userInfoRequest.json();
-        fetchUrl = orgApiUrl;
-      } else {
-        const {
-          encoded,
-          decoded
-        } = await (0, open_id_connect_1.default)({
-          userInfoApiUrl
-        });
-        userInfo = decoded;
-        const orgIds = (0, get_1.default)(decoded, userAllOrgIdAttribute, null);
-        requestHeaders.set('Authorization', encoded);
-        if ((orgIds === null || orgIds === void 0 ? void 0 : orgIds.length) > 0) fetchUrl = orgApiUrl + '?ids=' + orgIds;
+  (0, _createClass2.default)(OrganizationService, null, [{
+    key: "fetch",
+    value: function (_fetch) {
+      function fetch(_x, _x2, _x3, _x4) {
+        return _fetch.apply(this, arguments);
       }
 
-      if ((orgApiUrl === null || orgApiUrl === void 0 ? void 0 : orgApiUrl.length) > 0 && fetchUrl.length > 0) {
-        const options = {
-          method: 'GET',
-          credentials: 'same-origin',
-          headers: requestHeaders
-        };
-        const response = await fetch(fetchUrl, options);
-
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
-
-        orgInfo = await response.json();
-      }
-
-      return {
-        user: userInfo,
-        organizations: orgInfo
+      fetch.toString = function () {
+        return _fetch.toString();
       };
-    } catch (err) {
-      // eslint-disable-next-line
-      console.error(err);
+
+      return fetch;
+    }( /*#__PURE__*/function () {
+      var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(userInfoApiUrl, orgApiUrl, userAllOrgIdAttribute, debug) {
+        var userInfo, orgInfo, fetchUrl, requestHeaders, userInfoRequest, _yield, encoded, decoded, orgIds, options, response;
+
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                userInfo = null;
+                orgInfo = null;
+                fetchUrl = '';
+                _context.prev = 3;
+                requestHeaders = new Headers();
+
+                if (!debug) {
+                  _context.next = 15;
+                  break;
+                }
+
+                _context.next = 8;
+                return fetch(userInfoApiUrl);
+
+              case 8:
+                userInfoRequest = _context.sent;
+                _context.next = 11;
+                return userInfoRequest.json();
+
+              case 11:
+                userInfo = _context.sent;
+                fetchUrl = orgApiUrl;
+                _context.next = 24;
+                break;
+
+              case 15:
+                _context.next = 17;
+                return (0, open_id_connect_1.default)({
+                  userInfoApiUrl: userInfoApiUrl
+                });
+
+              case 17:
+                _yield = _context.sent;
+                encoded = _yield.encoded;
+                decoded = _yield.decoded;
+                userInfo = decoded;
+                orgIds = (0, get_1.default)(decoded, userAllOrgIdAttribute, null);
+                requestHeaders.set('Authorization', encoded);
+                if ((orgIds === null || orgIds === void 0 ? void 0 : orgIds.length) > 0) fetchUrl = orgApiUrl + '?ids=' + orgIds;
+
+              case 24:
+                if (!((orgApiUrl === null || orgApiUrl === void 0 ? void 0 : orgApiUrl.length) > 0 && fetchUrl.length > 0)) {
+                  _context.next = 34;
+                  break;
+                }
+
+                options = {
+                  method: 'GET',
+                  credentials: 'same-origin',
+                  headers: requestHeaders
+                };
+                _context.next = 28;
+                return fetch(fetchUrl, options);
+
+              case 28:
+                response = _context.sent;
+
+                if (response.ok) {
+                  _context.next = 31;
+                  break;
+                }
+
+                throw new Error(response.statusText);
+
+              case 31:
+                _context.next = 33;
+                return response.json();
+
+              case 33:
+                orgInfo = _context.sent;
+
+              case 34:
+                return _context.abrupt("return", {
+                  user: userInfo,
+                  organizations: orgInfo
+                });
+
+              case 37:
+                _context.prev = 37;
+                _context.t0 = _context["catch"](3);
+                // eslint-disable-next-line
+                console.error(_context.t0);
+                return _context.abrupt("return", null);
+
+              case 41:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[3, 37]]);
+      }));
+
+      return function (_x5, _x6, _x7, _x8) {
+        return _ref.apply(this, arguments);
+      };
+    }())
+  }, {
+    key: "getCurrentOrganization",
+    value: function getCurrentOrganization(user, userOrgIdAttribute, organizations) {
+      var _a;
+
+      var currentUserOrgId = (0, get_1.default)(user, userOrgIdAttribute, null);
+      var orgs = Object.keys(organizations).map(function (index) {
+        return organizations[index];
+      });
+
+      if ((0, isString_1.default)(currentUserOrgId) && (orgs === null || orgs === void 0 ? void 0 : orgs.length) > 0) {
+        return (_a = orgs.find(function (entry) {
+          return entry.id === currentUserOrgId;
+        })) !== null && _a !== void 0 ? _a : null;
+      } else if ((orgs === null || orgs === void 0 ? void 0 : orgs.length) > 0) {
+        return orgs[0];
+      }
+
       return null;
     }
-  }
+  }, {
+    key: "getOrganizationLogo",
+    value: function getOrganizationLogo(organization, attributeName) {
+      if (!organization) return '';
+      var entry = (0, get_1.default)(organization, attributeName, null);
 
-  static getCurrentOrganization(user, userOrgIdAttribute, organizations) {
-    var _a;
+      if (Array.isArray(entry)) {
+        return (0, isString_1.default)(entry[0]) ? entry[0] : null;
+      }
 
-    const currentUserOrgId = (0, get_1.default)(user, userOrgIdAttribute, null);
-    const orgs = Object.keys(organizations).map(index => {
-      return organizations[index];
-    });
-
-    if ((0, isString_1.default)(currentUserOrgId) && (orgs === null || orgs === void 0 ? void 0 : orgs.length) > 0) {
-      return (_a = orgs.find(entry => entry.id === currentUserOrgId)) !== null && _a !== void 0 ? _a : null;
-    } else if ((orgs === null || orgs === void 0 ? void 0 : orgs.length) > 0) {
-      return orgs[0];
+      return (0, isString_1.default)(entry) ? entry : null;
     }
-
-    return null;
-  }
-
-  static getOrganizationLogo(organization, attributeName) {
-    if (!organization) return '';
-    const entry = (0, get_1.default)(organization, attributeName, null);
-
-    if (Array.isArray(entry)) {
-      return (0, isString_1.default)(entry[0]) ? entry[0] : null;
-    }
-
-    return (0, isString_1.default)(entry) ? entry : null;
-  }
-
-}
+  }]);
+  return OrganizationService;
+}();
 
 exports["default"] = OrganizationService;
 
@@ -7052,11 +7698,41 @@ var _flatMap = _interopRequireDefault(__webpack_require__(12154));
 
 var _parseInt2 = _interopRequireDefault(__webpack_require__(80040));
 
+var _regenerator = _interopRequireDefault(__webpack_require__(30222));
+
+__webpack_require__(41539);
+
+__webpack_require__(39714);
+
 __webpack_require__(88674);
+
+__webpack_require__(92222);
 
 __webpack_require__(54747);
 
+__webpack_require__(68309);
+
+__webpack_require__(21249);
+
+__webpack_require__(57327);
+
+__webpack_require__(66992);
+
+__webpack_require__(70189);
+
+__webpack_require__(78783);
+
 __webpack_require__(33948);
+
+__webpack_require__(73210);
+
+var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(15687));
+
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(80093));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(33119));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(92664));
 
 var __importDefault = void 0 && (void 0).__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
@@ -7068,174 +7744,333 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-const open_id_connect_1 = __importDefault(__webpack_require__(87220));
+var open_id_connect_1 = __importDefault(__webpack_require__(87220));
 
-const uniqBy_1 = __importDefault(__webpack_require__(45578));
+var uniqBy_1 = __importDefault(__webpack_require__(45578));
 
-class portletService {
-  static async fetch(userInfoApiUrl, portletApiUrl, debug) {
-    try {
-      const requestHeaders = new Headers();
+var portletService = /*#__PURE__*/function () {
+  function portletService() {
+    (0, _classCallCheck2.default)(this, portletService);
+  }
 
-      if (!debug) {
-        requestHeaders.set('Authorization', (await (0, open_id_connect_1.default)({
-          userInfoApiUrl
-        })).encoded);
+  (0, _createClass2.default)(portletService, null, [{
+    key: "fetch",
+    value: function (_fetch) {
+      function fetch(_x, _x2, _x3) {
+        return _fetch.apply(this, arguments);
       }
 
-      const options = {
-        method: 'GET',
-        credentials: 'same-origin',
-        headers: requestHeaders
+      fetch.toString = function () {
+        return _fetch.toString();
       };
-      const response = await fetch(portletApiUrl, options);
 
-      if (!response.ok) {
-        throw new Error(response.statusText);
+      return fetch;
+    }( /*#__PURE__*/function () {
+      var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(userInfoApiUrl, portletApiUrl, debug) {
+        var requestHeaders, options, response, portlets;
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                requestHeaders = new Headers();
+
+                if (debug) {
+                  _context.next = 8;
+                  break;
+                }
+
+                _context.t0 = requestHeaders;
+                _context.next = 6;
+                return (0, open_id_connect_1.default)({
+                  userInfoApiUrl: userInfoApiUrl
+                });
+
+              case 6:
+                _context.t1 = _context.sent.encoded;
+
+                _context.t0.set.call(_context.t0, 'Authorization', _context.t1);
+
+              case 8:
+                options = {
+                  method: 'GET',
+                  credentials: 'same-origin',
+                  headers: requestHeaders
+                };
+                _context.next = 11;
+                return fetch(portletApiUrl, options);
+
+              case 11:
+                response = _context.sent;
+
+                if (response.ok) {
+                  _context.next = 14;
+                  break;
+                }
+
+                throw new Error(response.statusText);
+
+              case 14:
+                _context.next = 16;
+                return response.json();
+
+              case 16:
+                portlets = _context.sent;
+                return _context.abrupt("return", portlets);
+
+              case 20:
+                _context.prev = 20;
+                _context.t2 = _context["catch"](0);
+                console.error(_context.t2);
+                return _context.abrupt("return", null);
+
+              case 24:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 20]]);
+      }));
+
+      return function (_x4, _x5, _x6) {
+        return _ref.apply(this, arguments);
+      };
+    }()
+    /**
+     * Combines a array of arrays into a single level array
+     * @param {Array<Portlet>} acc - accumulator that combines all the arrays
+     * @param {Array<Portlet>} arr - new array to add to the accumulator
+     * @return {Array<Portlet>} merged arrays
+     */
+    )
+  }, {
+    key: "flatten",
+    value: function flatten(acc, arr) {
+      return acc.concat(arr);
+    }
+    /**
+     * Takes the returned array from treeWalker and removes duplicates
+     * based on "fname"
+     * @param {Object} registryJson Portlet Registry Tree
+     * @return {Array<Portlet>} list of portlets
+     */
+
+  }, {
+    key: "portletRegistryToArray",
+    value: function portletRegistryToArray(registryJson) {
+      return portletService.customUnique(portletService.treeWalker(registryJson));
+    }
+    /**
+     * Walks the portlet registry tree
+     * @param {Object} registryJson Portlet Registry Tree
+     * @return {Array<Portlet>} list of portlets
+     */
+
+  }, {
+    key: "treeWalker",
+    value: function treeWalker(registryJson) {
+      // If result
+      if (registryJson.registry !== undefined) {
+        return portletService.treeWalker(registryJson.registry);
       }
 
-      const portlets = await response.json();
+      var portlets = []; // If Category
+
+      if (registryJson.portlets !== undefined) {
+        portlets = registryJson.portlets;
+
+        if (portlets.length > 0) {
+          portlets.forEach(function (portlet) {
+            return portlet.categories = new Array(registryJson.name);
+          });
+        }
+      } // If Registry
+
+
+      if (registryJson.categories !== undefined) {
+        var _context2;
+
+        return (0, _reduce.default)(_context2 = portlets.concat(registryJson.categories.map(portletService.portletRegistryToArray))).call(_context2, portletService.flatten, []);
+      } // If Category 2
+
+
+      if (registryJson.subcategories !== undefined) {
+        var _context3;
+
+        return (0, _reduce.default)(_context3 = portlets.concat(registryJson.subcategories.map(portletService.portletRegistryToArray))).call(_context3, portletService.flatten, []);
+      }
+
       return portlets;
-    } catch (err) {
-      console.error(err);
-      return null;
     }
-  }
-  /**
-   * Combines a array of arrays into a single level array
-   * @param {Array<Portlet>} acc - accumulator that combines all the arrays
-   * @param {Array<Portlet>} arr - new array to add to the accumulator
-   * @return {Array<Portlet>} merged arrays
-   */
+    /**
+     * Custom function to remove duplicates portlet on fname, but with merging categories.
+     * @param {Array<Portlet>} array - Portlet List with duplicates.
+     * @return {Array<Portlet>} Portlet List without duplicates.
+     */
 
+  }, {
+    key: "customUnique",
+    value: function customUnique(array) {
+      var unique = (0, uniqBy_1.default)(array, 'fname'); // we construct unique portlets array will all linked categories (reversing category and portlets child)
 
-  static flatten(acc, arr) {
-    return acc.concat(arr);
-  }
-  /**
-   * Takes the returned array from treeWalker and removes duplicates
-   * based on "fname"
-   * @param {Object} registryJson Portlet Registry Tree
-   * @return {Array<Portlet>} list of portlets
-   */
-
-
-  static portletRegistryToArray(registryJson) {
-    return portletService.customUnique(portletService.treeWalker(registryJson));
-  }
-  /**
-   * Walks the portlet registry tree
-   * @param {Object} registryJson Portlet Registry Tree
-   * @return {Array<Portlet>} list of portlets
-   */
-
-
-  static treeWalker(registryJson) {
-    // If result
-    if (registryJson.registry !== undefined) {
-      return portletService.treeWalker(registryJson.registry);
+      unique.forEach(function (elem) {
+        var dupl = array.filter(function (e) {
+          return e.fname === elem.fname;
+        });
+        var allCategories = (0, _flatMap.default)(dupl).call(dupl, function (_ref2) {
+          var categories = _ref2.categories;
+          return categories;
+        });
+        elem.categories = (0, _toConsumableArray2.default)(new Set(allCategories));
+      });
+      return unique;
     }
+  }, {
+    key: "getAlternativeMaximizedUrl",
+    value: function getAlternativeMaximizedUrl(portlet) {
+      var _a, _b;
 
-    let portlets = []; // If Category
+      return (_b = (_a = portlet === null || portlet === void 0 ? void 0 : portlet.parameters) === null || _a === void 0 ? void 0 : _a.alternativeMaximizedLink) === null || _b === void 0 ? void 0 : _b.value;
+    }
+  }, {
+    key: "getRenderUrl",
+    value: function getRenderUrl(portlet, context) {
+      var _a, _b;
 
-    if (registryJson.portlets !== undefined) {
-      portlets = registryJson.portlets;
+      return ((_b = (_a = portlet === null || portlet === void 0 ? void 0 : portlet.parameters) === null || _a === void 0 ? void 0 : _a.alternativeMaximizedLink) === null || _b === void 0 ? void 0 : _b.value) ? portlet.parameters.alternativeMaximizedLink.value : "".concat(context, "/p/").concat(portlet.fname);
+    }
+  }, {
+    key: "sortPortlets",
+    value: function sortPortlets(a, b) {
+      var _a, _b, _c, _d, _e, _f; // if parameter is missing or an invalid integer, Not a Number (NaN) will be set
 
-      if (portlets.length > 0) {
-        portlets.forEach(portlet => portlet.categories = new Array(registryJson.name));
+
+      var aCustomOrder = (0, _parseInt2.default)((_b = (_a = a === null || a === void 0 ? void 0 : a.parameters) === null || _a === void 0 ? void 0 : _a.escoMenuOrder) === null || _b === void 0 ? void 0 : _b.value, 10);
+      var bCustomOrder = (0, _parseInt2.default)((_d = (_c = b === null || b === void 0 ? void 0 : b.parameters) === null || _c === void 0 ? void 0 : _c.escoMenuOrder) === null || _d === void 0 ? void 0 : _d.value, 10);
+
+      if (isNaN(aCustomOrder)) {
+        aCustomOrder = (0, _parseInt2.default)((_e = a === null || a === void 0 ? void 0 : a.layoutObject) === null || _e === void 0 ? void 0 : _e.parameters.escoMenuOrder, 10);
       }
-    } // If Registry
+
+      if (isNaN(bCustomOrder)) {
+        bCustomOrder = (0, _parseInt2.default)((_f = b === null || b === void 0 ? void 0 : b.layoutObject) === null || _f === void 0 ? void 0 : _f.parameters.escoMenuOrder, 10);
+      } // if neither has a custom order, sort by title
 
 
-    if (registryJson.categories !== undefined) {
-      var _context;
+      if (isNaN(aCustomOrder) && isNaN(bCustomOrder)) {
+        return a.title.trim().toLowerCase().localeCompare(b.title.trim().toLowerCase(), undefined, {
+          numeric: true
+        });
+      } // sort the items with custom order in front of items without
 
-      return (0, _reduce.default)(_context = portlets.concat(registryJson.categories.map(portletService.portletRegistryToArray))).call(_context, portletService.flatten, []);
-    } // If Category 2
+
+      if (isNaN(aCustomOrder)) {
+        return 1;
+      }
+
+      if (isNaN(bCustomOrder)) {
+        return -1;
+      } // both items are custom, sort using the number line
+      // lower numbers first, higher numbers after
 
 
-    if (registryJson.subcategories !== undefined) {
-      var _context2;
-
-      return (0, _reduce.default)(_context2 = portlets.concat(registryJson.subcategories.map(portletService.portletRegistryToArray))).call(_context2, portletService.flatten, []);
+      return aCustomOrder - bCustomOrder;
     }
-
-    return portlets;
-  }
-  /**
-   * Custom function to remove duplicates portlet on fname, but with merging categories.
-   * @param {Array<Portlet>} array - Portlet List with duplicates.
-   * @return {Array<Portlet>} Portlet List without duplicates.
-   */
-
-
-  static customUnique(array) {
-    const unique = (0, uniqBy_1.default)(array, 'fname'); // we construct unique portlets array will all linked categories (reversing category and portlets child)
-
-    unique.forEach(elem => {
-      const dupl = array.filter(e => e.fname === elem.fname);
-      const allCategories = (0, _flatMap.default)(dupl).call(dupl, _ref => {
-        let {
-          categories
-        } = _ref;
-        return categories;
-      });
-      elem.categories = [...new Set(allCategories)];
-    });
-    return unique;
-  }
-
-  static getAlternativeMaximizedUrl(portlet) {
-    var _a, _b;
-
-    return (_b = (_a = portlet === null || portlet === void 0 ? void 0 : portlet.parameters) === null || _a === void 0 ? void 0 : _a.alternativeMaximizedLink) === null || _b === void 0 ? void 0 : _b.value;
-  }
-
-  static getRenderUrl(portlet, context) {
-    var _a, _b;
-
-    return ((_b = (_a = portlet === null || portlet === void 0 ? void 0 : portlet.parameters) === null || _a === void 0 ? void 0 : _a.alternativeMaximizedLink) === null || _b === void 0 ? void 0 : _b.value) ? portlet.parameters.alternativeMaximizedLink.value : `${context}/p/${portlet.fname}`;
-  }
-
-  static sortPortlets(a, b) {
-    var _a, _b, _c, _d, _e, _f; // if parameter is missing or an invalid integer, Not a Number (NaN) will be set
-
-
-    let aCustomOrder = (0, _parseInt2.default)((_b = (_a = a === null || a === void 0 ? void 0 : a.parameters) === null || _a === void 0 ? void 0 : _a.escoMenuOrder) === null || _b === void 0 ? void 0 : _b.value, 10);
-    let bCustomOrder = (0, _parseInt2.default)((_d = (_c = b === null || b === void 0 ? void 0 : b.parameters) === null || _c === void 0 ? void 0 : _c.escoMenuOrder) === null || _d === void 0 ? void 0 : _d.value, 10);
-
-    if (isNaN(aCustomOrder)) {
-      aCustomOrder = (0, _parseInt2.default)((_e = a === null || a === void 0 ? void 0 : a.layoutObject) === null || _e === void 0 ? void 0 : _e.parameters.escoMenuOrder, 10);
-    }
-
-    if (isNaN(bCustomOrder)) {
-      bCustomOrder = (0, _parseInt2.default)((_f = b === null || b === void 0 ? void 0 : b.layoutObject) === null || _f === void 0 ? void 0 : _f.parameters.escoMenuOrder, 10);
-    } // if neither has a custom order, sort by title
-
-
-    if (isNaN(aCustomOrder) && isNaN(bCustomOrder)) {
-      return a.title.trim().toLowerCase().localeCompare(b.title.trim().toLowerCase(), undefined, {
-        numeric: true
-      });
-    } // sort the items with custom order in front of items without
-
-
-    if (isNaN(aCustomOrder)) {
-      return 1;
-    }
-
-    if (isNaN(bCustomOrder)) {
-      return -1;
-    } // both items are custom, sort using the number line
-    // lower numbers first, higher numbers after
-
-
-    return aCustomOrder - bCustomOrder;
-  }
-
-}
+  }]);
+  return portletService;
+}();
 
 exports["default"] = portletService;
+
+/***/ }),
+
+/***/ 95299:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(27698);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 83450:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(83363);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 66820:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(56243);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 90093:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(28196);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 83838:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(46279);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 99826:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(28427);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 84234:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(82073);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 32271:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(14471);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 91254:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(57396);
+
+module.exports = parent;
+
 
 /***/ }),
 
@@ -7249,6 +8084,109 @@ module.exports = parent;
 
 /***/ }),
 
+/***/ 23427:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(35021);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 37331:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(79427);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 99565:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(96507);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 78690:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(16670);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 25626:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(27460);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 41285:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(18254);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 80281:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(92547);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 40031:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(46509);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 54493:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(77971);
+__webpack_require__(53242);
+var path = __webpack_require__(54058);
+
+module.exports = path.Array.from;
+
+
+/***/ }),
+
+/***/ 24034:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(92737);
+var path = __webpack_require__(54058);
+
+module.exports = path.Array.isArray;
+
+
+/***/ }),
+
 /***/ 36948:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -7257,6 +8195,17 @@ __webpack_require__(36986);
 var entryVirtual = __webpack_require__(35703);
 
 module.exports = entryVirtual('Array').flatMap;
+
+
+/***/ }),
+
+/***/ 99324:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(2437);
+var entryVirtual = __webpack_require__(35703);
+
+module.exports = entryVirtual('Array').forEach;
 
 
 /***/ }),
@@ -7283,6 +8232,28 @@ module.exports = entryVirtual('Array').reduce;
 
 /***/ }),
 
+/***/ 91876:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(11490);
+var entryVirtual = __webpack_require__(35703);
+
+module.exports = entryVirtual('Array').reverse;
+
+
+/***/ }),
+
+/***/ 24900:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(60186);
+var entryVirtual = __webpack_require__(35703);
+
+module.exports = entryVirtual('Array').slice;
+
+
+/***/ }),
+
 /***/ 2948:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -7290,6 +8261,45 @@ __webpack_require__(4115);
 var entryVirtual = __webpack_require__(35703);
 
 module.exports = entryVirtual('Array').sort;
+
+
+/***/ }),
+
+/***/ 27700:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(73381);
+var entryVirtual = __webpack_require__(35703);
+
+module.exports = entryVirtual('Function').bind;
+
+
+/***/ }),
+
+/***/ 13830:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(66274);
+__webpack_require__(77971);
+var getIteratorMethod = __webpack_require__(22902);
+
+module.exports = getIteratorMethod;
+
+
+/***/ }),
+
+/***/ 16246:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var isPrototypeOf = __webpack_require__(7046);
+var method = __webpack_require__(27700);
+
+var FunctionPrototype = Function.prototype;
+
+module.exports = function (it) {
+  var own = it.bind;
+  return it === FunctionPrototype || (isPrototypeOf(FunctionPrototype, it) && own === FunctionPrototype.bind) ? method : own;
+};
 
 
 /***/ }),
@@ -7347,6 +8357,38 @@ module.exports = function (it) {
 
 /***/ }),
 
+/***/ 91060:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var isPrototypeOf = __webpack_require__(7046);
+var method = __webpack_require__(91876);
+
+var ArrayPrototype = Array.prototype;
+
+module.exports = function (it) {
+  var own = it.reverse;
+  return it === ArrayPrototype || (isPrototypeOf(ArrayPrototype, it) && own === ArrayPrototype.reverse) ? method : own;
+};
+
+
+/***/ }),
+
+/***/ 69601:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var isPrototypeOf = __webpack_require__(7046);
+var method = __webpack_require__(24900);
+
+var ArrayPrototype = Array.prototype;
+
+module.exports = function (it) {
+  var own = it.slice;
+  return it === ArrayPrototype || (isPrototypeOf(ArrayPrototype, it) && own === ArrayPrototype.slice) ? method : own;
+};
+
+
+/***/ }),
+
 /***/ 69355:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -7380,6 +8422,38 @@ module.exports = function (it) {
 
 /***/ }),
 
+/***/ 35254:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(53882);
+var path = __webpack_require__(54058);
+
+var Object = path.Object;
+
+module.exports = function create(P, D) {
+  return Object.create(P, D);
+};
+
+
+/***/ }),
+
+/***/ 7702:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(74979);
+var path = __webpack_require__(54058);
+
+var Object = path.Object;
+
+var defineProperties = module.exports = function defineProperties(T, D) {
+  return Object.defineProperties(T, D);
+};
+
+if (Object.defineProperties.sham) defineProperties.sham = true;
+
+
+/***/ }),
+
 /***/ 48171:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -7393,6 +8467,56 @@ var defineProperty = module.exports = function defineProperty(it, key, desc) {
 };
 
 if (Object.defineProperty.sham) defineProperty.sham = true;
+
+
+/***/ }),
+
+/***/ 73770:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(15711);
+var path = __webpack_require__(54058);
+
+module.exports = path.Object.freeze;
+
+
+/***/ }),
+
+/***/ 286:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(46924);
+var path = __webpack_require__(54058);
+
+var Object = path.Object;
+
+var getOwnPropertyDescriptor = module.exports = function getOwnPropertyDescriptor(it, key) {
+  return Object.getOwnPropertyDescriptor(it, key);
+};
+
+if (Object.getOwnPropertyDescriptor.sham) getOwnPropertyDescriptor.sham = true;
+
+
+/***/ }),
+
+/***/ 13966:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(17405);
+var path = __webpack_require__(54058);
+
+module.exports = path.Object.getPrototypeOf;
+
+
+/***/ }),
+
+/***/ 3065:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(90108);
+var path = __webpack_require__(54058);
+
+module.exports = path.Object.setPrototypeOf;
 
 
 /***/ }),
@@ -7426,6 +8550,17 @@ module.exports = path.Promise;
 
 /***/ }),
 
+/***/ 37095:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(42355);
+var path = __webpack_require__(54058);
+
+module.exports = path.Reflect.get;
+
+
+/***/ }),
+
 /***/ 21631:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -7448,6 +8583,122 @@ module.exports = entryVirtual('String').startsWith;
 
 /***/ }),
 
+/***/ 57473:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(85906);
+__webpack_require__(55967);
+__webpack_require__(35824);
+__webpack_require__(8555);
+__webpack_require__(52615);
+__webpack_require__(21732);
+__webpack_require__(35903);
+__webpack_require__(1825);
+__webpack_require__(28394);
+__webpack_require__(45915);
+__webpack_require__(61766);
+__webpack_require__(62737);
+__webpack_require__(89911);
+__webpack_require__(74315);
+__webpack_require__(63131);
+__webpack_require__(64714);
+__webpack_require__(70659);
+__webpack_require__(69120);
+__webpack_require__(79413);
+__webpack_require__(1502);
+var path = __webpack_require__(54058);
+
+module.exports = path.Symbol;
+
+
+/***/ }),
+
+/***/ 24227:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(66274);
+__webpack_require__(55967);
+__webpack_require__(77971);
+__webpack_require__(1825);
+var WrappedWellKnownSymbolModule = __webpack_require__(11477);
+
+module.exports = WrappedWellKnownSymbolModule.f('iterator');
+
+
+/***/ }),
+
+/***/ 27385:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(64225);
+
+
+/***/ }),
+
+/***/ 81522:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(30382);
+
+
+/***/ }),
+
+/***/ 32209:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(40478);
+
+
+/***/ }),
+
+/***/ 14122:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(89097);
+
+
+/***/ }),
+
+/***/ 57152:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(82507);
+
+
+/***/ }),
+
+/***/ 17579:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(33294);
+
+
+/***/ }),
+
+/***/ 81493:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(97088);
+
+
+/***/ }),
+
+/***/ 76094:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(26467);
+
+
+/***/ }),
+
+/***/ 70573:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(18180);
+
+
+/***/ }),
+
 /***/ 73685:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -7456,10 +8707,258 @@ module.exports = __webpack_require__(80621);
 
 /***/ }),
 
+/***/ 23252:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(62793);
+
+
+/***/ }),
+
+/***/ 27533:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(48403);
+
+
+/***/ }),
+
+/***/ 74303:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(28688);
+
+
+/***/ }),
+
+/***/ 55122:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(5383);
+
+
+/***/ }),
+
+/***/ 29531:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(32050);
+
+
+/***/ }),
+
+/***/ 31524:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(82432);
+
+
+/***/ }),
+
+/***/ 86600:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(52201);
+
+
+/***/ }),
+
+/***/ 9759:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(27398);
+
+
+/***/ }),
+
+/***/ 64225:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(95299);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 30382:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(83450);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 40478:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(66820);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 89097:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(90093);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 82507:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(83838);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 33294:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(99826);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 97088:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(84234);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 26467:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(32271);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 18180:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(91254);
+
+module.exports = parent;
+
+
+/***/ }),
+
 /***/ 80621:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var parent = __webpack_require__(43536);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 62793:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(23427);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 48403:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(37331);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 28688:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(99565);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 5383:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(78690);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 32050:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(25626);
+__webpack_require__(89731);
+// TODO: Remove from `core-js@4`
+__webpack_require__(55708);
+__webpack_require__(30014);
+__webpack_require__(88731);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 82432:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(41285);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 52201:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(80281);
+__webpack_require__(28783);
+__webpack_require__(43975);
+__webpack_require__(65799);
+__webpack_require__(31943);
+__webpack_require__(46774);
+// TODO: Remove from `core-js@4`
+__webpack_require__(45414);
+__webpack_require__(80620);
+__webpack_require__(36172);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 27398:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(40031);
 
 module.exports = parent;
 
@@ -7556,6 +9055,97 @@ module.exports = function (argument) {
 
 /***/ }),
 
+/***/ 97135:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// FF26- bug: ArrayBuffers are non-extensible, but Object.isExtensible does not report it
+var fails = __webpack_require__(95981);
+
+module.exports = fails(function () {
+  if (typeof ArrayBuffer == 'function') {
+    var buffer = new ArrayBuffer(8);
+    // eslint-disable-next-line es-x/no-object-isextensible, es-x/no-object-defineproperty -- safe
+    if (Object.isExtensible(buffer)) Object.defineProperty(buffer, 'a', { value: 8 });
+  }
+});
+
+
+/***/ }),
+
+/***/ 56837:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $forEach = (__webpack_require__(3610).forEach);
+var arrayMethodIsStrict = __webpack_require__(34194);
+
+var STRICT_METHOD = arrayMethodIsStrict('forEach');
+
+// `Array.prototype.forEach` method implementation
+// https://tc39.es/ecma262/#sec-array.prototype.foreach
+module.exports = !STRICT_METHOD ? function forEach(callbackfn /* , thisArg */) {
+  return $forEach(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+// eslint-disable-next-line es-x/no-array-prototype-foreach -- safe
+} : [].forEach;
+
+
+/***/ }),
+
+/***/ 11354:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var bind = __webpack_require__(86843);
+var call = __webpack_require__(78834);
+var toObject = __webpack_require__(89678);
+var callWithSafeIterationClosing = __webpack_require__(75196);
+var isArrayIteratorMethod = __webpack_require__(6782);
+var isConstructor = __webpack_require__(24284);
+var lengthOfArrayLike = __webpack_require__(10623);
+var createProperty = __webpack_require__(55449);
+var getIterator = __webpack_require__(53476);
+var getIteratorMethod = __webpack_require__(22902);
+
+var $Array = Array;
+
+// `Array.from` method implementation
+// https://tc39.es/ecma262/#sec-array.from
+module.exports = function from(arrayLike /* , mapfn = undefined, thisArg = undefined */) {
+  var O = toObject(arrayLike);
+  var IS_CONSTRUCTOR = isConstructor(this);
+  var argumentsLength = arguments.length;
+  var mapfn = argumentsLength > 1 ? arguments[1] : undefined;
+  var mapping = mapfn !== undefined;
+  if (mapping) mapfn = bind(mapfn, argumentsLength > 2 ? arguments[2] : undefined);
+  var iteratorMethod = getIteratorMethod(O);
+  var index = 0;
+  var length, result, step, iterator, next, value;
+  // if the target is not iterable or it's an array with the default iterator - use a simple case
+  if (iteratorMethod && !(this === $Array && isArrayIteratorMethod(iteratorMethod))) {
+    iterator = getIterator(O, iteratorMethod);
+    next = iterator.next;
+    result = IS_CONSTRUCTOR ? new this() : [];
+    for (;!(step = call(next, iterator)).done; index++) {
+      value = mapping ? callWithSafeIterationClosing(iterator, mapfn, [step.value, index], true) : step.value;
+      createProperty(result, index, value);
+    }
+  } else {
+    length = lengthOfArrayLike(O);
+    result = IS_CONSTRUCTOR ? new this(length) : $Array(length);
+    for (;length > index; index++) {
+      value = mapping ? mapfn(O[index], index) : O[index];
+      createProperty(result, index, value);
+    }
+  }
+  result.length = index;
+  return result;
+};
+
+
+/***/ }),
+
 /***/ 31692:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -7590,6 +9180,112 @@ module.exports = {
   // `Array.prototype.indexOf` method
   // https://tc39.es/ecma262/#sec-array.prototype.indexof
   indexOf: createMethod(false)
+};
+
+
+/***/ }),
+
+/***/ 3610:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var bind = __webpack_require__(86843);
+var uncurryThis = __webpack_require__(95329);
+var IndexedObject = __webpack_require__(37026);
+var toObject = __webpack_require__(89678);
+var lengthOfArrayLike = __webpack_require__(10623);
+var arraySpeciesCreate = __webpack_require__(64692);
+
+var push = uncurryThis([].push);
+
+// `Array.prototype.{ forEach, map, filter, some, every, find, findIndex, filterReject }` methods implementation
+var createMethod = function (TYPE) {
+  var IS_MAP = TYPE == 1;
+  var IS_FILTER = TYPE == 2;
+  var IS_SOME = TYPE == 3;
+  var IS_EVERY = TYPE == 4;
+  var IS_FIND_INDEX = TYPE == 6;
+  var IS_FILTER_REJECT = TYPE == 7;
+  var NO_HOLES = TYPE == 5 || IS_FIND_INDEX;
+  return function ($this, callbackfn, that, specificCreate) {
+    var O = toObject($this);
+    var self = IndexedObject(O);
+    var boundFunction = bind(callbackfn, that);
+    var length = lengthOfArrayLike(self);
+    var index = 0;
+    var create = specificCreate || arraySpeciesCreate;
+    var target = IS_MAP ? create($this, length) : IS_FILTER || IS_FILTER_REJECT ? create($this, 0) : undefined;
+    var value, result;
+    for (;length > index; index++) if (NO_HOLES || index in self) {
+      value = self[index];
+      result = boundFunction(value, index, O);
+      if (TYPE) {
+        if (IS_MAP) target[index] = result; // map
+        else if (result) switch (TYPE) {
+          case 3: return true;              // some
+          case 5: return value;             // find
+          case 6: return index;             // findIndex
+          case 2: push(target, value);      // filter
+        } else switch (TYPE) {
+          case 4: return false;             // every
+          case 7: push(target, value);      // filterReject
+        }
+      }
+    }
+    return IS_FIND_INDEX ? -1 : IS_SOME || IS_EVERY ? IS_EVERY : target;
+  };
+};
+
+module.exports = {
+  // `Array.prototype.forEach` method
+  // https://tc39.es/ecma262/#sec-array.prototype.foreach
+  forEach: createMethod(0),
+  // `Array.prototype.map` method
+  // https://tc39.es/ecma262/#sec-array.prototype.map
+  map: createMethod(1),
+  // `Array.prototype.filter` method
+  // https://tc39.es/ecma262/#sec-array.prototype.filter
+  filter: createMethod(2),
+  // `Array.prototype.some` method
+  // https://tc39.es/ecma262/#sec-array.prototype.some
+  some: createMethod(3),
+  // `Array.prototype.every` method
+  // https://tc39.es/ecma262/#sec-array.prototype.every
+  every: createMethod(4),
+  // `Array.prototype.find` method
+  // https://tc39.es/ecma262/#sec-array.prototype.find
+  find: createMethod(5),
+  // `Array.prototype.findIndex` method
+  // https://tc39.es/ecma262/#sec-array.prototype.findIndex
+  findIndex: createMethod(6),
+  // `Array.prototype.filterReject` method
+  // https://github.com/tc39/proposal-array-filtering
+  filterReject: createMethod(7)
+};
+
+
+/***/ }),
+
+/***/ 50568:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var fails = __webpack_require__(95981);
+var wellKnownSymbol = __webpack_require__(99813);
+var V8_VERSION = __webpack_require__(53385);
+
+var SPECIES = wellKnownSymbol('species');
+
+module.exports = function (METHOD_NAME) {
+  // We can't use this feature detection in V8 since it causes
+  // deoptimization and serious performance degradation
+  // https://github.com/zloirock/core-js/issues/677
+  return V8_VERSION >= 51 || !fails(function () {
+    var array = [];
+    var constructor = array.constructor = {};
+    constructor[SPECIES] = function () {
+      return { foo: 1 };
+    };
+    return array[METHOD_NAME](Boolean).foo !== 1;
+  });
 };
 
 
@@ -7789,6 +9485,24 @@ module.exports = function (originalArray, length) {
 
 /***/ }),
 
+/***/ 75196:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var anObject = __webpack_require__(96059);
+var iteratorClose = __webpack_require__(7609);
+
+// call something on iterator step with safe closing on error
+module.exports = function (iterator, fn, value, ENTRIES) {
+  try {
+    return ENTRIES ? fn(anObject(value)[0], value[1]) : fn(value);
+  } catch (error) {
+    iteratorClose(iterator, 'throw', error);
+  }
+};
+
+
+/***/ }),
+
 /***/ 21385:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -7951,7 +9665,7 @@ module.exports = function (METHOD_NAME) {
 
 /***/ }),
 
-/***/ 91310:
+/***/ 64160:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var fails = __webpack_require__(95981);
@@ -8175,6 +9889,24 @@ module.exports = function (Iterable, NAME, IteratorConstructor, next, DEFAULT, I
   Iterators[NAME] = defaultIterator;
 
   return methods;
+};
+
+
+/***/ }),
+
+/***/ 66349:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var path = __webpack_require__(54058);
+var hasOwn = __webpack_require__(90953);
+var wrappedWellKnownSymbolModule = __webpack_require__(11477);
+var defineProperty = (__webpack_require__(65988).f);
+
+module.exports = function (NAME) {
+  var Symbol = path.Symbol || (path.Symbol = {});
+  if (!hasOwn(Symbol, NAME)) defineProperty(Symbol, NAME, {
+    value: wrappedWellKnownSymbolModule.f(NAME)
+  });
 };
 
 
@@ -8623,6 +10355,19 @@ module.exports = flattenIntoArray;
 
 /***/ }),
 
+/***/ 45602:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var fails = __webpack_require__(95981);
+
+module.exports = !fails(function () {
+  // eslint-disable-next-line es-x/no-object-isextensible, es-x/no-object-preventextensions -- required for testing
+  return Object.isExtensible(Object.preventExtensions({}));
+});
+
+
+/***/ }),
+
 /***/ 79730:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -8671,6 +10416,47 @@ module.exports = !fails(function () {
   // eslint-disable-next-line no-prototype-builtins -- safe
   return typeof test != 'function' || test.hasOwnProperty('prototype');
 });
+
+
+/***/ }),
+
+/***/ 98308:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var uncurryThis = __webpack_require__(95329);
+var aCallable = __webpack_require__(24883);
+var isObject = __webpack_require__(10941);
+var hasOwn = __webpack_require__(90953);
+var arraySlice = __webpack_require__(93765);
+var NATIVE_BIND = __webpack_require__(18285);
+
+var $Function = Function;
+var concat = uncurryThis([].concat);
+var join = uncurryThis([].join);
+var factories = {};
+
+var construct = function (C, argsLength, args) {
+  if (!hasOwn(factories, argsLength)) {
+    for (var list = [], i = 0; i < argsLength; i++) list[i] = 'a[' + i + ']';
+    factories[argsLength] = $Function('C,a', 'return new C(' + join(list, ',') + ')');
+  } return factories[argsLength](C, args);
+};
+
+// `Function.prototype.bind` method implementation
+// https://tc39.es/ecma262/#sec-function.prototype.bind
+module.exports = NATIVE_BIND ? $Function.bind : function bind(that /* , ...args */) {
+  var F = aCallable(this);
+  var Prototype = F.prototype;
+  var partArgs = arraySlice(arguments, 1);
+  var boundFunction = function bound(/* args... */) {
+    var args = concat(partArgs, arraySlice(arguments));
+    return this instanceof boundFunction ? construct(F, args.length, args) : F.apply(that, args);
+  };
+  if (isObject(Prototype)) boundFunction.prototype = Prototype;
+  return boundFunction;
+};
 
 
 /***/ }),
@@ -8957,6 +10743,102 @@ module.exports = function (O, options) {
 
 /***/ }),
 
+/***/ 21647:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(76887);
+var uncurryThis = __webpack_require__(95329);
+var hiddenKeys = __webpack_require__(27748);
+var isObject = __webpack_require__(10941);
+var hasOwn = __webpack_require__(90953);
+var defineProperty = (__webpack_require__(65988).f);
+var getOwnPropertyNamesModule = __webpack_require__(10946);
+var getOwnPropertyNamesExternalModule = __webpack_require__(684);
+var isExtensible = __webpack_require__(91584);
+var uid = __webpack_require__(99418);
+var FREEZING = __webpack_require__(45602);
+
+var REQUIRED = false;
+var METADATA = uid('meta');
+var id = 0;
+
+var setMetadata = function (it) {
+  defineProperty(it, METADATA, { value: {
+    objectID: 'O' + id++, // object ID
+    weakData: {}          // weak collections IDs
+  } });
+};
+
+var fastKey = function (it, create) {
+  // return a primitive with prefix
+  if (!isObject(it)) return typeof it == 'symbol' ? it : (typeof it == 'string' ? 'S' : 'P') + it;
+  if (!hasOwn(it, METADATA)) {
+    // can't set metadata to uncaught frozen object
+    if (!isExtensible(it)) return 'F';
+    // not necessary to add metadata
+    if (!create) return 'E';
+    // add missing metadata
+    setMetadata(it);
+  // return object ID
+  } return it[METADATA].objectID;
+};
+
+var getWeakData = function (it, create) {
+  if (!hasOwn(it, METADATA)) {
+    // can't set metadata to uncaught frozen object
+    if (!isExtensible(it)) return true;
+    // not necessary to add metadata
+    if (!create) return false;
+    // add missing metadata
+    setMetadata(it);
+  // return the store of weak collections IDs
+  } return it[METADATA].weakData;
+};
+
+// add metadata on freeze-family methods calling
+var onFreeze = function (it) {
+  if (FREEZING && REQUIRED && isExtensible(it) && !hasOwn(it, METADATA)) setMetadata(it);
+  return it;
+};
+
+var enable = function () {
+  meta.enable = function () { /* empty */ };
+  REQUIRED = true;
+  var getOwnPropertyNames = getOwnPropertyNamesModule.f;
+  var splice = uncurryThis([].splice);
+  var test = {};
+  test[METADATA] = 1;
+
+  // prevent exposing of metadata key
+  if (getOwnPropertyNames(test).length) {
+    getOwnPropertyNamesModule.f = function (it) {
+      var result = getOwnPropertyNames(it);
+      for (var i = 0, length = result.length; i < length; i++) {
+        if (result[i] === METADATA) {
+          splice(result, i, 1);
+          break;
+        }
+      } return result;
+    };
+
+    $({ target: 'Object', stat: true, forced: true }, {
+      getOwnPropertyNames: getOwnPropertyNamesExternalModule.f
+    });
+  }
+};
+
+var meta = module.exports = {
+  enable: enable,
+  fastKey: fastKey,
+  getWeakData: getWeakData,
+  onFreeze: onFreeze
+};
+
+hiddenKeys[METADATA] = true;
+
+
+/***/ }),
+
 /***/ 45402:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -9132,6 +11014,18 @@ module.exports = !construct || fails(function () {
     || !isConstructorModern(function () { called = true; })
     || called;
 }) ? isConstructorLegacy : isConstructorModern;
+
+
+/***/ }),
+
+/***/ 77040:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var hasOwn = __webpack_require__(90953);
+
+module.exports = function (descriptor) {
+  return descriptor !== undefined && (hasOwn(descriptor, 'value') || hasOwn(descriptor, 'writable'));
+};
 
 
 /***/ }),
@@ -9513,6 +11407,17 @@ module.exports = queueMicrotask || function (fn) {
 
 /***/ }),
 
+/***/ 25366:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var NATIVE_SYMBOL = __webpack_require__(72497);
+
+/* eslint-disable es-x/no-symbol -- safe */
+module.exports = NATIVE_SYMBOL && !!Symbol['for'] && !!Symbol.keyFor;
+
+
+/***/ }),
+
 /***/ 72497:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -9827,6 +11732,36 @@ exports.f = DESCRIPTORS ? $getOwnPropertyDescriptor : function getOwnPropertyDes
 
 /***/ }),
 
+/***/ 684:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+/* eslint-disable es-x/no-object-getownpropertynames -- safe */
+var classof = __webpack_require__(82532);
+var toIndexedObject = __webpack_require__(74529);
+var $getOwnPropertyNames = (__webpack_require__(10946).f);
+var arraySlice = __webpack_require__(15790);
+
+var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
+  ? Object.getOwnPropertyNames(window) : [];
+
+var getWindowNames = function (it) {
+  try {
+    return $getOwnPropertyNames(it);
+  } catch (error) {
+    return arraySlice(windowNames);
+  }
+};
+
+// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
+module.exports.f = function getOwnPropertyNames(it) {
+  return windowNames && classof(it) == 'Window'
+    ? getWindowNames(it)
+    : $getOwnPropertyNames(toIndexedObject(it));
+};
+
+
+/***/ }),
+
 /***/ 10946:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -9861,7 +11796,7 @@ var hasOwn = __webpack_require__(90953);
 var isCallable = __webpack_require__(57475);
 var toObject = __webpack_require__(89678);
 var sharedKey = __webpack_require__(44262);
-var CORRECT_PROTOTYPE_GETTER = __webpack_require__(91310);
+var CORRECT_PROTOTYPE_GETTER = __webpack_require__(64160);
 
 var IE_PROTO = sharedKey('IE_PROTO');
 var $Object = Object;
@@ -9878,6 +11813,29 @@ module.exports = CORRECT_PROTOTYPE_GETTER ? $Object.getPrototypeOf : function (O
     return constructor.prototype;
   } return object instanceof $Object ? ObjectPrototype : null;
 };
+
+
+/***/ }),
+
+/***/ 91584:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var fails = __webpack_require__(95981);
+var isObject = __webpack_require__(10941);
+var classof = __webpack_require__(82532);
+var ARRAY_BUFFER_NON_EXTENSIBLE = __webpack_require__(97135);
+
+// eslint-disable-next-line es-x/no-object-isextensible -- safe
+var $isExtensible = Object.isExtensible;
+var FAILS_ON_PRIMITIVES = fails(function () { $isExtensible(1); });
+
+// `Object.isExtensible` method
+// https://tc39.es/ecma262/#sec-object.isextensible
+module.exports = (FAILS_ON_PRIMITIVES || ARRAY_BUFFER_NON_EXTENSIBLE) ? function isExtensible(it) {
+  if (!isObject(it)) return false;
+  if (ARRAY_BUFFER_NON_EXTENSIBLE && classof(it) == 'ArrayBuffer') return false;
+  return $isExtensible ? $isExtensible(it) : true;
+} : $isExtensible;
 
 
 /***/ }),
@@ -10417,6 +12375,33 @@ module.exports = {
 
 /***/ }),
 
+/***/ 29630:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var call = __webpack_require__(78834);
+var getBuiltIn = __webpack_require__(626);
+var wellKnownSymbol = __webpack_require__(99813);
+var defineBuiltIn = __webpack_require__(95929);
+
+module.exports = function () {
+  var Symbol = getBuiltIn('Symbol');
+  var SymbolPrototype = Symbol && Symbol.prototype;
+  var valueOf = SymbolPrototype && SymbolPrototype.valueOf;
+  var TO_PRIMITIVE = wellKnownSymbol('toPrimitive');
+
+  if (SymbolPrototype && !SymbolPrototype[TO_PRIMITIVE]) {
+    // `Symbol.prototype[@@toPrimitive]` method
+    // https://tc39.es/ecma262/#sec-symbol.prototype-@@toprimitive
+    // eslint-disable-next-line no-unused-vars -- required for .length
+    defineBuiltIn(SymbolPrototype, TO_PRIMITIVE, function (hint) {
+      return call(valueOf, this);
+    }, { arity: 1 });
+  }
+};
+
+
+/***/ }),
+
 /***/ 42941:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -10776,6 +12761,16 @@ module.exports = function (passed, required) {
 
 /***/ }),
 
+/***/ 11477:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+var wellKnownSymbol = __webpack_require__(99813);
+
+exports.f = wellKnownSymbol;
+
+
+/***/ }),
+
 /***/ 99813:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -10887,6 +12882,74 @@ __webpack_require__(49812);
 
 /***/ }),
 
+/***/ 85906:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(76887);
+var fails = __webpack_require__(95981);
+var isArray = __webpack_require__(1052);
+var isObject = __webpack_require__(10941);
+var toObject = __webpack_require__(89678);
+var lengthOfArrayLike = __webpack_require__(10623);
+var doesNotExceedSafeInteger = __webpack_require__(66796);
+var createProperty = __webpack_require__(55449);
+var arraySpeciesCreate = __webpack_require__(64692);
+var arrayMethodHasSpeciesSupport = __webpack_require__(50568);
+var wellKnownSymbol = __webpack_require__(99813);
+var V8_VERSION = __webpack_require__(53385);
+
+var IS_CONCAT_SPREADABLE = wellKnownSymbol('isConcatSpreadable');
+
+// We can't use this feature detection in V8 since it causes
+// deoptimization and serious performance degradation
+// https://github.com/zloirock/core-js/issues/679
+var IS_CONCAT_SPREADABLE_SUPPORT = V8_VERSION >= 51 || !fails(function () {
+  var array = [];
+  array[IS_CONCAT_SPREADABLE] = false;
+  return array.concat()[0] !== array;
+});
+
+var SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('concat');
+
+var isConcatSpreadable = function (O) {
+  if (!isObject(O)) return false;
+  var spreadable = O[IS_CONCAT_SPREADABLE];
+  return spreadable !== undefined ? !!spreadable : isArray(O);
+};
+
+var FORCED = !IS_CONCAT_SPREADABLE_SUPPORT || !SPECIES_SUPPORT;
+
+// `Array.prototype.concat` method
+// https://tc39.es/ecma262/#sec-array.prototype.concat
+// with adding support of @@isConcatSpreadable and @@species
+$({ target: 'Array', proto: true, arity: 1, forced: FORCED }, {
+  // eslint-disable-next-line no-unused-vars -- required for `.length`
+  concat: function concat(arg) {
+    var O = toObject(this);
+    var A = arraySpeciesCreate(O, 0);
+    var n = 0;
+    var i, k, length, len, E;
+    for (i = -1, length = arguments.length; i < length; i++) {
+      E = i === -1 ? O : arguments[i];
+      if (isConcatSpreadable(E)) {
+        len = lengthOfArrayLike(E);
+        doesNotExceedSafeInteger(n + len);
+        for (k = 0; k < len; k++, n++) if (k in E) createProperty(A, n, E[k]);
+      } else {
+        doesNotExceedSafeInteger(n + 1);
+        createProperty(A, n++, E);
+      }
+    }
+    A.length = n;
+    return A;
+  }
+});
+
+
+/***/ }),
+
 /***/ 22065:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -10911,6 +12974,45 @@ $({ target: 'Array', proto: true }, {
     A.length = flattenIntoArray(A, O, O, sourceLen, 0, 1, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
     return A;
   }
+});
+
+
+/***/ }),
+
+/***/ 2437:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(76887);
+var forEach = __webpack_require__(56837);
+
+// `Array.prototype.forEach` method
+// https://tc39.es/ecma262/#sec-array.prototype.foreach
+// eslint-disable-next-line es-x/no-array-prototype-foreach -- safe
+$({ target: 'Array', proto: true, forced: [].forEach != forEach }, {
+  forEach: forEach
+});
+
+
+/***/ }),
+
+/***/ 53242:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(76887);
+var from = __webpack_require__(11354);
+var checkCorrectnessOfIteration = __webpack_require__(21385);
+
+var INCORRECT_ITERATION = !checkCorrectnessOfIteration(function (iterable) {
+  // eslint-disable-next-line es-x/no-array-from -- required for testing
+  Array.from(iterable);
+});
+
+// `Array.from` method
+// https://tc39.es/ecma262/#sec-array.from
+$({ target: 'Array', stat: true, forced: INCORRECT_ITERATION }, {
+  from: from
 });
 
 
@@ -10941,6 +13043,21 @@ $({ target: 'Array', proto: true, forced: BROKEN_ON_SPARSE }, {
 
 // https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
 addToUnscopables('includes');
+
+
+/***/ }),
+
+/***/ 92737:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(76887);
+var isArray = __webpack_require__(1052);
+
+// `Array.isArray` method
+// https://tc39.es/ecma262/#sec-array.isarray
+$({ target: 'Array', stat: true }, {
+  isArray: isArray
+});
 
 
 /***/ }),
@@ -11036,6 +13153,90 @@ $({ target: 'Array', proto: true, forced: !STRICT_METHOD || CHROME_BUG }, {
   reduce: function reduce(callbackfn /* , initialValue */) {
     var length = arguments.length;
     return $reduce(this, callbackfn, length, length > 1 ? arguments[1] : undefined);
+  }
+});
+
+
+/***/ }),
+
+/***/ 11490:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(76887);
+var uncurryThis = __webpack_require__(95329);
+var isArray = __webpack_require__(1052);
+
+var un$Reverse = uncurryThis([].reverse);
+var test = [1, 2];
+
+// `Array.prototype.reverse` method
+// https://tc39.es/ecma262/#sec-array.prototype.reverse
+// fix for Safari 12.0 bug
+// https://bugs.webkit.org/show_bug.cgi?id=188794
+$({ target: 'Array', proto: true, forced: String(test) === String(test.reverse()) }, {
+  reverse: function reverse() {
+    // eslint-disable-next-line no-self-assign -- dirty hack
+    if (isArray(this)) this.length = this.length;
+    return un$Reverse(this);
+  }
+});
+
+
+/***/ }),
+
+/***/ 60186:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(76887);
+var isArray = __webpack_require__(1052);
+var isConstructor = __webpack_require__(24284);
+var isObject = __webpack_require__(10941);
+var toAbsoluteIndex = __webpack_require__(59413);
+var lengthOfArrayLike = __webpack_require__(10623);
+var toIndexedObject = __webpack_require__(74529);
+var createProperty = __webpack_require__(55449);
+var wellKnownSymbol = __webpack_require__(99813);
+var arrayMethodHasSpeciesSupport = __webpack_require__(50568);
+var un$Slice = __webpack_require__(93765);
+
+var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('slice');
+
+var SPECIES = wellKnownSymbol('species');
+var $Array = Array;
+var max = Math.max;
+
+// `Array.prototype.slice` method
+// https://tc39.es/ecma262/#sec-array.prototype.slice
+// fallback for not array-like ES3 strings and DOM objects
+$({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT }, {
+  slice: function slice(start, end) {
+    var O = toIndexedObject(this);
+    var length = lengthOfArrayLike(O);
+    var k = toAbsoluteIndex(start, length);
+    var fin = toAbsoluteIndex(end === undefined ? length : end, length);
+    // inline `ArraySpeciesCreate` for usage native `Array#slice` where it's possible
+    var Constructor, result, n;
+    if (isArray(O)) {
+      Constructor = O.constructor;
+      // cross-realm fallback
+      if (isConstructor(Constructor) && (Constructor === $Array || isArray(Constructor.prototype))) {
+        Constructor = undefined;
+      } else if (isObject(Constructor)) {
+        Constructor = Constructor[SPECIES];
+        if (Constructor === null) Constructor = undefined;
+      }
+      if (Constructor === $Array || Constructor === undefined) {
+        return un$Slice(O, k, fin);
+      }
+    }
+    result = new (Constructor === undefined ? $Array : Constructor)(max(fin - k, 0));
+    for (n = 0; k < fin; k++, n++) if (k in O) createProperty(result, n, O[k]);
+    result.length = n;
+    return result;
   }
 });
 
@@ -11169,6 +13370,156 @@ addToUnscopables('flatMap');
 
 /***/ }),
 
+/***/ 73381:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+// TODO: Remove from `core-js@4`
+var $ = __webpack_require__(76887);
+var bind = __webpack_require__(98308);
+
+// `Function.prototype.bind` method
+// https://tc39.es/ecma262/#sec-function.prototype.bind
+$({ target: 'Function', proto: true, forced: Function.bind !== bind }, {
+  bind: bind
+});
+
+
+/***/ }),
+
+/***/ 32619:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(76887);
+var getBuiltIn = __webpack_require__(626);
+var apply = __webpack_require__(79730);
+var call = __webpack_require__(78834);
+var uncurryThis = __webpack_require__(95329);
+var fails = __webpack_require__(95981);
+var isArray = __webpack_require__(1052);
+var isCallable = __webpack_require__(57475);
+var isObject = __webpack_require__(10941);
+var isSymbol = __webpack_require__(56664);
+var arraySlice = __webpack_require__(93765);
+var NATIVE_SYMBOL = __webpack_require__(72497);
+
+var $stringify = getBuiltIn('JSON', 'stringify');
+var exec = uncurryThis(/./.exec);
+var charAt = uncurryThis(''.charAt);
+var charCodeAt = uncurryThis(''.charCodeAt);
+var replace = uncurryThis(''.replace);
+var numberToString = uncurryThis(1.0.toString);
+
+var tester = /[\uD800-\uDFFF]/g;
+var low = /^[\uD800-\uDBFF]$/;
+var hi = /^[\uDC00-\uDFFF]$/;
+
+var WRONG_SYMBOLS_CONVERSION = !NATIVE_SYMBOL || fails(function () {
+  var symbol = getBuiltIn('Symbol')();
+  // MS Edge converts symbol values to JSON as {}
+  return $stringify([symbol]) != '[null]'
+    // WebKit converts symbol values to JSON as null
+    || $stringify({ a: symbol }) != '{}'
+    // V8 throws on boxed symbols
+    || $stringify(Object(symbol)) != '{}';
+});
+
+// https://github.com/tc39/proposal-well-formed-stringify
+var ILL_FORMED_UNICODE = fails(function () {
+  return $stringify('\uDF06\uD834') !== '"\\udf06\\ud834"'
+    || $stringify('\uDEAD') !== '"\\udead"';
+});
+
+var stringifyWithSymbolsFix = function (it, replacer) {
+  var args = arraySlice(arguments);
+  var $replacer = replacer;
+  if (!isObject(replacer) && it === undefined || isSymbol(it)) return; // IE8 returns string on undefined
+  if (!isArray(replacer)) replacer = function (key, value) {
+    if (isCallable($replacer)) value = call($replacer, this, key, value);
+    if (!isSymbol(value)) return value;
+  };
+  args[1] = replacer;
+  return apply($stringify, null, args);
+};
+
+var fixIllFormed = function (match, offset, string) {
+  var prev = charAt(string, offset - 1);
+  var next = charAt(string, offset + 1);
+  if ((exec(low, match) && !exec(hi, next)) || (exec(hi, match) && !exec(low, prev))) {
+    return '\\u' + numberToString(charCodeAt(match, 0), 16);
+  } return match;
+};
+
+if ($stringify) {
+  // `JSON.stringify` method
+  // https://tc39.es/ecma262/#sec-json.stringify
+  $({ target: 'JSON', stat: true, arity: 3, forced: WRONG_SYMBOLS_CONVERSION || ILL_FORMED_UNICODE }, {
+    // eslint-disable-next-line no-unused-vars -- required for `.length`
+    stringify: function stringify(it, replacer, space) {
+      var args = arraySlice(arguments);
+      var result = apply(WRONG_SYMBOLS_CONVERSION ? stringifyWithSymbolsFix : $stringify, null, args);
+      return ILL_FORMED_UNICODE && typeof result == 'string' ? replace(result, tester, fixIllFormed) : result;
+    }
+  });
+}
+
+
+/***/ }),
+
+/***/ 69120:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var global = __webpack_require__(21899);
+var setToStringTag = __webpack_require__(90904);
+
+// JSON[@@toStringTag] property
+// https://tc39.es/ecma262/#sec-json-@@tostringtag
+setToStringTag(global.JSON, 'JSON', true);
+
+
+/***/ }),
+
+/***/ 79413:
+/***/ (() => {
+
+// empty
+
+
+/***/ }),
+
+/***/ 53882:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+// TODO: Remove from `core-js@4`
+var $ = __webpack_require__(76887);
+var DESCRIPTORS = __webpack_require__(55746);
+var create = __webpack_require__(29290);
+
+// `Object.create` method
+// https://tc39.es/ecma262/#sec-object.create
+$({ target: 'Object', stat: true, sham: !DESCRIPTORS }, {
+  create: create
+});
+
+
+/***/ }),
+
+/***/ 74979:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(76887);
+var DESCRIPTORS = __webpack_require__(55746);
+var defineProperties = (__webpack_require__(59938).f);
+
+// `Object.defineProperties` method
+// https://tc39.es/ecma262/#sec-object.defineproperties
+// eslint-disable-next-line es-x/no-object-defineproperties -- safe
+$({ target: 'Object', stat: true, forced: Object.defineProperties !== defineProperties, sham: !DESCRIPTORS }, {
+  defineProperties: defineProperties
+});
+
+
+/***/ }),
+
 /***/ 86450:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -11181,6 +13532,116 @@ var defineProperty = (__webpack_require__(65988).f);
 // eslint-disable-next-line es-x/no-object-defineproperty -- safe
 $({ target: 'Object', stat: true, forced: Object.defineProperty !== defineProperty, sham: !DESCRIPTORS }, {
   defineProperty: defineProperty
+});
+
+
+/***/ }),
+
+/***/ 15711:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(76887);
+var FREEZING = __webpack_require__(45602);
+var fails = __webpack_require__(95981);
+var isObject = __webpack_require__(10941);
+var onFreeze = (__webpack_require__(21647).onFreeze);
+
+// eslint-disable-next-line es-x/no-object-freeze -- safe
+var $freeze = Object.freeze;
+var FAILS_ON_PRIMITIVES = fails(function () { $freeze(1); });
+
+// `Object.freeze` method
+// https://tc39.es/ecma262/#sec-object.freeze
+$({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES, sham: !FREEZING }, {
+  freeze: function freeze(it) {
+    return $freeze && isObject(it) ? $freeze(onFreeze(it)) : it;
+  }
+});
+
+
+/***/ }),
+
+/***/ 46924:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(76887);
+var fails = __webpack_require__(95981);
+var toIndexedObject = __webpack_require__(74529);
+var nativeGetOwnPropertyDescriptor = (__webpack_require__(49677).f);
+var DESCRIPTORS = __webpack_require__(55746);
+
+var FAILS_ON_PRIMITIVES = fails(function () { nativeGetOwnPropertyDescriptor(1); });
+var FORCED = !DESCRIPTORS || FAILS_ON_PRIMITIVES;
+
+// `Object.getOwnPropertyDescriptor` method
+// https://tc39.es/ecma262/#sec-object.getownpropertydescriptor
+$({ target: 'Object', stat: true, forced: FORCED, sham: !DESCRIPTORS }, {
+  getOwnPropertyDescriptor: function getOwnPropertyDescriptor(it, key) {
+    return nativeGetOwnPropertyDescriptor(toIndexedObject(it), key);
+  }
+});
+
+
+/***/ }),
+
+/***/ 37144:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(76887);
+var NATIVE_SYMBOL = __webpack_require__(72497);
+var fails = __webpack_require__(95981);
+var getOwnPropertySymbolsModule = __webpack_require__(87857);
+var toObject = __webpack_require__(89678);
+
+// V8 ~ Chrome 38 and 39 `Object.getOwnPropertySymbols` fails on primitives
+// https://bugs.chromium.org/p/v8/issues/detail?id=3443
+var FORCED = !NATIVE_SYMBOL || fails(function () { getOwnPropertySymbolsModule.f(1); });
+
+// `Object.getOwnPropertySymbols` method
+// https://tc39.es/ecma262/#sec-object.getownpropertysymbols
+$({ target: 'Object', stat: true, forced: FORCED }, {
+  getOwnPropertySymbols: function getOwnPropertySymbols(it) {
+    var $getOwnPropertySymbols = getOwnPropertySymbolsModule.f;
+    return $getOwnPropertySymbols ? $getOwnPropertySymbols(toObject(it)) : [];
+  }
+});
+
+
+/***/ }),
+
+/***/ 17405:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(76887);
+var fails = __webpack_require__(95981);
+var toObject = __webpack_require__(89678);
+var nativeGetPrototypeOf = __webpack_require__(249);
+var CORRECT_PROTOTYPE_GETTER = __webpack_require__(64160);
+
+var FAILS_ON_PRIMITIVES = fails(function () { nativeGetPrototypeOf(1); });
+
+// `Object.getPrototypeOf` method
+// https://tc39.es/ecma262/#sec-object.getprototypeof
+$({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES, sham: !CORRECT_PROTOTYPE_GETTER }, {
+  getPrototypeOf: function getPrototypeOf(it) {
+    return nativeGetPrototypeOf(toObject(it));
+  }
+});
+
+
+
+/***/ }),
+
+/***/ 90108:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(76887);
+var setPrototypeOf = __webpack_require__(88929);
+
+// `Object.setPrototypeOf` method
+// https://tc39.es/ecma262/#sec-object.setprototypeof
+$({ target: 'Object', stat: true }, {
+  setPrototypeOf: setPrototypeOf
 });
 
 
@@ -11840,6 +14301,45 @@ $({ target: 'Promise', stat: true, forced: IS_PURE || FORCED_PROMISE_CONSTRUCTOR
 
 /***/ }),
 
+/***/ 42355:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(76887);
+var call = __webpack_require__(78834);
+var isObject = __webpack_require__(10941);
+var anObject = __webpack_require__(96059);
+var isDataDescriptor = __webpack_require__(77040);
+var getOwnPropertyDescriptorModule = __webpack_require__(49677);
+var getPrototypeOf = __webpack_require__(249);
+
+// `Reflect.get` method
+// https://tc39.es/ecma262/#sec-reflect.get
+function get(target, propertyKey /* , receiver */) {
+  var receiver = arguments.length < 3 ? target : arguments[2];
+  var descriptor, prototype;
+  if (anObject(target) === receiver) return target[propertyKey];
+  descriptor = getOwnPropertyDescriptorModule.f(target, propertyKey);
+  if (descriptor) return isDataDescriptor(descriptor)
+    ? descriptor.value
+    : descriptor.get === undefined ? undefined : call(descriptor.get, receiver);
+  if (isObject(prototype = getPrototypeOf(target))) return get(prototype, propertyKey, receiver);
+}
+
+$({ target: 'Reflect', stat: true }, {
+  get: get
+});
+
+
+/***/ }),
+
+/***/ 1502:
+/***/ (() => {
+
+// empty
+
+
+/***/ }),
+
 /***/ 11035:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -11951,6 +14451,655 @@ $({ target: 'String', proto: true, forced: !MDN_POLYFILL_BUG && !CORRECT_IS_REGE
 
 /***/ }),
 
+/***/ 8555:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(66349);
+
+// `Symbol.asyncIterator` well-known symbol
+// https://tc39.es/ecma262/#sec-symbol.asynciterator
+defineWellKnownSymbol('asyncIterator');
+
+
+/***/ }),
+
+/***/ 48616:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(76887);
+var global = __webpack_require__(21899);
+var call = __webpack_require__(78834);
+var uncurryThis = __webpack_require__(95329);
+var IS_PURE = __webpack_require__(82529);
+var DESCRIPTORS = __webpack_require__(55746);
+var NATIVE_SYMBOL = __webpack_require__(72497);
+var fails = __webpack_require__(95981);
+var hasOwn = __webpack_require__(90953);
+var isPrototypeOf = __webpack_require__(7046);
+var anObject = __webpack_require__(96059);
+var toIndexedObject = __webpack_require__(74529);
+var toPropertyKey = __webpack_require__(83894);
+var $toString = __webpack_require__(85803);
+var createPropertyDescriptor = __webpack_require__(31887);
+var nativeObjectCreate = __webpack_require__(29290);
+var objectKeys = __webpack_require__(14771);
+var getOwnPropertyNamesModule = __webpack_require__(10946);
+var getOwnPropertyNamesExternal = __webpack_require__(684);
+var getOwnPropertySymbolsModule = __webpack_require__(87857);
+var getOwnPropertyDescriptorModule = __webpack_require__(49677);
+var definePropertyModule = __webpack_require__(65988);
+var definePropertiesModule = __webpack_require__(59938);
+var propertyIsEnumerableModule = __webpack_require__(36760);
+var defineBuiltIn = __webpack_require__(95929);
+var shared = __webpack_require__(68726);
+var sharedKey = __webpack_require__(44262);
+var hiddenKeys = __webpack_require__(27748);
+var uid = __webpack_require__(99418);
+var wellKnownSymbol = __webpack_require__(99813);
+var wrappedWellKnownSymbolModule = __webpack_require__(11477);
+var defineWellKnownSymbol = __webpack_require__(66349);
+var defineSymbolToPrimitive = __webpack_require__(29630);
+var setToStringTag = __webpack_require__(90904);
+var InternalStateModule = __webpack_require__(45402);
+var $forEach = (__webpack_require__(3610).forEach);
+
+var HIDDEN = sharedKey('hidden');
+var SYMBOL = 'Symbol';
+var PROTOTYPE = 'prototype';
+
+var setInternalState = InternalStateModule.set;
+var getInternalState = InternalStateModule.getterFor(SYMBOL);
+
+var ObjectPrototype = Object[PROTOTYPE];
+var $Symbol = global.Symbol;
+var SymbolPrototype = $Symbol && $Symbol[PROTOTYPE];
+var TypeError = global.TypeError;
+var QObject = global.QObject;
+var nativeGetOwnPropertyDescriptor = getOwnPropertyDescriptorModule.f;
+var nativeDefineProperty = definePropertyModule.f;
+var nativeGetOwnPropertyNames = getOwnPropertyNamesExternal.f;
+var nativePropertyIsEnumerable = propertyIsEnumerableModule.f;
+var push = uncurryThis([].push);
+
+var AllSymbols = shared('symbols');
+var ObjectPrototypeSymbols = shared('op-symbols');
+var WellKnownSymbolsStore = shared('wks');
+
+// Don't use setters in Qt Script, https://github.com/zloirock/core-js/issues/173
+var USE_SETTER = !QObject || !QObject[PROTOTYPE] || !QObject[PROTOTYPE].findChild;
+
+// fallback for old Android, https://code.google.com/p/v8/issues/detail?id=687
+var setSymbolDescriptor = DESCRIPTORS && fails(function () {
+  return nativeObjectCreate(nativeDefineProperty({}, 'a', {
+    get: function () { return nativeDefineProperty(this, 'a', { value: 7 }).a; }
+  })).a != 7;
+}) ? function (O, P, Attributes) {
+  var ObjectPrototypeDescriptor = nativeGetOwnPropertyDescriptor(ObjectPrototype, P);
+  if (ObjectPrototypeDescriptor) delete ObjectPrototype[P];
+  nativeDefineProperty(O, P, Attributes);
+  if (ObjectPrototypeDescriptor && O !== ObjectPrototype) {
+    nativeDefineProperty(ObjectPrototype, P, ObjectPrototypeDescriptor);
+  }
+} : nativeDefineProperty;
+
+var wrap = function (tag, description) {
+  var symbol = AllSymbols[tag] = nativeObjectCreate(SymbolPrototype);
+  setInternalState(symbol, {
+    type: SYMBOL,
+    tag: tag,
+    description: description
+  });
+  if (!DESCRIPTORS) symbol.description = description;
+  return symbol;
+};
+
+var $defineProperty = function defineProperty(O, P, Attributes) {
+  if (O === ObjectPrototype) $defineProperty(ObjectPrototypeSymbols, P, Attributes);
+  anObject(O);
+  var key = toPropertyKey(P);
+  anObject(Attributes);
+  if (hasOwn(AllSymbols, key)) {
+    if (!Attributes.enumerable) {
+      if (!hasOwn(O, HIDDEN)) nativeDefineProperty(O, HIDDEN, createPropertyDescriptor(1, {}));
+      O[HIDDEN][key] = true;
+    } else {
+      if (hasOwn(O, HIDDEN) && O[HIDDEN][key]) O[HIDDEN][key] = false;
+      Attributes = nativeObjectCreate(Attributes, { enumerable: createPropertyDescriptor(0, false) });
+    } return setSymbolDescriptor(O, key, Attributes);
+  } return nativeDefineProperty(O, key, Attributes);
+};
+
+var $defineProperties = function defineProperties(O, Properties) {
+  anObject(O);
+  var properties = toIndexedObject(Properties);
+  var keys = objectKeys(properties).concat($getOwnPropertySymbols(properties));
+  $forEach(keys, function (key) {
+    if (!DESCRIPTORS || call($propertyIsEnumerable, properties, key)) $defineProperty(O, key, properties[key]);
+  });
+  return O;
+};
+
+var $create = function create(O, Properties) {
+  return Properties === undefined ? nativeObjectCreate(O) : $defineProperties(nativeObjectCreate(O), Properties);
+};
+
+var $propertyIsEnumerable = function propertyIsEnumerable(V) {
+  var P = toPropertyKey(V);
+  var enumerable = call(nativePropertyIsEnumerable, this, P);
+  if (this === ObjectPrototype && hasOwn(AllSymbols, P) && !hasOwn(ObjectPrototypeSymbols, P)) return false;
+  return enumerable || !hasOwn(this, P) || !hasOwn(AllSymbols, P) || hasOwn(this, HIDDEN) && this[HIDDEN][P]
+    ? enumerable : true;
+};
+
+var $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(O, P) {
+  var it = toIndexedObject(O);
+  var key = toPropertyKey(P);
+  if (it === ObjectPrototype && hasOwn(AllSymbols, key) && !hasOwn(ObjectPrototypeSymbols, key)) return;
+  var descriptor = nativeGetOwnPropertyDescriptor(it, key);
+  if (descriptor && hasOwn(AllSymbols, key) && !(hasOwn(it, HIDDEN) && it[HIDDEN][key])) {
+    descriptor.enumerable = true;
+  }
+  return descriptor;
+};
+
+var $getOwnPropertyNames = function getOwnPropertyNames(O) {
+  var names = nativeGetOwnPropertyNames(toIndexedObject(O));
+  var result = [];
+  $forEach(names, function (key) {
+    if (!hasOwn(AllSymbols, key) && !hasOwn(hiddenKeys, key)) push(result, key);
+  });
+  return result;
+};
+
+var $getOwnPropertySymbols = function (O) {
+  var IS_OBJECT_PROTOTYPE = O === ObjectPrototype;
+  var names = nativeGetOwnPropertyNames(IS_OBJECT_PROTOTYPE ? ObjectPrototypeSymbols : toIndexedObject(O));
+  var result = [];
+  $forEach(names, function (key) {
+    if (hasOwn(AllSymbols, key) && (!IS_OBJECT_PROTOTYPE || hasOwn(ObjectPrototype, key))) {
+      push(result, AllSymbols[key]);
+    }
+  });
+  return result;
+};
+
+// `Symbol` constructor
+// https://tc39.es/ecma262/#sec-symbol-constructor
+if (!NATIVE_SYMBOL) {
+  $Symbol = function Symbol() {
+    if (isPrototypeOf(SymbolPrototype, this)) throw TypeError('Symbol is not a constructor');
+    var description = !arguments.length || arguments[0] === undefined ? undefined : $toString(arguments[0]);
+    var tag = uid(description);
+    var setter = function (value) {
+      if (this === ObjectPrototype) call(setter, ObjectPrototypeSymbols, value);
+      if (hasOwn(this, HIDDEN) && hasOwn(this[HIDDEN], tag)) this[HIDDEN][tag] = false;
+      setSymbolDescriptor(this, tag, createPropertyDescriptor(1, value));
+    };
+    if (DESCRIPTORS && USE_SETTER) setSymbolDescriptor(ObjectPrototype, tag, { configurable: true, set: setter });
+    return wrap(tag, description);
+  };
+
+  SymbolPrototype = $Symbol[PROTOTYPE];
+
+  defineBuiltIn(SymbolPrototype, 'toString', function toString() {
+    return getInternalState(this).tag;
+  });
+
+  defineBuiltIn($Symbol, 'withoutSetter', function (description) {
+    return wrap(uid(description), description);
+  });
+
+  propertyIsEnumerableModule.f = $propertyIsEnumerable;
+  definePropertyModule.f = $defineProperty;
+  definePropertiesModule.f = $defineProperties;
+  getOwnPropertyDescriptorModule.f = $getOwnPropertyDescriptor;
+  getOwnPropertyNamesModule.f = getOwnPropertyNamesExternal.f = $getOwnPropertyNames;
+  getOwnPropertySymbolsModule.f = $getOwnPropertySymbols;
+
+  wrappedWellKnownSymbolModule.f = function (name) {
+    return wrap(wellKnownSymbol(name), name);
+  };
+
+  if (DESCRIPTORS) {
+    // https://github.com/tc39/proposal-Symbol-description
+    nativeDefineProperty(SymbolPrototype, 'description', {
+      configurable: true,
+      get: function description() {
+        return getInternalState(this).description;
+      }
+    });
+    if (!IS_PURE) {
+      defineBuiltIn(ObjectPrototype, 'propertyIsEnumerable', $propertyIsEnumerable, { unsafe: true });
+    }
+  }
+}
+
+$({ global: true, constructor: true, wrap: true, forced: !NATIVE_SYMBOL, sham: !NATIVE_SYMBOL }, {
+  Symbol: $Symbol
+});
+
+$forEach(objectKeys(WellKnownSymbolsStore), function (name) {
+  defineWellKnownSymbol(name);
+});
+
+$({ target: SYMBOL, stat: true, forced: !NATIVE_SYMBOL }, {
+  useSetter: function () { USE_SETTER = true; },
+  useSimple: function () { USE_SETTER = false; }
+});
+
+$({ target: 'Object', stat: true, forced: !NATIVE_SYMBOL, sham: !DESCRIPTORS }, {
+  // `Object.create` method
+  // https://tc39.es/ecma262/#sec-object.create
+  create: $create,
+  // `Object.defineProperty` method
+  // https://tc39.es/ecma262/#sec-object.defineproperty
+  defineProperty: $defineProperty,
+  // `Object.defineProperties` method
+  // https://tc39.es/ecma262/#sec-object.defineproperties
+  defineProperties: $defineProperties,
+  // `Object.getOwnPropertyDescriptor` method
+  // https://tc39.es/ecma262/#sec-object.getownpropertydescriptors
+  getOwnPropertyDescriptor: $getOwnPropertyDescriptor
+});
+
+$({ target: 'Object', stat: true, forced: !NATIVE_SYMBOL }, {
+  // `Object.getOwnPropertyNames` method
+  // https://tc39.es/ecma262/#sec-object.getownpropertynames
+  getOwnPropertyNames: $getOwnPropertyNames
+});
+
+// `Symbol.prototype[@@toPrimitive]` method
+// https://tc39.es/ecma262/#sec-symbol.prototype-@@toprimitive
+defineSymbolToPrimitive();
+
+// `Symbol.prototype[@@toStringTag]` property
+// https://tc39.es/ecma262/#sec-symbol.prototype-@@tostringtag
+setToStringTag($Symbol, SYMBOL);
+
+hiddenKeys[HIDDEN] = true;
+
+
+/***/ }),
+
+/***/ 52615:
+/***/ (() => {
+
+// empty
+
+
+/***/ }),
+
+/***/ 64523:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(76887);
+var getBuiltIn = __webpack_require__(626);
+var hasOwn = __webpack_require__(90953);
+var toString = __webpack_require__(85803);
+var shared = __webpack_require__(68726);
+var NATIVE_SYMBOL_REGISTRY = __webpack_require__(25366);
+
+var StringToSymbolRegistry = shared('string-to-symbol-registry');
+var SymbolToStringRegistry = shared('symbol-to-string-registry');
+
+// `Symbol.for` method
+// https://tc39.es/ecma262/#sec-symbol.for
+$({ target: 'Symbol', stat: true, forced: !NATIVE_SYMBOL_REGISTRY }, {
+  'for': function (key) {
+    var string = toString(key);
+    if (hasOwn(StringToSymbolRegistry, string)) return StringToSymbolRegistry[string];
+    var symbol = getBuiltIn('Symbol')(string);
+    StringToSymbolRegistry[string] = symbol;
+    SymbolToStringRegistry[symbol] = string;
+    return symbol;
+  }
+});
+
+
+/***/ }),
+
+/***/ 21732:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(66349);
+
+// `Symbol.hasInstance` well-known symbol
+// https://tc39.es/ecma262/#sec-symbol.hasinstance
+defineWellKnownSymbol('hasInstance');
+
+
+/***/ }),
+
+/***/ 35903:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(66349);
+
+// `Symbol.isConcatSpreadable` well-known symbol
+// https://tc39.es/ecma262/#sec-symbol.isconcatspreadable
+defineWellKnownSymbol('isConcatSpreadable');
+
+
+/***/ }),
+
+/***/ 1825:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(66349);
+
+// `Symbol.iterator` well-known symbol
+// https://tc39.es/ecma262/#sec-symbol.iterator
+defineWellKnownSymbol('iterator');
+
+
+/***/ }),
+
+/***/ 35824:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+// TODO: Remove this module from `core-js@4` since it's split to modules listed below
+__webpack_require__(48616);
+__webpack_require__(64523);
+__webpack_require__(38608);
+__webpack_require__(32619);
+__webpack_require__(37144);
+
+
+/***/ }),
+
+/***/ 38608:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(76887);
+var hasOwn = __webpack_require__(90953);
+var isSymbol = __webpack_require__(56664);
+var tryToString = __webpack_require__(69826);
+var shared = __webpack_require__(68726);
+var NATIVE_SYMBOL_REGISTRY = __webpack_require__(25366);
+
+var SymbolToStringRegistry = shared('symbol-to-string-registry');
+
+// `Symbol.keyFor` method
+// https://tc39.es/ecma262/#sec-symbol.keyfor
+$({ target: 'Symbol', stat: true, forced: !NATIVE_SYMBOL_REGISTRY }, {
+  keyFor: function keyFor(sym) {
+    if (!isSymbol(sym)) throw TypeError(tryToString(sym) + ' is not a symbol');
+    if (hasOwn(SymbolToStringRegistry, sym)) return SymbolToStringRegistry[sym];
+  }
+});
+
+
+/***/ }),
+
+/***/ 45915:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(66349);
+
+// `Symbol.matchAll` well-known symbol
+// https://tc39.es/ecma262/#sec-symbol.matchall
+defineWellKnownSymbol('matchAll');
+
+
+/***/ }),
+
+/***/ 28394:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(66349);
+
+// `Symbol.match` well-known symbol
+// https://tc39.es/ecma262/#sec-symbol.match
+defineWellKnownSymbol('match');
+
+
+/***/ }),
+
+/***/ 61766:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(66349);
+
+// `Symbol.replace` well-known symbol
+// https://tc39.es/ecma262/#sec-symbol.replace
+defineWellKnownSymbol('replace');
+
+
+/***/ }),
+
+/***/ 62737:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(66349);
+
+// `Symbol.search` well-known symbol
+// https://tc39.es/ecma262/#sec-symbol.search
+defineWellKnownSymbol('search');
+
+
+/***/ }),
+
+/***/ 89911:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(66349);
+
+// `Symbol.species` well-known symbol
+// https://tc39.es/ecma262/#sec-symbol.species
+defineWellKnownSymbol('species');
+
+
+/***/ }),
+
+/***/ 74315:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(66349);
+
+// `Symbol.split` well-known symbol
+// https://tc39.es/ecma262/#sec-symbol.split
+defineWellKnownSymbol('split');
+
+
+/***/ }),
+
+/***/ 63131:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(66349);
+var defineSymbolToPrimitive = __webpack_require__(29630);
+
+// `Symbol.toPrimitive` well-known symbol
+// https://tc39.es/ecma262/#sec-symbol.toprimitive
+defineWellKnownSymbol('toPrimitive');
+
+// `Symbol.prototype[@@toPrimitive]` method
+// https://tc39.es/ecma262/#sec-symbol.prototype-@@toprimitive
+defineSymbolToPrimitive();
+
+
+/***/ }),
+
+/***/ 64714:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var getBuiltIn = __webpack_require__(626);
+var defineWellKnownSymbol = __webpack_require__(66349);
+var setToStringTag = __webpack_require__(90904);
+
+// `Symbol.toStringTag` well-known symbol
+// https://tc39.es/ecma262/#sec-symbol.tostringtag
+defineWellKnownSymbol('toStringTag');
+
+// `Symbol.prototype[@@toStringTag]` property
+// https://tc39.es/ecma262/#sec-symbol.prototype-@@tostringtag
+setToStringTag(getBuiltIn('Symbol'), 'Symbol');
+
+
+/***/ }),
+
+/***/ 70659:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(66349);
+
+// `Symbol.unscopables` well-known symbol
+// https://tc39.es/ecma262/#sec-symbol.unscopables
+defineWellKnownSymbol('unscopables');
+
+
+/***/ }),
+
+/***/ 89731:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+// TODO: Remove from `core-js@4`
+__webpack_require__(47627);
+
+
+/***/ }),
+
+/***/ 55708:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+// TODO: Remove from `core-js@4`
+__webpack_require__(4560);
+
+
+/***/ }),
+
+/***/ 88731:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+// TODO: Remove from `core-js@4`
+__webpack_require__(91302);
+
+
+/***/ }),
+
+/***/ 30014:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+// TODO: Remove from `core-js@4`
+var $ = __webpack_require__(76887);
+var newPromiseCapabilityModule = __webpack_require__(69520);
+var perform = __webpack_require__(40002);
+
+// `Promise.try` method
+// https://github.com/tc39/proposal-promise-try
+$({ target: 'Promise', stat: true, forced: true }, {
+  'try': function (callbackfn) {
+    var promiseCapability = newPromiseCapabilityModule.f(this);
+    var result = perform(callbackfn);
+    (result.error ? promiseCapability.reject : promiseCapability.resolve)(result.value);
+    return promiseCapability.promise;
+  }
+});
+
+
+/***/ }),
+
+/***/ 28783:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(66349);
+
+// `Symbol.asyncDispose` well-known symbol
+// https://github.com/tc39/proposal-using-statement
+defineWellKnownSymbol('asyncDispose');
+
+
+/***/ }),
+
+/***/ 43975:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(66349);
+
+// `Symbol.dispose` well-known symbol
+// https://github.com/tc39/proposal-using-statement
+defineWellKnownSymbol('dispose');
+
+
+/***/ }),
+
+/***/ 65799:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(66349);
+
+// `Symbol.matcher` well-known symbol
+// https://github.com/tc39/proposal-pattern-matching
+defineWellKnownSymbol('matcher');
+
+
+/***/ }),
+
+/***/ 31943:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(66349);
+
+// `Symbol.metadataKey` well-known symbol
+// https://github.com/tc39/proposal-decorator-metadata
+defineWellKnownSymbol('metadataKey');
+
+
+/***/ }),
+
+/***/ 45414:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+// TODO: Remove from `core-js@4`
+var defineWellKnownSymbol = __webpack_require__(66349);
+
+// `Symbol.metadata` well-known symbol
+// https://github.com/tc39/proposal-decorators
+defineWellKnownSymbol('metadata');
+
+
+/***/ }),
+
+/***/ 46774:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineWellKnownSymbol = __webpack_require__(66349);
+
+// `Symbol.observable` well-known symbol
+// https://github.com/tc39/proposal-observable
+defineWellKnownSymbol('observable');
+
+
+/***/ }),
+
+/***/ 80620:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+// TODO: remove from `core-js@4`
+var defineWellKnownSymbol = __webpack_require__(66349);
+
+// `Symbol.patternMatch` well-known symbol
+// https://github.com/tc39/proposal-pattern-matching
+defineWellKnownSymbol('patternMatch');
+
+
+/***/ }),
+
+/***/ 36172:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+// TODO: remove from `core-js@4`
+var defineWellKnownSymbol = __webpack_require__(66349);
+
+defineWellKnownSymbol('replaceAll');
+
+
+/***/ }),
+
 /***/ 7634:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -11976,12 +15125,88 @@ for (var COLLECTION_NAME in DOMIterables) {
 
 /***/ }),
 
+/***/ 27698:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(54493);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 83363:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(24034);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 49216:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(99324);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 56243:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(13830);
+__webpack_require__(7634);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 28196:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(16246);
+
+module.exports = parent;
+
+
+/***/ }),
+
 /***/ 99020:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var parent = __webpack_require__(1968);
 
 module.exports = parent;
+
+
+/***/ }),
+
+/***/ 46279:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(7634);
+var classof = __webpack_require__(9697);
+var hasOwn = __webpack_require__(90953);
+var isPrototypeOf = __webpack_require__(7046);
+var method = __webpack_require__(49216);
+
+var ArrayPrototype = Array.prototype;
+
+var DOMIterables = {
+  DOMTokenList: true,
+  NodeList: true
+};
+
+module.exports = function (it) {
+  var own = it.forEach;
+  return it === ArrayPrototype || (isPrototypeOf(ArrayPrototype, it) && own === ArrayPrototype.forEach)
+    || hasOwn(DOMIterables, classof(it)) ? method : own;
+};
 
 
 /***/ }),
@@ -12000,6 +15225,26 @@ module.exports = parent;
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var parent = __webpack_require__(68025);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 28427:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(91060);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 82073:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(69601);
 
 module.exports = parent;
 
@@ -12026,10 +15271,70 @@ module.exports = parent;
 
 /***/ }),
 
+/***/ 14471:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(35254);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 57396:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(7702);
+
+module.exports = parent;
+
+
+/***/ }),
+
 /***/ 41910:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var parent = __webpack_require__(48171);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 35021:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(73770);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 79427:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(286);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 96507:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(13966);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 16670:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(3065);
 
 module.exports = parent;
 
@@ -12050,6 +15355,38 @@ module.exports = parent;
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var parent = __webpack_require__(52956);
+__webpack_require__(7634);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 18254:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(37095);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 92547:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(57473);
+__webpack_require__(7634);
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ 46509:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(24227);
 __webpack_require__(7634);
 
 module.exports = parent;
@@ -12178,6 +15515,23 @@ module.exports = function (argument) {
   if (isObject(argument)) return argument;
   throw $TypeError($String(argument) + ' is not an object');
 };
+
+
+/***/ }),
+
+/***/ 7556:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// FF26- bug: ArrayBuffers are non-extensible, but Object.isExtensible does not report it
+var fails = __webpack_require__(47293);
+
+module.exports = fails(function () {
+  if (typeof ArrayBuffer == 'function') {
+    var buffer = new ArrayBuffer(8);
+    // eslint-disable-next-line es-x/no-object-isextensible, es-x/no-object-defineproperty -- safe
+    if (Object.isExtensible(buffer)) Object.defineProperty(buffer, 'a', { value: 8 });
+  }
+});
 
 
 /***/ }),
@@ -12316,6 +15670,32 @@ module.exports = {
   // `Array.prototype.filterReject` method
   // https://github.com/tc39/proposal-array-filtering
   filterReject: createMethod(7)
+};
+
+
+/***/ }),
+
+/***/ 81194:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var fails = __webpack_require__(47293);
+var wellKnownSymbol = __webpack_require__(5112);
+var V8_VERSION = __webpack_require__(7392);
+
+var SPECIES = wellKnownSymbol('species');
+
+module.exports = function (METHOD_NAME) {
+  // We can't use this feature detection in V8 since it causes
+  // deoptimization and serious performance degradation
+  // https://github.com/zloirock/core-js/issues/677
+  return V8_VERSION >= 51 || !fails(function () {
+    var array = [];
+    var constructor = array.constructor = {};
+    constructor[SPECIES] = function () {
+      return { foo: 1 };
+    };
+    return array[METHOD_NAME](Boolean).foo !== 1;
+  });
 };
 
 
@@ -12511,6 +15891,331 @@ module.exports = TO_STRING_TAG_SUPPORT ? classofRaw : function (it) {
 
 /***/ }),
 
+/***/ 95631:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var defineProperty = (__webpack_require__(3070).f);
+var create = __webpack_require__(70030);
+var defineBuiltIns = __webpack_require__(89190);
+var bind = __webpack_require__(49974);
+var anInstance = __webpack_require__(25787);
+var iterate = __webpack_require__(20408);
+var defineIterator = __webpack_require__(70654);
+var setSpecies = __webpack_require__(96340);
+var DESCRIPTORS = __webpack_require__(19781);
+var fastKey = (__webpack_require__(62423).fastKey);
+var InternalStateModule = __webpack_require__(29909);
+
+var setInternalState = InternalStateModule.set;
+var internalStateGetterFor = InternalStateModule.getterFor;
+
+module.exports = {
+  getConstructor: function (wrapper, CONSTRUCTOR_NAME, IS_MAP, ADDER) {
+    var Constructor = wrapper(function (that, iterable) {
+      anInstance(that, Prototype);
+      setInternalState(that, {
+        type: CONSTRUCTOR_NAME,
+        index: create(null),
+        first: undefined,
+        last: undefined,
+        size: 0
+      });
+      if (!DESCRIPTORS) that.size = 0;
+      if (iterable != undefined) iterate(iterable, that[ADDER], { that: that, AS_ENTRIES: IS_MAP });
+    });
+
+    var Prototype = Constructor.prototype;
+
+    var getInternalState = internalStateGetterFor(CONSTRUCTOR_NAME);
+
+    var define = function (that, key, value) {
+      var state = getInternalState(that);
+      var entry = getEntry(that, key);
+      var previous, index;
+      // change existing entry
+      if (entry) {
+        entry.value = value;
+      // create new entry
+      } else {
+        state.last = entry = {
+          index: index = fastKey(key, true),
+          key: key,
+          value: value,
+          previous: previous = state.last,
+          next: undefined,
+          removed: false
+        };
+        if (!state.first) state.first = entry;
+        if (previous) previous.next = entry;
+        if (DESCRIPTORS) state.size++;
+        else that.size++;
+        // add to index
+        if (index !== 'F') state.index[index] = entry;
+      } return that;
+    };
+
+    var getEntry = function (that, key) {
+      var state = getInternalState(that);
+      // fast case
+      var index = fastKey(key);
+      var entry;
+      if (index !== 'F') return state.index[index];
+      // frozen object case
+      for (entry = state.first; entry; entry = entry.next) {
+        if (entry.key == key) return entry;
+      }
+    };
+
+    defineBuiltIns(Prototype, {
+      // `{ Map, Set }.prototype.clear()` methods
+      // https://tc39.es/ecma262/#sec-map.prototype.clear
+      // https://tc39.es/ecma262/#sec-set.prototype.clear
+      clear: function clear() {
+        var that = this;
+        var state = getInternalState(that);
+        var data = state.index;
+        var entry = state.first;
+        while (entry) {
+          entry.removed = true;
+          if (entry.previous) entry.previous = entry.previous.next = undefined;
+          delete data[entry.index];
+          entry = entry.next;
+        }
+        state.first = state.last = undefined;
+        if (DESCRIPTORS) state.size = 0;
+        else that.size = 0;
+      },
+      // `{ Map, Set }.prototype.delete(key)` methods
+      // https://tc39.es/ecma262/#sec-map.prototype.delete
+      // https://tc39.es/ecma262/#sec-set.prototype.delete
+      'delete': function (key) {
+        var that = this;
+        var state = getInternalState(that);
+        var entry = getEntry(that, key);
+        if (entry) {
+          var next = entry.next;
+          var prev = entry.previous;
+          delete state.index[entry.index];
+          entry.removed = true;
+          if (prev) prev.next = next;
+          if (next) next.previous = prev;
+          if (state.first == entry) state.first = next;
+          if (state.last == entry) state.last = prev;
+          if (DESCRIPTORS) state.size--;
+          else that.size--;
+        } return !!entry;
+      },
+      // `{ Map, Set }.prototype.forEach(callbackfn, thisArg = undefined)` methods
+      // https://tc39.es/ecma262/#sec-map.prototype.foreach
+      // https://tc39.es/ecma262/#sec-set.prototype.foreach
+      forEach: function forEach(callbackfn /* , that = undefined */) {
+        var state = getInternalState(this);
+        var boundFunction = bind(callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+        var entry;
+        while (entry = entry ? entry.next : state.first) {
+          boundFunction(entry.value, entry.key, this);
+          // revert to the last existing entry
+          while (entry && entry.removed) entry = entry.previous;
+        }
+      },
+      // `{ Map, Set}.prototype.has(key)` methods
+      // https://tc39.es/ecma262/#sec-map.prototype.has
+      // https://tc39.es/ecma262/#sec-set.prototype.has
+      has: function has(key) {
+        return !!getEntry(this, key);
+      }
+    });
+
+    defineBuiltIns(Prototype, IS_MAP ? {
+      // `Map.prototype.get(key)` method
+      // https://tc39.es/ecma262/#sec-map.prototype.get
+      get: function get(key) {
+        var entry = getEntry(this, key);
+        return entry && entry.value;
+      },
+      // `Map.prototype.set(key, value)` method
+      // https://tc39.es/ecma262/#sec-map.prototype.set
+      set: function set(key, value) {
+        return define(this, key === 0 ? 0 : key, value);
+      }
+    } : {
+      // `Set.prototype.add(value)` method
+      // https://tc39.es/ecma262/#sec-set.prototype.add
+      add: function add(value) {
+        return define(this, value = value === 0 ? 0 : value, value);
+      }
+    });
+    if (DESCRIPTORS) defineProperty(Prototype, 'size', {
+      get: function () {
+        return getInternalState(this).size;
+      }
+    });
+    return Constructor;
+  },
+  setStrong: function (Constructor, CONSTRUCTOR_NAME, IS_MAP) {
+    var ITERATOR_NAME = CONSTRUCTOR_NAME + ' Iterator';
+    var getInternalCollectionState = internalStateGetterFor(CONSTRUCTOR_NAME);
+    var getInternalIteratorState = internalStateGetterFor(ITERATOR_NAME);
+    // `{ Map, Set }.prototype.{ keys, values, entries, @@iterator }()` methods
+    // https://tc39.es/ecma262/#sec-map.prototype.entries
+    // https://tc39.es/ecma262/#sec-map.prototype.keys
+    // https://tc39.es/ecma262/#sec-map.prototype.values
+    // https://tc39.es/ecma262/#sec-map.prototype-@@iterator
+    // https://tc39.es/ecma262/#sec-set.prototype.entries
+    // https://tc39.es/ecma262/#sec-set.prototype.keys
+    // https://tc39.es/ecma262/#sec-set.prototype.values
+    // https://tc39.es/ecma262/#sec-set.prototype-@@iterator
+    defineIterator(Constructor, CONSTRUCTOR_NAME, function (iterated, kind) {
+      setInternalState(this, {
+        type: ITERATOR_NAME,
+        target: iterated,
+        state: getInternalCollectionState(iterated),
+        kind: kind,
+        last: undefined
+      });
+    }, function () {
+      var state = getInternalIteratorState(this);
+      var kind = state.kind;
+      var entry = state.last;
+      // revert to the last existing entry
+      while (entry && entry.removed) entry = entry.previous;
+      // get next entry
+      if (!state.target || !(state.last = entry = entry ? entry.next : state.state.first)) {
+        // or finish the iteration
+        state.target = undefined;
+        return { value: undefined, done: true };
+      }
+      // return step by kind
+      if (kind == 'keys') return { value: entry.key, done: false };
+      if (kind == 'values') return { value: entry.value, done: false };
+      return { value: [entry.key, entry.value], done: false };
+    }, IS_MAP ? 'entries' : 'values', !IS_MAP, true);
+
+    // `{ Map, Set }.prototype[@@species]` accessors
+    // https://tc39.es/ecma262/#sec-get-map-@@species
+    // https://tc39.es/ecma262/#sec-get-set-@@species
+    setSpecies(CONSTRUCTOR_NAME);
+  }
+};
+
+
+/***/ }),
+
+/***/ 77710:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(82109);
+var global = __webpack_require__(17854);
+var uncurryThis = __webpack_require__(1702);
+var isForced = __webpack_require__(54705);
+var defineBuiltIn = __webpack_require__(98052);
+var InternalMetadataModule = __webpack_require__(62423);
+var iterate = __webpack_require__(20408);
+var anInstance = __webpack_require__(25787);
+var isCallable = __webpack_require__(60614);
+var isObject = __webpack_require__(70111);
+var fails = __webpack_require__(47293);
+var checkCorrectnessOfIteration = __webpack_require__(17072);
+var setToStringTag = __webpack_require__(58003);
+var inheritIfRequired = __webpack_require__(79587);
+
+module.exports = function (CONSTRUCTOR_NAME, wrapper, common) {
+  var IS_MAP = CONSTRUCTOR_NAME.indexOf('Map') !== -1;
+  var IS_WEAK = CONSTRUCTOR_NAME.indexOf('Weak') !== -1;
+  var ADDER = IS_MAP ? 'set' : 'add';
+  var NativeConstructor = global[CONSTRUCTOR_NAME];
+  var NativePrototype = NativeConstructor && NativeConstructor.prototype;
+  var Constructor = NativeConstructor;
+  var exported = {};
+
+  var fixMethod = function (KEY) {
+    var uncurriedNativeMethod = uncurryThis(NativePrototype[KEY]);
+    defineBuiltIn(NativePrototype, KEY,
+      KEY == 'add' ? function add(value) {
+        uncurriedNativeMethod(this, value === 0 ? 0 : value);
+        return this;
+      } : KEY == 'delete' ? function (key) {
+        return IS_WEAK && !isObject(key) ? false : uncurriedNativeMethod(this, key === 0 ? 0 : key);
+      } : KEY == 'get' ? function get(key) {
+        return IS_WEAK && !isObject(key) ? undefined : uncurriedNativeMethod(this, key === 0 ? 0 : key);
+      } : KEY == 'has' ? function has(key) {
+        return IS_WEAK && !isObject(key) ? false : uncurriedNativeMethod(this, key === 0 ? 0 : key);
+      } : function set(key, value) {
+        uncurriedNativeMethod(this, key === 0 ? 0 : key, value);
+        return this;
+      }
+    );
+  };
+
+  var REPLACE = isForced(
+    CONSTRUCTOR_NAME,
+    !isCallable(NativeConstructor) || !(IS_WEAK || NativePrototype.forEach && !fails(function () {
+      new NativeConstructor().entries().next();
+    }))
+  );
+
+  if (REPLACE) {
+    // create collection constructor
+    Constructor = common.getConstructor(wrapper, CONSTRUCTOR_NAME, IS_MAP, ADDER);
+    InternalMetadataModule.enable();
+  } else if (isForced(CONSTRUCTOR_NAME, true)) {
+    var instance = new Constructor();
+    // early implementations not supports chaining
+    var HASNT_CHAINING = instance[ADDER](IS_WEAK ? {} : -0, 1) != instance;
+    // V8 ~ Chromium 40- weak-collections throws on primitives, but should return false
+    var THROWS_ON_PRIMITIVES = fails(function () { instance.has(1); });
+    // most early implementations doesn't supports iterables, most modern - not close it correctly
+    // eslint-disable-next-line no-new -- required for testing
+    var ACCEPT_ITERABLES = checkCorrectnessOfIteration(function (iterable) { new NativeConstructor(iterable); });
+    // for early implementations -0 and +0 not the same
+    var BUGGY_ZERO = !IS_WEAK && fails(function () {
+      // V8 ~ Chromium 42- fails only with 5+ elements
+      var $instance = new NativeConstructor();
+      var index = 5;
+      while (index--) $instance[ADDER](index, index);
+      return !$instance.has(-0);
+    });
+
+    if (!ACCEPT_ITERABLES) {
+      Constructor = wrapper(function (dummy, iterable) {
+        anInstance(dummy, NativePrototype);
+        var that = inheritIfRequired(new NativeConstructor(), dummy, Constructor);
+        if (iterable != undefined) iterate(iterable, that[ADDER], { that: that, AS_ENTRIES: IS_MAP });
+        return that;
+      });
+      Constructor.prototype = NativePrototype;
+      NativePrototype.constructor = Constructor;
+    }
+
+    if (THROWS_ON_PRIMITIVES || BUGGY_ZERO) {
+      fixMethod('delete');
+      fixMethod('has');
+      IS_MAP && fixMethod('get');
+    }
+
+    if (BUGGY_ZERO || HASNT_CHAINING) fixMethod(ADDER);
+
+    // weak collections should not contains .clear method
+    if (IS_WEAK && NativePrototype.clear) delete NativePrototype.clear;
+  }
+
+  exported[CONSTRUCTOR_NAME] = Constructor;
+  $({ global: true, constructor: true, forced: Constructor != NativeConstructor }, exported);
+
+  setToStringTag(Constructor, CONSTRUCTOR_NAME);
+
+  if (!IS_WEAK) common.setStrong(Constructor, CONSTRUCTOR_NAME, IS_MAP);
+
+  return Constructor;
+};
+
+
+/***/ }),
+
 /***/ 99920:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -12650,6 +16355,19 @@ module.exports = function (O, key, value, options) {
 
 /***/ }),
 
+/***/ 89190:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var defineBuiltIn = __webpack_require__(98052);
+
+module.exports = function (target, src, options) {
+  for (var key in src) defineBuiltIn(target, key, src[key], options);
+  return target;
+};
+
+
+/***/ }),
+
 /***/ 13072:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -12776,6 +16494,40 @@ module.exports = function (Iterable, NAME, IteratorConstructor, next, DEFAULT, I
 
 /***/ }),
 
+/***/ 97235:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var path = __webpack_require__(40857);
+var hasOwn = __webpack_require__(92597);
+var wrappedWellKnownSymbolModule = __webpack_require__(6061);
+var defineProperty = (__webpack_require__(3070).f);
+
+module.exports = function (NAME) {
+  var Symbol = path.Symbol || (path.Symbol = {});
+  if (!hasOwn(Symbol, NAME)) defineProperty(Symbol, NAME, {
+    value: wrappedWellKnownSymbolModule.f(NAME)
+  });
+};
+
+
+/***/ }),
+
+/***/ 85117:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var tryToString = __webpack_require__(66330);
+
+var $TypeError = TypeError;
+
+module.exports = function (O, P) {
+  if (!delete O[P]) throw $TypeError('Cannot delete property ' + tryToString(P) + ' of ' + tryToString(O));
+};
+
+
+/***/ }),
+
 /***/ 19781:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -12802,6 +16554,20 @@ var EXISTS = isObject(document) && isObject(document.createElement);
 
 module.exports = function (it) {
   return EXISTS ? document.createElement(it) : {};
+};
+
+
+/***/ }),
+
+/***/ 7207:
+/***/ ((module) => {
+
+var $TypeError = TypeError;
+var MAX_SAFE_INTEGER = 0x1FFFFFFFFFFFFF; // 2 ** 53 - 1 == 9007199254740991
+
+module.exports = function (it) {
+  if (it > MAX_SAFE_INTEGER) throw $TypeError('Maximum allowed index exceeded');
+  return it;
 };
 
 
@@ -13131,6 +16897,19 @@ module.exports = function (KEY, exec, FORCED, SHAM) {
 
 /***/ }),
 
+/***/ 76677:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var fails = __webpack_require__(47293);
+
+module.exports = !fails(function () {
+  // eslint-disable-next-line es-x/no-object-isextensible, es-x/no-object-preventextensions -- required for testing
+  return Object.isExtensible(Object.preventExtensions({}));
+});
+
+
+/***/ }),
+
 /***/ 22104:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -13179,6 +16958,47 @@ module.exports = !fails(function () {
   // eslint-disable-next-line no-prototype-builtins -- safe
   return typeof test != 'function' || test.hasOwnProperty('prototype');
 });
+
+
+/***/ }),
+
+/***/ 27065:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var uncurryThis = __webpack_require__(1702);
+var aCallable = __webpack_require__(19662);
+var isObject = __webpack_require__(70111);
+var hasOwn = __webpack_require__(92597);
+var arraySlice = __webpack_require__(50206);
+var NATIVE_BIND = __webpack_require__(34374);
+
+var $Function = Function;
+var concat = uncurryThis([].concat);
+var join = uncurryThis([].join);
+var factories = {};
+
+var construct = function (C, argsLength, args) {
+  if (!hasOwn(factories, argsLength)) {
+    for (var list = [], i = 0; i < argsLength; i++) list[i] = 'a[' + i + ']';
+    factories[argsLength] = $Function('C,a', 'return new C(' + join(list, ',') + ')');
+  } return factories[argsLength](C, args);
+};
+
+// `Function.prototype.bind` method implementation
+// https://tc39.es/ecma262/#sec-function.prototype.bind
+module.exports = NATIVE_BIND ? $Function.bind : function bind(that /* , ...args */) {
+  var F = aCallable(this);
+  var Prototype = F.prototype;
+  var partArgs = arraySlice(arguments, 1);
+  var boundFunction = function bound(/* args... */) {
+    var args = concat(partArgs, arraySlice(arguments));
+    return this instanceof boundFunction ? construct(F, args.length, args) : F.apply(that, args);
+  };
+  if (isObject(Prototype)) boundFunction.prototype = Prototype;
+  return boundFunction;
+};
 
 
 /***/ }),
@@ -13476,6 +17296,31 @@ module.exports = fails(function () {
 
 /***/ }),
 
+/***/ 79587:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var isCallable = __webpack_require__(60614);
+var isObject = __webpack_require__(70111);
+var setPrototypeOf = __webpack_require__(27674);
+
+// makes subclassing work correct for wrapped built-ins
+module.exports = function ($this, dummy, Wrapper) {
+  var NewTarget, NewTargetPrototype;
+  if (
+    // it can work only with native `setPrototypeOf`
+    setPrototypeOf &&
+    // we haven't completely correct pre-ES6 way for getting `new.target`, so use this
+    isCallable(NewTarget = dummy.constructor) &&
+    NewTarget !== Wrapper &&
+    isObject(NewTargetPrototype = NewTarget.prototype) &&
+    NewTargetPrototype !== Wrapper.prototype
+  ) setPrototypeOf($this, NewTargetPrototype);
+  return $this;
+};
+
+
+/***/ }),
+
 /***/ 42788:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -13493,6 +17338,102 @@ if (!isCallable(store.inspectSource)) {
 }
 
 module.exports = store.inspectSource;
+
+
+/***/ }),
+
+/***/ 62423:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(82109);
+var uncurryThis = __webpack_require__(1702);
+var hiddenKeys = __webpack_require__(3501);
+var isObject = __webpack_require__(70111);
+var hasOwn = __webpack_require__(92597);
+var defineProperty = (__webpack_require__(3070).f);
+var getOwnPropertyNamesModule = __webpack_require__(8006);
+var getOwnPropertyNamesExternalModule = __webpack_require__(1156);
+var isExtensible = __webpack_require__(52050);
+var uid = __webpack_require__(69711);
+var FREEZING = __webpack_require__(76677);
+
+var REQUIRED = false;
+var METADATA = uid('meta');
+var id = 0;
+
+var setMetadata = function (it) {
+  defineProperty(it, METADATA, { value: {
+    objectID: 'O' + id++, // object ID
+    weakData: {}          // weak collections IDs
+  } });
+};
+
+var fastKey = function (it, create) {
+  // return a primitive with prefix
+  if (!isObject(it)) return typeof it == 'symbol' ? it : (typeof it == 'string' ? 'S' : 'P') + it;
+  if (!hasOwn(it, METADATA)) {
+    // can't set metadata to uncaught frozen object
+    if (!isExtensible(it)) return 'F';
+    // not necessary to add metadata
+    if (!create) return 'E';
+    // add missing metadata
+    setMetadata(it);
+  // return object ID
+  } return it[METADATA].objectID;
+};
+
+var getWeakData = function (it, create) {
+  if (!hasOwn(it, METADATA)) {
+    // can't set metadata to uncaught frozen object
+    if (!isExtensible(it)) return true;
+    // not necessary to add metadata
+    if (!create) return false;
+    // add missing metadata
+    setMetadata(it);
+  // return the store of weak collections IDs
+  } return it[METADATA].weakData;
+};
+
+// add metadata on freeze-family methods calling
+var onFreeze = function (it) {
+  if (FREEZING && REQUIRED && isExtensible(it) && !hasOwn(it, METADATA)) setMetadata(it);
+  return it;
+};
+
+var enable = function () {
+  meta.enable = function () { /* empty */ };
+  REQUIRED = true;
+  var getOwnPropertyNames = getOwnPropertyNamesModule.f;
+  var splice = uncurryThis([].splice);
+  var test = {};
+  test[METADATA] = 1;
+
+  // prevent exposing of metadata key
+  if (getOwnPropertyNames(test).length) {
+    getOwnPropertyNamesModule.f = function (it) {
+      var result = getOwnPropertyNames(it);
+      for (var i = 0, length = result.length; i < length; i++) {
+        if (result[i] === METADATA) {
+          splice(result, i, 1);
+          break;
+        }
+      } return result;
+    };
+
+    $({ target: 'Object', stat: true, forced: true }, {
+      getOwnPropertyNames: getOwnPropertyNamesExternalModule.f
+    });
+  }
+};
+
+var meta = module.exports = {
+  enable: enable,
+  fastKey: fastKey,
+  getWeakData: getWeakData,
+  onFreeze: onFreeze
+};
+
+hiddenKeys[METADATA] = true;
 
 
 /***/ }),
@@ -14108,6 +18049,17 @@ module.exports = queueMicrotask || function (fn) {
 
 /***/ }),
 
+/***/ 30735:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var NATIVE_SYMBOL = __webpack_require__(30133);
+
+/* eslint-disable es-x/no-symbol -- safe */
+module.exports = NATIVE_SYMBOL && !!Symbol['for'] && !!Symbol.keyFor;
+
+
+/***/ }),
+
 /***/ 30133:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -14365,6 +18317,36 @@ exports.f = DESCRIPTORS ? $getOwnPropertyDescriptor : function getOwnPropertyDes
 
 /***/ }),
 
+/***/ 1156:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+/* eslint-disable es-x/no-object-getownpropertynames -- safe */
+var classof = __webpack_require__(84326);
+var toIndexedObject = __webpack_require__(45656);
+var $getOwnPropertyNames = (__webpack_require__(8006).f);
+var arraySlice = __webpack_require__(41589);
+
+var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
+  ? Object.getOwnPropertyNames(window) : [];
+
+var getWindowNames = function (it) {
+  try {
+    return $getOwnPropertyNames(it);
+  } catch (error) {
+    return arraySlice(windowNames);
+  }
+};
+
+// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
+module.exports.f = function getOwnPropertyNames(it) {
+  return windowNames && classof(it) == 'Window'
+    ? getWindowNames(it)
+    : $getOwnPropertyNames(toIndexedObject(it));
+};
+
+
+/***/ }),
+
 /***/ 8006:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -14416,6 +18398,29 @@ module.exports = CORRECT_PROTOTYPE_GETTER ? $Object.getPrototypeOf : function (O
     return constructor.prototype;
   } return object instanceof $Object ? ObjectPrototype : null;
 };
+
+
+/***/ }),
+
+/***/ 52050:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var fails = __webpack_require__(47293);
+var isObject = __webpack_require__(70111);
+var classof = __webpack_require__(84326);
+var ARRAY_BUFFER_NON_EXTENSIBLE = __webpack_require__(7556);
+
+// eslint-disable-next-line es-x/no-object-isextensible -- safe
+var $isExtensible = Object.isExtensible;
+var FAILS_ON_PRIMITIVES = fails(function () { $isExtensible(1); });
+
+// `Object.isExtensible` method
+// https://tc39.es/ecma262/#sec-object.isextensible
+module.exports = (FAILS_ON_PRIMITIVES || ARRAY_BUFFER_NON_EXTENSIBLE) ? function isExtensible(it) {
+  if (!isObject(it)) return false;
+  if (ARRAY_BUFFER_NON_EXTENSIBLE && classof(it) == 'ArrayBuffer') return false;
+  return $isExtensible ? $isExtensible(it) : true;
+} : $isExtensible;
 
 
 /***/ }),
@@ -14529,6 +18534,23 @@ module.exports = Object.setPrototypeOf || ('__proto__' in {} ? function () {
 
 /***/ }),
 
+/***/ 90288:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var TO_STRING_TAG_SUPPORT = __webpack_require__(51694);
+var classof = __webpack_require__(70648);
+
+// `Object.prototype.toString` method implementation
+// https://tc39.es/ecma262/#sec-object.prototype.tostring
+module.exports = TO_STRING_TAG_SUPPORT ? {}.toString : function toString() {
+  return '[object ' + classof(this) + ']';
+};
+
+
+/***/ }),
+
 /***/ 92140:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -14568,6 +18590,16 @@ module.exports = getBuiltIn('Reflect', 'ownKeys') || function ownKeys(it) {
   var getOwnPropertySymbols = getOwnPropertySymbolsModule.f;
   return getOwnPropertySymbols ? concat(keys, getOwnPropertySymbols(it)) : keys;
 };
+
+
+/***/ }),
+
+/***/ 40857:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var global = __webpack_require__(17854);
+
+module.exports = global;
 
 
 /***/ }),
@@ -15152,6 +19184,118 @@ module.exports = {
 
 /***/ }),
 
+/***/ 38415:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var toIntegerOrInfinity = __webpack_require__(19303);
+var toString = __webpack_require__(41340);
+var requireObjectCoercible = __webpack_require__(84488);
+
+var $RangeError = RangeError;
+
+// `String.prototype.repeat` method implementation
+// https://tc39.es/ecma262/#sec-string.prototype.repeat
+module.exports = function repeat(count) {
+  var str = toString(requireObjectCoercible(this));
+  var result = '';
+  var n = toIntegerOrInfinity(count);
+  if (n < 0 || n == Infinity) throw $RangeError('Wrong number of repetitions');
+  for (;n > 0; (n >>>= 1) && (str += str)) if (n & 1) result += str;
+  return result;
+};
+
+
+/***/ }),
+
+/***/ 76091:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var PROPER_FUNCTION_NAME = (__webpack_require__(76530).PROPER);
+var fails = __webpack_require__(47293);
+var whitespaces = __webpack_require__(81361);
+
+var non = '\u200B\u0085\u180E';
+
+// check that a method works with the correct list
+// of whitespaces and has a correct name
+module.exports = function (METHOD_NAME) {
+  return fails(function () {
+    return !!whitespaces[METHOD_NAME]()
+      || non[METHOD_NAME]() !== non
+      || (PROPER_FUNCTION_NAME && whitespaces[METHOD_NAME].name !== METHOD_NAME);
+  });
+};
+
+
+/***/ }),
+
+/***/ 53111:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var uncurryThis = __webpack_require__(1702);
+var requireObjectCoercible = __webpack_require__(84488);
+var toString = __webpack_require__(41340);
+var whitespaces = __webpack_require__(81361);
+
+var replace = uncurryThis(''.replace);
+var whitespace = '[' + whitespaces + ']';
+var ltrim = RegExp('^' + whitespace + whitespace + '*');
+var rtrim = RegExp(whitespace + whitespace + '*$');
+
+// `String.prototype.{ trim, trimStart, trimEnd, trimLeft, trimRight }` methods implementation
+var createMethod = function (TYPE) {
+  return function ($this) {
+    var string = toString(requireObjectCoercible($this));
+    if (TYPE & 1) string = replace(string, ltrim, '');
+    if (TYPE & 2) string = replace(string, rtrim, '');
+    return string;
+  };
+};
+
+module.exports = {
+  // `String.prototype.{ trimLeft, trimStart }` methods
+  // https://tc39.es/ecma262/#sec-string.prototype.trimstart
+  start: createMethod(1),
+  // `String.prototype.{ trimRight, trimEnd }` methods
+  // https://tc39.es/ecma262/#sec-string.prototype.trimend
+  end: createMethod(2),
+  // `String.prototype.trim` method
+  // https://tc39.es/ecma262/#sec-string.prototype.trim
+  trim: createMethod(3)
+};
+
+
+/***/ }),
+
+/***/ 56532:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var call = __webpack_require__(46916);
+var getBuiltIn = __webpack_require__(35005);
+var wellKnownSymbol = __webpack_require__(5112);
+var defineBuiltIn = __webpack_require__(98052);
+
+module.exports = function () {
+  var Symbol = getBuiltIn('Symbol');
+  var SymbolPrototype = Symbol && Symbol.prototype;
+  var valueOf = SymbolPrototype && SymbolPrototype.valueOf;
+  var TO_PRIMITIVE = wellKnownSymbol('toPrimitive');
+
+  if (SymbolPrototype && !SymbolPrototype[TO_PRIMITIVE]) {
+    // `Symbol.prototype[@@toPrimitive]` method
+    // https://tc39.es/ecma262/#sec-symbol.prototype-@@toprimitive
+    // eslint-disable-next-line no-unused-vars -- required for .length
+    defineBuiltIn(SymbolPrototype, TO_PRIMITIVE, function (hint) {
+      return call(valueOf, this);
+    }, { arity: 1 });
+  }
+};
+
+
+/***/ }),
+
 /***/ 20261:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -15271,6 +19415,18 @@ module.exports = {
   set: set,
   clear: clear
 };
+
+
+/***/ }),
+
+/***/ 50863:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var uncurryThis = __webpack_require__(1702);
+
+// `thisNumberValue` abstract operation
+// https://tc39.es/ecma262/#sec-thisnumbervalue
+module.exports = uncurryThis(1.0.valueOf);
 
 
 /***/ }),
@@ -15511,6 +19667,16 @@ module.exports = function (passed, required) {
 
 /***/ }),
 
+/***/ 6061:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+var wellKnownSymbol = __webpack_require__(5112);
+
+exports.f = wellKnownSymbol;
+
+
+/***/ }),
+
 /***/ 5112:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -15538,6 +19704,136 @@ module.exports = function (name) {
     }
   } return WellKnownSymbolsStore[name];
 };
+
+
+/***/ }),
+
+/***/ 81361:
+/***/ ((module) => {
+
+// a string of all valid unicode whitespaces
+module.exports = '\u0009\u000A\u000B\u000C\u000D\u0020\u00A0\u1680\u2000\u2001\u2002' +
+  '\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF';
+
+
+/***/ }),
+
+/***/ 92222:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(82109);
+var fails = __webpack_require__(47293);
+var isArray = __webpack_require__(43157);
+var isObject = __webpack_require__(70111);
+var toObject = __webpack_require__(47908);
+var lengthOfArrayLike = __webpack_require__(26244);
+var doesNotExceedSafeInteger = __webpack_require__(7207);
+var createProperty = __webpack_require__(86135);
+var arraySpeciesCreate = __webpack_require__(65417);
+var arrayMethodHasSpeciesSupport = __webpack_require__(81194);
+var wellKnownSymbol = __webpack_require__(5112);
+var V8_VERSION = __webpack_require__(7392);
+
+var IS_CONCAT_SPREADABLE = wellKnownSymbol('isConcatSpreadable');
+
+// We can't use this feature detection in V8 since it causes
+// deoptimization and serious performance degradation
+// https://github.com/zloirock/core-js/issues/679
+var IS_CONCAT_SPREADABLE_SUPPORT = V8_VERSION >= 51 || !fails(function () {
+  var array = [];
+  array[IS_CONCAT_SPREADABLE] = false;
+  return array.concat()[0] !== array;
+});
+
+var SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('concat');
+
+var isConcatSpreadable = function (O) {
+  if (!isObject(O)) return false;
+  var spreadable = O[IS_CONCAT_SPREADABLE];
+  return spreadable !== undefined ? !!spreadable : isArray(O);
+};
+
+var FORCED = !IS_CONCAT_SPREADABLE_SUPPORT || !SPECIES_SUPPORT;
+
+// `Array.prototype.concat` method
+// https://tc39.es/ecma262/#sec-array.prototype.concat
+// with adding support of @@isConcatSpreadable and @@species
+$({ target: 'Array', proto: true, arity: 1, forced: FORCED }, {
+  // eslint-disable-next-line no-unused-vars -- required for `.length`
+  concat: function concat(arg) {
+    var O = toObject(this);
+    var A = arraySpeciesCreate(O, 0);
+    var n = 0;
+    var i, k, length, len, E;
+    for (i = -1, length = arguments.length; i < length; i++) {
+      E = i === -1 ? O : arguments[i];
+      if (isConcatSpreadable(E)) {
+        len = lengthOfArrayLike(E);
+        doesNotExceedSafeInteger(n + len);
+        for (k = 0; k < len; k++, n++) if (k in E) createProperty(A, n, E[k]);
+      } else {
+        doesNotExceedSafeInteger(n + 1);
+        createProperty(A, n++, E);
+      }
+    }
+    A.length = n;
+    return A;
+  }
+});
+
+
+/***/ }),
+
+/***/ 57327:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(82109);
+var $filter = (__webpack_require__(42092).filter);
+var arrayMethodHasSpeciesSupport = __webpack_require__(81194);
+
+var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('filter');
+
+// `Array.prototype.filter` method
+// https://tc39.es/ecma262/#sec-array.prototype.filter
+// with adding support of @@species
+$({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT }, {
+  filter: function filter(callbackfn /* , thisArg */) {
+    return $filter(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+
+
+/***/ }),
+
+/***/ 65465:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(82109);
+var $find = (__webpack_require__(42092).find);
+var addToUnscopables = __webpack_require__(51223);
+
+var FIND = 'find';
+var SKIPS_HOLES = true;
+
+// Shouldn't skip holes
+if (FIND in []) Array(1)[FIND](function () { SKIPS_HOLES = false; });
+
+// `Array.prototype.find` method
+// https://tc39.es/ecma262/#sec-array.prototype.find
+$({ target: 'Array', proto: true, forced: SKIPS_HOLES }, {
+  find: function find(callbackfn /* , that = undefined */) {
+    return $find(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+
+// https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
+addToUnscopables(FIND);
 
 
 /***/ }),
@@ -15607,6 +19903,453 @@ addToUnscopables('entries');
 if (!IS_PURE && DESCRIPTORS && values.name !== 'values') try {
   defineProperty(values, 'name', { value: 'values' });
 } catch (error) { /* empty */ }
+
+
+/***/ }),
+
+/***/ 69600:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(82109);
+var uncurryThis = __webpack_require__(1702);
+var IndexedObject = __webpack_require__(68361);
+var toIndexedObject = __webpack_require__(45656);
+var arrayMethodIsStrict = __webpack_require__(9341);
+
+var un$Join = uncurryThis([].join);
+
+var ES3_STRINGS = IndexedObject != Object;
+var STRICT_METHOD = arrayMethodIsStrict('join', ',');
+
+// `Array.prototype.join` method
+// https://tc39.es/ecma262/#sec-array.prototype.join
+$({ target: 'Array', proto: true, forced: ES3_STRINGS || !STRICT_METHOD }, {
+  join: function join(separator) {
+    return un$Join(toIndexedObject(this), separator === undefined ? ',' : separator);
+  }
+});
+
+
+/***/ }),
+
+/***/ 21249:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(82109);
+var $map = (__webpack_require__(42092).map);
+var arrayMethodHasSpeciesSupport = __webpack_require__(81194);
+
+var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('map');
+
+// `Array.prototype.map` method
+// https://tc39.es/ecma262/#sec-array.prototype.map
+// with adding support of @@species
+$({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT }, {
+  map: function map(callbackfn /* , thisArg */) {
+    return $map(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+
+
+/***/ }),
+
+/***/ 40561:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(82109);
+var toObject = __webpack_require__(47908);
+var toAbsoluteIndex = __webpack_require__(51400);
+var toIntegerOrInfinity = __webpack_require__(19303);
+var lengthOfArrayLike = __webpack_require__(26244);
+var doesNotExceedSafeInteger = __webpack_require__(7207);
+var arraySpeciesCreate = __webpack_require__(65417);
+var createProperty = __webpack_require__(86135);
+var deletePropertyOrThrow = __webpack_require__(85117);
+var arrayMethodHasSpeciesSupport = __webpack_require__(81194);
+
+var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('splice');
+
+var max = Math.max;
+var min = Math.min;
+
+// `Array.prototype.splice` method
+// https://tc39.es/ecma262/#sec-array.prototype.splice
+// with adding support of @@species
+$({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT }, {
+  splice: function splice(start, deleteCount /* , ...items */) {
+    var O = toObject(this);
+    var len = lengthOfArrayLike(O);
+    var actualStart = toAbsoluteIndex(start, len);
+    var argumentsLength = arguments.length;
+    var insertCount, actualDeleteCount, A, k, from, to;
+    if (argumentsLength === 0) {
+      insertCount = actualDeleteCount = 0;
+    } else if (argumentsLength === 1) {
+      insertCount = 0;
+      actualDeleteCount = len - actualStart;
+    } else {
+      insertCount = argumentsLength - 2;
+      actualDeleteCount = min(max(toIntegerOrInfinity(deleteCount), 0), len - actualStart);
+    }
+    doesNotExceedSafeInteger(len + insertCount - actualDeleteCount);
+    A = arraySpeciesCreate(O, actualDeleteCount);
+    for (k = 0; k < actualDeleteCount; k++) {
+      from = actualStart + k;
+      if (from in O) createProperty(A, k, O[from]);
+    }
+    A.length = actualDeleteCount;
+    if (insertCount < actualDeleteCount) {
+      for (k = actualStart; k < len - actualDeleteCount; k++) {
+        from = k + actualDeleteCount;
+        to = k + insertCount;
+        if (from in O) O[to] = O[from];
+        else deletePropertyOrThrow(O, to);
+      }
+      for (k = len; k > len - actualDeleteCount + insertCount; k--) deletePropertyOrThrow(O, k - 1);
+    } else if (insertCount > actualDeleteCount) {
+      for (k = len - actualDeleteCount; k > actualStart; k--) {
+        from = k + actualDeleteCount - 1;
+        to = k + insertCount - 1;
+        if (from in O) O[to] = O[from];
+        else deletePropertyOrThrow(O, to);
+      }
+    }
+    for (k = 0; k < insertCount; k++) {
+      O[k + actualStart] = arguments[k + 2];
+    }
+    O.length = len - actualDeleteCount + insertCount;
+    return A;
+  }
+});
+
+
+/***/ }),
+
+/***/ 68309:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var DESCRIPTORS = __webpack_require__(19781);
+var FUNCTION_NAME_EXISTS = (__webpack_require__(76530).EXISTS);
+var uncurryThis = __webpack_require__(1702);
+var defineProperty = (__webpack_require__(3070).f);
+
+var FunctionPrototype = Function.prototype;
+var functionToString = uncurryThis(FunctionPrototype.toString);
+var nameRE = /function\b(?:\s|\/\*[\S\s]*?\*\/|\/\/[^\n\r]*[\n\r]+)*([^\s(/]*)/;
+var regExpExec = uncurryThis(nameRE.exec);
+var NAME = 'name';
+
+// Function instances `.name` property
+// https://tc39.es/ecma262/#sec-function-instances-name
+if (DESCRIPTORS && !FUNCTION_NAME_EXISTS) {
+  defineProperty(FunctionPrototype, NAME, {
+    configurable: true,
+    get: function () {
+      try {
+        return regExpExec(nameRE, functionToString(this))[1];
+      } catch (error) {
+        return '';
+      }
+    }
+  });
+}
+
+
+/***/ }),
+
+/***/ 38862:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(82109);
+var getBuiltIn = __webpack_require__(35005);
+var apply = __webpack_require__(22104);
+var call = __webpack_require__(46916);
+var uncurryThis = __webpack_require__(1702);
+var fails = __webpack_require__(47293);
+var isArray = __webpack_require__(43157);
+var isCallable = __webpack_require__(60614);
+var isObject = __webpack_require__(70111);
+var isSymbol = __webpack_require__(52190);
+var arraySlice = __webpack_require__(50206);
+var NATIVE_SYMBOL = __webpack_require__(30133);
+
+var $stringify = getBuiltIn('JSON', 'stringify');
+var exec = uncurryThis(/./.exec);
+var charAt = uncurryThis(''.charAt);
+var charCodeAt = uncurryThis(''.charCodeAt);
+var replace = uncurryThis(''.replace);
+var numberToString = uncurryThis(1.0.toString);
+
+var tester = /[\uD800-\uDFFF]/g;
+var low = /^[\uD800-\uDBFF]$/;
+var hi = /^[\uDC00-\uDFFF]$/;
+
+var WRONG_SYMBOLS_CONVERSION = !NATIVE_SYMBOL || fails(function () {
+  var symbol = getBuiltIn('Symbol')();
+  // MS Edge converts symbol values to JSON as {}
+  return $stringify([symbol]) != '[null]'
+    // WebKit converts symbol values to JSON as null
+    || $stringify({ a: symbol }) != '{}'
+    // V8 throws on boxed symbols
+    || $stringify(Object(symbol)) != '{}';
+});
+
+// https://github.com/tc39/proposal-well-formed-stringify
+var ILL_FORMED_UNICODE = fails(function () {
+  return $stringify('\uDF06\uD834') !== '"\\udf06\\ud834"'
+    || $stringify('\uDEAD') !== '"\\udead"';
+});
+
+var stringifyWithSymbolsFix = function (it, replacer) {
+  var args = arraySlice(arguments);
+  var $replacer = replacer;
+  if (!isObject(replacer) && it === undefined || isSymbol(it)) return; // IE8 returns string on undefined
+  if (!isArray(replacer)) replacer = function (key, value) {
+    if (isCallable($replacer)) value = call($replacer, this, key, value);
+    if (!isSymbol(value)) return value;
+  };
+  args[1] = replacer;
+  return apply($stringify, null, args);
+};
+
+var fixIllFormed = function (match, offset, string) {
+  var prev = charAt(string, offset - 1);
+  var next = charAt(string, offset + 1);
+  if ((exec(low, match) && !exec(hi, next)) || (exec(hi, match) && !exec(low, prev))) {
+    return '\\u' + numberToString(charCodeAt(match, 0), 16);
+  } return match;
+};
+
+if ($stringify) {
+  // `JSON.stringify` method
+  // https://tc39.es/ecma262/#sec-json.stringify
+  $({ target: 'JSON', stat: true, arity: 3, forced: WRONG_SYMBOLS_CONVERSION || ILL_FORMED_UNICODE }, {
+    // eslint-disable-next-line no-unused-vars -- required for `.length`
+    stringify: function stringify(it, replacer, space) {
+      var args = arraySlice(arguments);
+      var result = apply(WRONG_SYMBOLS_CONVERSION ? stringifyWithSymbolsFix : $stringify, null, args);
+      return ILL_FORMED_UNICODE && typeof result == 'string' ? replace(result, tester, fixIllFormed) : result;
+    }
+  });
+}
+
+
+/***/ }),
+
+/***/ 9653:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var DESCRIPTORS = __webpack_require__(19781);
+var global = __webpack_require__(17854);
+var uncurryThis = __webpack_require__(1702);
+var isForced = __webpack_require__(54705);
+var defineBuiltIn = __webpack_require__(98052);
+var hasOwn = __webpack_require__(92597);
+var inheritIfRequired = __webpack_require__(79587);
+var isPrototypeOf = __webpack_require__(47976);
+var isSymbol = __webpack_require__(52190);
+var toPrimitive = __webpack_require__(57593);
+var fails = __webpack_require__(47293);
+var getOwnPropertyNames = (__webpack_require__(8006).f);
+var getOwnPropertyDescriptor = (__webpack_require__(31236).f);
+var defineProperty = (__webpack_require__(3070).f);
+var thisNumberValue = __webpack_require__(50863);
+var trim = (__webpack_require__(53111).trim);
+
+var NUMBER = 'Number';
+var NativeNumber = global[NUMBER];
+var NumberPrototype = NativeNumber.prototype;
+var TypeError = global.TypeError;
+var arraySlice = uncurryThis(''.slice);
+var charCodeAt = uncurryThis(''.charCodeAt);
+
+// `ToNumeric` abstract operation
+// https://tc39.es/ecma262/#sec-tonumeric
+var toNumeric = function (value) {
+  var primValue = toPrimitive(value, 'number');
+  return typeof primValue == 'bigint' ? primValue : toNumber(primValue);
+};
+
+// `ToNumber` abstract operation
+// https://tc39.es/ecma262/#sec-tonumber
+var toNumber = function (argument) {
+  var it = toPrimitive(argument, 'number');
+  var first, third, radix, maxCode, digits, length, index, code;
+  if (isSymbol(it)) throw TypeError('Cannot convert a Symbol value to a number');
+  if (typeof it == 'string' && it.length > 2) {
+    it = trim(it);
+    first = charCodeAt(it, 0);
+    if (first === 43 || first === 45) {
+      third = charCodeAt(it, 2);
+      if (third === 88 || third === 120) return NaN; // Number('+0x1') should be NaN, old V8 fix
+    } else if (first === 48) {
+      switch (charCodeAt(it, 1)) {
+        case 66: case 98: radix = 2; maxCode = 49; break; // fast equal of /^0b[01]+$/i
+        case 79: case 111: radix = 8; maxCode = 55; break; // fast equal of /^0o[0-7]+$/i
+        default: return +it;
+      }
+      digits = arraySlice(it, 2);
+      length = digits.length;
+      for (index = 0; index < length; index++) {
+        code = charCodeAt(digits, index);
+        // parseInt parses a string to a first unavailable symbol
+        // but ToNumber should return NaN if a string contains unavailable symbols
+        if (code < 48 || code > maxCode) return NaN;
+      } return parseInt(digits, radix);
+    }
+  } return +it;
+};
+
+// `Number` constructor
+// https://tc39.es/ecma262/#sec-number-constructor
+if (isForced(NUMBER, !NativeNumber(' 0o1') || !NativeNumber('0b1') || NativeNumber('+0x1'))) {
+  var NumberWrapper = function Number(value) {
+    var n = arguments.length < 1 ? 0 : NativeNumber(toNumeric(value));
+    var dummy = this;
+    // check on 1..constructor(foo) case
+    return isPrototypeOf(NumberPrototype, dummy) && fails(function () { thisNumberValue(dummy); })
+      ? inheritIfRequired(Object(n), dummy, NumberWrapper) : n;
+  };
+  for (var keys = DESCRIPTORS ? getOwnPropertyNames(NativeNumber) : (
+    // ES3:
+    'MAX_VALUE,MIN_VALUE,NaN,NEGATIVE_INFINITY,POSITIVE_INFINITY,' +
+    // ES2015 (in case, if modules with ES2015 Number statics required before):
+    'EPSILON,MAX_SAFE_INTEGER,MIN_SAFE_INTEGER,isFinite,isInteger,isNaN,isSafeInteger,parseFloat,parseInt,' +
+    // ESNext
+    'fromString,range'
+  ).split(','), j = 0, key; keys.length > j; j++) {
+    if (hasOwn(NativeNumber, key = keys[j]) && !hasOwn(NumberWrapper, key)) {
+      defineProperty(NumberWrapper, key, getOwnPropertyDescriptor(NativeNumber, key));
+    }
+  }
+  NumberWrapper.prototype = NumberPrototype;
+  NumberPrototype.constructor = NumberWrapper;
+  defineBuiltIn(global, NUMBER, NumberWrapper, { constructor: true });
+}
+
+
+/***/ }),
+
+/***/ 38880:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(82109);
+var fails = __webpack_require__(47293);
+var toIndexedObject = __webpack_require__(45656);
+var nativeGetOwnPropertyDescriptor = (__webpack_require__(31236).f);
+var DESCRIPTORS = __webpack_require__(19781);
+
+var FAILS_ON_PRIMITIVES = fails(function () { nativeGetOwnPropertyDescriptor(1); });
+var FORCED = !DESCRIPTORS || FAILS_ON_PRIMITIVES;
+
+// `Object.getOwnPropertyDescriptor` method
+// https://tc39.es/ecma262/#sec-object.getownpropertydescriptor
+$({ target: 'Object', stat: true, forced: FORCED, sham: !DESCRIPTORS }, {
+  getOwnPropertyDescriptor: function getOwnPropertyDescriptor(it, key) {
+    return nativeGetOwnPropertyDescriptor(toIndexedObject(it), key);
+  }
+});
+
+
+/***/ }),
+
+/***/ 49337:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(82109);
+var DESCRIPTORS = __webpack_require__(19781);
+var ownKeys = __webpack_require__(53887);
+var toIndexedObject = __webpack_require__(45656);
+var getOwnPropertyDescriptorModule = __webpack_require__(31236);
+var createProperty = __webpack_require__(86135);
+
+// `Object.getOwnPropertyDescriptors` method
+// https://tc39.es/ecma262/#sec-object.getownpropertydescriptors
+$({ target: 'Object', stat: true, sham: !DESCRIPTORS }, {
+  getOwnPropertyDescriptors: function getOwnPropertyDescriptors(object) {
+    var O = toIndexedObject(object);
+    var getOwnPropertyDescriptor = getOwnPropertyDescriptorModule.f;
+    var keys = ownKeys(O);
+    var result = {};
+    var index = 0;
+    var key, descriptor;
+    while (keys.length > index) {
+      descriptor = getOwnPropertyDescriptor(O, key = keys[index++]);
+      if (descriptor !== undefined) createProperty(result, key, descriptor);
+    }
+    return result;
+  }
+});
+
+
+/***/ }),
+
+/***/ 29660:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(82109);
+var NATIVE_SYMBOL = __webpack_require__(30133);
+var fails = __webpack_require__(47293);
+var getOwnPropertySymbolsModule = __webpack_require__(25181);
+var toObject = __webpack_require__(47908);
+
+// V8 ~ Chrome 38 and 39 `Object.getOwnPropertySymbols` fails on primitives
+// https://bugs.chromium.org/p/v8/issues/detail?id=3443
+var FORCED = !NATIVE_SYMBOL || fails(function () { getOwnPropertySymbolsModule.f(1); });
+
+// `Object.getOwnPropertySymbols` method
+// https://tc39.es/ecma262/#sec-object.getownpropertysymbols
+$({ target: 'Object', stat: true, forced: FORCED }, {
+  getOwnPropertySymbols: function getOwnPropertySymbols(it) {
+    var $getOwnPropertySymbols = getOwnPropertySymbolsModule.f;
+    return $getOwnPropertySymbols ? $getOwnPropertySymbols(toObject(it)) : [];
+  }
+});
+
+
+/***/ }),
+
+/***/ 47941:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(82109);
+var toObject = __webpack_require__(47908);
+var nativeKeys = __webpack_require__(81956);
+var fails = __webpack_require__(47293);
+
+var FAILS_ON_PRIMITIVES = fails(function () { nativeKeys(1); });
+
+// `Object.keys` method
+// https://tc39.es/ecma262/#sec-object.keys
+$({ target: 'Object', stat: true, forced: FAILS_ON_PRIMITIVES }, {
+  keys: function keys(it) {
+    return nativeKeys(toObject(it));
+  }
+});
+
+
+/***/ }),
+
+/***/ 41539:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var TO_STRING_TAG_SUPPORT = __webpack_require__(51694);
+var defineBuiltIn = __webpack_require__(98052);
+var toString = __webpack_require__(90288);
+
+// `Object.prototype.toString` method
+// https://tc39.es/ecma262/#sec-object.prototype.tostring
+if (!TO_STRING_TAG_SUPPORT) {
+  defineBuiltIn(Object.prototype, 'toString', toString, { unsafe: true });
+}
 
 
 /***/ }),
@@ -16085,6 +20828,69 @@ $({ target: 'Promise', stat: true, forced: IS_PURE || FORCED_PROMISE_CONSTRUCTOR
 
 /***/ }),
 
+/***/ 12419:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(82109);
+var getBuiltIn = __webpack_require__(35005);
+var apply = __webpack_require__(22104);
+var bind = __webpack_require__(27065);
+var aConstructor = __webpack_require__(39483);
+var anObject = __webpack_require__(19670);
+var isObject = __webpack_require__(70111);
+var create = __webpack_require__(70030);
+var fails = __webpack_require__(47293);
+
+var nativeConstruct = getBuiltIn('Reflect', 'construct');
+var ObjectPrototype = Object.prototype;
+var push = [].push;
+
+// `Reflect.construct` method
+// https://tc39.es/ecma262/#sec-reflect.construct
+// MS Edge supports only 2 arguments and argumentsList argument is optional
+// FF Nightly sets third argument as `new.target`, but does not create `this` from it
+var NEW_TARGET_BUG = fails(function () {
+  function F() { /* empty */ }
+  return !(nativeConstruct(function () { /* empty */ }, [], F) instanceof F);
+});
+
+var ARGS_BUG = !fails(function () {
+  nativeConstruct(function () { /* empty */ });
+});
+
+var FORCED = NEW_TARGET_BUG || ARGS_BUG;
+
+$({ target: 'Reflect', stat: true, forced: FORCED, sham: FORCED }, {
+  construct: function construct(Target, args /* , newTarget */) {
+    aConstructor(Target);
+    anObject(args);
+    var newTarget = arguments.length < 3 ? Target : aConstructor(arguments[2]);
+    if (ARGS_BUG && !NEW_TARGET_BUG) return nativeConstruct(Target, args, newTarget);
+    if (Target == newTarget) {
+      // w/o altered newTarget, optimization for 0-4 arguments
+      switch (args.length) {
+        case 0: return new Target();
+        case 1: return new Target(args[0]);
+        case 2: return new Target(args[0], args[1]);
+        case 3: return new Target(args[0], args[1], args[2]);
+        case 4: return new Target(args[0], args[1], args[2], args[3]);
+      }
+      // w/o altered newTarget, lot of arguments case
+      var $args = [null];
+      apply(push, $args, args);
+      return new (apply(bind, Target, $args))();
+    }
+    // with altered newTarget, not support built-in constructors
+    var proto = newTarget.prototype;
+    var instance = create(isObject(proto) ? proto : ObjectPrototype);
+    var result = apply(Target, instance, args);
+    return isObject(result) ? result : instance;
+  }
+});
+
+
+/***/ }),
+
 /***/ 74916:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -16132,6 +20938,85 @@ if (NOT_GENERIC || INCORRECT_NAME) {
     return '/' + pattern + '/' + flags;
   }, { unsafe: true });
 }
+
+
+/***/ }),
+
+/***/ 37227:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var collection = __webpack_require__(77710);
+var collectionStrong = __webpack_require__(95631);
+
+// `Set` constructor
+// https://tc39.es/ecma262/#sec-set-objects
+collection('Set', function (init) {
+  return function Set() { return init(this, arguments.length ? arguments[0] : undefined); };
+}, collectionStrong);
+
+
+/***/ }),
+
+/***/ 70189:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+// TODO: Remove this module from `core-js@4` since it's replaced to module below
+__webpack_require__(37227);
+
+
+/***/ }),
+
+/***/ 78783:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var charAt = (__webpack_require__(28710).charAt);
+var toString = __webpack_require__(41340);
+var InternalStateModule = __webpack_require__(29909);
+var defineIterator = __webpack_require__(70654);
+
+var STRING_ITERATOR = 'String Iterator';
+var setInternalState = InternalStateModule.set;
+var getInternalState = InternalStateModule.getterFor(STRING_ITERATOR);
+
+// `String.prototype[@@iterator]` method
+// https://tc39.es/ecma262/#sec-string.prototype-@@iterator
+defineIterator(String, 'String', function (iterated) {
+  setInternalState(this, {
+    type: STRING_ITERATOR,
+    string: toString(iterated),
+    index: 0
+  });
+// `%StringIteratorPrototype%.next` method
+// https://tc39.es/ecma262/#sec-%stringiteratorprototype%.next
+}, function next() {
+  var state = getInternalState(this);
+  var string = state.string;
+  var index = state.index;
+  var point;
+  if (index >= string.length) return { value: undefined, done: true };
+  point = charAt(string, index);
+  state.index += point.length;
+  return { value: point, done: false };
+});
+
+
+/***/ }),
+
+/***/ 82481:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(82109);
+var repeat = __webpack_require__(38415);
+
+// `String.prototype.repeat` method
+// https://tc39.es/ecma262/#sec-string.prototype.repeat
+$({ target: 'String', proto: true }, {
+  repeat: repeat
+});
 
 
 /***/ }),
@@ -16444,6 +21329,286 @@ fixRegExpWellKnownSymbolLogic('split', function (SPLIT, nativeSplit, maybeCallNa
 
 /***/ }),
 
+/***/ 73210:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(82109);
+var $trim = (__webpack_require__(53111).trim);
+var forcedStringTrimMethod = __webpack_require__(76091);
+
+// `String.prototype.trim` method
+// https://tc39.es/ecma262/#sec-string.prototype.trim
+$({ target: 'String', proto: true, forced: forcedStringTrimMethod('trim') }, {
+  trim: function trim() {
+    return $trim(this);
+  }
+});
+
+
+/***/ }),
+
+/***/ 4032:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(82109);
+var global = __webpack_require__(17854);
+var call = __webpack_require__(46916);
+var uncurryThis = __webpack_require__(1702);
+var IS_PURE = __webpack_require__(31913);
+var DESCRIPTORS = __webpack_require__(19781);
+var NATIVE_SYMBOL = __webpack_require__(30133);
+var fails = __webpack_require__(47293);
+var hasOwn = __webpack_require__(92597);
+var isPrototypeOf = __webpack_require__(47976);
+var anObject = __webpack_require__(19670);
+var toIndexedObject = __webpack_require__(45656);
+var toPropertyKey = __webpack_require__(34948);
+var $toString = __webpack_require__(41340);
+var createPropertyDescriptor = __webpack_require__(79114);
+var nativeObjectCreate = __webpack_require__(70030);
+var objectKeys = __webpack_require__(81956);
+var getOwnPropertyNamesModule = __webpack_require__(8006);
+var getOwnPropertyNamesExternal = __webpack_require__(1156);
+var getOwnPropertySymbolsModule = __webpack_require__(25181);
+var getOwnPropertyDescriptorModule = __webpack_require__(31236);
+var definePropertyModule = __webpack_require__(3070);
+var definePropertiesModule = __webpack_require__(36048);
+var propertyIsEnumerableModule = __webpack_require__(55296);
+var defineBuiltIn = __webpack_require__(98052);
+var shared = __webpack_require__(72309);
+var sharedKey = __webpack_require__(6200);
+var hiddenKeys = __webpack_require__(3501);
+var uid = __webpack_require__(69711);
+var wellKnownSymbol = __webpack_require__(5112);
+var wrappedWellKnownSymbolModule = __webpack_require__(6061);
+var defineWellKnownSymbol = __webpack_require__(97235);
+var defineSymbolToPrimitive = __webpack_require__(56532);
+var setToStringTag = __webpack_require__(58003);
+var InternalStateModule = __webpack_require__(29909);
+var $forEach = (__webpack_require__(42092).forEach);
+
+var HIDDEN = sharedKey('hidden');
+var SYMBOL = 'Symbol';
+var PROTOTYPE = 'prototype';
+
+var setInternalState = InternalStateModule.set;
+var getInternalState = InternalStateModule.getterFor(SYMBOL);
+
+var ObjectPrototype = Object[PROTOTYPE];
+var $Symbol = global.Symbol;
+var SymbolPrototype = $Symbol && $Symbol[PROTOTYPE];
+var TypeError = global.TypeError;
+var QObject = global.QObject;
+var nativeGetOwnPropertyDescriptor = getOwnPropertyDescriptorModule.f;
+var nativeDefineProperty = definePropertyModule.f;
+var nativeGetOwnPropertyNames = getOwnPropertyNamesExternal.f;
+var nativePropertyIsEnumerable = propertyIsEnumerableModule.f;
+var push = uncurryThis([].push);
+
+var AllSymbols = shared('symbols');
+var ObjectPrototypeSymbols = shared('op-symbols');
+var WellKnownSymbolsStore = shared('wks');
+
+// Don't use setters in Qt Script, https://github.com/zloirock/core-js/issues/173
+var USE_SETTER = !QObject || !QObject[PROTOTYPE] || !QObject[PROTOTYPE].findChild;
+
+// fallback for old Android, https://code.google.com/p/v8/issues/detail?id=687
+var setSymbolDescriptor = DESCRIPTORS && fails(function () {
+  return nativeObjectCreate(nativeDefineProperty({}, 'a', {
+    get: function () { return nativeDefineProperty(this, 'a', { value: 7 }).a; }
+  })).a != 7;
+}) ? function (O, P, Attributes) {
+  var ObjectPrototypeDescriptor = nativeGetOwnPropertyDescriptor(ObjectPrototype, P);
+  if (ObjectPrototypeDescriptor) delete ObjectPrototype[P];
+  nativeDefineProperty(O, P, Attributes);
+  if (ObjectPrototypeDescriptor && O !== ObjectPrototype) {
+    nativeDefineProperty(ObjectPrototype, P, ObjectPrototypeDescriptor);
+  }
+} : nativeDefineProperty;
+
+var wrap = function (tag, description) {
+  var symbol = AllSymbols[tag] = nativeObjectCreate(SymbolPrototype);
+  setInternalState(symbol, {
+    type: SYMBOL,
+    tag: tag,
+    description: description
+  });
+  if (!DESCRIPTORS) symbol.description = description;
+  return symbol;
+};
+
+var $defineProperty = function defineProperty(O, P, Attributes) {
+  if (O === ObjectPrototype) $defineProperty(ObjectPrototypeSymbols, P, Attributes);
+  anObject(O);
+  var key = toPropertyKey(P);
+  anObject(Attributes);
+  if (hasOwn(AllSymbols, key)) {
+    if (!Attributes.enumerable) {
+      if (!hasOwn(O, HIDDEN)) nativeDefineProperty(O, HIDDEN, createPropertyDescriptor(1, {}));
+      O[HIDDEN][key] = true;
+    } else {
+      if (hasOwn(O, HIDDEN) && O[HIDDEN][key]) O[HIDDEN][key] = false;
+      Attributes = nativeObjectCreate(Attributes, { enumerable: createPropertyDescriptor(0, false) });
+    } return setSymbolDescriptor(O, key, Attributes);
+  } return nativeDefineProperty(O, key, Attributes);
+};
+
+var $defineProperties = function defineProperties(O, Properties) {
+  anObject(O);
+  var properties = toIndexedObject(Properties);
+  var keys = objectKeys(properties).concat($getOwnPropertySymbols(properties));
+  $forEach(keys, function (key) {
+    if (!DESCRIPTORS || call($propertyIsEnumerable, properties, key)) $defineProperty(O, key, properties[key]);
+  });
+  return O;
+};
+
+var $create = function create(O, Properties) {
+  return Properties === undefined ? nativeObjectCreate(O) : $defineProperties(nativeObjectCreate(O), Properties);
+};
+
+var $propertyIsEnumerable = function propertyIsEnumerable(V) {
+  var P = toPropertyKey(V);
+  var enumerable = call(nativePropertyIsEnumerable, this, P);
+  if (this === ObjectPrototype && hasOwn(AllSymbols, P) && !hasOwn(ObjectPrototypeSymbols, P)) return false;
+  return enumerable || !hasOwn(this, P) || !hasOwn(AllSymbols, P) || hasOwn(this, HIDDEN) && this[HIDDEN][P]
+    ? enumerable : true;
+};
+
+var $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(O, P) {
+  var it = toIndexedObject(O);
+  var key = toPropertyKey(P);
+  if (it === ObjectPrototype && hasOwn(AllSymbols, key) && !hasOwn(ObjectPrototypeSymbols, key)) return;
+  var descriptor = nativeGetOwnPropertyDescriptor(it, key);
+  if (descriptor && hasOwn(AllSymbols, key) && !(hasOwn(it, HIDDEN) && it[HIDDEN][key])) {
+    descriptor.enumerable = true;
+  }
+  return descriptor;
+};
+
+var $getOwnPropertyNames = function getOwnPropertyNames(O) {
+  var names = nativeGetOwnPropertyNames(toIndexedObject(O));
+  var result = [];
+  $forEach(names, function (key) {
+    if (!hasOwn(AllSymbols, key) && !hasOwn(hiddenKeys, key)) push(result, key);
+  });
+  return result;
+};
+
+var $getOwnPropertySymbols = function (O) {
+  var IS_OBJECT_PROTOTYPE = O === ObjectPrototype;
+  var names = nativeGetOwnPropertyNames(IS_OBJECT_PROTOTYPE ? ObjectPrototypeSymbols : toIndexedObject(O));
+  var result = [];
+  $forEach(names, function (key) {
+    if (hasOwn(AllSymbols, key) && (!IS_OBJECT_PROTOTYPE || hasOwn(ObjectPrototype, key))) {
+      push(result, AllSymbols[key]);
+    }
+  });
+  return result;
+};
+
+// `Symbol` constructor
+// https://tc39.es/ecma262/#sec-symbol-constructor
+if (!NATIVE_SYMBOL) {
+  $Symbol = function Symbol() {
+    if (isPrototypeOf(SymbolPrototype, this)) throw TypeError('Symbol is not a constructor');
+    var description = !arguments.length || arguments[0] === undefined ? undefined : $toString(arguments[0]);
+    var tag = uid(description);
+    var setter = function (value) {
+      if (this === ObjectPrototype) call(setter, ObjectPrototypeSymbols, value);
+      if (hasOwn(this, HIDDEN) && hasOwn(this[HIDDEN], tag)) this[HIDDEN][tag] = false;
+      setSymbolDescriptor(this, tag, createPropertyDescriptor(1, value));
+    };
+    if (DESCRIPTORS && USE_SETTER) setSymbolDescriptor(ObjectPrototype, tag, { configurable: true, set: setter });
+    return wrap(tag, description);
+  };
+
+  SymbolPrototype = $Symbol[PROTOTYPE];
+
+  defineBuiltIn(SymbolPrototype, 'toString', function toString() {
+    return getInternalState(this).tag;
+  });
+
+  defineBuiltIn($Symbol, 'withoutSetter', function (description) {
+    return wrap(uid(description), description);
+  });
+
+  propertyIsEnumerableModule.f = $propertyIsEnumerable;
+  definePropertyModule.f = $defineProperty;
+  definePropertiesModule.f = $defineProperties;
+  getOwnPropertyDescriptorModule.f = $getOwnPropertyDescriptor;
+  getOwnPropertyNamesModule.f = getOwnPropertyNamesExternal.f = $getOwnPropertyNames;
+  getOwnPropertySymbolsModule.f = $getOwnPropertySymbols;
+
+  wrappedWellKnownSymbolModule.f = function (name) {
+    return wrap(wellKnownSymbol(name), name);
+  };
+
+  if (DESCRIPTORS) {
+    // https://github.com/tc39/proposal-Symbol-description
+    nativeDefineProperty(SymbolPrototype, 'description', {
+      configurable: true,
+      get: function description() {
+        return getInternalState(this).description;
+      }
+    });
+    if (!IS_PURE) {
+      defineBuiltIn(ObjectPrototype, 'propertyIsEnumerable', $propertyIsEnumerable, { unsafe: true });
+    }
+  }
+}
+
+$({ global: true, constructor: true, wrap: true, forced: !NATIVE_SYMBOL, sham: !NATIVE_SYMBOL }, {
+  Symbol: $Symbol
+});
+
+$forEach(objectKeys(WellKnownSymbolsStore), function (name) {
+  defineWellKnownSymbol(name);
+});
+
+$({ target: SYMBOL, stat: true, forced: !NATIVE_SYMBOL }, {
+  useSetter: function () { USE_SETTER = true; },
+  useSimple: function () { USE_SETTER = false; }
+});
+
+$({ target: 'Object', stat: true, forced: !NATIVE_SYMBOL, sham: !DESCRIPTORS }, {
+  // `Object.create` method
+  // https://tc39.es/ecma262/#sec-object.create
+  create: $create,
+  // `Object.defineProperty` method
+  // https://tc39.es/ecma262/#sec-object.defineproperty
+  defineProperty: $defineProperty,
+  // `Object.defineProperties` method
+  // https://tc39.es/ecma262/#sec-object.defineproperties
+  defineProperties: $defineProperties,
+  // `Object.getOwnPropertyDescriptor` method
+  // https://tc39.es/ecma262/#sec-object.getownpropertydescriptors
+  getOwnPropertyDescriptor: $getOwnPropertyDescriptor
+});
+
+$({ target: 'Object', stat: true, forced: !NATIVE_SYMBOL }, {
+  // `Object.getOwnPropertyNames` method
+  // https://tc39.es/ecma262/#sec-object.getownpropertynames
+  getOwnPropertyNames: $getOwnPropertyNames
+});
+
+// `Symbol.prototype[@@toPrimitive]` method
+// https://tc39.es/ecma262/#sec-symbol.prototype-@@toprimitive
+defineSymbolToPrimitive();
+
+// `Symbol.prototype[@@toStringTag]` property
+// https://tc39.es/ecma262/#sec-symbol.prototype-@@tostringtag
+setToStringTag($Symbol, SYMBOL);
+
+hiddenKeys[HIDDEN] = true;
+
+
+/***/ }),
+
 /***/ 41817:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -16507,6 +21672,72 @@ if (DESCRIPTORS && isCallable(NativeSymbol) && (!('description' in SymbolPrototy
     Symbol: SymbolWrapper
   });
 }
+
+
+/***/ }),
+
+/***/ 40763:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(82109);
+var getBuiltIn = __webpack_require__(35005);
+var hasOwn = __webpack_require__(92597);
+var toString = __webpack_require__(41340);
+var shared = __webpack_require__(72309);
+var NATIVE_SYMBOL_REGISTRY = __webpack_require__(30735);
+
+var StringToSymbolRegistry = shared('string-to-symbol-registry');
+var SymbolToStringRegistry = shared('symbol-to-string-registry');
+
+// `Symbol.for` method
+// https://tc39.es/ecma262/#sec-symbol.for
+$({ target: 'Symbol', stat: true, forced: !NATIVE_SYMBOL_REGISTRY }, {
+  'for': function (key) {
+    var string = toString(key);
+    if (hasOwn(StringToSymbolRegistry, string)) return StringToSymbolRegistry[string];
+    var symbol = getBuiltIn('Symbol')(string);
+    StringToSymbolRegistry[string] = symbol;
+    SymbolToStringRegistry[symbol] = string;
+    return symbol;
+  }
+});
+
+
+/***/ }),
+
+/***/ 82526:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+// TODO: Remove this module from `core-js@4` since it's split to modules listed below
+__webpack_require__(4032);
+__webpack_require__(40763);
+__webpack_require__(26620);
+__webpack_require__(38862);
+__webpack_require__(29660);
+
+
+/***/ }),
+
+/***/ 26620:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(82109);
+var hasOwn = __webpack_require__(92597);
+var isSymbol = __webpack_require__(52190);
+var tryToString = __webpack_require__(66330);
+var shared = __webpack_require__(72309);
+var NATIVE_SYMBOL_REGISTRY = __webpack_require__(30735);
+
+var SymbolToStringRegistry = shared('symbol-to-string-registry');
+
+// `Symbol.keyFor` method
+// https://tc39.es/ecma262/#sec-symbol.keyfor
+$({ target: 'Symbol', stat: true, forced: !NATIVE_SYMBOL_REGISTRY }, {
+  keyFor: function keyFor(sym) {
+    if (!isSymbol(sym)) throw TypeError(tryToString(sym) + ' is not a symbol');
+    if (hasOwn(SymbolToStringRegistry, sym)) return SymbolToStringRegistry[sym];
+  }
+});
 
 
 /***/ }),
@@ -17736,7 +22967,7 @@ var Stack = __webpack_require__(46384),
     equalArrays = __webpack_require__(67114),
     equalByTag = __webpack_require__(18351),
     equalObjects = __webpack_require__(16096),
-    getTag = __webpack_require__(64160),
+    getTag = __webpack_require__(98882),
     isArray = __webpack_require__(1469),
     isBuffer = __webpack_require__(44144),
     isTypedArray = __webpack_require__(36719);
@@ -19011,7 +24242,7 @@ module.exports = getSymbols;
 
 /***/ }),
 
-/***/ 64160:
+/***/ 98882:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var DataView = __webpack_require__(18552),
@@ -22485,10 +27716,265 @@ module.exports = __webpack_require__(27460);
 
 /***/ }),
 
+/***/ 10349:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(27385);
+
+/***/ }),
+
+/***/ 98235:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(81522);
+
+/***/ }),
+
+/***/ 19389:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(32209);
+
+/***/ }),
+
+/***/ 48216:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(14122);
+
+/***/ }),
+
+/***/ 99595:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(57152);
+
+/***/ }),
+
+/***/ 86526:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(17579);
+
+/***/ }),
+
+/***/ 35704:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(81493);
+
+/***/ }),
+
+/***/ 3841:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(76094);
+
+/***/ }),
+
+/***/ 2201:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(70573);
+
+/***/ }),
+
 /***/ 57445:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__(73685);
+
+/***/ }),
+
+/***/ 54877:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(23252);
+
+/***/ }),
+
+/***/ 88546:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(27533);
+
+/***/ }),
+
+/***/ 39272:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(74303);
+
+/***/ }),
+
+/***/ 92984:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(55122);
+
+/***/ }),
+
+/***/ 35820:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(29531);
+
+/***/ }),
+
+/***/ 25926:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(31524);
+
+/***/ }),
+
+/***/ 52472:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(86600);
+
+/***/ }),
+
+/***/ 48994:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(9759);
+
+/***/ }),
+
+/***/ 64538:
+/***/ ((module) => {
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 14869:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _Array$isArray = __webpack_require__(98235);
+
+var arrayLikeToArray = __webpack_require__(64538);
+
+function _arrayWithoutHoles(arr) {
+  if (_Array$isArray(arr)) return arrayLikeToArray(arr);
+}
+
+module.exports = _arrayWithoutHoles, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 7819:
+/***/ ((module) => {
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+module.exports = _assertThisInitialized, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 80093:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _Promise = __webpack_require__(35820);
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    _Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new _Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
+
+module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 33119:
+/***/ ((module) => {
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+module.exports = _classCallCheck, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 92664:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _Object$defineProperty = __webpack_require__(57445);
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+
+    _Object$defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+
+  _Object$defineProperty(Constructor, "prototype", {
+    writable: false
+  });
+
+  return Constructor;
+}
+
+module.exports = _createClass, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
@@ -22516,6 +28002,99 @@ module.exports = _defineProperty, module.exports.__esModule = true, module.expor
 
 /***/ }),
 
+/***/ 44775:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _Reflect$get = __webpack_require__(25926);
+
+var _bindInstanceProperty = __webpack_require__(48216);
+
+var _Object$getOwnPropertyDescriptor = __webpack_require__(88546);
+
+var superPropBase = __webpack_require__(26848);
+
+function _get() {
+  if (typeof Reflect !== "undefined" && _Reflect$get) {
+    var _context;
+
+    module.exports = _get = _bindInstanceProperty(_context = _Reflect$get).call(_context), module.exports.__esModule = true, module.exports["default"] = module.exports;
+  } else {
+    module.exports = _get = function _get(target, property, receiver) {
+      var base = superPropBase(target, property);
+      if (!base) return;
+
+      var desc = _Object$getOwnPropertyDescriptor(base, property);
+
+      if (desc.get) {
+        return desc.get.call(arguments.length < 3 ? target : receiver);
+      }
+
+      return desc.value;
+    }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  }
+
+  return _get.apply(this, arguments);
+}
+
+module.exports = _get, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 55536:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _Object$setPrototypeOf = __webpack_require__(92984);
+
+var _bindInstanceProperty = __webpack_require__(48216);
+
+var _Object$getPrototypeOf = __webpack_require__(39272);
+
+function _getPrototypeOf(o) {
+  var _context;
+
+  module.exports = _getPrototypeOf = _Object$setPrototypeOf ? _bindInstanceProperty(_context = _Object$getPrototypeOf).call(_context) : function _getPrototypeOf(o) {
+    return o.__proto__ || _Object$getPrototypeOf(o);
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  return _getPrototypeOf(o);
+}
+
+module.exports = _getPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 84827:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _Object$create = __webpack_require__(3841);
+
+var _Object$defineProperty = __webpack_require__(57445);
+
+var setPrototypeOf = __webpack_require__(64476);
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = _Object$create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+
+  _Object$defineProperty(subClass, "prototype", {
+    writable: false
+  });
+
+  if (superClass) setPrototypeOf(subClass, superClass);
+}
+
+module.exports = _inherits, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
 /***/ 17907:
 /***/ ((module) => {
 
@@ -22526,6 +28105,591 @@ function _interopRequireDefault(obj) {
 }
 
 module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 53137:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _Symbol = __webpack_require__(52472);
+
+var _getIteratorMethod = __webpack_require__(19389);
+
+var _Array$from = __webpack_require__(10349);
+
+function _iterableToArray(iter) {
+  if (typeof _Symbol !== "undefined" && _getIteratorMethod(iter) != null || iter["@@iterator"] != null) return _Array$from(iter);
+}
+
+module.exports = _iterableToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 57636:
+/***/ ((module) => {
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+module.exports = _nonIterableSpread, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 85299:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _typeof = (__webpack_require__(20474)["default"]);
+
+var assertThisInitialized = __webpack_require__(7819);
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  } else if (call !== void 0) {
+    throw new TypeError("Derived constructors may only return object or undefined");
+  }
+
+  return assertThisInitialized(self);
+}
+
+module.exports = _possibleConstructorReturn, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 5177:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _typeof = (__webpack_require__(20474)["default"]);
+
+var _Symbol = __webpack_require__(52472);
+
+var _Object$defineProperty = __webpack_require__(57445);
+
+var _Object$create = __webpack_require__(3841);
+
+var _Object$getPrototypeOf = __webpack_require__(39272);
+
+var _forEachInstanceProperty = __webpack_require__(99595);
+
+var _Object$setPrototypeOf = __webpack_require__(92984);
+
+var _Promise = __webpack_require__(35820);
+
+var _reverseInstanceProperty = __webpack_require__(86526);
+
+var _sliceInstanceProperty = __webpack_require__(35704);
+
+function _regeneratorRuntime() {
+  "use strict";
+  /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
+
+  module.exports = _regeneratorRuntime = function _regeneratorRuntime() {
+    return exports;
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  var exports = {},
+      Op = Object.prototype,
+      hasOwn = Op.hasOwnProperty,
+      $Symbol = "function" == typeof _Symbol ? _Symbol : {},
+      iteratorSymbol = $Symbol.iterator || "@@iterator",
+      asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator",
+      toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+  function define(obj, key, value) {
+    return _Object$defineProperty(obj, key, {
+      value: value,
+      enumerable: !0,
+      configurable: !0,
+      writable: !0
+    }), obj[key];
+  }
+
+  try {
+    define({}, "");
+  } catch (err) {
+    define = function define(obj, key, value) {
+      return obj[key] = value;
+    };
+  }
+
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator,
+        generator = _Object$create(protoGenerator.prototype),
+        context = new Context(tryLocsList || []);
+
+    return generator._invoke = function (innerFn, self, context) {
+      var state = "suspendedStart";
+      return function (method, arg) {
+        if ("executing" === state) throw new Error("Generator is already running");
+
+        if ("completed" === state) {
+          if ("throw" === method) throw arg;
+          return doneResult();
+        }
+
+        for (context.method = method, context.arg = arg;;) {
+          var delegate = context.delegate;
+
+          if (delegate) {
+            var delegateResult = maybeInvokeDelegate(delegate, context);
+
+            if (delegateResult) {
+              if (delegateResult === ContinueSentinel) continue;
+              return delegateResult;
+            }
+          }
+
+          if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) {
+            if ("suspendedStart" === state) throw state = "completed", context.arg;
+            context.dispatchException(context.arg);
+          } else "return" === context.method && context.abrupt("return", context.arg);
+          state = "executing";
+          var record = tryCatch(innerFn, self, context);
+
+          if ("normal" === record.type) {
+            if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue;
+            return {
+              value: record.arg,
+              done: context.done
+            };
+          }
+
+          "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg);
+        }
+      };
+    }(innerFn, self, context), generator;
+  }
+
+  function tryCatch(fn, obj, arg) {
+    try {
+      return {
+        type: "normal",
+        arg: fn.call(obj, arg)
+      };
+    } catch (err) {
+      return {
+        type: "throw",
+        arg: err
+      };
+    }
+  }
+
+  exports.wrap = wrap;
+  var ContinueSentinel = {};
+
+  function Generator() {}
+
+  function GeneratorFunction() {}
+
+  function GeneratorFunctionPrototype() {}
+
+  var IteratorPrototype = {};
+  define(IteratorPrototype, iteratorSymbol, function () {
+    return this;
+  });
+  var getProto = _Object$getPrototypeOf,
+      NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype);
+
+  var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = _Object$create(IteratorPrototype);
+
+  function defineIteratorMethods(prototype) {
+    var _context;
+
+    _forEachInstanceProperty(_context = ["next", "throw", "return"]).call(_context, function (method) {
+      define(prototype, method, function (arg) {
+        return this._invoke(method, arg);
+      });
+    });
+  }
+
+  function AsyncIterator(generator, PromiseImpl) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+
+      if ("throw" !== record.type) {
+        var result = record.arg,
+            value = result.value;
+        return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) {
+          invoke("next", value, resolve, reject);
+        }, function (err) {
+          invoke("throw", err, resolve, reject);
+        }) : PromiseImpl.resolve(value).then(function (unwrapped) {
+          result.value = unwrapped, resolve(result);
+        }, function (error) {
+          return invoke("throw", error, resolve, reject);
+        });
+      }
+
+      reject(record.arg);
+    }
+
+    var previousPromise;
+
+    this._invoke = function (method, arg) {
+      function callInvokeWithMethodAndArg() {
+        return new PromiseImpl(function (resolve, reject) {
+          invoke(method, arg, resolve, reject);
+        });
+      }
+
+      return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg();
+    };
+  }
+
+  function maybeInvokeDelegate(delegate, context) {
+    var method = delegate.iterator[context.method];
+
+    if (undefined === method) {
+      if (context.delegate = null, "throw" === context.method) {
+        if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel;
+        context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method");
+      }
+
+      return ContinueSentinel;
+    }
+
+    var record = tryCatch(method, delegate.iterator, context.arg);
+    if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel;
+    var info = record.arg;
+    return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel);
+  }
+
+  function pushTryEntry(locs) {
+    var entry = {
+      tryLoc: locs[0]
+    };
+    1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry);
+  }
+
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal", delete record.arg, entry.completion = record;
+  }
+
+  function Context(tryLocsList) {
+    this.tryEntries = [{
+      tryLoc: "root"
+    }], _forEachInstanceProperty(tryLocsList).call(tryLocsList, pushTryEntry, this), this.reset(!0);
+  }
+
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) return iteratorMethod.call(iterable);
+      if ("function" == typeof iterable.next) return iterable;
+
+      if (!isNaN(iterable.length)) {
+        var i = -1,
+            next = function next() {
+          for (; ++i < iterable.length;) {
+            if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next;
+          }
+
+          return next.value = undefined, next.done = !0, next;
+        };
+
+        return next.next = next;
+      }
+    }
+
+    return {
+      next: doneResult
+    };
+  }
+
+  function doneResult() {
+    return {
+      value: undefined,
+      done: !0
+    };
+  }
+
+  return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) {
+    var ctor = "function" == typeof genFun && genFun.constructor;
+    return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name));
+  }, exports.mark = function (genFun) {
+    return _Object$setPrototypeOf ? _Object$setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = _Object$create(Gp), genFun;
+  }, exports.awrap = function (arg) {
+    return {
+      __await: arg
+    };
+  }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () {
+    return this;
+  }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) {
+    void 0 === PromiseImpl && (PromiseImpl = _Promise);
+    var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl);
+    return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) {
+      return result.done ? result.value : iter.next();
+    });
+  }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () {
+    return this;
+  }), define(Gp, "toString", function () {
+    return "[object Generator]";
+  }), exports.keys = function (object) {
+    var keys = [];
+
+    for (var key in object) {
+      keys.push(key);
+    }
+
+    return _reverseInstanceProperty(keys).call(keys), function next() {
+      for (; keys.length;) {
+        var key = keys.pop();
+        if (key in object) return next.value = key, next.done = !1, next;
+      }
+
+      return next.done = !0, next;
+    };
+  }, exports.values = values, Context.prototype = {
+    constructor: Context,
+    reset: function reset(skipTempReset) {
+      var _context2;
+
+      if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, _forEachInstanceProperty(_context2 = this.tryEntries).call(_context2, resetTryEntry), !skipTempReset) for (var name in this) {
+        "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+_sliceInstanceProperty(name).call(name, 1)) && (this[name] = undefined);
+      }
+    },
+    stop: function stop() {
+      this.done = !0;
+      var rootRecord = this.tryEntries[0].completion;
+      if ("throw" === rootRecord.type) throw rootRecord.arg;
+      return this.rval;
+    },
+    dispatchException: function dispatchException(exception) {
+      if (this.done) throw exception;
+      var context = this;
+
+      function handle(loc, caught) {
+        return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught;
+      }
+
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i],
+            record = entry.completion;
+        if ("root" === entry.tryLoc) return handle("end");
+
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc"),
+              hasFinally = hasOwn.call(entry, "finallyLoc");
+
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0);
+            if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc);
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0);
+          } else {
+            if (!hasFinally) throw new Error("try statement without catch or finally");
+            if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc);
+          }
+        }
+      }
+    },
+    abrupt: function abrupt(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+
+        if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
+          break;
+        }
+      }
+
+      finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null);
+      var record = finallyEntry ? finallyEntry.completion : {};
+      return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record);
+    },
+    complete: function complete(record, afterLoc) {
+      if ("throw" === record.type) throw record.arg;
+      return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel;
+    },
+    finish: function finish(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel;
+      }
+    },
+    "catch": function _catch(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+
+          if ("throw" === record.type) {
+            var thrown = record.arg;
+            resetTryEntry(entry);
+          }
+
+          return thrown;
+        }
+      }
+
+      throw new Error("illegal catch attempt");
+    },
+    delegateYield: function delegateYield(iterable, resultName, nextLoc) {
+      return this.delegate = {
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      }, "next" === this.method && (this.arg = undefined), ContinueSentinel;
+    }
+  }, exports;
+}
+
+module.exports = _regeneratorRuntime, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 64476:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _Object$setPrototypeOf = __webpack_require__(92984);
+
+var _bindInstanceProperty = __webpack_require__(48216);
+
+function _setPrototypeOf(o, p) {
+  var _context;
+
+  module.exports = _setPrototypeOf = _Object$setPrototypeOf ? _bindInstanceProperty(_context = _Object$setPrototypeOf).call(_context) : function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  return _setPrototypeOf(o, p);
+}
+
+module.exports = _setPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 26848:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var getPrototypeOf = __webpack_require__(55536);
+
+function _superPropBase(object, property) {
+  while (!Object.prototype.hasOwnProperty.call(object, property)) {
+    object = getPrototypeOf(object);
+    if (object === null) break;
+  }
+
+  return object;
+}
+
+module.exports = _superPropBase, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 14490:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _sliceInstanceProperty = __webpack_require__(35704);
+
+var _Object$freeze = __webpack_require__(54877);
+
+var _Object$defineProperties = __webpack_require__(2201);
+
+function _taggedTemplateLiteral(strings, raw) {
+  if (!raw) {
+    raw = _sliceInstanceProperty(strings).call(strings, 0);
+  }
+
+  return _Object$freeze(_Object$defineProperties(strings, {
+    raw: {
+      value: _Object$freeze(raw)
+    }
+  }));
+}
+
+module.exports = _taggedTemplateLiteral, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 15687:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var arrayWithoutHoles = __webpack_require__(14869);
+
+var iterableToArray = __webpack_require__(53137);
+
+var unsupportedIterableToArray = __webpack_require__(38899);
+
+var nonIterableSpread = __webpack_require__(57636);
+
+function _toConsumableArray(arr) {
+  return arrayWithoutHoles(arr) || iterableToArray(arr) || unsupportedIterableToArray(arr) || nonIterableSpread();
+}
+
+module.exports = _toConsumableArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 20474:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _Symbol = __webpack_require__(52472);
+
+var _Symbol$iterator = __webpack_require__(48994);
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  return (module.exports = _typeof = "function" == typeof _Symbol && "symbol" == typeof _Symbol$iterator ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && "function" == typeof _Symbol && obj.constructor === _Symbol && obj !== _Symbol.prototype ? "symbol" : typeof obj;
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(obj);
+}
+
+module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 38899:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _sliceInstanceProperty = __webpack_require__(35704);
+
+var _Array$from = __webpack_require__(10349);
+
+var arrayLikeToArray = __webpack_require__(64538);
+
+function _unsupportedIterableToArray(o, minLen) {
+  var _context;
+
+  if (!o) return;
+  if (typeof o === "string") return arrayLikeToArray(o, minLen);
+
+  var n = _sliceInstanceProperty(_context = Object.prototype.toString.call(o)).call(_context, 8, -1);
+
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return _Array$from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
+}
+
+module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 30222:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// TODO(Babel 8): Remove this file.
+
+var runtime = __webpack_require__(5177)();
+module.exports = runtime;
+
+// Copied from https://github.com/facebook/regenerator/blob/main/packages/runtime/runtime.js#L736=
+try {
+  regeneratorRuntime = runtime;
+} catch (accidentalStrictMode) {
+  if (typeof globalThis === "object") {
+    globalThis.regeneratorRuntime = runtime;
+  } else {
+    Function("r", "regeneratorRuntime = r")(runtime);
+  }
+}
+
 
 /***/ }),
 
@@ -35091,15 +41255,43 @@ var exports = {};
 var __webpack_unused_export__;
 
 
+__webpack_require__(12419);
+
 var _interopRequireDefault = __webpack_require__(17907);
 
 var _includes = _interopRequireDefault(__webpack_require__(58118));
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(14490));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(33119));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(92664));
+
+var _inherits2 = _interopRequireDefault(__webpack_require__(84827));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(85299));
+
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(55536));
+
+var _typeof2 = _interopRequireDefault(__webpack_require__(20474));
+
+__webpack_require__(38880);
+
+__webpack_require__(41539);
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4;
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 var __decorate = void 0 && (void 0).__decorate || function (decorators, target, key, desc) {
   var c = arguments.length,
       r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
       d;
-  if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  if ((typeof Reflect === "undefined" ? "undefined" : (0, _typeof2.default)(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
   return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
@@ -35115,147 +41307,109 @@ __webpack_unused_export__ = ({
 __webpack_unused_export__ = void 0;
 /*Lit */
 
-const lit_1 = __webpack_require__(9392);
+var lit_1 = __webpack_require__(9392);
 
-const decorators_js_1 = __webpack_require__(45595);
+var decorators_js_1 = __webpack_require__(45595);
 
-const class_map_js_1 = __webpack_require__(99455);
+var class_map_js_1 = __webpack_require__(99455);
 /*SCSS*/
 
 
-const hamburger_menu_scss_1 = __importDefault(__webpack_require__(36830));
+var hamburger_menu_scss_1 = __importDefault(__webpack_require__(36830));
 /*Mixins*/
 
 
-const litLoggable_1 = __webpack_require__(39937);
+var litLoggable_1 = __webpack_require__(39937);
 /*Helpers*/
 
 
-const sizeHelper_1 = __importDefault(__webpack_require__(96995));
+var sizeHelper_1 = __importDefault(__webpack_require__(96995));
 /*Components*/
 
 
 __webpack_require__(70589);
 
-let HamburgerMenu = class HamburgerMenu extends (0, litLoggable_1.LitLoggable)(lit_1.LitElement) {
-  constructor() {
+var HamburgerMenu = /*#__PURE__*/function (_ref) {
+  (0, _inherits2.default)(HamburgerMenu, _ref);
+
+  var _super = _createSuper(HamburgerMenu);
+
+  function HamburgerMenu() {
+    var _this;
+
+    (0, _classCallCheck2.default)(this, HamburgerMenu);
+
     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 
-    super();
-    this.messages = [];
-    this.favoritesPortletCardSize = 'small';
-    this.gridPortletCardSize = 'medium';
-    this.defaultOrgLogo = '';
-    this.forceOrgLogo = '';
-    this.contextApiUrl = (_a = "/uPortal") !== null && _a !== void 0 ? _a : '';
-    this.favoriteApiUrl = ((_b = "/uPortal") !== null && _b !== void 0 ? _b : '') + ((_c = "/api/layout") !== null && _c !== void 0 ? _c : '');
-    this.layoutApiUrl = ((_d = "/uPortal") !== null && _d !== void 0 ? _d : '') + ((_e = "/api/v4-3/dlm/layout.json") !== null && _e !== void 0 ? _e : '');
-    this.portletApiUrl = ((_f = "/uPortal") !== null && _f !== void 0 ? _f : '') + ((_g = "/api/v4-3/dlm/portletRegistry.json") !== null && _g !== void 0 ? _g : '');
-    this.organizationApiUrl = '';
-    this.userInfoApiUrl = ((_h = "/uPortal") !== null && _h !== void 0 ? _h : '') + ((_j = "/api/v5-1/userinfo") !== null && _j !== void 0 ? _j : '');
-    this.signoutUrl = (_k = "/uPortal/Logout") !== null && _k !== void 0 ? _k : '';
-    this.userInfoPortletUrl = '';
-    this.switchOrgPortletUrl = '';
-    this.orgAttributeName = 'ESCOSIRENCourant[0]';
-    this.orgLogoUrlAttributeName = 'ESCOSIRENCourant[0]';
-    this.userAllOrgsIdAttributeName = 'ESCOSIREN';
-    this.hideActionMode = 'auto';
-    this.showFavoritesInSlider = false;
-    this.debug = false;
-    this._isAppended = false;
-    this._isVisible = false;
-    this.debugLog('Component loaded');
+    _this = _super.call(this);
+    _this.messages = [];
+    _this.favoritesPortletCardSize = 'small';
+    _this.gridPortletCardSize = 'medium';
+    _this.defaultOrgLogo = '';
+    _this.forceOrgLogo = '';
+    _this.contextApiUrl = (_a = "/uPortal") !== null && _a !== void 0 ? _a : '';
+    _this.favoriteApiUrl = ((_b = "/uPortal") !== null && _b !== void 0 ? _b : '') + ((_c = "/api/layout") !== null && _c !== void 0 ? _c : '');
+    _this.layoutApiUrl = ((_d = "/uPortal") !== null && _d !== void 0 ? _d : '') + ((_e = "/api/v4-3/dlm/layout.json") !== null && _e !== void 0 ? _e : '');
+    _this.portletApiUrl = ((_f = "/uPortal") !== null && _f !== void 0 ? _f : '') + ((_g = "/api/v4-3/dlm/portletRegistry.json") !== null && _g !== void 0 ? _g : '');
+    _this.organizationApiUrl = '';
+    _this.userInfoApiUrl = ((_h = "/uPortal") !== null && _h !== void 0 ? _h : '') + ((_j = "/api/v5-1/userinfo") !== null && _j !== void 0 ? _j : '');
+    _this.signoutUrl = (_k = "/uPortal/Logout") !== null && _k !== void 0 ? _k : '';
+    _this.userInfoPortletUrl = '';
+    _this.switchOrgPortletUrl = '';
+    _this.orgAttributeName = 'ESCOSIRENCourant[0]';
+    _this.orgLogoUrlAttributeName = 'ESCOSIRENCourant[0]';
+    _this.userAllOrgsIdAttributeName = 'ESCOSIREN';
+    _this.hideActionMode = 'auto';
+    _this.showFavoritesInSlider = false;
+    _this.debug = false;
+    _this._isAppended = false;
+    _this._isVisible = false;
+
+    _this.debugLog('Component loaded');
+
+    return _this;
   }
 
-  shouldUpdate() {
-    if (this.defaultOrgLogo === '') {
-      this.errorLog('default-org-logo attribute is required');
-      return false;
-    }
-
-    return true;
-  }
-
-  toggleMenu(e) {
-    e.preventDefault();
-    this._isVisible = !this._isVisible;
-    const html = document.querySelector('html');
-
-    if (html) {
-      html.style.overflowY = this._isVisible ? 'hidden' : 'auto';
-    }
-
-    const toggleEvt = new CustomEvent('toggle', {
-      detail: {
-        isVisible: this._isVisible
+  (0, _createClass2.default)(HamburgerMenu, [{
+    key: "shouldUpdate",
+    value: function shouldUpdate() {
+      if (this.defaultOrgLogo === '') {
+        this.errorLog('default-org-logo attribute is required');
+        return false;
       }
-    });
-    this.dispatchEvent(toggleEvt);
-  }
 
-  render() {
-    return (0, lit_1.html)`
-      <div class="hamburger-menu">
-        <div
-          class="content-menu-toggle"
-          aria-label="Menu"
-          role="button"
-          title="Menu"
-          aria-expanded="false"
-          aria-haspopup="true"
-          aria-controls="content-menu"
-          @click=${this.toggleMenu}
-        >
-          <slot name="menu-icon">
-            <div class="menu-wrapper">
-              <div class="hm-line"></div>
-              <div class="hm-line"></div>
-              <div class="hm-line"></div>
-            </div>
-          </slot>
-        </div>
-        ${this._isVisible ? (0, lit_1.html)`
-              <div>
-                <slot name="menu-content">
-                  <esco-content-menu
-                    class="${(0, class_map_js_1.classMap)({
-      'active-menu': this._isVisible
-    })}"
-                    context-api-url="${this.contextApiUrl}"
-                    ?debug="${this.debug}"
-                    default-org-logo="${this.defaultOrgLogo}"
-                    favorite-api-url="${this.favoriteApiUrl}"
-                    favorites-portlet-card-size="${this.favoritesPortletCardSize}"
-                    force-org-logo="${this.forceOrgLogo}"
-                    grid-portlet-card-size="${this.gridPortletCardSize}"
-                    hide-action-mode="${this.hideActionMode}"
-                    ?is-hidden="${!this._isVisible}"
-                    layout-api-url="${this.layoutApiUrl}"
-                    .messages="${this.messages}"
-                    organization-api-url="${this.organizationApiUrl}"
-                    org-logo-url-attribute-name="${this.orgLogoUrlAttributeName}"
-                    portlet-api-url="${this.portletApiUrl}"
-                    sign-out-url="${this.signoutUrl}"
-                    ?show-favorites-in-slider="${this.showFavoritesInSlider}"
-                    switch-org-portlet-url="${this.switchOrgPortletUrl}"
-                    user-org-id-attribute-name="${this.orgAttributeName}"
-                    user-all-orgs-id-attribute-name="${this.userAllOrgsIdAttributeName}"
-                    user-info-api-url="${this.userInfoApiUrl}"
-                    user-info-portlet-url="${this.userInfoPortletUrl}"
-                    @close=${this.toggleMenu.bind(this)}
-                    ?fake-attribute="${true}"
-                  ></esco-content-menu>
-                </slot>
-              </div>
-            ` : (0, lit_1.html)``}
-      </div>
-    `;
-  }
+      return true;
+    }
+  }, {
+    key: "toggleMenu",
+    value: function toggleMenu(e) {
+      e.preventDefault();
+      this._isVisible = !this._isVisible;
+      var html = document.querySelector('html');
 
-};
-HamburgerMenu.styles = [(0, lit_1.css)`
-      ${(0, lit_1.unsafeCSS)(hamburger_menu_scss_1.default)}
-    `];
+      if (html) {
+        html.style.overflowY = this._isVisible ? 'hidden' : 'auto';
+      }
+
+      var toggleEvt = new CustomEvent('toggle', {
+        detail: {
+          isVisible: this._isVisible
+        }
+      });
+      this.dispatchEvent(toggleEvt);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return (0, lit_1.html)(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n      <div class=\"hamburger-menu\">\n        <div\n          class=\"content-menu-toggle\"\n          aria-label=\"Menu\"\n          role=\"button\"\n          title=\"Menu\"\n          aria-expanded=\"false\"\n          aria-haspopup=\"true\"\n          aria-controls=\"content-menu\"\n          @click=", "\n        >\n          <slot name=\"menu-icon\">\n            <div class=\"menu-wrapper\">\n              <div class=\"hm-line\"></div>\n              <div class=\"hm-line\"></div>\n              <div class=\"hm-line\"></div>\n            </div>\n          </slot>\n        </div>\n        ", "\n      </div>\n    "])), this.toggleMenu, this._isVisible ? (0, lit_1.html)(_templateObject2 || (_templateObject2 = (0, _taggedTemplateLiteral2.default)(["\n              <div>\n                <slot name=\"menu-content\">\n                  <esco-content-menu\n                    class=\"", "\"\n                    context-api-url=\"", "\"\n                    ?debug=\"", "\"\n                    default-org-logo=\"", "\"\n                    favorite-api-url=\"", "\"\n                    favorites-portlet-card-size=\"", "\"\n                    force-org-logo=\"", "\"\n                    grid-portlet-card-size=\"", "\"\n                    hide-action-mode=\"", "\"\n                    ?is-hidden=\"", "\"\n                    layout-api-url=\"", "\"\n                    .messages=\"", "\"\n                    organization-api-url=\"", "\"\n                    org-logo-url-attribute-name=\"", "\"\n                    portlet-api-url=\"", "\"\n                    sign-out-url=\"", "\"\n                    ?show-favorites-in-slider=\"", "\"\n                    switch-org-portlet-url=\"", "\"\n                    user-org-id-attribute-name=\"", "\"\n                    user-all-orgs-id-attribute-name=\"", "\"\n                    user-info-api-url=\"", "\"\n                    user-info-portlet-url=\"", "\"\n                    @close=", "\n                    ?fake-attribute=\"", "\"\n                  ></esco-content-menu>\n                </slot>\n              </div>\n            "])), (0, class_map_js_1.classMap)({
+        'active-menu': this._isVisible
+      }), this.contextApiUrl, this.debug, this.defaultOrgLogo, this.favoriteApiUrl, this.favoritesPortletCardSize, this.forceOrgLogo, this.gridPortletCardSize, this.hideActionMode, !this._isVisible, this.layoutApiUrl, this.messages, this.organizationApiUrl, this.orgLogoUrlAttributeName, this.portletApiUrl, this.signoutUrl, this.showFavoritesInSlider, this.switchOrgPortletUrl, this.orgAttributeName, this.userAllOrgsIdAttributeName, this.userInfoApiUrl, this.userInfoPortletUrl, this.toggleMenu.bind(this), true) : (0, lit_1.html)(_templateObject3 || (_templateObject3 = (0, _taggedTemplateLiteral2.default)([""]))));
+    }
+  }]);
+  return HamburgerMenu;
+}((0, litLoggable_1.LitLoggable)(lit_1.LitElement));
+
+HamburgerMenu.styles = [(0, lit_1.css)(_templateObject4 || (_templateObject4 = (0, _taggedTemplateLiteral2.default)(["\n      ", "\n    "])), (0, lit_1.unsafeCSS)(hamburger_menu_scss_1.default))];
 
 __decorate([(0, decorators_js_1.property)({
   type: Array
@@ -35263,21 +41417,17 @@ __decorate([(0, decorators_js_1.property)({
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
-
-  hasChanged(newVal) {
+  hasChanged: function hasChanged(newVal) {
     return sizeHelper_1.default.validate(newVal, true, true);
   },
-
   attribute: 'favorites-portlet-card-size'
 })], HamburgerMenu.prototype, "favoritesPortletCardSize", void 0);
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
-
-  hasChanged(newVal) {
+  hasChanged: function hasChanged(newVal) {
     return sizeHelper_1.default.validate(newVal, true, true);
   },
-
   attribute: 'grid-portlet-card-size'
 })], HamburgerMenu.prototype, "gridPortletCardSize", void 0);
 
@@ -35353,13 +41503,11 @@ __decorate([(0, decorators_js_1.property)({
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
-
-  hasChanged(newVal) {
+  hasChanged: function hasChanged(newVal) {
     var _context;
 
     return (0, _includes.default)(_context = ['auto', 'always', 'never']).call(_context, newVal);
   },
-
   attribute: 'hide-action-mode'
 })], HamburgerMenu.prototype, "hideActionMode", void 0);
 
@@ -35387,15 +41535,47 @@ var exports = __webpack_exports__;
 var __webpack_unused_export__;
 
 
+__webpack_require__(12419);
+
 var _interopRequireDefault = __webpack_require__(17907);
 
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(14490));
+
 var _includes = _interopRequireDefault(__webpack_require__(58118));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(33119));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(92664));
+
+var _get2 = _interopRequireDefault(__webpack_require__(44775));
+
+var _inherits2 = _interopRequireDefault(__webpack_require__(84827));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(85299));
+
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(55536));
+
+var _typeof2 = _interopRequireDefault(__webpack_require__(20474));
+
+__webpack_require__(38880);
+
+__webpack_require__(41539);
+
+__webpack_require__(21249);
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4;
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 var __decorate = void 0 && (void 0).__decorate || function (decorators, target, key, desc) {
   var c = arguments.length,
       r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
       d;
-  if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  if ((typeof Reflect === "undefined" ? "undefined" : (0, _typeof2.default)(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
   return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
@@ -35411,127 +41591,134 @@ __webpack_unused_export__ = ({
 __webpack_unused_export__ = void 0;
 /*Lit*/
 
-const lit_1 = __webpack_require__(9392);
+var lit_1 = __webpack_require__(9392);
 
-const decorators_js_1 = __webpack_require__(45595);
+var decorators_js_1 = __webpack_require__(45595);
 /*SCSS*/
 
 
-const content_grid_filter_scss_1 = __importDefault(__webpack_require__(67107));
+var content_grid_filter_scss_1 = __importDefault(__webpack_require__(67107));
 /*Localization*/
 
 
-const localize_1 = __webpack_require__(91799);
+var localize_1 = __webpack_require__(91799);
 
-const localization_1 = __webpack_require__(30082);
+var localization_1 = __webpack_require__(30082);
 
-const langHelper_1 = __importDefault(__webpack_require__(80203));
+var langHelper_1 = __importDefault(__webpack_require__(80203));
 /*Mixins*/
 
 
-const litLoggable_1 = __webpack_require__(39937);
+var litLoggable_1 = __webpack_require__(39937);
 
-let ContentGridFilter = class ContentGridFilter extends (0, litLoggable_1.LitLoggable)(lit_1.LitElement) {
-  constructor() {
-    super();
-    this.categories = [];
-    this.filterCategory = null;
-    this.debugLog('Component loaded');
-    const lhOpts = {
+var ContentGridFilter = /*#__PURE__*/function (_ref) {
+  (0, _inherits2.default)(ContentGridFilter, _ref);
+
+  var _super = _createSuper(ContentGridFilter);
+
+  function ContentGridFilter() {
+    var _this;
+
+    (0, _classCallCheck2.default)(this, ContentGridFilter);
+    _this = _super.call(this);
+    _this.categories = [];
+    _this.filterCategory = null;
+
+    _this.debugLog('Component loaded');
+
+    var lhOpts = {
       languageCodeOnly: true,
       availableLanguages: ['fr', 'en'],
       defaultLanguage: 'en'
     };
-    const lang = langHelper_1.default.getPageLang(lhOpts);
+    var lang = langHelper_1.default.getPageLang(lhOpts);
     (0, localization_1.setLocale)(lang);
     langHelper_1.default.setLocale(lang);
+    return _this;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    window.addEventListener('esco-cm-grid-filter', this.getExternalFilter.bind(this));
-    window.addEventListener('esco-cm-request-grid-filter', this.sendExternalFilter);
-    window.addEventListener('esco-cm-categories', this.getCategories.bind(this));
-  }
-
-  disconnectedCallback() {
-    super.connectedCallback();
-    window.removeEventListener('esco-cm-grid-filter', this.getExternalFilter.bind(this));
-    window.removeEventListener('esco-cm-request-grid-filter', this.sendExternalFilter);
-    window.removeEventListener('esco-cm-categories', this.getCategories.bind(this));
-  }
-
-  firstUpdated() {
-    if (this.categories.length == 0) {
-      this.requestCategories();
+  (0, _createClass2.default)(ContentGridFilter, [{
+    key: "connectedCallback",
+    value: function connectedCallback() {
+      (0, _get2.default)((0, _getPrototypeOf2.default)(ContentGridFilter.prototype), "connectedCallback", this).call(this);
+      window.addEventListener('esco-cm-grid-filter', this.getExternalFilter.bind(this));
+      window.addEventListener('esco-cm-request-grid-filter', this.sendExternalFilter);
+      window.addEventListener('esco-cm-categories', this.getCategories.bind(this));
     }
+  }, {
+    key: "disconnectedCallback",
+    value: function disconnectedCallback() {
+      (0, _get2.default)((0, _getPrototypeOf2.default)(ContentGridFilter.prototype), "connectedCallback", this).call(this);
+      window.removeEventListener('esco-cm-grid-filter', this.getExternalFilter.bind(this));
+      window.removeEventListener('esco-cm-request-grid-filter', this.sendExternalFilter);
+      window.removeEventListener('esco-cm-categories', this.getCategories.bind(this));
+    }
+  }, {
+    key: "firstUpdated",
+    value: function firstUpdated() {
+      if (this.categories.length == 0) {
+        this.requestCategories();
+      }
 
-    if (this.filterCategory !== null) {
+      if (this.filterCategory !== null) {
+        this.sendExternalFilter();
+      }
+    }
+  }, {
+    key: "getCategories",
+    value: function getCategories(e) {
+      var _a;
+
+      if ((_a = e.detail) === null || _a === void 0 ? void 0 : _a.categories) {
+        this.categories = e.detail.categories;
+      }
+    }
+  }, {
+    key: "getExternalFilter",
+    value: function getExternalFilter(e) {
+      var _context;
+
+      if (((0, _includes.default)(_context = this.categories).call(_context, e.detail.category) || e.detail.category == '') && this.filterCategory != e.detail.category) {
+        this.filterCategory = e.detail.category;
+      }
+    }
+  }, {
+    key: "requestCategories",
+    value: function requestCategories() {
+      var reqCatEvt = new CustomEvent('esco-cm-request-categories');
+      window.dispatchEvent(reqCatEvt);
+    }
+  }, {
+    key: "sendExternalFilter",
+    value: function sendExternalFilter() {
+      var filterEvt = new CustomEvent('esco-cm-grid-filter', {
+        detail: {
+          category: this.filterCategory
+        }
+      });
+      window.dispatchEvent(filterEvt);
+    }
+  }, {
+    key: "onFilter",
+    value: function onFilter(e) {
+      var target = e.target || e.srcElement;
+      this.filterCategory = target === null || target === void 0 ? void 0 : target.value;
       this.sendExternalFilter();
     }
-  }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
 
-  getCategories(e) {
-    var _a;
-
-    if ((_a = e.detail) === null || _a === void 0 ? void 0 : _a.categories) {
-      this.categories = e.detail.categories;
+      return (0, lit_1.html)(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n      <select @change=", " class=\"grid-categories\">\n        <option class=\"default\" selected value=\"\">\n          ", "\n        </option>\n        ", "\n      </select>\n    "])), this.onFilter.bind(this), langHelper_1.default.localTransation('message.filter.selectOption', (0, localize_1.msg)((0, localize_1.str)(_templateObject2 || (_templateObject2 = (0, _taggedTemplateLiteral2.default)(["Search a service..."]))))), this.categories.map(function (cat) {
+        return (0, lit_1.html)(_templateObject3 || (_templateObject3 = (0, _taggedTemplateLiteral2.default)(["\n            <option\n              value=\"", "\"\n              label=\"", "\"\n              ?selected=\"", "\"\n            >\n              ", "\n            </option>\n          "])), cat, cat, cat == _this2.filterCategory, cat);
+      }));
     }
-  }
+  }]);
+  return ContentGridFilter;
+}((0, litLoggable_1.LitLoggable)(lit_1.LitElement));
 
-  getExternalFilter(e) {
-    var _context;
-
-    if (((0, _includes.default)(_context = this.categories).call(_context, e.detail.category) || e.detail.category == '') && this.filterCategory != e.detail.category) {
-      this.filterCategory = e.detail.category;
-    }
-  }
-
-  requestCategories() {
-    const reqCatEvt = new CustomEvent('esco-cm-request-categories');
-    window.dispatchEvent(reqCatEvt);
-  }
-
-  sendExternalFilter() {
-    const filterEvt = new CustomEvent('esco-cm-grid-filter', {
-      detail: {
-        category: this.filterCategory
-      }
-    });
-    window.dispatchEvent(filterEvt);
-  }
-
-  onFilter(e) {
-    const target = e.target || e.srcElement;
-    this.filterCategory = target === null || target === void 0 ? void 0 : target.value;
-    this.sendExternalFilter();
-  }
-
-  render() {
-    return (0, lit_1.html)`
-      <select @change=${this.onFilter.bind(this)} class="grid-categories">
-        <option class="default" selected value="">
-          ${langHelper_1.default.localTransation('message.filter.selectOption', (0, localize_1.msg)((0, localize_1.str)`Search a service...`))}
-        </option>
-        ${this.categories.map(cat => {
-      return (0, lit_1.html)`
-            <option
-              value="${cat}"
-              label="${cat}"
-              ?selected="${cat == this.filterCategory}"
-            >
-              ${cat}
-            </option>
-          `;
-    })}
-      </select>
-    `;
-  }
-
-};
-ContentGridFilter.styles = (0, lit_1.css)`
-    ${(0, lit_1.unsafeCSS)(content_grid_filter_scss_1.default)}
-  `;
+ContentGridFilter.styles = (0, lit_1.css)(_templateObject4 || (_templateObject4 = (0, _taggedTemplateLiteral2.default)(["\n    ", "\n  "])), (0, lit_1.unsafeCSS)(content_grid_filter_scss_1.default));
 
 __decorate([(0, decorators_js_1.property)({
   type: Array
