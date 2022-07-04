@@ -20,7 +20,7 @@
             return;
         }
         $block['content']['#markup'] ='<esco-hamburger-menu 
-                                        context-api-url="/portail" 
+                                        context-api-url="https://test-lycee.giprecia.net/portail/" 
                                         sign-out-url="/portail/Logout" 
                                         default-org-logo="/annuaire_images/default_banner_v1.jpg" 
                                         favorite-api-url="/portail/api/layout" 
