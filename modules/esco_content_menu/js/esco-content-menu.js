@@ -34242,8 +34242,11 @@ var HamburgerMenu = /*#__PURE__*/function (_ref) {
           return element !== '';
         });
         this._appPortalBaseUrl = contextApiUrlList.find(function (appPortalBaseUrl) {
+          _this2.errorLog('test portail url :', appPortalBaseUrl);
+
           return urlTestService_1.default.test(appPortalBaseUrl + _this2.userInfoApiUrl, appPortalBaseUrl + _this2.layoutApiUrl, _this2.debug);
         });
+        this.errorLog('Result :', this._appPortalBaseUrl);
       }
 
       return true;
