@@ -34312,6 +34312,7 @@ var HamburgerMenu = /*#__PURE__*/function (_ref) {
         var contextApiUrlList = this.appPortalBaseUrl.split(',').filter(function (element) {
           return element !== '';
         });
+        this.debugLog('Tests :', contextApiUrlList);
         this._appPortalBaseUrl = (_a = contextApiUrlList.find(function (appPortalBaseUrl) {
           _this2.debugLog('test portail url :', appPortalBaseUrl);
 
