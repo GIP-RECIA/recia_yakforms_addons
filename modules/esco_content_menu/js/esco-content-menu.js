@@ -6151,6 +6151,22 @@ var _interopRequireDefault = __webpack_require__(4836);
 
 __webpack_require__(6755);
 
+__webpack_require__(9600);
+
+__webpack_require__(7327);
+
+__webpack_require__(1539);
+
+__webpack_require__(4944);
+
+__webpack_require__(3792);
+
+__webpack_require__(1249);
+
+__webpack_require__(4916);
+
+__webpack_require__(3123);
+
 var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
@@ -6174,6 +6190,15 @@ var pathHelper = /*#__PURE__*/function () {
       }
 
       return path;
+    }
+  }, {
+    key: "concatUrlParts",
+    value: function concatUrlParts(parts) {
+      return parts.map(function (part) {
+        return part.split('/');
+      }).flat().filter(function (value, index, self) {
+        return self.indexOf(value) == index;
+      }).join('/');
     }
   }]);
   return pathHelper;
@@ -8059,30 +8084,31 @@ var urlTestService = /*#__PURE__*/function () {
 
               case 16:
                 layout = _context.sent;
+                console.log('test service reponse :', layout, layout === null || layout === void 0 ? void 0 : layout.authenticated);
 
                 if (!(layout === null || layout === void 0 ? void 0 : layout.authenticated)) {
-                  _context.next = 19;
+                  _context.next = 20;
                   break;
                 }
 
                 return _context.abrupt("return", true);
 
-              case 19:
+              case 20:
                 return _context.abrupt("return", false);
 
-              case 22:
-                _context.prev = 22;
+              case 23:
+                _context.prev = 23;
                 _context.t2 = _context["catch"](0);
                 // eslint-disable-next-line
                 console.error(_context.t2, userInfoApiUrl, layoutApiUrl, debug);
                 return _context.abrupt("return", null);
 
-              case 26:
+              case 27:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 22]]);
+        }, _callee, null, [[0, 23]]);
       }));
 
       function test(_x, _x2, _x3) {
@@ -12737,6 +12763,34 @@ $({ target: 'Array', proto: true }, {
 
 /***/ }),
 
+/***/ 4944:
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+
+var $ = __webpack_require__(2109);
+var flattenIntoArray = __webpack_require__(6790);
+var toObject = __webpack_require__(7908);
+var lengthOfArrayLike = __webpack_require__(6244);
+var toIntegerOrInfinity = __webpack_require__(9303);
+var arraySpeciesCreate = __webpack_require__(5417);
+
+// `Array.prototype.flat` method
+// https://tc39.es/ecma262/#sec-array.prototype.flat
+$({ target: 'Array', proto: true }, {
+  flat: function flat(/* depthArg = 1 */) {
+    var depthArg = arguments.length ? arguments[0] : undefined;
+    var O = toObject(this);
+    var sourceLen = lengthOfArrayLike(O);
+    var A = arraySpeciesCreate(O, 0);
+    A.length = flattenIntoArray(A, O, O, sourceLen, 0, depthArg === undefined ? 1 : toIntegerOrInfinity(depthArg));
+    return A;
+  }
+});
+
+
+/***/ }),
+
 /***/ 6699:
 /***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
 
@@ -13082,6 +13136,19 @@ var addToUnscopables = __webpack_require__(1223);
 
 // https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
 addToUnscopables('flatMap');
+
+
+/***/ }),
+
+/***/ 3792:
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+// this method was added to unscopables after implementation
+// in popular engines, so it's moved to a separate module
+var addToUnscopables = __webpack_require__(1223);
+
+// https://tc39.es/ecma262/#sec-array.prototype-@@unscopables
+addToUnscopables('flat');
 
 
 /***/ }),
@@ -34220,7 +34287,7 @@ var HamburgerMenu = /*#__PURE__*/function (_ref) {
     _this.debug = false;
     _this._isAppended = false;
     _this._isVisible = false;
-    _this._appPortalBaseUrl = undefined;
+    _this._appPortalBaseUrl = '';
 
     _this.debugLog('Component loaded');
 
@@ -34232,6 +34299,8 @@ var HamburgerMenu = /*#__PURE__*/function (_ref) {
     value: function shouldUpdate() {
       var _this2 = this;
 
+      var _a;
+
       if (this.defaultOrgLogo === '') {
         this.errorLog('default-org-logo attribute is required');
         return false;
@@ -34241,12 +34310,12 @@ var HamburgerMenu = /*#__PURE__*/function (_ref) {
         var contextApiUrlList = this.appPortalBaseUrl.split(',').filter(function (element) {
           return element !== '';
         });
-        this._appPortalBaseUrl = contextApiUrlList.find(function (appPortalBaseUrl) {
-          _this2.errorLog('test portail url :', appPortalBaseUrl);
+        this._appPortalBaseUrl = (_a = contextApiUrlList.find(function (appPortalBaseUrl) {
+          _this2.debugLog('test portail url :', appPortalBaseUrl);
 
           return urlTestService_1.default.test(appPortalBaseUrl + _this2.userInfoApiUrl, appPortalBaseUrl + _this2.layoutApiUrl, _this2.debug);
-        });
-        this.errorLog('Result :', this._appPortalBaseUrl);
+        })) !== null && _a !== void 0 ? _a : '';
+        this.debugLog('Result :', this._appPortalBaseUrl);
       }
 
       return true;
@@ -34274,7 +34343,7 @@ var HamburgerMenu = /*#__PURE__*/function (_ref) {
     value: function render() {
       return (0, lit_1.html)(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n      <div class=\"hamburger-menu\">\n        <div\n          class=\"content-menu-toggle\"\n          aria-label=\"Menu\"\n          role=\"button\"\n          title=\"Menu\"\n          aria-expanded=\"false\"\n          aria-haspopup=\"true\"\n          aria-controls=\"content-menu\"\n          @click=", "\n        >\n          <slot name=\"menu-icon\">\n            <div class=\"menu-wrapper\">\n              <div class=\"hm-line\"></div>\n              <div class=\"hm-line\"></div>\n              <div class=\"hm-line\"></div>\n            </div>\n          </slot>\n        </div>\n        ", "\n      </div>\n    "])), this.toggleMenu, this._isVisible ? (0, lit_1.html)(_templateObject2 || (_templateObject2 = (0, _taggedTemplateLiteral2.default)(["\n              <div>\n                <slot name=\"menu-content\">\n                  <esco-content-menu\n                    class=\"", "\"\n                    context-api-url=\"", "\"\n                    ?debug=\"", "\"\n                    default-org-logo=\"", "\"\n                    favorite-api-url=\"", "\"\n                    favorites-portlet-card-size=\"", "\"\n                    force-org-logo=\"", "\"\n                    grid-portlet-card-size=\"", "\"\n                    hide-action-mode=\"", "\"\n                    ?is-hidden=\"", "\"\n                    layout-api-url=\"", "\"\n                    .messages=\"", "\"\n                    organization-api-url=\"", "\"\n                    org-logo-url-attribute-name=\"", "\"\n                    portlet-api-url=\"", "\"\n                    sign-out-url=\"", "\"\n                    ?show-favorites-in-slider=\"", "\"\n                    switch-org-portlet-url=\"", "\"\n                    user-org-id-attribute-name=\"", "\"\n                    user-all-orgs-id-attribute-name=\"", "\"\n                    user-info-api-url=\"", "\"\n                    user-info-portlet-url=\"", "\"\n                    @close=", "\n                    ?fake-attribute=\"", "\"\n                  ></esco-content-menu>\n                </slot>\n              </div>\n            "])), (0, class_map_js_1.classMap)({
         'active-menu': this._isVisible
-      }), this.contextApiUrl, this.debug, this.defaultOrgLogo, this.favoriteApiUrl, this.favoritesPortletCardSize, this.forceOrgLogo, this.gridPortletCardSize, this.hideActionMode, !this._isVisible, this.layoutApiUrl, this.messages, this.organizationApiUrl, this.orgLogoUrlAttributeName, this.portletApiUrl, this.signoutUrl, this.showFavoritesInSlider, this.switchOrgPortletUrl, this.orgAttributeName, this.userAllOrgsIdAttributeName, this.userInfoApiUrl, this.userInfoPortletUrl, this.toggleMenu.bind(this), true) : (0, lit_1.html)(_templateObject3 || (_templateObject3 = (0, _taggedTemplateLiteral2.default)([""]))));
+      }), this._appPortalBaseUrl + this.contextApiUrl, this.debug, this.defaultOrgLogo, this._appPortalBaseUrl + this.favoriteApiUrl, this.favoritesPortletCardSize, this.forceOrgLogo, this.gridPortletCardSize, this.hideActionMode, !this._isVisible, this._appPortalBaseUrl + this.layoutApiUrl, this.messages, this._appPortalBaseUrl + this.organizationApiUrl, this.orgLogoUrlAttributeName, this._appPortalBaseUrl + this.portletApiUrl, this._appPortalBaseUrl + this.signoutUrl, this.showFavoritesInSlider, this._appPortalBaseUrl + this.switchOrgPortletUrl, this.orgAttributeName, this.userAllOrgsIdAttributeName, this._appPortalBaseUrl + this.userInfoApiUrl, this._appPortalBaseUrl + this.userInfoPortletUrl, this.toggleMenu.bind(this), true) : (0, lit_1.html)(_templateObject3 || (_templateObject3 = (0, _taggedTemplateLiteral2.default)([""]))));
     }
   }]);
   return HamburgerMenu;
