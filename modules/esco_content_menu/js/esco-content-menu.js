@@ -6787,7 +6787,7 @@ var LitLoggable = function LitLoggable(superClass) {
       _this._identifier = null;
       _this._localLevel = 1;
       LoggableElement._bundle = (_a = "content-menu") !== null && _a !== void 0 ? _a : 'unknown';
-      LoggableElement._globalLevel = (_c = parseInt((_b = "1") !== null && _b !== void 0 ? _b : '1')) !== null && _c !== void 0 ? _c : 1;
+      LoggableElement._globalLevel = (_c = parseInt((_b = "3") !== null && _b !== void 0 ? _b : '1')) !== null && _c !== void 0 ? _c : 1;
       _this._module = _this.constructor.name;
       return _this;
     }
