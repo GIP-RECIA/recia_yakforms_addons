@@ -34315,7 +34315,7 @@ var HamburgerMenu = /*#__PURE__*/function (_ref) {
         this._appPortalBaseUrl = (_a = contextApiUrlList.find(function (appPortalBaseUrl) {
           _this2.debugLog('test portail url :', appPortalBaseUrl);
 
-          return urlTestService_1.default.test(appPortalBaseUrl + _this2.userInfoApiUrl, appPortalBaseUrl + _this2.layoutApiUrl, _this2.debug);
+          return urlTestService_1.default.test(pathHelper_1.default.concatUrlParts([appPortalBaseUrl, _this2.userInfoApiUrl]), pathHelper_1.default.concatUrlParts([appPortalBaseUrl, _this2.layoutApiUrl]), _this2.debug);
         })) !== null && _a !== void 0 ? _a : '';
         this.debugLog('Result :', this._appPortalBaseUrl);
       }
