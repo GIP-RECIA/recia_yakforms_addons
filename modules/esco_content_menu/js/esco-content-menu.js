@@ -7969,6 +7969,136 @@ exports["default"] = portletService;
 
 /***/ }),
 
+/***/ 7877:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(4836);
+
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+
+__webpack_require__(1539);
+
+__webpack_require__(8674);
+
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+
+var __importDefault = void 0 && (void 0).__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var open_id_connect_1 = __importDefault(__webpack_require__(7220));
+
+var urlTestService = /*#__PURE__*/function () {
+  function urlTestService() {
+    (0, _classCallCheck2.default)(this, urlTestService);
+  }
+
+  (0, _createClass2.default)(urlTestService, null, [{
+    key: "test",
+    value: function () {
+      var _test = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(userInfoApiUrl, layoutApiUrl, debug) {
+        var requestHeaders, options, response, layout;
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                requestHeaders = new Headers();
+
+                if (debug) {
+                  _context.next = 8;
+                  break;
+                }
+
+                _context.t0 = requestHeaders;
+                _context.next = 6;
+                return (0, open_id_connect_1.default)({
+                  userInfoApiUrl: userInfoApiUrl
+                });
+
+              case 6:
+                _context.t1 = _context.sent.encoded;
+
+                _context.t0.set.call(_context.t0, 'Authorization', _context.t1);
+
+              case 8:
+                options = {
+                  method: 'GET',
+                  credentials: 'same-origin',
+                  headers: requestHeaders
+                };
+                _context.next = 11;
+                return fetch(layoutApiUrl, options);
+
+              case 11:
+                response = _context.sent;
+
+                if (response.ok) {
+                  _context.next = 14;
+                  break;
+                }
+
+                throw new Error(response.statusText);
+
+              case 14:
+                _context.next = 16;
+                return response.json();
+
+              case 16:
+                layout = _context.sent;
+
+                if (!(layout === null || layout === void 0 ? void 0 : layout.authenticated)) {
+                  _context.next = 19;
+                  break;
+                }
+
+                return _context.abrupt("return", true);
+
+              case 19:
+                return _context.abrupt("return", false);
+
+              case 22:
+                _context.prev = 22;
+                _context.t2 = _context["catch"](0);
+                // eslint-disable-next-line
+                console.error(_context.t2, userInfoApiUrl, layoutApiUrl, debug);
+                return _context.abrupt("return", null);
+
+              case 26:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 22]]);
+      }));
+
+      function test(_x, _x2, _x3) {
+        return _test.apply(this, arguments);
+      }
+
+      return test;
+    }()
+  }]);
+  return urlTestService;
+}();
+
+exports["default"] = urlTestService;
+
+/***/ }),
+
 /***/ 9662:
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
@@ -33962,6 +34092,11 @@ var __webpack_exports__ = {};
 var exports = {};
 var __webpack_unused_export__;
 
+/**
+ * TODO
+ * ajouter un attribut base api url
+ * et modifier les chemins en fonction.
+ */
 
 __webpack_require__(2419);
 
@@ -33984,6 +34119,14 @@ var _typeof2 = _interopRequireDefault(__webpack_require__(8698));
 __webpack_require__(5003);
 
 __webpack_require__(1539);
+
+__webpack_require__(7327);
+
+__webpack_require__(4916);
+
+__webpack_require__(3123);
+
+__webpack_require__(9826);
 
 __webpack_require__(6699);
 
@@ -34028,6 +34171,10 @@ var hamburger_menu_scss_1 = __importDefault(__webpack_require__(6830));
 
 
 var litLoggable_1 = __webpack_require__(9937);
+/*Services*/
+
+
+var urlTestService_1 = __importDefault(__webpack_require__(7877));
 /*Helpers*/
 
 
@@ -34047,7 +34194,7 @@ var HamburgerMenu = /*#__PURE__*/function (_ref) {
 
     (0, _classCallCheck2.default)(this, HamburgerMenu);
 
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 
     _this = _super.call(this);
     _this.messages = [];
@@ -34055,13 +34202,14 @@ var HamburgerMenu = /*#__PURE__*/function (_ref) {
     _this.gridPortletCardSize = 'medium';
     _this.defaultOrgLogo = '';
     _this.forceOrgLogo = '';
-    _this.contextApiUrl = (_a = "/uPortal") !== null && _a !== void 0 ? _a : '';
-    _this.favoriteApiUrl = ((_b = "/uPortal") !== null && _b !== void 0 ? _b : '') + ((_c = "/api/layout") !== null && _c !== void 0 ? _c : '');
-    _this.layoutApiUrl = ((_d = "/uPortal") !== null && _d !== void 0 ? _d : '') + ((_e = "/api/v4-3/dlm/layout.json") !== null && _e !== void 0 ? _e : '');
-    _this.portletApiUrl = ((_f = "/uPortal") !== null && _f !== void 0 ? _f : '') + ((_g = "/api/v4-3/dlm/portletRegistry.json") !== null && _g !== void 0 ? _g : '');
+    _this.appPortalBaseUrl = (_a = "") !== null && _a !== void 0 ? _a : '';
+    _this.contextApiUrl = (_b = "/uPortal") !== null && _b !== void 0 ? _b : '';
+    _this.favoriteApiUrl = ((_c = "/uPortal") !== null && _c !== void 0 ? _c : '') + ((_d = "/api/layout") !== null && _d !== void 0 ? _d : '');
+    _this.layoutApiUrl = ((_e = "/uPortal") !== null && _e !== void 0 ? _e : '') + ((_f = "/api/v4-3/dlm/layout.json") !== null && _f !== void 0 ? _f : '');
+    _this.portletApiUrl = ((_g = "/uPortal") !== null && _g !== void 0 ? _g : '') + ((_h = "/api/v4-3/dlm/portletRegistry.json") !== null && _h !== void 0 ? _h : '');
     _this.organizationApiUrl = '';
-    _this.userInfoApiUrl = ((_h = "/uPortal") !== null && _h !== void 0 ? _h : '') + ((_j = "/api/v5-1/userinfo") !== null && _j !== void 0 ? _j : '');
-    _this.signoutUrl = (_k = "/uPortal/Logout") !== null && _k !== void 0 ? _k : '';
+    _this.userInfoApiUrl = ((_j = "/uPortal") !== null && _j !== void 0 ? _j : '') + ((_k = "/api/v5-1/userinfo") !== null && _k !== void 0 ? _k : '');
+    _this.signoutUrl = (_l = "/uPortal/Logout") !== null && _l !== void 0 ? _l : '';
     _this.userInfoPortletUrl = '';
     _this.switchOrgPortletUrl = '';
     _this.orgAttributeName = 'ESCOSIRENCourant[0]';
@@ -34072,6 +34220,7 @@ var HamburgerMenu = /*#__PURE__*/function (_ref) {
     _this.debug = false;
     _this._isAppended = false;
     _this._isVisible = false;
+    _this._appPortalBaseUrl = undefined;
 
     _this.debugLog('Component loaded');
 
@@ -34081,9 +34230,20 @@ var HamburgerMenu = /*#__PURE__*/function (_ref) {
   (0, _createClass2.default)(HamburgerMenu, [{
     key: "shouldUpdate",
     value: function shouldUpdate() {
+      var _this2 = this;
+
       if (this.defaultOrgLogo === '') {
         this.errorLog('default-org-logo attribute is required');
         return false;
+      }
+
+      if (this.appPortalBaseUrl.indexOf(',') > -1) {
+        var contextApiUrlList = this.appPortalBaseUrl.split(',').filter(function (element) {
+          return element !== '';
+        });
+        this._appPortalBaseUrl = contextApiUrlList.find(function (appPortalBaseUrl) {
+          return urlTestService_1.default.test(appPortalBaseUrl + _this2.userInfoApiUrl, appPortalBaseUrl + _this2.layoutApiUrl, _this2.debug);
+        });
       }
 
       return true;
@@ -34148,6 +34308,11 @@ __decorate([(0, decorators_js_1.property)({
   type: String,
   attribute: 'force-org-logo'
 })], HamburgerMenu.prototype, "forceOrgLogo", void 0);
+
+__decorate([(0, decorators_js_1.property)({
+  type: String,
+  attribute: 'app-portal-base-url'
+})], HamburgerMenu.prototype, "appPortalBaseUrl", void 0);
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
