@@ -8085,30 +8085,22 @@ var urlTestService = /*#__PURE__*/function () {
               case 16:
                 layout = _context.sent;
                 console.log('test service reponse :', layout, layout === null || layout === void 0 ? void 0 : layout.authenticated);
+                console.log('validate ???', (layout === null || layout === void 0 ? void 0 : layout.authenticated) && (layout.authenticated === true || layout.authenticated === 'true'));
+                return _context.abrupt("return", (layout === null || layout === void 0 ? void 0 : layout.authenticated) && (layout.authenticated === true || layout.authenticated === 'true'));
 
-                if (!((layout === null || layout === void 0 ? void 0 : layout.authenticated) && (layout.authenticated === true || layout.authenticated === 'true'))) {
-                  _context.next = 20;
-                  break;
-                }
-
-                return _context.abrupt("return", true);
-
-              case 20:
-                return _context.abrupt("return", false);
-
-              case 23:
-                _context.prev = 23;
+              case 22:
+                _context.prev = 22;
                 _context.t2 = _context["catch"](0);
                 // eslint-disable-next-line
                 console.error(_context.t2, userInfoApiUrl, layoutApiUrl, debug);
                 return _context.abrupt("return", null);
 
-              case 27:
+              case 26:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 23]]);
+        }, _callee, null, [[0, 22]]);
       }));
 
       function test(_x, _x2, _x3) {
@@ -8283,6 +8275,60 @@ module.exports = !STRICT_METHOD ? function forEach(callbackfn /* , thisArg */) {
   return $forEach(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
 // eslint-disable-next-line es-x/no-array-prototype-foreach -- safe
 } : [].forEach;
+
+
+/***/ }),
+
+/***/ 8457:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+
+var bind = __webpack_require__(9974);
+var call = __webpack_require__(6916);
+var toObject = __webpack_require__(7908);
+var callWithSafeIterationClosing = __webpack_require__(3411);
+var isArrayIteratorMethod = __webpack_require__(7659);
+var isConstructor = __webpack_require__(4411);
+var lengthOfArrayLike = __webpack_require__(6244);
+var createProperty = __webpack_require__(6135);
+var getIterator = __webpack_require__(8554);
+var getIteratorMethod = __webpack_require__(1246);
+
+var $Array = Array;
+
+// `Array.from` method implementation
+// https://tc39.es/ecma262/#sec-array.from
+module.exports = function from(arrayLike /* , mapfn = undefined, thisArg = undefined */) {
+  var O = toObject(arrayLike);
+  var IS_CONSTRUCTOR = isConstructor(this);
+  var argumentsLength = arguments.length;
+  var mapfn = argumentsLength > 1 ? arguments[1] : undefined;
+  var mapping = mapfn !== undefined;
+  if (mapping) mapfn = bind(mapfn, argumentsLength > 2 ? arguments[2] : undefined);
+  var iteratorMethod = getIteratorMethod(O);
+  var index = 0;
+  var length, result, step, iterator, next, value;
+  // if the target is not iterable or it's an array with the default iterator - use a simple case
+  if (iteratorMethod && !(this === $Array && isArrayIteratorMethod(iteratorMethod))) {
+    iterator = getIterator(O, iteratorMethod);
+    next = iterator.next;
+    result = IS_CONSTRUCTOR ? new this() : [];
+    for (;!(step = call(next, iterator)).done; index++) {
+      value = mapping ? callWithSafeIterationClosing(iterator, mapfn, [step.value, index], true) : step.value;
+      createProperty(result, index, value);
+    }
+  } else {
+    length = lengthOfArrayLike(O);
+    result = IS_CONSTRUCTOR ? new this(length) : $Array(length);
+    for (;length > index; index++) {
+      value = mapping ? mapfn(O[index], index) : O[index];
+      createProperty(result, index, value);
+    }
+  }
+  result.length = index;
+  return result;
+};
 
 
 /***/ }),
@@ -8572,6 +8618,24 @@ var arraySpeciesConstructor = __webpack_require__(7475);
 // https://tc39.es/ecma262/#sec-arrayspeciescreate
 module.exports = function (originalArray, length) {
   return new (arraySpeciesConstructor(originalArray))(length === 0 ? 0 : length);
+};
+
+
+/***/ }),
+
+/***/ 3411:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+var anObject = __webpack_require__(9670);
+var iteratorClose = __webpack_require__(9212);
+
+// call something on iterator step with safe closing on error
+module.exports = function (iterator, fn, value, ENTRIES) {
+  try {
+    return ENTRIES ? fn(anObject(value)[0], value[1]) : fn(value);
+  } catch (error) {
+    iteratorClose(iterator, 'throw', error);
+  }
 };
 
 
@@ -12791,6 +12855,27 @@ $({ target: 'Array', proto: true }, {
 
 /***/ }),
 
+/***/ 1038:
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+var $ = __webpack_require__(2109);
+var from = __webpack_require__(8457);
+var checkCorrectnessOfIteration = __webpack_require__(7072);
+
+var INCORRECT_ITERATION = !checkCorrectnessOfIteration(function (iterable) {
+  // eslint-disable-next-line es-x/no-array-from -- required for testing
+  Array.from(iterable);
+});
+
+// `Array.from` method
+// https://tc39.es/ecma262/#sec-array.from
+$({ target: 'Array', stat: true, forced: INCORRECT_ITERATION }, {
+  from: from
+});
+
+
+/***/ }),
+
 /***/ 6699:
 /***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
 
@@ -12933,6 +13018,63 @@ var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('map');
 $({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT }, {
   map: function map(callbackfn /* , thisArg */) {
     return $map(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+
+
+/***/ }),
+
+/***/ 7042:
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+
+var $ = __webpack_require__(2109);
+var isArray = __webpack_require__(3157);
+var isConstructor = __webpack_require__(4411);
+var isObject = __webpack_require__(111);
+var toAbsoluteIndex = __webpack_require__(1400);
+var lengthOfArrayLike = __webpack_require__(6244);
+var toIndexedObject = __webpack_require__(5656);
+var createProperty = __webpack_require__(6135);
+var wellKnownSymbol = __webpack_require__(5112);
+var arrayMethodHasSpeciesSupport = __webpack_require__(1194);
+var un$Slice = __webpack_require__(206);
+
+var HAS_SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('slice');
+
+var SPECIES = wellKnownSymbol('species');
+var $Array = Array;
+var max = Math.max;
+
+// `Array.prototype.slice` method
+// https://tc39.es/ecma262/#sec-array.prototype.slice
+// fallback for not array-like ES3 strings and DOM objects
+$({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT }, {
+  slice: function slice(start, end) {
+    var O = toIndexedObject(this);
+    var length = lengthOfArrayLike(O);
+    var k = toAbsoluteIndex(start, length);
+    var fin = toAbsoluteIndex(end === undefined ? length : end, length);
+    // inline `ArraySpeciesCreate` for usage native `Array#slice` where it's possible
+    var Constructor, result, n;
+    if (isArray(O)) {
+      Constructor = O.constructor;
+      // cross-realm fallback
+      if (isConstructor(Constructor) && (Constructor === $Array || isArray(Constructor.prototype))) {
+        Constructor = undefined;
+      } else if (isObject(Constructor)) {
+        Constructor = Constructor[SPECIES];
+        if (Constructor === null) Constructor = undefined;
+      }
+      if (Constructor === $Array || Constructor === undefined) {
+        return un$Slice(O, k, fin);
+      }
+    }
+    result = new (Constructor === undefined ? $Array : Constructor)(max(fin - k, 0));
+    for (n = 0; k < fin; k++, n++) if (k in O) createProperty(result, n, O[k]);
+    result.length = n;
+    return result;
   }
 });
 
@@ -14896,6 +15038,18 @@ $({ target: 'Symbol', stat: true, forced: !NATIVE_SYMBOL_REGISTRY }, {
     return symbol;
   }
 });
+
+
+/***/ }),
+
+/***/ 2165:
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+var defineWellKnownSymbol = __webpack_require__(7235);
+
+// `Symbol.iterator` well-known symbol
+// https://tc39.es/ecma262/#sec-symbol.iterator
+defineWellKnownSymbol('iterator');
 
 
 /***/ }),
@@ -34167,9 +34321,31 @@ var __webpack_unused_export__;
 
 __webpack_require__(2419);
 
+__webpack_require__(7042);
+
+__webpack_require__(8309);
+
+__webpack_require__(1038);
+
+__webpack_require__(8783);
+
+__webpack_require__(2526);
+
+__webpack_require__(1817);
+
+__webpack_require__(2165);
+
+__webpack_require__(6992);
+
+__webpack_require__(3948);
+
 var _interopRequireDefault = __webpack_require__(4836);
 
 var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(9400));
+
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
 
 var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
 
@@ -34193,11 +34369,15 @@ __webpack_require__(4916);
 
 __webpack_require__(3123);
 
-__webpack_require__(9826);
-
 __webpack_require__(6699);
 
 var _templateObject, _templateObject2, _templateObject3, _templateObject4;
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 
@@ -34289,40 +34469,115 @@ var HamburgerMenu = /*#__PURE__*/function (_ref) {
     _this.debug = false;
     _this._isAppended = false;
     _this._isVisible = false;
+    _this._ready = false;
     _this._appPortalBaseUrl = '';
 
     _this.debugLog('Component loaded');
 
     return _this;
-  }
+  } // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 
   (0, _createClass2.default)(HamburgerMenu, [{
     key: "shouldUpdate",
-    value: function shouldUpdate() {
-      var _this2 = this;
-
-      var _a;
-
+    value: function shouldUpdate(_changedProperties) {
       if (this.defaultOrgLogo === '') {
         this.errorLog('default-org-logo attribute is required');
         return false;
       }
 
-      if (this.appPortalBaseUrl.indexOf(',') > -1) {
-        var contextApiUrlList = this.appPortalBaseUrl.split(',').filter(function (element) {
-          return element !== '';
-        });
-        this.debugLog('Tests :', contextApiUrlList);
-        this._appPortalBaseUrl = (_a = contextApiUrlList.find(function (appPortalBaseUrl) {
-          _this2.debugLog('test portail url :', appPortalBaseUrl);
-
-          return urlTestService_1.default.test(pathHelper_1.default.concatUrlParts([appPortalBaseUrl, _this2.userInfoApiUrl]), pathHelper_1.default.concatUrlParts([appPortalBaseUrl, _this2.layoutApiUrl]), _this2.debug);
-        })) !== null && _a !== void 0 ? _a : '';
-        this.debugLog('Result :', this._appPortalBaseUrl);
+      if (_changedProperties.has('appPortalBaseUrl')) {
+        this.testPortalUrls();
       }
 
+      if (!this._ready) return false;
       return true;
     }
+  }, {
+    key: "testPortalUrls",
+    value: function () {
+      var _testPortalUrls = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+        var appPortalBaseUrlList, _iterator, _step, appPortalBaseUrl, testResult;
+
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                appPortalBaseUrlList = [this.appPortalBaseUrl];
+
+                if (this.appPortalBaseUrl.indexOf(',') > -1) {
+                  appPortalBaseUrlList = this.appPortalBaseUrl.split(',').filter(function (element) {
+                    return element !== '';
+                  });
+                }
+
+                this.debugLog('Tests :', appPortalBaseUrlList);
+                _iterator = _createForOfIteratorHelper(appPortalBaseUrlList);
+                _context.prev = 4;
+
+                _iterator.s();
+
+              case 6:
+                if ((_step = _iterator.n()).done) {
+                  _context.next = 18;
+                  break;
+                }
+
+                appPortalBaseUrl = _step.value;
+                _context.next = 10;
+                return urlTestService_1.default.test(pathHelper_1.default.concatUrlParts([appPortalBaseUrl, this.userInfoApiUrl]), pathHelper_1.default.concatUrlParts([appPortalBaseUrl, this.layoutApiUrl]), this.debug);
+
+              case 10:
+                testResult = _context.sent;
+
+                if (!testResult) {
+                  _context.next = 16;
+                  break;
+                }
+
+                this._appPortalBaseUrl = appPortalBaseUrl;
+                this._ready = true;
+                this.debugLog('Result :', this._appPortalBaseUrl);
+                return _context.abrupt("return");
+
+              case 16:
+                _context.next = 6;
+                break;
+
+              case 18:
+                _context.next = 23;
+                break;
+
+              case 20:
+                _context.prev = 20;
+                _context.t0 = _context["catch"](4);
+
+                _iterator.e(_context.t0);
+
+              case 23:
+                _context.prev = 23;
+
+                _iterator.f();
+
+                return _context.finish(23);
+
+              case 26:
+                return _context.abrupt("return", '');
+
+              case 27:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[4, 20, 23, 26]]);
+      }));
+
+      function testPortalUrls() {
+        return _testPortalUrls.apply(this, arguments);
+      }
+
+      return testPortalUrls;
+    }()
   }, {
     key: "toggleMenu",
     value: function toggleMenu(e) {
@@ -34469,6 +34724,8 @@ __decorate([(0, decorators_js_1.property)({
 __decorate([(0, decorators_js_1.state)()], HamburgerMenu.prototype, "_isAppended", void 0);
 
 __decorate([(0, decorators_js_1.state)()], HamburgerMenu.prototype, "_isVisible", void 0);
+
+__decorate([(0, decorators_js_1.state)()], HamburgerMenu.prototype, "_ready", void 0);
 
 HamburgerMenu = __decorate([(0, decorators_js_1.customElement)('esco-hamburger-menu')], HamburgerMenu);
 __webpack_unused_export__ = HamburgerMenu;
