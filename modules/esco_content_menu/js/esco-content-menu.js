@@ -8086,7 +8086,7 @@ var urlTestService = /*#__PURE__*/function () {
                 layout = _context.sent;
                 console.log('test service reponse :', layout, layout === null || layout === void 0 ? void 0 : layout.authenticated);
 
-                if (!(layout === null || layout === void 0 ? void 0 : layout.authenticated)) {
+                if (!((layout === null || layout === void 0 ? void 0 : layout.authenticated) && (layout.authenticated === true || layout.authenticated === 'true'))) {
                   _context.next = 20;
                   break;
                 }
