@@ -34420,7 +34420,7 @@ var HamburgerMenu = /*#__PURE__*/function (_ref) {
         return false;
       }
 
-      if (_changedProperties.has('appPortalBaseUrl')) {
+      if (_changedProperties.has('appPortalBaseDomains')) {
         this.testPortalUrls();
       }
 
