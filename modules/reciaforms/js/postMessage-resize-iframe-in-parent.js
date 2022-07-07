@@ -119,8 +119,11 @@ if (!postMessage_resize_iframe_in_parent) {
     // Add border, padding and margin of the containing body.
     return result +
         (parseIntFromElemPxAttribute(document.body, height ? 'borderBottom' : 'borderRight') || 0) +
+        (parseIntFromElemPxAttribute(document.body, height ? 'borderTop' : 'borderLeft') || 0) +
         (parseIntFromElemPxAttribute(document.body, height ? 'marginBottom' : 'marginRight') || 0) +
-        (parseIntFromElemPxAttribute(document.body, height ? 'paddingBottom' : 'paddingRight') || 0);
+        (parseIntFromElemPxAttribute(document.body, height ? 'marginTop' : 'marginLeft') || 0) +
+        (parseIntFromElemPxAttribute(document.body, height ? 'paddingBottom' : 'paddingRight') || 0) +
+        (parseIntFromElemPxAttribute(document.body, height ? 'paddingTop' : 'paddingLeft') || 0);
   };
 ////////////////////////////////////////////////////////////////////////////////
 
