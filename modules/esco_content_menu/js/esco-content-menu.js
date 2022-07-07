@@ -34431,7 +34431,7 @@ var HamburgerMenu = /*#__PURE__*/function (_ref) {
     key: "testPortalUrls",
     value: function () {
       var _testPortalUrls = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-        var appPortalBaseDomainsList, referrerDomain, currentDomain, _iterator, _step, appPortalBaseDomain, testResult;
+        var appPortalBaseDomainsList, referrerDomain, currentDomain, _iterator, _step, appPortalBaseDomain, appPortalBaseUrl, testResult;
 
         return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
@@ -34467,57 +34467,58 @@ var HamburgerMenu = /*#__PURE__*/function (_ref) {
 
               case 8:
                 if ((_step = _iterator.n()).done) {
-                  _context.next = 20;
+                  _context.next = 21;
                   break;
                 }
 
                 appPortalBaseDomain = _step.value;
-                _context.next = 12;
-                return urlTestService_1.default.test(appPortalBaseDomain + this.userInfoApiUrl, appPortalBaseDomain + this.layoutApiUrl, this.debug);
+                appPortalBaseUrl = "https://".concat(appPortalBaseDomain);
+                _context.next = 13;
+                return urlTestService_1.default.test(appPortalBaseUrl + this.userInfoApiUrl, appPortalBaseUrl + this.layoutApiUrl, this.debug);
 
-              case 12:
+              case 13:
                 testResult = _context.sent;
 
                 if (!testResult) {
-                  _context.next = 18;
+                  _context.next = 19;
                   break;
                 }
 
-                this._appPortalBaseUrl = "https://".concat(appPortalBaseDomain);
+                this._appPortalBaseUrl = appPortalBaseUrl;
                 this._ready = true;
                 this.debugLog('Result :', this._appPortalBaseUrl);
                 return _context.abrupt("return");
 
-              case 18:
+              case 19:
                 _context.next = 8;
                 break;
 
-              case 20:
-                _context.next = 25;
+              case 21:
+                _context.next = 26;
                 break;
 
-              case 22:
-                _context.prev = 22;
+              case 23:
+                _context.prev = 23;
                 _context.t0 = _context["catch"](6);
 
                 _iterator.e(_context.t0);
 
-              case 25:
-                _context.prev = 25;
+              case 26:
+                _context.prev = 26;
 
                 _iterator.f();
 
-                return _context.finish(25);
-
-              case 28:
-                return _context.abrupt("return", '');
+                return _context.finish(26);
 
               case 29:
+                return _context.abrupt("return", '');
+
+              case 30:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[6, 22, 25, 28]]);
+        }, _callee, this, [[6, 23, 26, 29]]);
       }));
 
       function testPortalUrls() {
