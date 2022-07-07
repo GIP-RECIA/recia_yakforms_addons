@@ -20,7 +20,7 @@
             return;
         }
         $block['content']['#markup'] ='<esco-hamburger-menu 
-                                        app-portal-base-url="https://test-lycee.giprecia.net/,https://test-clg18.giprecia.net/,https://test-clg37.giprecia.net/,https://test-clg28.giprecia.net/"
+                                        app-portal-base-domains="test-lycee.giprecia.net,test-clg18.giprecia.net,test-clg37.giprecia.net,test-clg28.giprecia.net"
                                         context-api-url="/portail" 
                                         sign-out-url="/portail/Logout" 
                                         default-org-logo="/annuaire_images/default_banner_v1.jpg" 

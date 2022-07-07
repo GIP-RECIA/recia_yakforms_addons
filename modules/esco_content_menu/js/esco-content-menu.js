@@ -34297,11 +34297,13 @@ __webpack_require__(5003);
 
 __webpack_require__(1539);
 
-__webpack_require__(7327);
-
 __webpack_require__(4916);
 
 __webpack_require__(3123);
+
+__webpack_require__(2707);
+
+__webpack_require__(7327);
 
 __webpack_require__(6699);
 
@@ -34375,7 +34377,7 @@ var HamburgerMenu = /*#__PURE__*/function (_ref) {
 
     (0, _classCallCheck2.default)(this, HamburgerMenu);
 
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 
     _this = _super.call(this);
     _this.messages = [];
@@ -34383,14 +34385,14 @@ var HamburgerMenu = /*#__PURE__*/function (_ref) {
     _this.gridPortletCardSize = 'medium';
     _this.defaultOrgLogo = '';
     _this.forceOrgLogo = '';
-    _this.appPortalBaseUrl = (_a = "") !== null && _a !== void 0 ? _a : '';
-    _this.contextApiUrl = (_b = "/uPortal") !== null && _b !== void 0 ? _b : '';
-    _this.favoriteApiUrl = ((_c = "/uPortal") !== null && _c !== void 0 ? _c : '') + ((_d = "/api/layout") !== null && _d !== void 0 ? _d : '');
-    _this.layoutApiUrl = ((_e = "/uPortal") !== null && _e !== void 0 ? _e : '') + ((_f = "/api/v4-3/dlm/layout.json") !== null && _f !== void 0 ? _f : '');
-    _this.portletApiUrl = ((_g = "/uPortal") !== null && _g !== void 0 ? _g : '') + ((_h = "/api/v4-3/dlm/portletRegistry.json") !== null && _h !== void 0 ? _h : '');
+    _this.appPortalBaseDomains = '';
+    _this.contextApiUrl = (_a = "/uPortal") !== null && _a !== void 0 ? _a : '';
+    _this.favoriteApiUrl = ((_b = "/uPortal") !== null && _b !== void 0 ? _b : '') + ((_c = "/api/layout") !== null && _c !== void 0 ? _c : '');
+    _this.layoutApiUrl = ((_d = "/uPortal") !== null && _d !== void 0 ? _d : '') + ((_e = "/api/v4-3/dlm/layout.json") !== null && _e !== void 0 ? _e : '');
+    _this.portletApiUrl = ((_f = "/uPortal") !== null && _f !== void 0 ? _f : '') + ((_g = "/api/v4-3/dlm/portletRegistry.json") !== null && _g !== void 0 ? _g : '');
     _this.organizationApiUrl = '';
-    _this.userInfoApiUrl = ((_j = "/uPortal") !== null && _j !== void 0 ? _j : '') + ((_k = "/api/v5-1/userinfo") !== null && _k !== void 0 ? _k : '');
-    _this.signoutUrl = (_l = "/uPortal/Logout") !== null && _l !== void 0 ? _l : '';
+    _this.userInfoApiUrl = ((_h = "/uPortal") !== null && _h !== void 0 ? _h : '') + ((_j = "/api/v5-1/userinfo") !== null && _j !== void 0 ? _j : '');
+    _this.signoutUrl = (_k = "/uPortal/Logout") !== null && _k !== void 0 ? _k : '';
     _this.userInfoPortletUrl = '';
     _this.switchOrgPortletUrl = '';
     _this.orgAttributeName = 'ESCOSIRENCourant[0]';
@@ -34429,79 +34431,93 @@ var HamburgerMenu = /*#__PURE__*/function (_ref) {
     key: "testPortalUrls",
     value: function () {
       var _testPortalUrls = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-        var appPortalBaseUrlList, _iterator, _step, appPortalBaseUrl, testResult;
+        var appPortalBaseDomainsList, referrerDomain, currentDomain, _iterator, _step, appPortalBaseDomain, testResult;
 
         return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                appPortalBaseUrlList = [this.appPortalBaseUrl];
+                appPortalBaseDomainsList = [];
+                referrerDomain = document.referrer.split('/')[2];
+                currentDomain = window.location.hostname;
 
-                if (this.appPortalBaseUrl.indexOf(',') > -1) {
-                  appPortalBaseUrlList = this.appPortalBaseUrl.split(',').filter(function (element) {
+                if (this.appPortalBaseDomains.indexOf(',') > -1) {
+                  appPortalBaseDomainsList = this.appPortalBaseDomains.split(',').filter(function (element) {
                     return element !== '';
+                  }).sort(function (first, seccond) {
+                    if (first === currentDomain) {
+                      return -1;
+                    } else if (seccond === currentDomain) {
+                      return 1;
+                    } else if (first === referrerDomain) {
+                      return -1;
+                    } else if (seccond === referrerDomain) {
+                      return 1;
+                    }
+
+                    return 0;
                   });
                 }
 
-                this.debugLog('Tests :', appPortalBaseUrlList);
-                _iterator = _createForOfIteratorHelper(appPortalBaseUrlList);
-                _context.prev = 4;
+                this.debugLog('Tests :', appPortalBaseDomainsList);
+                _iterator = _createForOfIteratorHelper(appPortalBaseDomainsList);
+                _context.prev = 6;
 
                 _iterator.s();
 
-              case 6:
+              case 8:
                 if ((_step = _iterator.n()).done) {
+                  _context.next = 20;
+                  break;
+                }
+
+                appPortalBaseDomain = _step.value;
+                _context.next = 12;
+                return urlTestService_1.default.test(appPortalBaseDomain + this.userInfoApiUrl, appPortalBaseDomain + this.layoutApiUrl, this.debug);
+
+              case 12:
+                testResult = _context.sent;
+
+                if (!testResult) {
                   _context.next = 18;
                   break;
                 }
 
-                appPortalBaseUrl = _step.value;
-                _context.next = 10;
-                return urlTestService_1.default.test(appPortalBaseUrl + this.userInfoApiUrl, appPortalBaseUrl + this.layoutApiUrl, this.debug);
-
-              case 10:
-                testResult = _context.sent;
-
-                if (!testResult) {
-                  _context.next = 16;
-                  break;
-                }
-
-                this._appPortalBaseUrl = appPortalBaseUrl;
+                this._appPortalBaseUrl = "https://".concat(appPortalBaseDomain);
                 this._ready = true;
                 this.debugLog('Result :', this._appPortalBaseUrl);
                 return _context.abrupt("return");
 
-              case 16:
-                _context.next = 6;
-                break;
-
               case 18:
-                _context.next = 23;
+                _context.next = 8;
                 break;
 
               case 20:
-                _context.prev = 20;
-                _context.t0 = _context["catch"](4);
+                _context.next = 25;
+                break;
+
+              case 22:
+                _context.prev = 22;
+                _context.t0 = _context["catch"](6);
 
                 _iterator.e(_context.t0);
 
-              case 23:
-                _context.prev = 23;
+              case 25:
+                _context.prev = 25;
 
                 _iterator.f();
 
-                return _context.finish(23);
+                return _context.finish(25);
 
-              case 26:
+              case 28:
                 return _context.abrupt("return", '');
 
-              case 27:
+              case 29:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[4, 20, 23, 26]]);
+        }, _callee, this, [[6, 22, 25, 28]]);
       }));
 
       function testPortalUrls() {
@@ -34573,8 +34589,8 @@ __decorate([(0, decorators_js_1.property)({
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
-  attribute: 'app-portal-base-url'
-})], HamburgerMenu.prototype, "appPortalBaseUrl", void 0);
+  attribute: 'app-portal-base-domains'
+})], HamburgerMenu.prototype, "appPortalBaseDomains", void 0);
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
