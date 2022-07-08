@@ -7221,7 +7221,7 @@ var favoritesService = /*#__PURE__*/function () {
       return fetch;
     }( /*#__PURE__*/function () {
       var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(userInfoApiUrl, layoutApiUrl, debug) {
-        var _a, _b, _c, requestHeaders, options, response, layout;
+        var _a, _b, _c, requestHeaders, jwt, options, response, layout;
 
         return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
@@ -7235,16 +7235,15 @@ var favoritesService = /*#__PURE__*/function () {
                   break;
                 }
 
-                _context.t0 = requestHeaders;
-                _context.next = 6;
+                _context.next = 5;
                 return (0, open_id_connect_1.default)({
                   userInfoApiUrl: userInfoApiUrl
                 });
 
-              case 6:
-                _context.t1 = _context.sent.encoded;
-
-                _context.t0.set.call(_context.t0, 'Authorization', _context.t1);
+              case 5:
+                jwt = _context.sent.encoded;
+                console.log('JWT :', jwt);
+                requestHeaders.set('Authorization', "Bearer ".concat(jwt));
 
               case 8:
                 options = {
@@ -7284,9 +7283,9 @@ var favoritesService = /*#__PURE__*/function () {
 
               case 22:
                 _context.prev = 22;
-                _context.t2 = _context["catch"](0);
+                _context.t0 = _context["catch"](0);
                 // eslint-disable-next-line
-                console.error(_context.t2, userInfoApiUrl, layoutApiUrl, debug);
+                console.error(_context.t0, userInfoApiUrl, layoutApiUrl, debug);
                 return _context.abrupt("return", null);
 
               case 26:
@@ -7305,24 +7304,22 @@ var favoritesService = /*#__PURE__*/function () {
     key: "add",
     value: function () {
       var _add = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(userInfoApiUrl, favoriteApiUrl, chanId) {
-        var requestHeaders, options, addUrl, response;
+        var requestHeaders, jwt, options, addUrl, response;
         return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.prev = 0;
                 requestHeaders = new Headers();
-                _context2.t0 = requestHeaders;
-                _context2.next = 5;
+                _context2.next = 4;
                 return (0, open_id_connect_1.default)({
                   userInfoApiUrl: userInfoApiUrl
                 });
 
-              case 5:
-                _context2.t1 = _context2.sent.encoded;
-
-                _context2.t0.set.call(_context2.t0, 'Authorization', _context2.t1);
-
+              case 4:
+                jwt = _context2.sent.encoded;
+                console.log('JWT :', jwt);
+                requestHeaders.set('Authorization', "Bearer ".concat(jwt));
                 options = {
                   method: 'POST',
                   credentials: 'same-origin',
@@ -7351,9 +7348,9 @@ var favoritesService = /*#__PURE__*/function () {
 
               case 19:
                 _context2.prev = 19;
-                _context2.t2 = _context2["catch"](0);
+                _context2.t0 = _context2["catch"](0);
                 // eslint-disable-next-line
-                console.error(_context2.t2);
+                console.error(_context2.t0);
                 return _context2.abrupt("return", false);
 
               case 23:
@@ -7576,7 +7573,7 @@ var OrganizationService = /*#__PURE__*/function () {
                 decoded = _yield.decoded;
                 userInfo = decoded;
                 orgIds = (0, get_1.default)(decoded, userAllOrgIdAttribute, null);
-                requestHeaders.set('Authorization', encoded);
+                requestHeaders.set('Authorization', "Bearer ".concat(encoded));
                 if ((orgIds === null || orgIds === void 0 ? void 0 : orgIds.length) > 0) fetchUrl = orgApiUrl + '?ids=' + orgIds;
 
               case 24:
@@ -7756,7 +7753,7 @@ var portletService = /*#__PURE__*/function () {
       return fetch;
     }( /*#__PURE__*/function () {
       var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(userInfoApiUrl, portletApiUrl, debug) {
-        var requestHeaders, options, response, portlets;
+        var requestHeaders, jwt, options, response, portlets;
         return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -7769,16 +7766,15 @@ var portletService = /*#__PURE__*/function () {
                   break;
                 }
 
-                _context.t0 = requestHeaders;
-                _context.next = 6;
+                _context.next = 5;
                 return (0, open_id_connect_1.default)({
                   userInfoApiUrl: userInfoApiUrl
                 });
 
-              case 6:
-                _context.t1 = _context.sent.encoded;
-
-                _context.t0.set.call(_context.t0, 'Authorization', _context.t1);
+              case 5:
+                jwt = _context.sent.encoded;
+                console.log('JWT :', jwt);
+                requestHeaders.set('Authorization', "Bearer ".concat(jwt));
 
               case 8:
                 options = {
@@ -7809,8 +7805,8 @@ var portletService = /*#__PURE__*/function () {
 
               case 20:
                 _context.prev = 20;
-                _context.t2 = _context["catch"](0);
-                console.error(_context.t2);
+                _context.t0 = _context["catch"](0);
+                console.error(_context.t0);
                 return _context.abrupt("return", null);
 
               case 24:
@@ -8017,60 +8013,64 @@ var urlTestService = /*#__PURE__*/function () {
               case 0:
                 _context.prev = 0;
                 requestHeaders = new Headers();
-                _context.next = 4;
+
+                if (debug) {
+                  _context.next = 8;
+                  break;
+                }
+
+                _context.next = 5;
                 return (0, open_id_connect_1.default)({
                   userInfoApiUrl: userInfoApiUrl
                 });
 
-              case 4:
+              case 5:
                 jwt = _context.sent.encoded;
                 console.log('JWT :', jwt);
+                requestHeaders.set('Authorization', "Bearer ".concat(jwt));
 
-                if (!debug) {
-                  requestHeaders.set('Authorization', "Bearer ".concat(jwt));
-                }
-
+              case 8:
                 options = {
                   method: 'GET',
                   credentials: 'same-origin',
                   headers: requestHeaders
                 };
-                _context.next = 10;
+                _context.next = 11;
                 return fetch(layoutApiUrl, options);
 
-              case 10:
+              case 11:
                 response = _context.sent;
 
                 if (response.ok) {
-                  _context.next = 13;
+                  _context.next = 14;
                   break;
                 }
 
                 throw new Error(response.statusText);
 
-              case 13:
-                _context.next = 15;
+              case 14:
+                _context.next = 16;
                 return response.json();
 
-              case 15:
+              case 16:
                 layout = _context.sent;
                 console.log('test service reponse :', layout, layout === null || layout === void 0 ? void 0 : layout.authenticated);
                 console.log('validate ???', (layout === null || layout === void 0 ? void 0 : layout.authenticated) && (layout.authenticated === true || layout.authenticated === 'true'));
                 return _context.abrupt("return", (layout === null || layout === void 0 ? void 0 : layout.authenticated) && (layout.authenticated === true || layout.authenticated === 'true'));
 
-              case 21:
-                _context.prev = 21;
+              case 22:
+                _context.prev = 22;
                 _context.t0 = _context["catch"](0);
                 // eslint-disable-next-line
                 console.error(_context.t0, userInfoApiUrl, layoutApiUrl, debug);
                 return _context.abrupt("return", null);
 
-              case 25:
+              case 26:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 21]]);
+        }, _callee, null, [[0, 22]]);
       }));
 
       function test(_x, _x2, _x3) {
