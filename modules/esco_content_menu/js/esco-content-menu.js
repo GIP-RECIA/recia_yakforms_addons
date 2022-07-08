@@ -7318,47 +7318,46 @@ var favoritesService = /*#__PURE__*/function () {
 
               case 4:
                 jwt = _context2.sent.encoded;
-                console.log('JWT :', jwt);
                 requestHeaders.set('Authorization', "Bearer ".concat(jwt));
                 options = {
                   method: 'POST',
-                  credentials: 'same-origin',
+                  credentials: 'include',
                   headers: requestHeaders
                 };
                 addUrl = favoriteApiUrl + '?action=addFavorite&channelId=' + chanId;
-                _context2.next = 11;
+                _context2.next = 10;
                 return fetch(addUrl, options);
 
-              case 11:
+              case 10:
                 response = _context2.sent;
 
                 if (!response.ok) {
-                  _context2.next = 16;
+                  _context2.next = 15;
                   break;
                 }
 
                 return _context2.abrupt("return", true);
 
-              case 16:
+              case 15:
                 throw new Error(response.statusText);
 
-              case 17:
-                _context2.next = 23;
+              case 16:
+                _context2.next = 22;
                 break;
 
-              case 19:
-                _context2.prev = 19;
+              case 18:
+                _context2.prev = 18;
                 _context2.t0 = _context2["catch"](0);
                 // eslint-disable-next-line
                 console.error(_context2.t0);
                 return _context2.abrupt("return", false);
 
-              case 23:
+              case 22:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[0, 19]]);
+        }, _callee2, null, [[0, 18]]);
       }));
 
       function add(_x7, _x8, _x9) {
@@ -7583,8 +7582,8 @@ var OrganizationService = /*#__PURE__*/function () {
                 }
 
                 options = {
-                  method: 'GET',
-                  credentials: 'same-origin',
+                  method: 'POST',
+                  credentials: 'include',
                   headers: requestHeaders
                 };
                 _context.next = 28;
@@ -7762,7 +7761,7 @@ var portletService = /*#__PURE__*/function () {
                 requestHeaders = new Headers();
 
                 if (debug) {
-                  _context.next = 8;
+                  _context.next = 7;
                   break;
                 }
 
@@ -7773,48 +7772,47 @@ var portletService = /*#__PURE__*/function () {
 
               case 5:
                 jwt = _context.sent.encoded;
-                console.log('JWT :', jwt);
                 requestHeaders.set('Authorization', "Bearer ".concat(jwt));
 
-              case 8:
+              case 7:
                 options = {
                   method: 'GET',
-                  credentials: 'same-origin',
+                  credentials: 'include',
                   headers: requestHeaders
                 };
-                _context.next = 11;
+                _context.next = 10;
                 return fetch(portletApiUrl, options);
 
-              case 11:
+              case 10:
                 response = _context.sent;
 
                 if (response.ok) {
-                  _context.next = 14;
+                  _context.next = 13;
                   break;
                 }
 
                 throw new Error(response.statusText);
 
-              case 14:
-                _context.next = 16;
+              case 13:
+                _context.next = 15;
                 return response.json();
 
-              case 16:
+              case 15:
                 portlets = _context.sent;
                 return _context.abrupt("return", portlets);
 
-              case 20:
-                _context.prev = 20;
+              case 19:
+                _context.prev = 19;
                 _context.t0 = _context["catch"](0);
                 console.error(_context.t0);
                 return _context.abrupt("return", null);
 
-              case 24:
+              case 23:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 20]]);
+        }, _callee, null, [[0, 19]]);
       }));
 
       return function (_x4, _x5, _x6) {
@@ -8032,7 +8030,7 @@ var urlTestService = /*#__PURE__*/function () {
               case 8:
                 options = {
                   method: 'GET',
-                  credentials: 'same-origin',
+                  credentials: 'include',
                   headers: requestHeaders
                 };
                 _context.next = 11;
