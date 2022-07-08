@@ -8010,72 +8010,67 @@ var urlTestService = /*#__PURE__*/function () {
     key: "test",
     value: function () {
       var _test = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(userInfoApiUrl, layoutApiUrl, debug) {
-        var requestHeaders, options, response, layout;
+        var requestHeaders, jwt, options, response, layout;
         return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.prev = 0;
                 requestHeaders = new Headers();
-
-                if (debug) {
-                  _context.next = 8;
-                  break;
-                }
-
-                _context.t0 = requestHeaders;
-                _context.next = 6;
+                _context.next = 4;
                 return (0, open_id_connect_1.default)({
                   userInfoApiUrl: userInfoApiUrl
                 });
 
-              case 6:
-                _context.t1 = _context.sent.encoded;
+              case 4:
+                jwt = _context.sent.encoded;
+                console.log('JWT :', jwt);
 
-                _context.t0.set.call(_context.t0, 'Authorization', _context.t1);
+                if (!debug) {
+                  requestHeaders.set('Authorization', jwt);
+                }
 
-              case 8:
                 options = {
                   method: 'GET',
                   credentials: 'same-origin',
                   headers: requestHeaders
                 };
-                _context.next = 11;
+                _context.next = 10;
                 return fetch(layoutApiUrl, options);
 
-              case 11:
+              case 10:
                 response = _context.sent;
 
                 if (response.ok) {
-                  _context.next = 14;
+                  _context.next = 13;
                   break;
                 }
 
                 throw new Error(response.statusText);
 
-              case 14:
-                _context.next = 16;
+              case 13:
+                _context.next = 15;
                 return response.json();
 
-              case 16:
+              case 15:
                 layout = _context.sent;
                 console.log('test service reponse :', layout, layout === null || layout === void 0 ? void 0 : layout.authenticated);
                 console.log('validate ???', (layout === null || layout === void 0 ? void 0 : layout.authenticated) && (layout.authenticated === true || layout.authenticated === 'true'));
                 return _context.abrupt("return", (layout === null || layout === void 0 ? void 0 : layout.authenticated) && (layout.authenticated === true || layout.authenticated === 'true'));
 
-              case 22:
-                _context.prev = 22;
-                _context.t2 = _context["catch"](0);
+              case 21:
+                _context.prev = 21;
+                _context.t0 = _context["catch"](0);
                 // eslint-disable-next-line
-                console.error(_context.t2, userInfoApiUrl, layoutApiUrl, debug);
+                console.error(_context.t0, userInfoApiUrl, layoutApiUrl, debug);
                 return _context.abrupt("return", null);
 
-              case 26:
+              case 25:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 22]]);
+        }, _callee, null, [[0, 21]]);
       }));
 
       function test(_x, _x2, _x3) {
