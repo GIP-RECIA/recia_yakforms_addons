@@ -7582,7 +7582,7 @@ var OrganizationService = /*#__PURE__*/function () {
                 }
 
                 options = {
-                  method: 'POST',
+                  method: 'GET',
                   credentials: 'include',
                   headers: requestHeaders
                 };
