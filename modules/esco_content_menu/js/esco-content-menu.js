@@ -7243,7 +7243,7 @@ var favoritesService = /*#__PURE__*/function () {
               case 5:
                 jwt = _context.sent.encoded;
                 console.log('JWT :', jwt);
-                requestHeaders.set('Authorization', "Bearer ".concat(jwt));
+                requestHeaders.set('Authorization', "".concat(jwt));
 
               case 8:
                 options = {
@@ -7572,7 +7572,7 @@ var OrganizationService = /*#__PURE__*/function () {
                 decoded = _yield.decoded;
                 userInfo = decoded;
                 orgIds = (0, get_1.default)(decoded, userAllOrgIdAttribute, null);
-                requestHeaders.set('Authorization', "Bearer ".concat(encoded));
+                requestHeaders.set('Authorization', "".concat(encoded));
                 if ((orgIds === null || orgIds === void 0 ? void 0 : orgIds.length) > 0) fetchUrl = orgApiUrl + '?ids=' + orgIds;
 
               case 24:
@@ -7772,7 +7772,7 @@ var portletService = /*#__PURE__*/function () {
 
               case 5:
                 jwt = _context.sent.encoded;
-                requestHeaders.set('Authorization', "Bearer ".concat(jwt));
+                requestHeaders.set('Authorization', "".concat(jwt));
 
               case 7:
                 options = {
@@ -8025,7 +8025,7 @@ var urlTestService = /*#__PURE__*/function () {
               case 5:
                 jwt = _context.sent.encoded;
                 console.log('JWT :', jwt);
-                requestHeaders.set('Authorization', "Bearer ".concat(jwt));
+                requestHeaders.set('Authorization', "".concat(jwt));
 
               case 8:
                 options = {
