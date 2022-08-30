@@ -20,7 +20,7 @@
             return;
         }
         $block['content']['#markup'] ='<esco-hamburger-menu 
-                                        app-portal-base-domains="lycees.netocentre.fr, cfa.netocentre.fr, www.chercan.fr, www.colleges-eureliens.fr, e-college.indre.fr, www.touraine-eschool.fr, ent.colleges41.fr, mon-e-college.loiret.fr, ent.recia.fr, formations-sociales.netocentre.fr"
+                                        app-portal-base-domains="lycees.netocentre.fr,cfa.netocentre.fr,www.chercan.fr,www.colleges-eureliens.fr,e-college.indre.fr,www.touraine-eschool.fr,ent.colleges41.fr,mon-e-college.loiret.fr,ent.recia.fr,formations-sociales.netocentre.fr"
                                         context-api-url="/portail" 
                                         sign-out-url="/portail/Logout" 
                                         default-org-logo="/annuaire_images/default_banner_v1.jpg" 
