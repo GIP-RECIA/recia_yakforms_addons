@@ -2,7 +2,7 @@
 /**
  * Declare custom blocks
  */
-function esco_prolongation_menu_boot() {
+function esco_prolongation_boot() {
   $params = drupal_get_query_parameters();
   if(isset($params['portal_domain'])){
     variable_set('esco_prolongation_portal_domain', $params['portal_domain']);
@@ -18,7 +18,7 @@ function esco_prolongation_menu_boot() {
 /**
  * Declare custom blocks
  */
-function esco_prolongation_menu_block_info() {
+function esco_prolongation_block_info() {
     $blocks['esco_prolongation_header'] = array(
     'info' => t('Esco Prolongation : header'),
     'cache' => DRUPAL_CACHE_PER_PAGE,
@@ -29,13 +29,13 @@ function esco_prolongation_menu_block_info() {
 /**
  * Define custom blocks
  */
-function esco_prolongation_menu_block_view($delta) {
+function esco_prolongation_block_view($delta) {
   switch ($delta) {
     case 'esco_prolongation_header':
       if (!user_is_logged_in())return;
       $portal_domain = variable_get('esco_prolongation_portal_domain',false);
       if(!$portal_domain)return;
-      $block['content']['#markup'] =$portal_domain ? '<esco-prolongation 
+      $block['content']['#markup'] ='<esco-prolongation 
                                       domain='.$portal_domain.'
                                       context-api-url="/portail" 
                                       sign-out-url="/portail/Logout" 
@@ -51,7 +51,7 @@ function esco_prolongation_menu_block_view($delta) {
                                       grid-portlet-card-size="auto" 
                                       hide-action-mode="never" 
                                       show-favorites-in-slider="true">
-                                    </esco-hamburger-menu>' : '';
+                                    </esco-hamburger-menu>';
       break;
   }
   return $block;
