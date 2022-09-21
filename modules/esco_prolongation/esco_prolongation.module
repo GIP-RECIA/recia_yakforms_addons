@@ -41,7 +41,9 @@ function esco_prolongation_block_view($delta) {
                                         domain='.$portal_domain.'
                                         context-api-url="/portail" 
                                         sign-out-url="/portail/Logout" 
-                                        default-org-logo-uri="/annuaire_images/default_banner_v1.jpg" 
+                                        default-org-logo-uri="/annuaire_images/default_banner_v1.jpg"
+                                        default-avatar-uri="/images/icones/noPictureUser.svg"
+                                        default-org-icon-uri="/images/partners/netocentre-simple.svg" 
                                         favorite-api-url="/portail/api/layout" 
                                         layout-api-url="/portail/api/v4-3/dlm/layout.json" 
                                         organization-api-url="/change-etablissement/rest/v2/structures/structs/" 
