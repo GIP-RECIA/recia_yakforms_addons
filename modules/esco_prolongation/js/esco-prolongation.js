@@ -51669,7 +51669,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "#esco-prolongation-container{display:flex;font-family:\"Roboto Condensed\";font-size:18px;line-height:1.5em;background-color:#25b2f3}#esco-prolongation-container>div{display:flex;flex:1}#esco-prolongation-container #esco-prolongation-menu,#esco-prolongation-container #esco-prolongation-org{flex:0 0 fit-content;justify-content:left}#esco-prolongation-container #esco-prolongation-org{align-items:center}#esco-prolongation-container #esco-prolongation-org a.org-logo{margin:0 5px}#esco-prolongation-container #esco-prolongation-org a.org-logo img{display:block;opacity:.6}#esco-prolongation-container #esco-prolongation-org p.org-display-name{margin:0}#esco-prolongation-container #esco-prolongation-user{flex:1;justify-content:right;align-content:center}#esco-prolongation-container #esco-prolongation-user>eyebrow-user-info{margin:auto 8px}#auth-iframe{border:none;position:fixed;z-index:1;left:0;top:0;width:100%;height:100%;min-height:max-content;overflow:auto;background-color:red}#auth-iframe.hidden{visibility:hidden}", "",{"version":3,"sources":["webpack://./src/styles/esco-prolongation.scss"],"names":[],"mappings":"AAAA,6BACE,YAAA,CACA,8BAAA,CACA,cAAA,CACA,iBAAA,CACA,wBAAA,CACA,iCACE,YAAA,CACA,MAAA,CAEF,yGAEE,oBAAA,CACA,oBAAA,CAEF,oDACE,kBAAA,CACA,+DACE,YAAA,CACA,mEACE,aAAA,CACA,UAAA,CAGJ,uEACE,QAAA,CAGJ,qDACE,MAAA,CACA,qBAAA,CACA,oBAAA,CACA,uEACE,eAAA,CAIN,aACE,WAAA,CACA,cAAA,CACA,SAAA,CACA,MAAA,CACA,KAAA,CACA,UAAA,CACA,WAAA,CACA,sBAAA,CACA,aAAA,CACA,oBAAA,CACA,oBACE,iBAAA","sourcesContent":["#esco-prolongation-container {\n  display: flex;\n  font-family: 'Roboto Condensed';\n  font-size: 18px;\n  line-height: 1.5em;\n  background-color: #25b2f3;\n  > div {\n    display: flex;\n    flex: 1;\n  }\n  #esco-prolongation-menu,\n  #esco-prolongation-org {\n    flex: 0 0 fit-content;\n    justify-content: left;\n  }\n  #esco-prolongation-org {\n    align-items: center;\n    a.org-logo {\n      margin: 0 5px;\n      img {\n        display: block;\n        opacity: 0.6;\n      }\n    }\n    p.org-display-name {\n      margin: 0;\n    }\n  }\n  #esco-prolongation-user {\n    flex: 1;\n    justify-content: right;\n    align-content: center;\n    & > eyebrow-user-info {\n      margin: auto 8px;\n    }\n  }\n}\n#auth-iframe {\n  border: none;\n  position: fixed;\n  z-index: 1;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  min-height: max-content;\n  overflow: auto;\n  background-color: rgb(255, 0, 0);\n  &.hidden {\n    visibility: hidden;\n  }\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "#esco-prolongation-container{display:flex;font-family:\"Roboto Condensed\";font-size:18px;line-height:1.5em;background-color:#25b2f3}#esco-prolongation-container>div{display:flex;flex:1}#esco-prolongation-container #esco-prolongation-menu,#esco-prolongation-container #esco-prolongation-org{flex:0 0 fit-content;justify-content:left}#esco-prolongation-container #esco-prolongation-org{align-items:center}#esco-prolongation-container #esco-prolongation-org a.org-logo{margin:0 5px}#esco-prolongation-container #esco-prolongation-org a.org-logo img{display:block;opacity:.6}#esco-prolongation-container #esco-prolongation-org p.org-display-name{margin:0;color:#fff}#esco-prolongation-container #esco-prolongation-user{flex:1;justify-content:right;align-content:center}#esco-prolongation-container #esco-prolongation-user>eyebrow-user-info{margin:auto 8px}#auth-iframe{border:none;position:fixed;z-index:1;left:0;top:0;width:100%;height:100%;min-height:max-content;overflow:auto;background-color:red}#auth-iframe.hidden{visibility:hidden}", "",{"version":3,"sources":["webpack://./src/styles/esco-prolongation.scss"],"names":[],"mappings":"AAAA,6BACE,YAAA,CACA,8BAAA,CACA,cAAA,CACA,iBAAA,CACA,wBAAA,CACA,iCACE,YAAA,CACA,MAAA,CAEF,yGAEE,oBAAA,CACA,oBAAA,CAEF,oDACE,kBAAA,CACA,+DACE,YAAA,CACA,mEACE,aAAA,CACA,UAAA,CAGJ,uEACE,QAAA,CACA,UAAA,CAGJ,qDACE,MAAA,CACA,qBAAA,CACA,oBAAA,CACA,uEACE,eAAA,CAIN,aACE,WAAA,CACA,cAAA,CACA,SAAA,CACA,MAAA,CACA,KAAA,CACA,UAAA,CACA,WAAA,CACA,sBAAA,CACA,aAAA,CACA,oBAAA,CACA,oBACE,iBAAA","sourcesContent":["#esco-prolongation-container {\n  display: flex;\n  font-family: 'Roboto Condensed';\n  font-size: 18px;\n  line-height: 1.5em;\n  background-color: #25b2f3;\n  > div {\n    display: flex;\n    flex: 1;\n  }\n  #esco-prolongation-menu,\n  #esco-prolongation-org {\n    flex: 0 0 fit-content;\n    justify-content: left;\n  }\n  #esco-prolongation-org {\n    align-items: center;\n    a.org-logo {\n      margin: 0 5px;\n      img {\n        display: block;\n        opacity: 0.6;\n      }\n    }\n    p.org-display-name {\n      margin: 0;\n      color: #fff;\n    }\n  }\n  #esco-prolongation-user {\n    flex: 1;\n    justify-content: right;\n    align-content: center;\n    & > eyebrow-user-info {\n      margin: auto 8px;\n    }\n  }\n}\n#auth-iframe {\n  border: none;\n  position: fixed;\n  z-index: 1;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  min-height: max-content;\n  overflow: auto;\n  background-color: rgb(255, 0, 0);\n  &.hidden {\n    visibility: hidden;\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -70117,7 +70117,7 @@ const orgInfoService_1 = __importDefault(__webpack_require__(29377));
 
 let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
   constructor() {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
 
     super();
     /** Prolongation */
@@ -70142,7 +70142,6 @@ let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
     this.organizationApiUrl = ((_h = "/uPortal") !== null && _h !== void 0 ? _h : '') + ((_j = "/change-etablissement/rest/v2/structures/structs/") !== null && _j !== void 0 ? _j : '');
     this.userInfoApiUrl = ((_k = "/uPortal") !== null && _k !== void 0 ? _k : '') + ((_l = "/api/v5-1/userinfo") !== null && _l !== void 0 ? _l : '');
     this.signoutUrl = (_m = "/uPortal/Logout") !== null && _m !== void 0 ? _m : '';
-    this.moreUrl = (_o = "/uPortal/More") !== null && _o !== void 0 ? _o : '';
     this.userInfoPortletUrl = '';
     this.switchOrgPortletUrl = '';
     this.orgAttributeName = 'ESCOSIRENCourant[0]';
@@ -70214,9 +70213,7 @@ let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
   }
 
   _orgIconUrl() {
-    var _a, _b;
-
-    return ((_a = this._orgInfos) === null || _a === void 0 ? void 0 : _a.logo) ? this._makeUrl((_b = this._orgInfos) === null || _b === void 0 ? void 0 : _b.logo) : this.defaultOrgIconUrl != '' ? this.defaultOrgIconUrl : this.defaultOrgIconUri != '' ? this._makeUrl(this.defaultOrgIconUri) : '';
+    return this.defaultOrgIconUrl != '' ? this.defaultOrgIconUrl : this.defaultOrgIconUri != '' ? this._makeUrl(this.defaultOrgIconUri) : '';
   }
 
   render() {
@@ -70267,7 +70264,7 @@ let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
                 picture="${this._picture()}"
                 email="${this._userInfos.email}"
                 logout-link="${this.signoutUrl}"
-                more-link="${this.moreUrl}"
+                more-link="${this.userInfoPortletUrl}"
                 avatar-size="28px"
               ></eyebrow-user-info>
             </div>
@@ -70393,11 +70390,6 @@ __decorate([(0, decorators_js_1.property)({
   type: String,
   attribute: 'sign-out-url'
 })], EscoProlongation.prototype, "signoutUrl", void 0);
-
-__decorate([(0, decorators_js_1.property)({
-  type: String,
-  attribute: 'more-url'
-})], EscoProlongation.prototype, "moreUrl", void 0);
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
