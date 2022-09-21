@@ -70180,7 +70180,7 @@ let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
   }
 
   _makeUrl(path, domain = '') {
-    return `http://${domain == '' ? this.domain : domain}${path}`;
+    return `https://${domain == '' ? this.domain : domain}${path}`;
   }
 
   _handleMessage(e) {
