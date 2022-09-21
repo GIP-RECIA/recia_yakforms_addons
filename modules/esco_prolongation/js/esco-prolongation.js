@@ -33802,7 +33802,10 @@ class orgInfoService {
         credentials: 'include',
         headers: requestHeaders
       };
-      const response = await fetch(orgApiUrl, options);
+      const getParams = new URLSearchParams({
+        ids: orgId
+      });
+      const response = await fetch(`${orgApiUrl}?${getParams}`, options);
 
       if (!response.ok) {
         throw new Error(response.statusText);
