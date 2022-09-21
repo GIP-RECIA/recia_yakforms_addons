@@ -85,7 +85,7 @@
  * @see html.tpl.php
  */
 ?>
-
+<?php if ($page['super_header']): ?><div id="super-header"><?php print render($page['super_header']); ?></div><?php endif; ?>
 <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
 
 <div id="page-wrapper"><div id="page">

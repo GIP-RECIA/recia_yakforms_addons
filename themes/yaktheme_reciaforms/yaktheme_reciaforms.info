@@ -6,3 +6,5 @@ core = 7.x
 base theme = yaktheme
 
 stylesheets[all][] = css/subtheme-reciaforms.css
+
+regions[super_header] = Super header
