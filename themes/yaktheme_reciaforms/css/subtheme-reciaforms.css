@@ -73,13 +73,16 @@ a:focus, a:hover, a:visited{
 }
 
 body #super-header {
-  display:flex;
   margin:0;
   padding:0;
 }
 
 body.inframe #super-header {
   visibility: hidden;
+}
+
+body #super-header .content{
+  margin:0;
 }
 
 body #highlighted .big-title {
