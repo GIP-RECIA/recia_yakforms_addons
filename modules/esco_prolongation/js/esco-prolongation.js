@@ -33834,11 +33834,17 @@ exports["default"] = orgInfoService;
 "use strict";
 
 
+var __importDefault = void 0 && (void 0).__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-const open_id_connect_1 = __webpack_require__(87220);
+const open_id_connect_1 = __importDefault(__webpack_require__(87220));
 
 const lodash_1 = __webpack_require__(96486);
 
@@ -33851,7 +33857,7 @@ class userInfoService {
       let userInfoFetch;
 
       if (!debug) {
-        userInfoFetch = await (0, open_id_connect_1.oidc)({
+        userInfoFetch = await (0, open_id_connect_1.default)({
           userInfoApiUrl
         });
         const jwt = userInfoFetch.encoded;
