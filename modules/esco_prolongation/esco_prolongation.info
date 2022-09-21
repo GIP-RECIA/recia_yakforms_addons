@@ -1,0 +1,8 @@
+name = Esco Prolongation
+description = ENT menu
+package= esco_prolongation
+
+core = 7.x
+php = 7.3
+
+scripts[] = js/esco-prolongation.js
