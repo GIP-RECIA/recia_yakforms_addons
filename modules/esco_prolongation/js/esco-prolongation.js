@@ -70444,7 +70444,7 @@ let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
                 justify-items: center;
                 width: 28px;
                 height: 28px;
-                margin: 0 var(--prolong-tpl-spaces);
+                margin: 0 5px;
               }
               .nine-square-icon .icon-elem {
                 flex: 0 1 6px;
@@ -70452,7 +70452,7 @@ let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
                 height: 6px;
                 margin: 1.6px;
                 content: ' ';
-                background-color: var(--prolong-tpl-font-color);
+                background-color: #ffffff;
                 border-radius: 1px;
               }
             </style>
