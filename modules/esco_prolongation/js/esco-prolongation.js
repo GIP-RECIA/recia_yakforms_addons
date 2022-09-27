@@ -51739,7 +51739,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":host{--prolong-tpl-primary-color: #25b2f3;--prolong-tpl-bg-color: var(--prolong-tpl-primary-color);--prolong-tpl-spaces: 8px;--prolong-tpl-font-family: \"Roboto\", sans-serif;--prolong-tpl-font-size: 18px;--prolong-tpl-font-color: #ffffff;--prolong-tpl-icon-opacity: 0.6;--prolong-tpl-iframe-bg-color: #ffffff}#esco-prolongation-container{display:flex;font-family:var(--prolong-tpl-font-family);font-size:var(--prolong-tpl-font-size);line-height:auto;color:var(--prolong-tpl-font-color);background-color:var(--prolong-tpl-bg-color)}#esco-prolongation-container>div{display:flex;flex:1}#esco-prolongation-container #esco-prolongation-menu,#esco-prolongation-container #esco-prolongation-org{flex:0 0 fit-content;justify-content:left}#esco-prolongation-container #esco-prolongation-menu .menu-icon{display:flex;flex-wrap:wrap;align-items:center;justify-items:center;width:28px;height:28px;margin:0 var(--prolong-tpl-spaces)}#esco-prolongation-container #esco-prolongation-menu .four-square-icon .icon-elem{flex:0 1 10px;width:10px;height:10px;margin:2px;content:\" \";background-color:var(--prolong-tpl-font-color);border-radius:1px}#esco-prolongation-container #esco-prolongation-menu .nine-square-icon .icon-elem{flex:0 1 6px;width:6px;height:6px;margin:1.6px;content:\" \";background-color:var(--prolong-tpl-font-color);border-radius:1px}#esco-prolongation-container #esco-prolongation-org{align-items:center}#esco-prolongation-container #esco-prolongation-org a.org-logo{margin-top:0;margin-bottom:0;margin-left:0;margin-right:5px}#esco-prolongation-container #esco-prolongation-org a.org-logo img{display:block;opacity:var(--prolong-tpl-icon-opacity)}#esco-prolongation-container #esco-prolongation-org p.org-display-name{margin:0;color:var(--prolong-tpl-font-color)}#esco-prolongation-container #esco-prolongation-user{flex:1;justify-content:right;align-content:center}#esco-prolongation-container #esco-prolongation-user>eyebrow-user-info{margin-top:auto;margin-bottom:auto;margin-left:var(--prolong-tpl-spaces);margin-right:var(--prolong-tpl-spaces)}#auth-iframe{border:none;position:fixed;z-index:1;left:0;top:0;width:100%;height:100%;min-height:max-content;overflow:auto;background-color:var(--prolong-tpl-iframe-bg-color)}#auth-iframe.hidden{visibility:hidden}", "",{"version":3,"sources":["webpack://./src/styles/esco-prolongation.scss"],"names":[],"mappings":"AAAA,MAEE,oCAAA,CACA,wDAAA,CAEA,yBAAA,CAEA,+CAAA,CACA,6BAAA,CACA,iCAAA,CAEA,+BAAA,CAEA,sCAAA,CAGF,6BACE,YAAA,CACA,0CAAA,CACA,sCAAA,CACA,gBAAA,CACA,mCAAA,CACA,4CAAA,CACA,iCACE,YAAA,CACA,MAAA,CAEF,yGAEE,oBAAA,CACA,oBAAA,CAIA,gEACE,YAAA,CACA,cAAA,CACA,kBAAA,CACA,oBAAA,CACA,UAAA,CACA,WAAA,CACA,kCAAA,CAGA,kFACE,aAAA,CACA,UAAA,CACA,WAAA,CACA,UAAA,CACA,WAAA,CACA,8CAAA,CACA,iBAAA,CAIF,kFACE,YAAA,CACA,SAAA,CACA,UAAA,CACA,YAAA,CACA,WAAA,CACA,8CAAA,CACA,iBAAA,CAKN,oDACE,kBAAA,CACA,+DACE,YAAA,CACA,eAAA,CACA,aAAA,CACA,gBAAA,CAEA,mEACE,aAAA,CACA,uCAAA,CAGJ,uEACE,QAAA,CACA,mCAAA,CAGJ,qDACE,MAAA,CACA,qBAAA,CACA,oBAAA,CACA,uEACE,eAAA,CACA,kBAAA,CACA,qCAAA,CACA,sCAAA,CAIN,aACE,WAAA,CACA,cAAA,CACA,SAAA,CACA,MAAA,CACA,KAAA,CACA,UAAA,CACA,WAAA,CACA,sBAAA,CACA,aAAA,CACA,mDAAA,CACA,oBACE,iBAAA","sourcesContent":[":host {\n  /* Colors */\n  --prolong-tpl-primary-color: #25b2f3;\n  --prolong-tpl-bg-color: var(--prolong-tpl-primary-color);\n  /* spaces */\n  --prolong-tpl-spaces: 8px;\n  /* Text */\n  --prolong-tpl-font-family: 'Roboto', sans-serif;\n  --prolong-tpl-font-size: 18px;\n  --prolong-tpl-font-color: #ffffff;\n  /* Icon */\n  --prolong-tpl-icon-opacity: 0.6;\n  /* Iframe */\n  --prolong-tpl-iframe-bg-color: #ffffff;\n}\n\n#esco-prolongation-container {\n  display: flex;\n  font-family: var(--prolong-tpl-font-family);\n  font-size: var(--prolong-tpl-font-size);\n  line-height: auto;\n  color: var(--prolong-tpl-font-color);\n  background-color: var(--prolong-tpl-bg-color);\n  > div {\n    display: flex;\n    flex: 1;\n  }\n  #esco-prolongation-menu,\n  #esco-prolongation-org {\n    flex: 0 0 fit-content;\n    justify-content: left;\n  }\n\n  #esco-prolongation-menu {\n    .menu-icon {\n      display: flex;\n      flex-wrap: wrap;\n      align-items: center;\n      justify-items: center;\n      width: 28px;\n      height: 28px;\n      margin: 0 var(--prolong-tpl-spaces);\n    }\n    .four-square-icon {\n      .icon-elem {\n        flex: 0 1 10px;\n        width: 10px;\n        height: 10px;\n        margin: 2px;\n        content: ' ';\n        background-color: var(--prolong-tpl-font-color);\n        border-radius: 1px;\n      }\n    }\n    .nine-square-icon {\n      .icon-elem {\n        flex: 0 1 6px;\n        width: 6px;\n        height: 6px;\n        margin: 1.6px;\n        content: ' ';\n        background-color: var(--prolong-tpl-font-color);\n        border-radius: 1px;\n      }\n    }\n  }\n\n  #esco-prolongation-org {\n    align-items: center;\n    a.org-logo {\n      margin-top: 0;\n      margin-bottom: 0;\n      margin-left: 0;\n      margin-right: 5px;\n\n      img {\n        display: block;\n        opacity: var(--prolong-tpl-icon-opacity);\n      }\n    }\n    p.org-display-name {\n      margin: 0;\n      color: var(--prolong-tpl-font-color);\n    }\n  }\n  #esco-prolongation-user {\n    flex: 1;\n    justify-content: right;\n    align-content: center;\n    & > eyebrow-user-info {\n      margin-top: auto;\n      margin-bottom: auto;\n      margin-left: var(--prolong-tpl-spaces);\n      margin-right: var(--prolong-tpl-spaces);\n    }\n  }\n}\n#auth-iframe {\n  border: none;\n  position: fixed;\n  z-index: 1;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  min-height: max-content;\n  overflow: auto;\n  background-color: var(--prolong-tpl-iframe-bg-color);\n  &.hidden {\n    visibility: hidden;\n  }\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":host{--prolong-tpl-primary-color: #25b2f3;--prolong-tpl-bg-color: var(--prolong-tpl-primary-color);--prolong-tpl-spaces: 8px;--prolong-tpl-font-family: \"Roboto\", sans-serif;--prolong-tpl-font-size: 18px;--prolong-tpl-font-color: #ffffff;--prolong-tpl-icon-opacity: 0.6;--prolong-tpl-iframe-bg-color: #ffffff}#esco-prolongation-container{display:flex;font-family:var(--prolong-tpl-font-family);font-size:var(--prolong-tpl-font-size);line-height:auto;color:var(--prolong-tpl-font-color);background-color:var(--prolong-tpl-bg-color)}#esco-prolongation-container>div{display:flex;flex:1}#esco-prolongation-container #esco-prolongation-menu,#esco-prolongation-container #esco-prolongation-org{flex:0 0 fit-content;justify-content:left}#esco-prolongation-container #esco-prolongation-org{align-items:center}#esco-prolongation-container #esco-prolongation-org a.org-logo{margin-top:0;margin-bottom:0;margin-left:0;margin-right:5px}#esco-prolongation-container #esco-prolongation-org a.org-logo img{display:block;opacity:var(--prolong-tpl-icon-opacity)}#esco-prolongation-container #esco-prolongation-org p.org-display-name{margin:0;color:var(--prolong-tpl-font-color)}#esco-prolongation-container #esco-prolongation-user{flex:1;justify-content:right;align-content:center}#esco-prolongation-container #esco-prolongation-user>eyebrow-user-info{margin-top:auto;margin-bottom:auto;margin-left:var(--prolong-tpl-spaces);margin-right:var(--prolong-tpl-spaces)}#auth-iframe{border:none;position:fixed;z-index:1;left:0;top:0;width:100%;height:100%;min-height:max-content;overflow:auto;background-color:var(--prolong-tpl-iframe-bg-color)}#auth-iframe.hidden{visibility:hidden}", "",{"version":3,"sources":["webpack://./src/styles/esco-prolongation.scss"],"names":[],"mappings":"AAAA,MAEE,oCAAA,CACA,wDAAA,CAEA,yBAAA,CAEA,+CAAA,CACA,6BAAA,CACA,iCAAA,CAEA,+BAAA,CAEA,sCAAA,CAGF,6BACE,YAAA,CACA,0CAAA,CACA,sCAAA,CACA,gBAAA,CACA,mCAAA,CACA,4CAAA,CACA,iCACE,YAAA,CACA,MAAA,CAEF,yGAEE,oBAAA,CACA,oBAAA,CAGF,oDACE,kBAAA,CACA,+DACE,YAAA,CACA,eAAA,CACA,aAAA,CACA,gBAAA,CAEA,mEACE,aAAA,CACA,uCAAA,CAGJ,uEACE,QAAA,CACA,mCAAA,CAGJ,qDACE,MAAA,CACA,qBAAA,CACA,oBAAA,CACA,uEACE,eAAA,CACA,kBAAA,CACA,qCAAA,CACA,sCAAA,CAIN,aACE,WAAA,CACA,cAAA,CACA,SAAA,CACA,MAAA,CACA,KAAA,CACA,UAAA,CACA,WAAA,CACA,sBAAA,CACA,aAAA,CACA,mDAAA,CACA,oBACE,iBAAA","sourcesContent":[":host {\n  /* Colors */\n  --prolong-tpl-primary-color: #25b2f3;\n  --prolong-tpl-bg-color: var(--prolong-tpl-primary-color);\n  /* spaces */\n  --prolong-tpl-spaces: 8px;\n  /* Text */\n  --prolong-tpl-font-family: 'Roboto', sans-serif;\n  --prolong-tpl-font-size: 18px;\n  --prolong-tpl-font-color: #ffffff;\n  /* Icon */\n  --prolong-tpl-icon-opacity: 0.6;\n  /* Iframe */\n  --prolong-tpl-iframe-bg-color: #ffffff;\n}\n\n#esco-prolongation-container {\n  display: flex;\n  font-family: var(--prolong-tpl-font-family);\n  font-size: var(--prolong-tpl-font-size);\n  line-height: auto;\n  color: var(--prolong-tpl-font-color);\n  background-color: var(--prolong-tpl-bg-color);\n  > div {\n    display: flex;\n    flex: 1;\n  }\n  #esco-prolongation-menu,\n  #esco-prolongation-org {\n    flex: 0 0 fit-content;\n    justify-content: left;\n  }\n\n  #esco-prolongation-org {\n    align-items: center;\n    a.org-logo {\n      margin-top: 0;\n      margin-bottom: 0;\n      margin-left: 0;\n      margin-right: 5px;\n\n      img {\n        display: block;\n        opacity: var(--prolong-tpl-icon-opacity);\n      }\n    }\n    p.org-display-name {\n      margin: 0;\n      color: var(--prolong-tpl-font-color);\n    }\n  }\n  #esco-prolongation-user {\n    flex: 1;\n    justify-content: right;\n    align-content: center;\n    & > eyebrow-user-info {\n      margin-top: auto;\n      margin-bottom: auto;\n      margin-left: var(--prolong-tpl-spaces);\n      margin-right: var(--prolong-tpl-spaces);\n    }\n  }\n}\n#auth-iframe {\n  border: none;\n  position: fixed;\n  z-index: 1;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  min-height: max-content;\n  overflow: auto;\n  background-color: var(--prolong-tpl-iframe-bg-color);\n  &.hidden {\n    visibility: hidden;\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -70398,6 +70398,26 @@ let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
               <div class="icon-elem"></div>
               <div class="icon-elem"></div>
             </div>
+            <style>
+              .menu-icon {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-items: center;
+                width: 28px;
+                height: 28px;
+                margin: 0 var(--prolong-tpl-spaces);
+              }
+              .four-square-icon .icon-elem {
+                flex: 0 1 10px;
+                width: 10px;
+                height: 10px;
+                margin: 2px;
+                content: ' ';
+                background-color: var(--prolong-tpl-font-color);
+                border-radius: 1px;
+              }
+            </style>
           </div>
         `;
         break;
@@ -70416,6 +70436,26 @@ let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
               <div class="icon-elem"></div>
               <div class="icon-elem"></div>
             </div>
+            <style>
+              .menu-icon {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-items: center;
+                width: 28px;
+                height: 28px;
+                margin: 0 var(--prolong-tpl-spaces);
+              }
+              .nine-square-icon .icon-elem {
+                flex: 0 1 6px;
+                width: 6px;
+                height: 6px;
+                margin: 1.6px;
+                content: ' ';
+                background-color: var(--prolong-tpl-font-color);
+                border-radius: 1px;
+              }
+            </style>
           </div>
         `;
         break;
