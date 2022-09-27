@@ -33837,6 +33837,76 @@ exports["default"] = orgInfoService;
 
 /***/ }),
 
+/***/ 30050:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+__webpack_require__(26699);
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+class templateService {
+  static async get(templateApiUrl, domain) {
+    var _a, _b, _c, _d, _e, _f, _g;
+
+    try {
+      const options = {
+        method: 'GET'
+      };
+      const response = await fetch(templateApiUrl, options);
+
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
+      const templates = await response.json();
+      console.log('templateService.get | templates', templates);
+
+      if (templates.data) {
+        const currenTemplate = (_a = templates.data) === null || _a === void 0 ? void 0 : _a.find(tpl => {
+          var _a, _b;
+
+          return (_b = (_a = tpl === null || tpl === void 0 ? void 0 : tpl.identity) === null || _a === void 0 ? void 0 : _a.domains) === null || _b === void 0 ? void 0 : _b.includes(domain);
+        });
+
+        if (currenTemplate) {
+          const displayName = (_b = currenTemplate === null || currenTemplate === void 0 ? void 0 : currenTemplate.identity) === null || _b === void 0 ? void 0 : _b.name;
+          const icon = (_c = currenTemplate === null || currenTemplate === void 0 ? void 0 : currenTemplate.images) === null || _c === void 0 ? void 0 : _c.find(image => (image === null || image === void 0 ? void 0 : image.Id) == 'icon');
+          const color = (_e = (_d = currenTemplate === null || currenTemplate === void 0 ? void 0 : currenTemplate.colors) === null || _d === void 0 ? void 0 : _d.find(color => (color === null || color === void 0 ? void 0 : color.Id) == 'primary')) === null || _e === void 0 ? void 0 : _e.hexa;
+
+          if (displayName && icon && color) {
+            return {
+              displayName: displayName,
+              iconPath: (_f = icon === null || icon === void 0 ? void 0 : icon.path) !== null && _f !== void 0 ? _f : '',
+              iconOpacity: (_g = icon === null || icon === void 0 ? void 0 : icon.opacity) !== null && _g !== void 0 ? _g : 1,
+              color: color
+            };
+          } else {
+            console.error('Incorrect template datas', displayName, icon, color);
+          }
+        } else {
+          console.error('Template API return no result', currenTemplate);
+        }
+      }
+    } catch (err) {
+      // eslint-disable-next-line
+      console.error(err, templateApiUrl);
+      return null;
+    }
+
+    return null;
+  }
+
+}
+
+exports["default"] = templateService;
+
+/***/ }),
+
 /***/ 31199:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -51669,7 +51739,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "#esco-prolongation-container{display:flex;font-family:\"Roboto Condensed\";font-size:18px;line-height:1.5em;background-color:#25b2f3}#esco-prolongation-container>div{display:flex;flex:1}#esco-prolongation-container #esco-prolongation-menu,#esco-prolongation-container #esco-prolongation-org{flex:0 0 fit-content;justify-content:left}#esco-prolongation-container #esco-prolongation-org{align-items:center}#esco-prolongation-container #esco-prolongation-org a.org-logo{margin:0 5px}#esco-prolongation-container #esco-prolongation-org a.org-logo img{display:block;opacity:.6}#esco-prolongation-container #esco-prolongation-org p.org-display-name{margin:0;color:#fff}#esco-prolongation-container #esco-prolongation-user{flex:1;justify-content:right;align-content:center}#esco-prolongation-container #esco-prolongation-user>eyebrow-user-info{margin:auto 8px}#auth-iframe{border:none;position:fixed;z-index:1;left:0;top:0;width:100%;height:100%;min-height:max-content;overflow:auto;background-color:red}#auth-iframe.hidden{visibility:hidden}", "",{"version":3,"sources":["webpack://./src/styles/esco-prolongation.scss"],"names":[],"mappings":"AAAA,6BACE,YAAA,CACA,8BAAA,CACA,cAAA,CACA,iBAAA,CACA,wBAAA,CACA,iCACE,YAAA,CACA,MAAA,CAEF,yGAEE,oBAAA,CACA,oBAAA,CAEF,oDACE,kBAAA,CACA,+DACE,YAAA,CACA,mEACE,aAAA,CACA,UAAA,CAGJ,uEACE,QAAA,CACA,UAAA,CAGJ,qDACE,MAAA,CACA,qBAAA,CACA,oBAAA,CACA,uEACE,eAAA,CAIN,aACE,WAAA,CACA,cAAA,CACA,SAAA,CACA,MAAA,CACA,KAAA,CACA,UAAA,CACA,WAAA,CACA,sBAAA,CACA,aAAA,CACA,oBAAA,CACA,oBACE,iBAAA","sourcesContent":["#esco-prolongation-container {\n  display: flex;\n  font-family: 'Roboto Condensed';\n  font-size: 18px;\n  line-height: 1.5em;\n  background-color: #25b2f3;\n  > div {\n    display: flex;\n    flex: 1;\n  }\n  #esco-prolongation-menu,\n  #esco-prolongation-org {\n    flex: 0 0 fit-content;\n    justify-content: left;\n  }\n  #esco-prolongation-org {\n    align-items: center;\n    a.org-logo {\n      margin: 0 5px;\n      img {\n        display: block;\n        opacity: 0.6;\n      }\n    }\n    p.org-display-name {\n      margin: 0;\n      color: #fff;\n    }\n  }\n  #esco-prolongation-user {\n    flex: 1;\n    justify-content: right;\n    align-content: center;\n    & > eyebrow-user-info {\n      margin: auto 8px;\n    }\n  }\n}\n#auth-iframe {\n  border: none;\n  position: fixed;\n  z-index: 1;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  min-height: max-content;\n  overflow: auto;\n  background-color: rgb(255, 0, 0);\n  &.hidden {\n    visibility: hidden;\n  }\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":host{--prolong-tpl-primary-color: #25b2f3;--prolong-tpl-bg-color: var(--prolong-tpl-primary-color);--prolong-tpl-spaces: 8px;--prolong-tpl-font-family: \"Roboto\", sans-serif;--prolong-tpl-font-size: 18px;--prolong-tpl-font-color: #ffffff;--prolong-tpl-icon-opacity: 0.6;--prolong-tpl-iframe-bg-color: #ffffff}#esco-prolongation-container{display:flex;font-family:var(--prolong-tpl-font-family);font-size:var(--prolong-tpl-font-size);line-height:auto;color:var(--prolong-tpl-font-color);background-color:var(--prolong-tpl-bg-color)}#esco-prolongation-container>div{display:flex;flex:1}#esco-prolongation-container #esco-prolongation-menu,#esco-prolongation-container #esco-prolongation-org{flex:0 0 fit-content;justify-content:left}#esco-prolongation-container #esco-prolongation-menu .menu-icon{display:flex;flex-wrap:wrap;align-items:center;justify-items:center;width:28px;height:28px;margin:0 var(--prolong-tpl-spaces)}#esco-prolongation-container #esco-prolongation-menu .menu-icon.four-square-icon .icon-elem{flex:0 1 10px;width:10px;height:10px;margin:2px;content:\" \";background-color:var(--prolong-tpl-font-color);border-radius:1px}#esco-prolongation-container #esco-prolongation-menu .menu-icon.nine-square-icon .icon-elem{flex:0 1 6px;width:6px;height:6px;margin:1.6px;content:\" \";background-color:var(--prolong-tpl-font-color);border-radius:1px}#esco-prolongation-container #esco-prolongation-org{align-items:center}#esco-prolongation-container #esco-prolongation-org a.org-logo{margin-top:0;margin-bottom:0;margin-left:0;margin-right:5px}#esco-prolongation-container #esco-prolongation-org a.org-logo img{display:block;opacity:var(--prolong-tpl-icon-opacity)}#esco-prolongation-container #esco-prolongation-org p.org-display-name{margin:0;color:var(--prolong-tpl-font-color)}#esco-prolongation-container #esco-prolongation-user{flex:1;justify-content:right;align-content:center}#esco-prolongation-container #esco-prolongation-user>eyebrow-user-info{margin-top:auto;margin-bottom:auto;margin-left:var(--prolong-tpl-spaces);margin-right:var(--prolong-tpl-spaces)}#auth-iframe{border:none;position:fixed;z-index:1;left:0;top:0;width:100%;height:100%;min-height:max-content;overflow:auto;background-color:var(--prolong-tpl-iframe-bg-color)}#auth-iframe.hidden{visibility:hidden}", "",{"version":3,"sources":["webpack://./src/styles/esco-prolongation.scss"],"names":[],"mappings":"AAAA,MAEE,oCAAA,CACA,wDAAA,CAEA,yBAAA,CAEA,+CAAA,CACA,6BAAA,CACA,iCAAA,CAEA,+BAAA,CAEA,sCAAA,CAGF,6BACE,YAAA,CACA,0CAAA,CACA,sCAAA,CACA,gBAAA,CACA,mCAAA,CACA,4CAAA,CACA,iCACE,YAAA,CACA,MAAA,CAEF,yGAEE,oBAAA,CACA,oBAAA,CAIA,gEACE,YAAA,CACA,cAAA,CACA,kBAAA,CACA,oBAAA,CACA,UAAA,CACA,WAAA,CACA,kCAAA,CAEE,4FACE,aAAA,CACA,UAAA,CACA,WAAA,CACA,UAAA,CACA,WAAA,CACA,8CAAA,CACA,iBAAA,CAIF,4FACE,YAAA,CACA,SAAA,CACA,UAAA,CACA,YAAA,CACA,WAAA,CACA,8CAAA,CACA,iBAAA,CAMR,oDACE,kBAAA,CACA,+DACE,YAAA,CACA,eAAA,CACA,aAAA,CACA,gBAAA,CAEA,mEACE,aAAA,CACA,uCAAA,CAGJ,uEACE,QAAA,CACA,mCAAA,CAGJ,qDACE,MAAA,CACA,qBAAA,CACA,oBAAA,CACA,uEACE,eAAA,CACA,kBAAA,CACA,qCAAA,CACA,sCAAA,CAIN,aACE,WAAA,CACA,cAAA,CACA,SAAA,CACA,MAAA,CACA,KAAA,CACA,UAAA,CACA,WAAA,CACA,sBAAA,CACA,aAAA,CACA,mDAAA,CACA,oBACE,iBAAA","sourcesContent":[":host {\n  /* Colors */\n  --prolong-tpl-primary-color: #25b2f3;\n  --prolong-tpl-bg-color: var(--prolong-tpl-primary-color);\n  /* spaces */\n  --prolong-tpl-spaces: 8px;\n  /* Text */\n  --prolong-tpl-font-family: 'Roboto', sans-serif;\n  --prolong-tpl-font-size: 18px;\n  --prolong-tpl-font-color: #ffffff;\n  /* Icon */\n  --prolong-tpl-icon-opacity: 0.6;\n  /* Iframe */\n  --prolong-tpl-iframe-bg-color: #ffffff;\n}\n\n#esco-prolongation-container {\n  display: flex;\n  font-family: var(--prolong-tpl-font-family);\n  font-size: var(--prolong-tpl-font-size);\n  line-height: auto;\n  color: var(--prolong-tpl-font-color);\n  background-color: var(--prolong-tpl-bg-color);\n  > div {\n    display: flex;\n    flex: 1;\n  }\n  #esco-prolongation-menu,\n  #esco-prolongation-org {\n    flex: 0 0 fit-content;\n    justify-content: left;\n  }\n\n  #esco-prolongation-menu {\n    .menu-icon {\n      display: flex;\n      flex-wrap: wrap;\n      align-items: center;\n      justify-items: center;\n      width: 28px;\n      height: 28px;\n      margin: 0 var(--prolong-tpl-spaces);\n      &.four-square-icon {\n        .icon-elem {\n          flex: 0 1 10px;\n          width: 10px;\n          height: 10px;\n          margin: 2px;\n          content: ' ';\n          background-color: var(--prolong-tpl-font-color);\n          border-radius: 1px;\n        }\n      }\n      &.nine-square-icon {\n        .icon-elem {\n          flex: 0 1 6px;\n          width: 6px;\n          height: 6px;\n          margin: 1.6px;\n          content: ' ';\n          background-color: var(--prolong-tpl-font-color);\n          border-radius: 1px;\n        }\n      }\n    }\n  }\n\n  #esco-prolongation-org {\n    align-items: center;\n    a.org-logo {\n      margin-top: 0;\n      margin-bottom: 0;\n      margin-left: 0;\n      margin-right: 5px;\n\n      img {\n        display: block;\n        opacity: var(--prolong-tpl-icon-opacity);\n      }\n    }\n    p.org-display-name {\n      margin: 0;\n      color: var(--prolong-tpl-font-color);\n    }\n  }\n  #esco-prolongation-user {\n    flex: 1;\n    justify-content: right;\n    align-content: center;\n    & > eyebrow-user-info {\n      margin-top: auto;\n      margin-bottom: auto;\n      margin-left: var(--prolong-tpl-spaces);\n      margin-right: var(--prolong-tpl-spaces);\n    }\n  }\n}\n#auth-iframe {\n  border: none;\n  position: fixed;\n  z-index: 1;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  min-height: max-content;\n  overflow: auto;\n  background-color: var(--prolong-tpl-iframe-bg-color);\n  &.hidden {\n    visibility: hidden;\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -70115,9 +70185,11 @@ const userInfoService_1 = __importDefault(__webpack_require__(31199));
 
 const orgInfoService_1 = __importDefault(__webpack_require__(29377));
 
+const templateService_1 = __importDefault(__webpack_require__(30050));
+
 let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
   constructor() {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
 
     super();
     /** Prolongation */
@@ -70128,20 +70200,22 @@ let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
     this.favoritesPortletCardSize = 'small';
     this.gridPortletCardSize = 'medium';
     this.defaultOrgLogoUrl = '';
-    this.defaultOrgLogoUri = '';
+    this.defaultOrgLogoPath = '';
     this.forceOrgLogoUrl = '';
-    this.forceOrgLogoUri = '';
+    this.forceOrgLogoPath = '';
     this.defaultOrgIconUrl = '';
-    this.defaultOrgIconUri = '';
+    this.defaultOrgIconPath = '';
     this.defaultAvatarUrl = '';
-    this.defaultAvatarUri = '';
+    this.defaultAvatarPath = '';
     this.contextApiUrl = (_a = "/uPortal") !== null && _a !== void 0 ? _a : '';
     this.favoriteApiUrl = ((_b = "/uPortal") !== null && _b !== void 0 ? _b : '') + ((_c = "/api/layout") !== null && _c !== void 0 ? _c : '');
     this.layoutApiUrl = ((_d = "/uPortal") !== null && _d !== void 0 ? _d : '') + ((_e = "/api/v4-3/dlm/layout.json") !== null && _e !== void 0 ? _e : '');
     this.portletApiUrl = ((_f = "/uPortal") !== null && _f !== void 0 ? _f : '') + ((_g = "/api/v4-3/dlm/portletRegistry.json") !== null && _g !== void 0 ? _g : '');
     this.organizationApiUrl = ((_h = "/uPortal") !== null && _h !== void 0 ? _h : '') + ((_j = "/change-etablissement/rest/v2/structures/structs/") !== null && _j !== void 0 ? _j : '');
     this.userInfoApiUrl = ((_k = "/uPortal") !== null && _k !== void 0 ? _k : '') + ((_l = "/api/v5-1/userinfo") !== null && _l !== void 0 ? _l : '');
-    this.signoutUrl = (_m = "/uPortal/Logout") !== null && _m !== void 0 ? _m : '';
+    this.templateApiUrl = '';
+    this.templateApiPath = (_m = "/commun/portal_template_api.tpl.json") !== null && _m !== void 0 ? _m : '';
+    this.signoutUrl = (_o = "/uPortal/Logout") !== null && _o !== void 0 ? _o : '';
     this.userInfoPortletUrl = '';
     this.switchOrgPortletUrl = '';
     this.orgAttributeName = 'ESCOSIRENCourant[0]';
@@ -70149,10 +70223,16 @@ let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
     this.userAllOrgsIdAttributeName = 'ESCOSIREN';
     this.hideActionMode = 'auto';
     this.showFavoritesInSlider = false;
+    this.iconType = 'hamburger';
     this.debug = false;
     this._iframeIsVisible = false;
     this._userInfos = null;
     this._orgInfos = null;
+    this._template = null;
+
+    if (this.domain === '') {
+      this.domain = window.document.domain;
+    }
   }
 
   connectedCallback() {
@@ -70175,6 +70255,10 @@ let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
         this._getOrgInfos(this._userInfos.orgId);
       }
     }
+
+    if (this._template === null) {
+      this._getTemplate();
+    }
   }
 
   async _getUserInfos() {
@@ -70187,8 +70271,25 @@ let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
     console.log('_getOrgInfos', this._orgInfos);
   }
 
+  async _getTemplate() {
+    var _a, _b, _c;
+
+    this._template = await templateService_1.default.get(this._tplApiUrl(), this.domain);
+
+    if ((_a = this._template) === null || _a === void 0 ? void 0 : _a.color) {
+      this.style.setProperty('--prolong-tpl-primary-color', (_b = this._template) === null || _b === void 0 ? void 0 : _b.color);
+    }
+
+    if ((_c = this._template) === null || _c === void 0 ? void 0 : _c.iconOpacity) {
+      this.style.setProperty('--prolong-tpl-icon-opacity', this._template.iconOpacity.toString());
+    }
+
+    console.log('_getTemplate', this._template);
+  }
+
   _makeUrl(path, domain = '') {
-    return `https://${domain == '' ? this.domain : domain}${path}`;
+    const protocol = this.debug ? 'http' : 'https';
+    return `${protocol}://${domain == '' ? this.domain : domain}${path}`;
   }
 
   _handleMessage(e) {
@@ -70199,21 +70300,27 @@ let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
   }
 
   _defaultOrgLogo() {
-    return this.defaultOrgLogoUrl != '' ? this.defaultOrgLogoUrl : this.defaultOrgLogoUri != '' ? this._makeUrl(this.defaultOrgLogoUri) : '';
+    return this.defaultOrgLogoUrl != '' ? this.defaultOrgLogoUrl : this.defaultOrgLogoPath != '' ? this._makeUrl(this.defaultOrgLogoPath) : '';
   }
 
   _forceOrgLogo() {
-    return this.forceOrgLogoUrl != '' ? this.forceOrgLogoUrl : this.forceOrgLogoUri != '' ? this._makeUrl(this.forceOrgLogoUri) : '';
+    return this.forceOrgLogoUrl != '' ? this.forceOrgLogoUrl : this.forceOrgLogoPath != '' ? this._makeUrl(this.forceOrgLogoPath) : '';
   }
 
   _picture() {
     var _a;
 
-    return ((_a = this._userInfos) === null || _a === void 0 ? void 0 : _a.picture) ? this._makeUrl(this._userInfos.picture) : this.defaultAvatarUrl != '' ? this.defaultAvatarUrl : this.defaultAvatarUri != '' ? this._makeUrl(this.defaultAvatarUri) : '';
+    return ((_a = this._userInfos) === null || _a === void 0 ? void 0 : _a.picture) ? this._makeUrl(this._userInfos.picture) : this.defaultAvatarUrl != '' ? this.defaultAvatarUrl : this.defaultAvatarPath != '' ? this._makeUrl(this.defaultAvatarPath) : '';
   }
 
   _orgIconUrl() {
-    return this.defaultOrgIconUrl != '' ? this.defaultOrgIconUrl : this.defaultOrgIconUri != '' ? this._makeUrl(this.defaultOrgIconUri) : '';
+    var _a, _b;
+
+    return ((_a = this._template) === null || _a === void 0 ? void 0 : _a.iconPath) ? this._makeUrl((_b = this._template) === null || _b === void 0 ? void 0 : _b.iconPath) : this.defaultOrgIconUrl != '' ? this.defaultOrgIconUrl : this.defaultOrgIconPath != '' ? this._makeUrl(this.defaultOrgIconPath) : '';
+  }
+
+  _tplApiUrl() {
+    return this.templateApiUrl != '' ? this.templateApiUrl : this.templateApiPath != '' ? this._makeUrl(this.templateApiPath) : '';
   }
 
   render() {
@@ -70243,7 +70350,9 @@ let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
                 hide-action-mode="${this.hideActionMode}"
                 ?show-favorites-in-slider=${this.showFavoritesInSlider}
                 ?debug=${this.debug}
-              ></esco-hamburger-menu>
+              >
+                ${this._renderIcon()}
+              </esco-hamburger-menu>
             </div>
             <div id="esco-prolongation-org">
               <a
@@ -70276,6 +70385,44 @@ let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
             src="https://${this.domain}/"
           ></iframe>
         `;
+  }
+
+  _renderIcon() {
+    switch (this.iconType) {
+      case 'four-square':
+        return (0, lit_1.html)`
+          <div slot="menu-icon">
+            <div class="menu-icon four-square-icon">
+              <div class="icon-elem"></div>
+              <div class="icon-elem"></div>
+              <div class="icon-elem"></div>
+              <div class="icon-elem"></div>
+            </div>
+          </div>
+        `;
+        break;
+
+      case 'nine-square':
+        return (0, lit_1.html)`
+          <div slot="menu-icon">
+            <div class="menu-icon nine-square-icon">
+              <div class="icon-elem"></div>
+              <div class="icon-elem"></div>
+              <div class="icon-elem"></div>
+              <div class="icon-elem"></div>
+              <div class="icon-elem"></div>
+              <div class="icon-elem"></div>
+              <div class="icon-elem"></div>
+              <div class="icon-elem"></div>
+              <div class="icon-elem"></div>
+            </div>
+          </div>
+        `;
+        break;
+
+      default:
+        return (0, lit_1.html)``;
+    }
   }
 
 };
@@ -70323,8 +70470,8 @@ __decorate([(0, decorators_js_1.property)({
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
-  attribute: 'default-org-logo-uri'
-})], EscoProlongation.prototype, "defaultOrgLogoUri", void 0);
+  attribute: 'default-org-logo-path'
+})], EscoProlongation.prototype, "defaultOrgLogoPath", void 0);
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
@@ -70333,8 +70480,8 @@ __decorate([(0, decorators_js_1.property)({
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
-  attribute: 'force-org-logo-uri'
-})], EscoProlongation.prototype, "forceOrgLogoUri", void 0);
+  attribute: 'force-org-logo-path'
+})], EscoProlongation.prototype, "forceOrgLogoPath", void 0);
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
@@ -70343,8 +70490,8 @@ __decorate([(0, decorators_js_1.property)({
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
-  attribute: 'default-org-icon-uri'
-})], EscoProlongation.prototype, "defaultOrgIconUri", void 0);
+  attribute: 'default-org-icon-path'
+})], EscoProlongation.prototype, "defaultOrgIconPath", void 0);
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
@@ -70353,8 +70500,8 @@ __decorate([(0, decorators_js_1.property)({
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
-  attribute: 'default-avatar-uri'
-})], EscoProlongation.prototype, "defaultAvatarUri", void 0);
+  attribute: 'default-avatar-path'
+})], EscoProlongation.prototype, "defaultAvatarPath", void 0);
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
@@ -70385,6 +70532,16 @@ __decorate([(0, decorators_js_1.property)({
   type: String,
   attribute: 'user-info-api-url'
 })], EscoProlongation.prototype, "userInfoApiUrl", void 0);
+
+__decorate([(0, decorators_js_1.property)({
+  type: String,
+  attribute: 'template-api-url'
+})], EscoProlongation.prototype, "templateApiUrl", void 0);
+
+__decorate([(0, decorators_js_1.property)({
+  type: String,
+  attribute: 'template-api-path'
+})], EscoProlongation.prototype, "templateApiPath", void 0);
 
 __decorate([(0, decorators_js_1.property)({
   type: String,
@@ -70432,6 +70589,11 @@ __decorate([(0, decorators_js_1.property)({
 })], EscoProlongation.prototype, "showFavoritesInSlider", void 0);
 
 __decorate([(0, decorators_js_1.property)({
+  type: String,
+  attribute: 'icon-type'
+})], EscoProlongation.prototype, "iconType", void 0);
+
+__decorate([(0, decorators_js_1.property)({
   type: Boolean
 })], EscoProlongation.prototype, "debug", void 0);
 
@@ -70440,6 +70602,8 @@ __decorate([(0, decorators_js_1.state)()], EscoProlongation.prototype, "_iframeI
 __decorate([(0, decorators_js_1.state)()], EscoProlongation.prototype, "_userInfos", void 0);
 
 __decorate([(0, decorators_js_1.state)()], EscoProlongation.prototype, "_orgInfos", void 0);
+
+__decorate([(0, decorators_js_1.state)()], EscoProlongation.prototype, "_template", void 0);
 
 EscoProlongation = __decorate([(0, decorators_js_1.customElement)('esco-prolongation')], EscoProlongation);
 __webpack_unused_export__ = EscoProlongation;
