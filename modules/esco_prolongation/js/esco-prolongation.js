@@ -70406,7 +70406,7 @@ let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
                 justify-items: center;
                 width: 28px;
                 height: 28px;
-                margin: 0 5px;
+                margin: 0 var(--prolong-tpl-spaces);
               }
               .four-square-icon .icon-elem {
                 flex: 0 1 10px;
@@ -70414,7 +70414,7 @@ let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
                 height: 10px;
                 margin: 2px;
                 content: ' ';
-                background-color: #ffffff;
+                background-color: var(--prolong-tpl-font-color);
                 border-radius: 1px;
               }
             </style>
@@ -70444,7 +70444,7 @@ let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
                 justify-items: center;
                 width: 28px;
                 height: 28px;
-                margin: 0 5px;
+                margin: 0 var(--prolong-tpl-spaces);
               }
               .nine-square-icon .icon-elem {
                 flex: 0 1 6px;
@@ -70452,7 +70452,7 @@ let EscoProlongation = class EscoProlongation extends lit_1.LitElement {
                 height: 6px;
                 margin: 1.6px;
                 content: ' ';
-                background-color: #ffffff;
+                background-color: var(--prolong-tpl-font-color);
                 border-radius: 1px;
               }
             </style>

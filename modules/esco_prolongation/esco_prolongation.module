@@ -56,6 +56,7 @@ function esco_prolongation_block_view($delta) {
                                         grid-portlet-card-size="auto" 
                                         hide-action-mode="never" 
                                         show-favorites-in-slider="true"
+                                        icon-type="four-square"
                                         >
                                       </esco-hamburger-menu>';
       }
