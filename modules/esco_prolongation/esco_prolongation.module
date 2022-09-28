@@ -7,7 +7,6 @@ function esco_prolongation_boot() {
   if(isset($params['portal_domain'])){
     variable_set('esco_prolongation_portal_domain', $params['portal_domain']);
     setcookie('esco_prolongation_portal_domain',$params['portal_domain'],[
-      'expires'=>time()+3600,
       'secure'=>true,
       'httponly'=>true
     ]);
