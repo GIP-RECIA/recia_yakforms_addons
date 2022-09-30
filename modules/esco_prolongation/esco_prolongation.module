@@ -36,8 +36,9 @@ function esco_prolongation_block_view($delta) {
       if(!$portal_domain){
         $block['content']['#markup'] = 'erreur';
       }else{
-        $block['content']['#markup'] ='<esco-prolongation 
+        $block['content']['#markup'] ='<prolongation-ent
                                         domain='.$portal_domain.'
+                                        service-name="Formulaires d\'enquête"
                                         context-api-url="/portail" 
                                         sign-out-url="/portail/Logout" 
                                         default-org-logo-path="/annuaire_images/default_banner_v1.jpg"
@@ -57,7 +58,7 @@ function esco_prolongation_block_view($delta) {
                                         show-favorites-in-slider="true"
                                         icon-type="four-square"
                                         >
-                                      </esco-hamburger-menu>';
+                                      </prolongation_ent>';
       }
       break;
   }
