@@ -49,7 +49,7 @@ function extended_uportal_header_block_view($delta) {
                                       grid-portlet-card-size="auto" 
                                       hide-action-mode="never" 
                                       show-favorites-in-slider="true"
-                                      icon-type="four-square"
+                                      icon-type="nine-square"
                                       >
                                       <iframe slot="not-loaded" class="euhmod-iframe euhmod-iframe-hidden" src="https://'.$portal_domain.'/portail"></iframe>
                                     </extended-uportal-header>
