@@ -1,0 +1,89 @@
+<?php
+/**
+ * Declare custom blocks
+ */
+function extended_uportal_header_boot() {
+  $params = drupal_get_query_parameters();
+  if(isset($params['portal_domain'])){
+    setcookie('extended_uportal_header_portal_domain',$params['portal_domain'],[
+      'secure'=>true,
+      'httponly'=>true
+    ]);
+  }
+}
+/**
+ * Declare custom blocks
+ */
+function extended_uportal_header_block_info() {
+    $blocks['extended_uportal_header'] = array(
+    'info' => t('Extended Uportal header component'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+/**
+ * Define custom blocks
+ */
+function extended_uportal_header_block_view($delta) {
+  switch ($delta) {
+    case 'extended_uportal_header':
+      $portal_domain = $_COOKIE['extended_uportal_header_portal_domain'] ?? false;
+      $block['content']['#markup'] ='<extended-uportal-header
+                                      '.($portal_domain?'domain='.$portal_domain:'').'
+                                      service-name="Formulaires d\'enquête"
+                                      context-api-url="/portail" 
+                                      sign-out-url="/portail/Logout" 
+                                      default-org-logo-path="/annuaire_images/default_banner_v1.jpg"
+                                      default-avatar-path="/images/icones/noPictureUser.svg"
+                                      default-org-icon-path="/images/partners/netocentre-simple.svg" 
+                                      favorite-api-url="/portail/api/layout" 
+                                      layout-api-url="/portail/api/v4-3/dlm/layout.json" 
+                                      organization-api-url="/change-etablissement/rest/v2/structures/structs/" 
+                                      portlet-api-url="/portail/api/v4-3/dlm/portletRegistry.json?category=All%20categories" 
+                                      user-info-api-url="/portail/api/v5-1/userinfo" 
+                                      user-info-portlet-url="/portail/p/ESCO-MCE"
+                                      template-api-path="/commun/portal_template_api.tpl.json" 
+                                      switch-org-portlet-url="/portail/p/etablissement-swapper" 
+                                      favorites-portlet-card-size="small" 
+                                      grid-portlet-card-size="auto" 
+                                      hide-action-mode="never" 
+                                      show-favorites-in-slider="true"
+                                      icon-type="four-square"
+                                      >
+                                      <iframe slot="not-loaded" class="euhmod-iframe euhmod-iframe-hidden" src="https://'.$portal_domain.'/portail"></iframe>
+                                    </extended-uportal-header>
+                                    <style>
+                                        .euhmod-iframe{
+                                          border: none;
+                                          position: fixed;
+                                          z-index: 1;
+                                          left: 0;
+                                          top: 0;
+                                          width: 100%;
+                                          height: 100%;
+                                          min-height: max-content;
+                                          overflow: auto;
+                                          background-color: rgba(0,0,0,0.7);
+                                        }
+                                        .euhmod-iframe-hidden{
+                                          visibility: hidden;
+                                        }
+                                    </style>
+                                    <script>
+                                    (function() {
+                                      window.addEventListener("message", e=>{
+                                        const iframe = document.querySelector(".euhmod-iframe");
+                                        if (e.data?.message == "need_auth") iframe.classList.remove("euhmod-iframe-hidden");
+                                        if (e.data?.message == "auth_ok") iframe.classList.add("euhmod-iframe-hidden");
+                                      });
+                                    
+                                    })();
+                                        
+                                    </script>';
+      
+      break;
+  }
+  return $block;
+}
+?>
