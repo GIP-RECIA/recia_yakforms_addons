@@ -20,6 +20,15 @@ else
 	rsync -auv --progress ./modules/reciaforms $(CONF_PATH)sites/all/modules/
 endif
 
+module_extended_uportal_header: .makerc title configuration_report sudo_warning
+	@echo "### RECIAFORMS MODULE INSTALLATION/UPDATE ###"
+	@echo "Files copy..."
+ifneq ($(strip $(CONF_OWNER)),)
+	rsync -auv --progress --chown $(CONF_OWNER) ./modules/extended_uportal_header $(CONF_PATH)sites/all/modules/
+else
+	rsync -auv --progress ./modules/extended_uportal_header $(CONF_PATH)sites/all/modules/
+endif
+
 theme_yaktheme_reciaforms: .makerc title configuration_report sudo_warning
 	@echo "### YAKTEHE_RECIAFORMS THEME INSTALLATION/UPDATE ###"
 	@echo "Files copy..."
@@ -29,10 +38,8 @@ else
 	rsync -auv --progress ./themes/yaktheme_reciaforms $(CONF_PATH)sites/all/themes/
 endif
 
-
-
 ###### TOOLS
-configure : 
+configure: 
 	@echo "### SCRIPT CONFIGURATION ###"
 ifeq ($(strip $(CONF_PATH)),)
 	@echo "ERROR : path must be defined"
@@ -46,6 +53,12 @@ endif
 	@echo "writing configuration file \".makerc\" ..."
 	@echo "export CONF_PATH = $(CONF_PATH)\nexport CONF_OWNER = $(CONF_OWNER)" > .makerc
 
+update_module_extended_uportal_header: npm_warning
+	@mkdir -p tmp
+	npm i --prefix ./tmp @gip-recia/extended-uportal-header@latest
+	cp ./tmp/node_modules/@gip-recia/extended-uportal-header/dist/js/extended-uportal-header.min.js ./modules/extended_uportal_header/js/
+	rm -rf tmp
+
 title:
 	@echo "############ $(APP_NAME) INSTALLATION SCRIPT ############"
 	@echo ""
@@ -55,6 +68,14 @@ configuration_report:
 	@echo "### CONIGURATION (.makerc) ###"
 	@echo "INSTALLATION PATH : $(CONF_PATH)"
 	@echo "FILES OWNER : $(CONF_OWNER)"
+
+npm_warning:
+ifeq (, $(shell which npm))
+	@echo ""	
+	@echo "!!! ERROR : npm is not installed !!!"
+	@echo ""
+	@false
+endif
 
 sudo_warning:
 ifneq ($(strip $(CONF_OWNER)),)

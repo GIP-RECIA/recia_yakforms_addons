@@ -1,0 +1,8 @@
+name = Extended Uportal Header
+description = ENT menu
+package= extended_uportal_header
+
+core = 7.x
+php = 7.3
+
+scripts[] = js/extended-uportal-header.min.js
