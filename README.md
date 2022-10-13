@@ -34,3 +34,13 @@ Module improving or fixing webform's features
 **Fixes :**
 - webform mail confirmation interface translations ;
 - webform export access.
+
+### Extended Uportal Header
+Implement a bloc containing @gip-recia/extended-uportal-header
+
+**Path :** /modules/extended_uportal_header
+
+**Install :** Copy the entire folder in [drupal install folder]/sites/all/modules OR run install script (linux only).
+
+**Features :**
+- Extended Uportal Header component.
