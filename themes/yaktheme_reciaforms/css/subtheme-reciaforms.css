@@ -72,6 +72,19 @@ a:focus, a:hover, a:visited{
   text-decoration: underline;
 }
 
+body #super-header {
+  margin:0;
+  padding:0;
+}
+
+body.inframe #super-header {
+  visibility: hidden;
+}
+
+body #super-header .content{
+  margin:0;
+}
+
 body #highlighted .big-title {
   font-size: 0;
 }
