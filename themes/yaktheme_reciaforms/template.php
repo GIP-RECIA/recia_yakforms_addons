@@ -1,5 +1,4 @@
 <?php
-
 function yaktheme_reciaforms_theme(){
     return [
         'recia_footer_gip' => [
@@ -7,6 +6,11 @@ function yaktheme_reciaforms_theme(){
             'path'=> path_to_theme().'/templates'
         ]
     ];
+}
+
+function yaktheme_reciaforms_preprocess_html(&$variables) {
+    $type = 'image/x-icon';
+    drupal_add_html_head_link(array('rel' => 'shortcut icon', 'href' => '/favicon.ico', 'type' => $type));
 }
 
 function yaktheme_reciaforms_preprocess_page(&$variables) {
