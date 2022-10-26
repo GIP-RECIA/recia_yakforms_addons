@@ -49,7 +49,7 @@ function extended_uportal_header_block_view($delta) {
                                       grid-portlet-card-size="auto" 
                                       hide-action-mode="never" 
                                       show-favorites-in-slider="true"
-                                      return-home-title="Retour à l\'accueil"
+                                      return-home-title="Aller à l\'accueil"
                                       return-home-target="_self"
                                       icon-type="nine-square"
                                       >
