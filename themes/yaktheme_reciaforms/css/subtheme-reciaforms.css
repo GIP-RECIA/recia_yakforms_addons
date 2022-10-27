@@ -110,7 +110,7 @@ body #highlighted .big-title::after {
   color: var(--r-green);
 }
 
-body #main-wrapper{
+body #page-wrapper{
   flex:1;
 }
 
