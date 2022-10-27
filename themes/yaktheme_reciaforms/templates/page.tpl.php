@@ -228,6 +228,9 @@
   </div></div> <!-- /.section, /#footer-wrapper -->
 
 </div></div> <!-- /#page, /#page-wrapper -->
+<!--
 <?php if ($recia_footer): ?>
 <?= $recia_footer ?></div>
 <?php endif; ?>
+-->
+<?php if ($page['super_footer']): ?><div id="super-footer"><?php print render($page['super_footer']); ?></div><?php endif; ?>

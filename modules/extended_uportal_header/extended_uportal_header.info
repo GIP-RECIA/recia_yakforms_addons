@@ -6,3 +6,4 @@ core = 7.x
 php = 7.3
 
 scripts[] = js/extended-uportal-header.min.js
+scripts[] = js/extended-uportal-footer.min.js

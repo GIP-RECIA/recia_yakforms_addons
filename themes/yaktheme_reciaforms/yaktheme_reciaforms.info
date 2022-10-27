@@ -18,3 +18,4 @@ regions[content] = Content
 regions[sidebar_first] = Sidebar first
 regions[sidebar_second] = Sidebar second
 regions[footer] = Footer
+regions[super_footer] = Super footer
