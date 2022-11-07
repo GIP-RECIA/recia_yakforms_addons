@@ -597,4 +597,7 @@ msgstr "Fonction Yakforms pour créer, gérer et partager des formulaires."
 
 #: includes/yakforms.node.inc:759
 msgid "Optional image that will be displayed at the top of your form (example : logo or banner).<br/>\nAfter having selected it by clicking 'Browse', don't forget to click 'Upload' to make it available online."
-msgstr "Image optionnelle, affichée au dessus de votre formulaire (exemple : logo, bannière).<br/>\nAprès avoir sélectionné votre fichier en cliquant sur \"Parcourir\", n'oubliez pas de cliquer sur "Transférer"."
+msgstr "Image optionnelle, affichée au dessus de votre formulaire (exemple : logo, bannière).<br/>\nAprès avoir sélectionné votre fichier en cliquant sur \"Parcourir\", n'oubliez pas de cliquer sur \"Transférer\"."
+#: includes/yakforms.node.inc:759
+msgid "After having selected it by clicking 'Browse', don't forget to click 'Upload' to make it available online."
+msgstr "Après avoir sélectionné votre fichier en cliquant sur \"Parcourir\", n'oubliez pas de cliquer sur \"Transférer\"."
