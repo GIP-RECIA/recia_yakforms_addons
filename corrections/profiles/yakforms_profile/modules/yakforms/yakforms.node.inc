@@ -426,7 +426,7 @@ If you want to display pictures, you should consider using an external image hos
   $field_instances['node-form1-field_form1_image'] = array(
     'bundle' => 'form1',
     'deleted' => 0,
-    'description' => "Optional image that will be displayed at the top of your form (example : logo or banner).<br/>After having selected it by clicking 'Browse', don't forget to click 'Upload' to make it available online.",
+    'description' => "Optional image that will be displayed at the top of your form (example : logo or banner).",
     'display' => array(
       'default' => array(
         'label' => 'hidden',
