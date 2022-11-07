@@ -755,7 +755,7 @@ If you want to display pictures, you should consider using an external image hos
   t('Attached files');
   t('Image');
   t("Optional banner");
-  t("Optional image that will be displayed at the top of your form (example : logo or banner).<br/>After having selected it by clicking 'Browse', don't forget to click 'Upload' to make it available online.");
+  t("Optional image that will be displayed at the top of your form (example : logo or banner).");
   t("Forms expire after 6 months, and are destroyed after 9 months (this cover 90% of use cases, and avoids database overloads).<br>
   At the given date, your form won't be accessible publically. You and you only will however be able to access it - and its results - for 60 more days, from your account.
   If you wish to extend its expiration date, you simply have to edit the field above once your form is live.<br>
