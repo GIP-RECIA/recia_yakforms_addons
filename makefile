@@ -38,6 +38,15 @@ else
 	rsync -auv --progress ./themes/yaktheme_reciaforms $(CONF_PATH)sites/all/themes/
 endif
 
+apply_corrections: .makerc title configuration_report sudo_warning
+	@echo "### CORRECTIONS APPLY ###"
+	@echo "Files copy..."
+ifneq ($(strip $(CONF_OWNER)),)
+	rsync -auv --progress --chown $(CONF_OWNER) ./corrections/* $(CONF_PATH)
+else
+	rsync -auv --progress ./corrections/* $(CONF_PATH)
+endif
+
 ###### TOOLS
 configure: 
 	@echo "### SCRIPT CONFIGURATION ###"
