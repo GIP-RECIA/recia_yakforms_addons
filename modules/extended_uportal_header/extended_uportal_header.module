@@ -15,8 +15,12 @@ function extended_uportal_header_boot() {
  * Declare custom blocks
  */
 function extended_uportal_header_block_info() {
-    $blocks['extended_uportal_header'] = array(
+  $blocks['extended_uportal_header'] = array(
     'info' => t('Extended Uportal header component'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['extended_uportal_footer'] = array(
+    'info' => t('Extended Uportal footer component'),
     'cache' => DRUPAL_NO_CACHE,
   );
   return $blocks;
@@ -85,6 +89,15 @@ function extended_uportal_header_block_view($delta) {
                                     </script>';
       
       break;
+      case 'extended_uportal_footer':
+        $portal_domain = $_COOKIE['extended_uportal_header_portal_domain'] ?? false;
+        $block['content']['#markup'] ='<extended-uportal-footer
+                                        '.($portal_domain?'domain='.$portal_domain:'').'
+                                        template-api-path="/commun/portal_template_api.tpl.json"
+                                        >
+                                      </extended-uportal-header>';
+        
+        break;
   }
   return $block;
 }
