@@ -63,10 +63,7 @@ endif
 	@echo "export CONF_PATH = $(CONF_PATH)\nexport CONF_OWNER = $(CONF_OWNER)" > .makerc
 
 update_module_extended_uportal_header: npm_warning
-	@mkdir -p tmp
-	npm i --prefix ./tmp @gip-recia/extended-uportal-header@latest
-	cp ./tmp/node_modules/@gip-recia/extended-uportal-header/dist/js/extended-uportal-header.min.js ./modules/extended_uportal_header/js/
-	rm -rf tmp
+	wget -O ./modules/extended_uportal_header/js/extended-uportal-header.min.js https://unpkg.com/@gip-recia/extended-uportal-header@latest/dist/js/extended-uportal-header.min.js
 
 title:
 	@echo "############ $(APP_NAME) INSTALLATION SCRIPT ############"
