@@ -30,6 +30,7 @@ function extended_uportal_header_block_info() {
  * Define custom blocks
  */
 function extended_uportal_header_block_view($delta) {
+  $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
   switch ($delta) {
     case 'extended_uportal_header':
       $portal_domain = $_COOKIE['extended_uportal_header_portal_domain'] ?? false;
@@ -56,6 +57,7 @@ function extended_uportal_header_block_view($delta) {
                                       return-home-title="Aller à l\'accueil"
                                       return-home-target="_self"
                                       icon-type="nine-square"
+                                      sign-in-url="https://secure.giprecia.net/cas/login?service='.$actual_link.'"
                                       >
                                       <iframe slot="not-loaded" class="euhmod-iframe euhmod-iframe-hidden" src="https://'.$portal_domain.'/portail"></iframe>
                                     </extended-uportal-header>
