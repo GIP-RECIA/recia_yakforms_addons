@@ -57,7 +57,7 @@ function extended_uportal_header_block_view($delta) {
                                       return-home-title="Aller à l\'accueil"
                                       return-home-target="_self"
                                       icon-type="nine-square"
-                                      sign-in-url="https://secure.giprecia.net/cas/login?service='.$actual_link.'"
+                                      sign-in-url="/portail/Login?refUrl='.$actual_link.'"
                                       >
                                       <iframe slot="not-loaded" class="euhmod-iframe euhmod-iframe-hidden" src="https://'.$portal_domain.'/portail"></iframe>
                                     </extended-uportal-header>
