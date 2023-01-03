@@ -4,6 +4,3 @@ package= extended_uportal_header
 
 core = 7.x
 php = 7.3
-
-scripts[] = /commun/extended-uportal-header.min.js
-scripts[] = /commun/extended-uportal-footer.min.js
