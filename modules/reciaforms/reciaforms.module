@@ -178,6 +178,7 @@
    */
   function reciaforms_menu_alter(&$items) {
     $items['node/%webform_menu/webform/ws-export']['access callback']='webform_share_menu_access';
+    $items['node/%webform_menu/webform/ws-export']['access arguments']=array(1);
   }
 
   /**
