@@ -62,9 +62,6 @@ endif
 	@echo "writing configuration file \".makerc\" ..."
 	@echo "export CONF_PATH = $(CONF_PATH)\nexport CONF_OWNER = $(CONF_OWNER)" > .makerc
 
-update_module_extended_uportal_header: npm_warning
-	wget -O ./modules/extended_uportal_header/js/extended-uportal-header.min.js https://unpkg.com/@gip-recia/extended-uportal-header@latest/dist/js/extended-uportal-header.min.js
-
 title:
 	@echo "############ $(APP_NAME) INSTALLATION SCRIPT ############"
 	@echo ""
@@ -74,14 +71,6 @@ configuration_report:
 	@echo "### CONIGURATION (.makerc) ###"
 	@echo "INSTALLATION PATH : $(CONF_PATH)"
 	@echo "FILES OWNER : $(CONF_OWNER)"
-
-npm_warning:
-ifeq (, $(shell which npm))
-	@echo ""	
-	@echo "!!! ERROR : npm is not installed !!!"
-	@echo ""
-	@false
-endif
 
 sudo_warning:
 ifneq ($(strip $(CONF_OWNER)),)
