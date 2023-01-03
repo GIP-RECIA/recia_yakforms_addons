@@ -1,4 +1,11 @@
 <?php
+/** 
+ * Load JS
+ */
+function extended_uportal_header_process_page() {
+  drupal_add_js('/commun/extended-uportal-header.min.js', 'external');
+  drupal_add_js('/commun/extended-uportal-footer.min.js', 'external');
+}
 /**
  * Declare custom blocks
  */
