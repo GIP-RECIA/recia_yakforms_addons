@@ -3,6 +3,7 @@
  * Load JS
  */
 function extended_uportal_header_process_page() {
+  $params = drupal_get_query_parameters();
   $cacheBuster = isset($params['test']) ? time() : date("ymd");
   drupal_add_js('/commun/extended-uportal-header.min.js?c='.$cacheBuster, 'external');
   drupal_add_js('/commun/extended-uportal-footer.min.js?c='.$cacheBuster, 'external');
