@@ -78,6 +78,7 @@ function extended_uportal_header_block_view($delta) {
         $block['content']['#markup'] ='<extended-uportal-footer
                                         '.($portal_domain?'domain='.$portal_domain:'').'
                                         template-api-path="/commun/portal_template_api.tpl.json"
+                                        links=\'[{"title":"Accessibilité : partiellement conforme"},{"title":"CGU","href":"/files/textes/droits_usage.html"},{"title":"Apereo.org","href":"https://www.apereo.org/"},{"title":"ESUP-Portail","href":"https://www.esup-portail.org/"}]\'
                                         >
                                       </extended-uportal-header>';
         
