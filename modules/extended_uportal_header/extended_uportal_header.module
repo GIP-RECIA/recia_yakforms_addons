@@ -77,7 +77,11 @@ function extended_uportal_header_block_view($delta) {
                                         icon-type="nine-square"
                                         sign-in-url="/portail/Login"
                                         >
-                                      </extended-uportal-header>'
+                                      </extended-uportal-header>
+                                      <!-- 
+                                      '.$isConfidential.'
+                                      '.print_r($node->webform).'
+                                      -->'
                                       :'';
       
       break;
