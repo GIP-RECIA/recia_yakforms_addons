@@ -39,15 +39,17 @@ function extended_uportal_header_block_info() {
  * Define custom blocks
  */
 function extended_uportal_header_block_view($delta) {
+  $isConfidential = false;
   if (arg(0) == 'node' && is_numeric(arg(1))) {
     $nid = arg(1);
     $node = node_load($nid);
+    $isConfidential = (isset($node->webform['confidential']) && $node->webform['confidential']==1);
   }
   $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
   switch ($delta) {
     case 'extended_uportal_header':
       $portal_domain = $_COOKIE['extended_uportal_header_portal_domain'] ?? false;
-      $block['content']['#markup'] =!$node->webform.['confidential']
+      $block['content']['#markup'] =$isConfidential
                                       ?'<extended-uportal-header
                                         messages=\'[{"locales": ["fr", "fr-FR"], "messages": { "message": {"header": {"login": "Connexion ENT" } }}}]\'
                                         '.($portal_domain?'domain='.$portal_domain:'').'
