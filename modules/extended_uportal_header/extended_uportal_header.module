@@ -39,6 +39,7 @@ function extended_uportal_header_block_info() {
  * Define custom blocks
  */
 function extended_uportal_header_block_view($delta) {
+  global $item, $element, $items;
   $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
   switch ($delta) {
     case 'extended_uportal_header':
@@ -80,7 +81,12 @@ function extended_uportal_header_block_view($delta) {
                                         template-api-path="/commun/portal_template_api.tpl.json"
                                         links=\'[{"title":"Accessibilité : partiellement conforme"},{"title":"CGU","href":"/files/textes/droits_usage.html"},{"title":"Apereo.org","href":"https://www.apereo.org/"},{"title":"ESUP-Portail","href":"https://www.esup-portail.org/"}]\'
                                         >
-                                      </extended-uportal-header>';
+                                      </extended-uportal-header>
+                                      <!--'
+                                      .print_r($item)
+                                      .print_r($element)
+                                      .print_r($items)
+                                      .'-->';
         
         break;
   }
