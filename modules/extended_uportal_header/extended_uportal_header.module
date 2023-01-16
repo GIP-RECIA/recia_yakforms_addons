@@ -47,7 +47,7 @@ function extended_uportal_header_block_view($delta) {
   switch ($delta) {
     case 'extended_uportal_header':
       $portal_domain = $_COOKIE['extended_uportal_header_portal_domain'] ?? false;
-      $block['content']['#markup'] =$node['webform']['confidential']!==1
+      $block['content']['#markup'] =!$node->webform.['confidential']
                                       ?'<extended-uportal-header
                                         messages=\'[{"locales": ["fr", "fr-FR"], "messages": { "message": {"header": {"login": "Connexion ENT" } }}}]\'
                                         '.($portal_domain?'domain='.$portal_domain:'').'
