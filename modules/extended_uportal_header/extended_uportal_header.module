@@ -39,7 +39,10 @@ function extended_uportal_header_block_info() {
  * Define custom blocks
  */
 function extended_uportal_header_block_view($delta) {
-  global $item, $element, $items;
+  if (arg(0) == 'node' && is_numeric(arg(1))) {
+    $nid = arg(1);
+    $node = node_load($nid);
+  }
   $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
   switch ($delta) {
     case 'extended_uportal_header':
@@ -83,9 +86,7 @@ function extended_uportal_header_block_view($delta) {
                                         >
                                       </extended-uportal-header>
                                       <!--'
-                                      .print_r($item)
-                                      .print_r($element)
-                                      .print_r($items)
+                                      .print_r($node)
                                       .'-->';
         
         break;
