@@ -44,3 +44,19 @@ Implement a bloc containing @gip-recia/extended-uportal-header
 
 **Features :**
 - Extended Uportal Header component.
+
+---
+
+## Librairies :
+### TinyMCE
+WYSIWIG editor
+
+**Version :** 
+
+**Path :** /librairies/tinymce
+
+**Install :** Copy the entire folder in [drupal install folder]/sites/all/librairies OR run install script (linux only).
+
+---
+
+
