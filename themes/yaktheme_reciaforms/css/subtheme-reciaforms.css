@@ -152,6 +152,18 @@ body #super-footer{
   flex:0;
 }
 
+#featured {
+	text-align: center;
+	font-size: 1.4em;
+	font-weight: normal;
+	line-height: 1.4;
+	padding: 20px 0px 0px;
+	margin: 0;
+	background: none;
+	border-bottom: 1px solid #e7e7e7;
+	text-shadow: none;
+}
+
 /** In iframe **/
 
 body.inframe, body.inframe #page, body.inframe #page-wrapper, body.inframe #main-wrapper, body.inframe #footer-wrapper {
