@@ -47,6 +47,15 @@ else
 	rsync -auv --progress ./corrections/* $(CONF_PATH)
 endif
 
+librairies: .makerc title configuration_report sudo_warning
+	@echo "### LIBRAIRIES ###"
+	@echo "Files copy..."
+ifneq ($(strip $(CONF_OWNER)),)
+	rsync -auv --progress --chown $(CONF_OWNER) ./librairies/* $(CONF_PATH)sites/all/libraries/
+else
+	rsync -auv --progress ./librairies/* $(CONF_PATH)sites/all/libraries/
+endif
+
 ###### TOOLS
 configure: 
 	@echo "### SCRIPT CONFIGURATION ###"
