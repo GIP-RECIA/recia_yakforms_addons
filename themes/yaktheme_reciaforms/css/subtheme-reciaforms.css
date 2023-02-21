@@ -169,7 +169,7 @@ body #super-footer{
   position: fixed;
 }
 
-@media screen and (max-width: 576px){
+@media screen and (max-width: 768px){
   #form-builder-field-palette h3, #form-builder-field-palette ul{
     max-width: 130px;
   }
