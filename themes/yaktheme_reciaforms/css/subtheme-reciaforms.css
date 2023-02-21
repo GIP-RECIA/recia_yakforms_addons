@@ -165,6 +165,18 @@ body #super-footer{
 	color: #3B3531;
 }
 
+#form-builder-field-palette{
+  position: fixed;
+}
+
+@media screen and (max-width: 576px){
+  #form-builder-field-palette h3, #form-builder-field-palette ul{
+    max-width: 130px;
+  }
+}
+
+
+
 /** In iframe **/
 
 body.inframe, body.inframe #page, body.inframe #page-wrapper, body.inframe #main-wrapper, body.inframe #footer-wrapper {
