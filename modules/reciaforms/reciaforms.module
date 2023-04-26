@@ -476,12 +476,14 @@
  * @return void
  */
 function _reciaforms_check_users_forms() {
+  global $user;
+  
   // If the user is not logged in, deny access.
   if ($user->uid === 0) {
     return FALSE;
   }
   
-  global $user;
+  
   $user = user_load($user->uid);
   $forms_custom_limit = field_get_items('user', $user, 'forms_custom_limit')[0]['value'];
   $limit = is_numeric($forms_custom_limit) ?  $forms_custom_limit : variable_get('yakforms_forms_per_user_limit');
