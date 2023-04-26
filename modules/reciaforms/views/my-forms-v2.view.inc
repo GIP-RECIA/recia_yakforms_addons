@@ -3,7 +3,7 @@
     $view = new view();
     $view->name = 'reciaforms_mes_formulaires';
     $view->description = '';
-    $view->tag = 'ReciaForms';
+    $view->tag = 'reciaforms';
     $view->base_table = 'node';
     $view->human_name = 'ReciaForms : Mes formulaires';
     $view->core = 7;
@@ -56,9 +56,19 @@
     $handler->display->display_options['fields']['changed']['table'] = 'node';
     $handler->display->display_options['fields']['changed']['field'] = 'changed';
     $handler->display->display_options['fields']['changed']['label'] = 'Dernière mise à jour';
-    $handler->display->display_options['fields']['changed']['date_format'] = 'raw time ago';
+    $handler->display->display_options['fields']['changed']['date_format'] = 'short';
     $handler->display->display_options['fields']['changed']['second_date_format'] = 'long';
     $handler->display->display_options['fields']['changed']['format_date_sql'] = 0;
+   /* Champ: Contenu : Expiration date */
+    $handler->display->display_options['fields']['field_form1_expiration']['id'] = 'field_form1_expiration';
+    $handler->display->display_options['fields']['field_form1_expiration']['table'] = 'field_data_field_form1_expiration';
+    $handler->display->display_options['fields']['field_form1_expiration']['field'] = 'field_form1_expiration';
+    $handler->display->display_options['fields']['field_form1_expiration']['label'] = 'Expiration';
+    $handler->display->display_options['fields']['field_form1_expiration']['type'] = 'format_interval';
+    $handler->display->display_options['fields']['field_form1_expiration']['settings'] = array(
+    'interval' => '2',
+    'interval_display' => 'time span',
+    );
     /* Champ: Vues : Views Conditional */
     $handler->display->display_options['fields']['views_conditional']['id'] = 'views_conditional';
     $handler->display->display_options['fields']['views_conditional']['table'] = 'views_conditional';
@@ -67,7 +77,7 @@
     $handler->display->display_options['fields']['views_conditional']['if'] = 'field_form1_expiration';
     $handler->display->display_options['fields']['views_conditional']['condition'] = '4';
     $handler->display->display_options['fields']['views_conditional']['equalto'] = date("Y-m-d H:i:s");
-    $handler->display->display_options['fields']['views_conditional']['then'] = 'Expiré';
+    $handler->display->display_options['fields']['views_conditional']['then'] = 'Expiré : [field_form1_expiration] / '.date("Y-m-d H:i:s");
     $handler->display->display_options['fields']['views_conditional']['or'] = '[field_form1_expiration]';
     $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 0;
     /* Champ: Contenu : Lien pour modifier le contenu */
@@ -155,5 +165,6 @@
     t('Page'),
     t('Block'),
     );
+    return $view;
 }
 ?>
