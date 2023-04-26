@@ -3,7 +3,7 @@
     $view = new view();
     $view->name = 'reciaforms_mes_formulaires';
     $view->description = '';
-    $view->tag = 'default';
+    $view->tag = 'ReciaForms';
     $view->base_table = 'node';
     $view->human_name = 'ReciaForms : Mes formulaires';
     $view->core = 7;

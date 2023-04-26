@@ -3,7 +3,7 @@ function my_submissions_view_loader(){
   $view = new view();
   $view->name = 'my_submissions';
   $view->description = '';
-  $view->tag = 'reciaforms';
+  $view->tag = 'ReciaForms';
   $view->base_table = 'webform_submissions';
   $view->human_name = 'Mes réponses';
   $view->core = 7;
