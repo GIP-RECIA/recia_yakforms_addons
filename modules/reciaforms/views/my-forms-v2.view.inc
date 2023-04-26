@@ -69,17 +69,6 @@
     'interval' => '2',
     'interval_display' => 'time span',
     );
-    /* Champ: Vues : Views Conditional */
-    $handler->display->display_options['fields']['views_conditional']['id'] = 'views_conditional';
-    $handler->display->display_options['fields']['views_conditional']['table'] = 'views_conditional';
-    $handler->display->display_options['fields']['views_conditional']['field'] = 'views_conditional';
-    $handler->display->display_options['fields']['views_conditional']['label'] = 'Expiration';
-    $handler->display->display_options['fields']['views_conditional']['if'] = 'field_form1_expiration';
-    $handler->display->display_options['fields']['views_conditional']['condition'] = '4';
-    $handler->display->display_options['fields']['views_conditional']['equalto'] = date("Y-m-d H:i:s");
-    $handler->display->display_options['fields']['views_conditional']['then'] = 'Expiré : [field_form1_expiration] / '.date("Y-m-d H:i:s");
-    $handler->display->display_options['fields']['views_conditional']['or'] = '[field_form1_expiration]';
-    $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 0;
     /* Champ: Contenu : Lien pour modifier le contenu */
     $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
     $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
