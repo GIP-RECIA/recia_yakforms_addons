@@ -1,5 +1,5 @@
 <?php
-  function my_forms_2_view_loader(){
+  function my_forms_v2_view_loader(){
     $view = new view();
     $view->name = 'reciaforms_mes_formulaires';
     $view->description = '';
