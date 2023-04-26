@@ -16,6 +16,10 @@
       'recia use mail confirmation' => array(
         'title' => t('Allow user to send mail to conform email adresses'),
         'restricted acces'=>true,
+      ),
+      'recia manage user forms limit' => array(
+        'title' => t('Allow user to set the forms limit for users'),
+        'restricted acces'=>true,
       )
     );
   }
@@ -156,7 +160,7 @@
   */
   function reciaforms_form_alter(&$form, &$form_state, $form_id) {
     //forms limit
-    if(!user_access('administer') && isset($form['forms_custom_limit'])) {
+    if(!user_access('recia manage user forms limit') && isset($form['forms_custom_limit'])) {
       $form['forms_custom_limit']['#access'] = false;
     }
     
