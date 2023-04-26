@@ -1,0 +1,57 @@
+<?php
+/**
+ * @file
+ * Installation hooks for the ReciaForms module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function reciaforms_schema() {
+    $schema = array();
+    return $schema;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function reciaforms_uninstall() {
+  variable_del('reciaforms_cas_direct_access_domains');
+  if ($instance = field_info_instance('user', 'forms_custom_limit', 'user')) {
+    field_delete_instance($instance);
+  }
+}
+
+/**
+ * Implementation of hook_enable().
+ */
+function reciaforms_enable() {
+    // Check if our field is not already created.
+    if (!field_info_field('forms_custom_limit')) {
+      $field = array(
+          'field_name' => 'forms_custom_limit', 
+          'type' => 'number_integer',
+          'cardinality' => 1, 
+      );
+      field_create_field($field);
+  
+      // Create the instance on the bundle.
+      $instance = array(
+          'field_name' => 'forms_custom_limit', 
+          'entity_type' => 'user', 
+          'label' => t('ReciaForms Max number of forms'), 
+          'bundle' => 'user', 
+          'settings' => array(
+          ),
+          'widget' => array(
+              'type' => 'textfield',
+              'weight' => '1',
+          ), 
+      );
+      field_create_instance($instance);
+    }
+    db_update('system')
+      ->fields(array('weight' => 9999))
+      ->condition('name', 'reciaforms', '=')
+      ->execute();
+  }

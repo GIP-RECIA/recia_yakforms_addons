@@ -155,6 +155,12 @@
    * Modify the webform interface
   */
   function reciaforms_form_alter(&$form, &$form_state, $form_id) {
+    //forms limit
+    if(!user_access('administer') && isset($form['forms_custom_limit'])) {
+      $form['forms_custom_limit']['#access'] = false;
+    }
+    
+    // formulaires
     $formsId = ['webform_node_form','form1_node_form'];
     if(!in_array($form_id,$formsId))return;
     $form['revision_information']['#access'] = false;
@@ -172,13 +178,15 @@
       $form['field_form1_template_desc']['#access'] = false;
     }
   }
-
+  
   /**
    *  Fix export menu access
    */
   function reciaforms_menu_alter(&$items) {
     $items['node/%webform_menu/webform/ws-export']['access callback']='webform_share_menu_access';
     $items['node/%webform_menu/webform/ws-export']['access arguments']=array(1);
+    //forms limit
+    $items['node/add/form1']['access callback'] = '_reciaforms_check_users_forms';
   }
 
   /**
@@ -457,5 +465,38 @@
     $domains = explode("\n",variable_get('reciaforms_cas_direct_access_domains',''));
     if(in_array($_SERVER['SERVER_NAME'],$domains))phpCAS::setServerLoginURL(phpCAS::getServerLoginURL()."&idpId=autres-publics");
   }
+
+  /**
+ * Acess callback for /node/add/form1 : forbids a user to create over a given number of forms.
+ *
+ * @return void
+ */
+function _reciaforms_check_users_forms() {
+  // If the user is not logged in, deny access.
+  if ($user->uid === 0) {
+    return FALSE;
+  }
+  
+  global $user;
+  $user = user_load($user->uid);
+  $forms_custom_limit = field_get_items('user', $user, 'forms_custom_limit')[0]['value'];
+  $limit = is_numeric($forms_custom_limit) ?  $forms_custom_limit : variable_get('yakforms_forms_per_user_limit');
+  
+  // Get the user's total number of forms.
+  $results = db_select('node', 'n')
+    ->fields('n')
+    ->condition('type', 'form1')
+    ->condition('uid', $user->uid)
+    ->countQuery()
+    ->execute()
+    ->fetchField();
+  
+  if ($results >= $limit) {
+    drupal_set_message(t("Your account has reached this site's maximum number of forms. Please delete some of your unused forms in 'My forms' before trying to create a new one."), 'warning', FALSE);
+    drupal_set_message(t("This site's allows to create the maximum following number of forms : @number", array('@number' => $limit)), 'warning', FALSE);
+    return FALSE;
+  }
+  return TRUE;
+}
   
 ?>
