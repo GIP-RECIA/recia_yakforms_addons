@@ -53,29 +53,8 @@ function extended_uportal_header_block_view($delta) {
       $block['content']['#markup'] ='<extended-uportal-header
                                       messages=\'[{"locales": ["fr", "fr-FR"], "messages": { "message": {"header": {"login": "Connexion ENT" } }}}]\'
                                       '.($portal_domain?'domain='.$portal_domain:'').'
-                                      service-name="Formulaires d\'enquête"
-                                      context-api-url="/portail" 
-                                      sign-out-url="/portail/Logout" 
-                                      default-org-logo-path="/annuaire_images/default_banner_v1.jpg"
-                                      default-avatar-path="/images/icones/noPictureUser.svg"
-                                      default-org-icon-path="/images/partners/netocentre-simple.svg" 
-                                      favorite-api-url="/portail/api/layout" 
-                                      layout-api-url="/portail/api/v4-3/dlm/layout.json" 
-                                      organization-api-url="/change-etablissement/rest/v2/structures/structs/" 
-                                      portlet-api-url="/portail/api/v4-3/dlm/portletRegistry.json?category=All%20categories" 
-                                      user-info-api-url="/portail/api/v5-1/userinfo?claims=private,name,ESCOSIRENCourant,ESCOSIREN,picture&groups="
-                                      session-api-url="/portail/api/session.json" 
-                                      user-info-portlet-url="/portail/api/ExternalURLStats?fname=ESCO-MCE&amp;service=/MCE"
-                                      template-api-path="/commun/portal_template_api.tpl.json" 
-                                      switch-org-portlet-url="/portail/p/etablissement-swapper" 
-                                      favorites-portlet-card-size="small" 
-                                      grid-portlet-card-size="auto" 
-                                      hide-action-mode="never" 
-                                      show-favorites-in-slider="true"
-                                      return-home-title="Aller à l\'accueil"
-                                      return-home-target="_self"
-                                      icon-type="nine-square"
-                                      sign-in-url="/portail/Login"
+                                      fname="Yakforms"
+                                      template-api-path="/commun/portal_template_api.tpl.json"
                                       >
                                     </extended-uportal-header>';
       
