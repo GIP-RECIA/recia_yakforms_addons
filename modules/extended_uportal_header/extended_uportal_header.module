@@ -6,7 +6,7 @@ function extended_uportal_header_process_page() {
   $params = drupal_get_query_parameters();
   $cacheBuster = isset($params['test']) ? time() : date("ymd");
   drupal_add_js('/resource-server/webjars/gip-recia__ui-webcomponents/dist/r-header.js?c='.$cacheBuster, 'external');
-  drupal_add_js(/resource-server/webjars/gip-recia__ui-webcomponents/dist/r-footer.js?c='.$cacheBuster, 'external');
+  drupal_add_js('/resource-server/webjars/gip-recia__ui-webcomponents/dist/r-footer.js?c='.$cacheBuster, 'external');
 }
 /**
  * Declare custom blocks
