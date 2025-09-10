@@ -53,18 +53,28 @@ body {
 
 html,
 body {
-  /* height: 100%;
-  overflow-x: hidden; */
+  height: 100%;
+  overflow-x: hidden;
 }
 
 body {
   display: flex;
   flex-direction: column;
+  padding-top: var(--recia-header-height, 68px);
 }
 
-html body.admin-menu {
-  margin-top: 0px !important;
-  padding-top: 29px;
+body #super-header {
+  flex: 0;
+  margin: 0;
+  padding: 0;
+}
+
+body #page-wrapper {
+  flex: 1;
+}
+
+body #super-footer {
+  flex: 0;
 }
 
 h1,
@@ -89,16 +99,6 @@ a:visited{
   text-decoration: underline;
 }
 
-body #super-header {
-  flex: 0;
-  margin: 0;
-  padding: 0;
-}
-
-body.inframe #super-header {
-  visibility: hidden;
-}
-
 body #super-header .content {
   margin: 0;
 }
@@ -121,10 +121,6 @@ body #highlighted .big-title::before {
 body #highlighted .big-title::after {
   content: "forms";
   color: var(--r-green);
-}
-
-body #page-wrapper {
-  flex: 1;
 }
 
 .front #main-wrapper #main,
@@ -164,10 +160,6 @@ body #page-wrapper {
   background-color: var(--c-bg);
 }
 
-body #super-footer {
-  flex: 0;
-}
-
 #featured {
 	text-align: center;
 	font-size: 1.4em;
@@ -188,6 +180,17 @@ body #super-footer {
   }
 }
 
+/** Admin **/
+
+html body.admin-menu {
+  margin-top: 0px !important;
+  padding-top: calc(var(--recia-header-height, 68px) + 29px);
+}
+
+#admin-menu {
+  top: var(--recia-header-height, 68px);
+}
+
 /** In iframe **/
 
 body.inframe,
@@ -198,6 +201,10 @@ body.inframe #footer-wrapper {
   background: transparent !important;
 }
 
-.inframe #page-wrapper {
+body.inframe #super-header {
+  visibility: hidden;
+}
+
+body.inframe #page-wrapper {
   height: 100%;
 }
