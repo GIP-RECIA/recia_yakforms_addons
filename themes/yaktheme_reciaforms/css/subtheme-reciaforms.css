@@ -2,14 +2,14 @@
 @import url('/commun/fonts/Roboto/Roboto.css');
 
 /* theme */
-*{
-  --r-blue: var(--t-primary,#2F3291);
-  --r-green: var(--t-logo-secondary,#8E9120);
-  --r-grey:var(--t-light-grey,#979797);
-  --r-light-grey:#e2e8f0;
-  --r-dark-grey: var(--t-dark-grey,#303030);
-  --r-fonts: var(--t-fonts,'Roboto', sans-serif);
-  --r-title-fonts: var(--t-title-fonts,var(--r-fonts));
+* {
+  --r-blue: var(--t-primary, #2F3291);
+  --r-green: var(--t-logo-secondary, #8E9120);
+  --r-grey: var(--t-light-grey, #979797);
+  --r-light-grey: #e2e8f0;
+  --r-dark-grey: var(--t-dark-grey, #303030);
+  --r-fonts: var(--t-fonts, 'Roboto', sans-serif);
+  --r-title-fonts: var(--t-title-fonts, var(--r-fonts));
   font-family: var(--r-fonts);
 }
 
@@ -42,7 +42,7 @@ body {
   --c-title: var(--r-dark-grey);
 
   /* icon */
-  --c-warning:var(--r-blue);
+  --c-warning: var(--r-blue);
 
   /* alert */
   --c-bg-accent: var(--r-blue);
@@ -51,76 +51,87 @@ body {
   font-family: var(--r-fonts);
 }
 
-html,body{
-  /*height:100%;
-  overflow-x: hidden;*/
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
 }
 
-body{
+body {
   display: flex;
   flex-direction: column;
-}
-
-
-html body.admin-menu {
-    margin-top: 0px !important;
-    padding-top: 29px;
-}
-
-h1, h2, h3, h4, h5, h6, h1 > *, h1#page-title {
-  font-family: var(--r-title-fonts);
-}
-
-a, a:link{
-  text-decoration: none;
-}
-
-a:focus, a:hover, a:visited{
-  text-decoration: underline;
+  padding-top: var(--recia-header-height, 68px);
 }
 
 body #super-header {
-  flex:0;
-  margin:0;
-  padding:0;
+  flex: 0;
+  margin: 0;
+  padding: 0;
 }
 
-body.inframe #super-header {
-  visibility: hidden;
+body #page-wrapper {
+  flex: 1;
 }
 
-body #super-header .content{
-  margin:0;
+body #super-footer {
+  flex: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h1 > *,
+h1#page-title {
+  font-family: var(--r-title-fonts);
+}
+
+a,
+a:link{
+  text-decoration: none;
+}
+
+a:focus,
+a:hover,
+a:visited{
+  text-decoration: underline;
+}
+
+body #super-header .content {
+  margin: 0;
 }
 
 body #highlighted .big-title {
   font-size: 0;
 }
 
+body #highlighted .big-title::before,
+body #highlighted .big-title::after {
+  font-family: DejaVu Sans, Verdana, Geneva, sans-serif;
+  font-size: 42px;
+}
+
 body #highlighted .big-title::before {
   content: "Recia";
-  font-family: DejaVu Sans,Verdana,Geneva,sans-serif;
-  font-size: 42px;
   color: var(--c-txt-navbar);
 }
+
 body #highlighted .big-title::after {
   content: "forms";
-  font-family: DejaVu Sans,Verdana,Geneva,sans-serif;
-  font-size: 42px;
   color: var(--r-green);
 }
 
-body #page-wrapper{
-  flex:1;
-}
-
-.front #main-wrapper #main, .front #footer-wrapper #footer {
+.front #main-wrapper #main,
+.front #footer-wrapper #footer {
   margin: 1rem auto 1rem;
   width: auto;
   max-width: 800px;
 }
 
-.front #main-wrapper #main, #main{
+.front #main-wrapper #main,
+#main {
   margin: 2rem auto 1rem;
   width: auto;
   max-width: 800px;
@@ -129,27 +140,24 @@ body #page-wrapper{
   border-top: 2px solid var(--c-bd-page);
 }
 
-#homeback{
+#homeback {
   display: flex;
   justify-content: end;
 }
 
-.panel-separator{
-  display:block;
+.panel-separator {
+  display: block;
   margin: 2rem auto;
   border-bottom: 3px solid var(--c-bg-lite2);
 }
 
-.form-type-managed-file .file-widget::before, .form-item .form-managed-file::before {
+.form-type-managed-file .file-widget::before,
+.form-item .form-managed-file::before {
   background-color: var(--c-txt-file);
 }
 
-#sidebar-first #help-toggle:not(:checked) + label{
+#sidebar-first #help-toggle:not(:checked) + label {
   background-color: var(--c-bg);
-}
-
-body #super-footer{
-  flex:0;
 }
 
 #featured {
@@ -165,20 +173,38 @@ body #super-footer{
 	color: #3B3531;
 }
 
-@media screen and (max-width: 768px){
-  #form-builder-field-palette h3, #form-builder-field-palette ul{
+@media screen and (max-width: 768px) {
+  #form-builder-field-palette h3,
+  #form-builder-field-palette ul {
     max-width: 130px;
   }
 }
 
+/** Admin **/
 
+html body.admin-menu {
+  margin-top: 0px !important;
+  padding-top: calc(var(--recia-header-height, 68px) + 29px);
+}
+
+#admin-menu {
+  top: var(--recia-header-height, 68px);
+}
 
 /** In iframe **/
 
-body.inframe, body.inframe #page, body.inframe #page-wrapper, body.inframe #main-wrapper, body.inframe #footer-wrapper {
+body.inframe,
+body.inframe #page,
+body.inframe #page-wrapper,
+body.inframe #main-wrapper,
+body.inframe #footer-wrapper {
   background: transparent !important;
 }
 
-.inframe #page-wrapper{
-  height:100%;
+body.inframe #super-header {
+  visibility: hidden;
+}
+
+body.inframe #page-wrapper {
+  height: 100%;
 }

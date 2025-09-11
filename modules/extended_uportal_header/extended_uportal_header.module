@@ -5,8 +5,8 @@
 function extended_uportal_header_process_page() {
   $params = drupal_get_query_parameters();
   $cacheBuster = isset($params['test']) ? time() : date("ymd");
-  drupal_add_js('/commun/extended-uportal-header.min.js?c='.$cacheBuster, 'external');
-  drupal_add_js('/commun/extended-uportal-footer.min.js?c='.$cacheBuster, 'external');
+  drupal_add_js('/resource-server/webjars/gip-recia__ui-webcomponents/dist/r-header.js?c='.$cacheBuster, 'external');
+  drupal_add_js('/resource-server/webjars/gip-recia__ui-webcomponents/dist/r-footer.js?c='.$cacheBuster, 'external');
 }
 /**
  * Declare custom blocks
@@ -51,7 +51,6 @@ function extended_uportal_header_block_view($delta) {
       if($isConfidential)return;
       $portal_domain = $_COOKIE['extended_uportal_header_portal_domain'] ?? false;
       $block['content']['#markup'] ='<extended-uportal-header
-                                      messages=\'[{"locales": ["fr", "fr-FR"], "messages": { "message": {"header": {"login": "Connexion ENT" } }}}]\'
                                       '.($portal_domain?'domain='.$portal_domain:'').'
                                       fname="Yakforms"
                                       template-api-path="/commun/portal_template_api.tpl.json"
@@ -63,7 +62,6 @@ function extended_uportal_header_block_view($delta) {
         $block['content']['#markup'] ='<extended-uportal-footer
                                         '.($portal_domain?'domain='.$portal_domain:'').'
                                         template-api-path="/commun/portal_template_api.tpl.json"
-                                        links=\'[{"title":"Accessibilité : partiellement conforme"},{"title":"CGU","href":"/files/textes/droits_usage.html"},{"title":"Apereo.org","href":"https://www.apereo.org/"},{"title":"ESUP-Portail","href":"https://www.esup-portail.org/"}]\'
                                         >
                                       </extended-uportal-header>';
         
